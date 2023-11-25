@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>工具表单 - My Docs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Welcome to MkDocs</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">2.x <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../" class="dropdown-item">dcat-admin</a>
+</li>
+                                    
+<li>
+    <a href="../1-x-upgrade/" class="dropdown-item">v1.x版本升级指南</a>
+</li>
+                                    
+<li>
+    <a href="../LICENSE/" class="dropdown-item">LICENSE</a>
+</li>
+                                    
+<li>
+    <a href="../action-form/" class="dropdown-item">数据表单动作</a>
+</li>
+                                    
+<li>
+    <a href="../action-grid/" class="dropdown-item">数据表格动作</a>
+</li>
+                                    
+<li>
+    <a href="../action-show/" class="dropdown-item">数据详情动作</a>
+</li>
+                                    
+<li>
+    <a href="../action-tree/" class="dropdown-item">模型树动作</a>
+</li>
+                                    
+<li>
+    <a href="../action/" class="dropdown-item">动作基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../assets/" class="dropdown-item">静态资源加载</a>
+</li>
+                                    
+<li>
+    <a href="../beta-change-log/" class="dropdown-item">BETA版本更新日志</a>
+</li>
+                                    
+<li>
+    <a href="../change-log/" class="dropdown-item">Change log</a>
+</li>
+                                    
+<li>
+    <a href="../custom-authentication/" class="dropdown-item">自定义登陆</a>
+</li>
+                                    
+<li>
+    <a href="../custom-chart/" class="dropdown-item">自定义图表</a>
+</li>
+                                    
+<li>
+    <a href="../custom-navbar/" class="dropdown-item">自定义头部导航条</a>
+</li>
+                                    
+<li>
+    <a href="../custom-page/" class="dropdown-item">视图与自定义页面</a>
+</li>
+                                    
+<li>
+    <a href="../documentation/" class="dropdown-item">Documentation</a>
+</li>
+                                    
+<li>
+    <a href="../extend/" class="dropdown-item">开发扩展</a>
+</li>
+                                    
+<li>
+    <a href="../extension-dev/" class="dropdown-item">开发扩展</a>
+</li>
+                                    
+<li>
+    <a href="../extension-f/" class="dropdown-item">扩展基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../extension-helpers/" class="dropdown-item">开发工具</a>
+</li>
+                                    
+<li>
+    <a href="../extension-theme/" class="dropdown-item">主题开发</a>
+</li>
+                                    
+<li>
+    <a href="../extension-upgrade/" class="dropdown-item">扩展版本与升级</a>
+</li>
+                                    
+<li>
+    <a href="../extensions/" class="dropdown-item">扩展</a>
+</li>
+                                    
+<li>
+    <a href="../function/" class="dropdown-item">帮助函数</a>
+</li>
+                                    
+<li>
+    <a href="../helpers/" class="dropdown-item">开发工具</a>
+</li>
+                                    
+<li>
+    <a href="../installation/" class="dropdown-item">安装</a>
+</li>
+                                    
+<li>
+    <a href="../introduction/" class="dropdown-item">Dcat Admin</a>
+</li>
+                                    
+<li>
+    <a href="../js/" class="dropdown-item">JS组件</a>
+</li>
+                                    
+<li>
+    <a href="../laravel-octane/" class="dropdown-item">Laravel Octane</a>
+</li>
+                                    
+<li>
+    <a href="../lazy/" class="dropdown-item">异步加载基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../menu/" class="dropdown-item">菜单</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-callback/" class="dropdown-item">表单回调</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-data/" class="dropdown-item">表单数据源</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-field-management/" class="dropdown-item">表单字段的管理</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-fields/" class="dropdown-item">表单字段的使用</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-init/" class="dropdown-item">表单初始化</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-layout/" class="dropdown-item">表单布局</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-modal/" class="dropdown-item">表单弹窗</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-step/" class="dropdown-item">分步表单</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-trans/" class="dropdown-item">表单字段翻译</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-upload/" class="dropdown-item">图片/文件上传</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-validation/" class="dropdown-item">表单验证</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-when/" class="dropdown-item">表单字段动态显示</a>
+</li>
+                                    
+<li>
+    <a href="../model-form/" class="dropdown-item">表单基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-actions/" class="dropdown-item">行的使用和扩展</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-async/" class="dropdown-item">表格异步渲染</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-column-display/" class="dropdown-item">列的显示和扩展</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-column-filter/" class="dropdown-item">列过滤器</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-column/" class="dropdown-item">列的基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-combination/" class="dropdown-item">组合表头</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-custom-tools/" class="dropdown-item">工具栏</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-data/" class="dropdown-item">表格数据源</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-editable/" class="dropdown-item">数据表格行内编辑</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-events/" class="dropdown-item">数据表格事件</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-export/" class="dropdown-item">数据导出</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-exporter/" class="dropdown-item">自定义导出</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-filters/" class="dropdown-item">查询过滤</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-header/" class="dropdown-item">头部和脚部</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-quick-create/" class="dropdown-item">快捷创建</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-quick-search/" class="dropdown-item">表格快捷搜索</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-relationship/" class="dropdown-item">表格关联关系</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-selector/" class="dropdown-item">表格规格筛选器</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-softdelete/" class="dropdown-item">数据软删除</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-trans/" class="dropdown-item">表格字段翻译</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-tree/" class="dropdown-item">树状表格</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid/" class="dropdown-item">表格基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../model-json/" class="dropdown-item">JSON格式字段处理</a>
+</li>
+                                    
+<li>
+    <a href="../model-relationship/" class="dropdown-item">表单关联关系</a>
+</li>
+                                    
+<li>
+    <a href="../model-repository/" class="dropdown-item">数据仓库</a>
+</li>
+                                    
+<li>
+    <a href="../model-show-extend/" class="dropdown-item">详情字段显示扩展</a>
+</li>
+                                    
+<li>
+    <a href="../model-show-field/" class="dropdown-item">字段显示</a>
+</li>
+                                    
+<li>
+    <a href="../model-show-init/" class="dropdown-item">数据详情初始化</a>
+</li>
+                                    
+<li>
+    <a href="../model-show-relation/" class="dropdown-item">关联关系</a>
+</li>
+                                    
+<li>
+    <a href="../model-show-trans/" class="dropdown-item">数据详情字段翻译</a>
+</li>
+                                    
+<li>
+    <a href="../model-show/" class="dropdown-item">数据详情基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../model-tree/" class="dropdown-item">模型树</a>
+</li>
+                                    
+<li>
+    <a href="../multi-app/" class="dropdown-item">多应用 (多后台)</a>
+</li>
+                                    
+<li>
+    <a href="../notice/" class="dropdown-item">开发前必读</a>
+</li>
+                                    
+<li>
+    <a href="../permission/" class="dropdown-item">权限控制</a>
+</li>
+                                    
+<li>
+    <a href="../qa/" class="dropdown-item">常见问题汇总</a>
+</li>
+                                    
+<li>
+    <a href="../quick-start/" class="dropdown-item">快速开始</a>
+</li>
+                                    
+<li>
+    <a href="../response/" class="dropdown-item">动作以及表单响应</a>
+</li>
+                                    
+<li>
+    <a href="../section/" class="dropdown-item">区块（section）</a>
+</li>
+                                    
+<li>
+    <a href="../theme/" class="dropdown-item">主题与颜色</a>
+</li>
+                                    
+<li>
+    <a href="../trans/" class="dropdown-item">多语言</a>
+</li>
+                                    
+<li>
+    <a href="../update/" class="dropdown-item">版本升级须知</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-alert/" class="dropdown-item">警告框</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-box/" class="dropdown-item">卡片</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-charts/" class="dropdown-item">图表</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-checkbox/" class="dropdown-item">单/复选框</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-data-card/" class="dropdown-item">数据统计卡片</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-dialog-form/" class="dropdown-item">Widgets dialog form</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-dropdown/" class="dropdown-item">下拉菜单</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">工具表单</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-js/" class="dropdown-item">Widgets js</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-markdown/" class="dropdown-item">Markdown</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-modal/" class="dropdown-item">模态窗 (Modal)</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-navbar/" class="dropdown-item">Widgets navbar</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-tab/" class="dropdown-item">选项卡</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-table/" class="dropdown-item">Widgets table</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-tooltip/" class="dropdown-item">提示窗</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../widgets-dropdown/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../widgets-js/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">工具表单</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">工具表单</h1>
+<p>工具表单(<code>Dcat\Admin\Widgets\Form</code>)用来构建表单和处理提交数据，可以很方便的独立处理数据，而不需要额外注册路由。</p>
+<h3 id="_2">基本使用</h3>
+<p>用命令<code>admin:form</code>来生成表单类文件：</p>
+<pre><code class="language-bash">php artisan admin:form Setting
+</code></pre>
+<p>将会生成表单文件<code>app/Admin/Forms/Setting.php</code></p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Admin\Forms;
+
+use Dcat\Admin\Widgets\Form;
+use Symfony\Component\HttpFoundation\Response;
+
+class Setting extends Form
+{
+    // 处理表单提交请求
+    public function handle(array $input)
+    {
+        // dump($input);
+
+        return $this-&gt;response()-&gt;success('Processed successfully.')-&gt;refresh();
+    }
+
+    // 构建表单
+    public function form()
+    {
+        // 弹出确认弹窗 
+        $this-&gt;confirm('您确定要提交表单吗', 'content');
+
+        $this-&gt;text('name')-&gt;required();
+        $this-&gt;email('email')-&gt;rules('email');
+    }
+
+    /**
+     * 返回表单数据，如不需要可以删除此方法
+     *
+     * @return array
+     */
+    public function default()
+    {
+        return [
+            'name'  =&gt; 'John Doe',
+            'email' =&gt; 'John.Doe@gmail.com',
+        ];
+    }
+}
+</code></pre>
+<p>在上面的表单类里面，在<code>form</code>方法中构建表单项，使用方法和<a href="../model-form/">数据表单</a>一致，<code>default</code>方法用来给这个表单项设置默认数据。</p>
+<p>在页面中填入数据提交表单之后，请求会进入到<code>handle</code>方法中，在这里可以加入你的数据处理逻辑，处理完成之后可以通过<code>success</code>或<code>error</code>方法响应数据到前端：</p>
+<pre><code class="language-php">    public function handle(array $input)
+    {
+        // $input是你接收到的表单数据
+        // 在这里可以写你的处理逻辑
+
+
+        return $this-&gt;response()-&gt;success('Processed successfully.')-&gt;refresh();
+    }
+</code></pre>
+<p>然后按照下面的方法将上面的表单放到你的页面中：</p>
+<pre><code class="language-php">&lt;?php
+
+use App\Admin\Forms\Setting;
+use App\Http\Controllers\Controller;
+use Dcat\Admin\Widgets\Card;
+use Dcat\Admin\Layout\Content;
+
+class UserController extends Controller
+{
+    public function setting(Content $content)
+    {
+        return $content
+            -&gt;title('网站设置')
+            -&gt;body(new Card(new Setting()));
+    }
+}
+</code></pre>
+<h3 id="_3">弹出确认弹窗</h3>
+<p>第二个参数可忽略</p>
+<pre><code class="language-php">$this-&gt;confirm('title', 'content');
+</code></pre>
+<h3 id="_4">响应方法</h3>
+<p>参考 <a href="../response/">动作以及表单响应</a> 章节</p>
+<h3 id="_5">自定义表单保存的后续行为</h3>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Admin\Forms;
+
+use Dcat\Admin\Widgets\Form;
+use Symfony\Component\HttpFoundation\Response;
+
+class Setting extends Form
+{
+    ...
+
+    /**
+     * 设置表单保存成功后执行的JS
+     *
+     * @return string|void
+     */
+    protected function savedScript()
+    {
+        return &lt;&lt;&lt;JS
+        // data 为接口返回数据
+        if (! data.status) {
+            Dcat.error(data.message);
+
+            return false;
+        }
+
+        Dcat.success(data.message);
+
+        if (data.redirect) {
+            Dcat.reload(data.redirect)
+        }
+
+        // 中止后续逻辑（默认逻辑）
+        return false;
+JS;
+    }
+
+    /**
+     * 设置表单保存失败后执行的JS
+     * 
+     * @return string|void
+     */
+    protected function errorScript()
+    {
+        return &lt;&lt;&lt;JS
+        var errorData = JSON.parse(response.responseText);
+
+        if (errorData) {
+            Dcat.error(errorData.message);
+        } else {
+            console.log('提交出错', response.responseText);
+        }
+
+        // 终止后续逻辑执行（默认逻辑）
+        return false;
+JS;
+    }
+}
+</code></pre>
+<h3 id="ajax">取消/启用表单的Ajax提交</h3>
+<p>默认表单提交都使用Ajax进行提交,通过注入的 <a href="https://github.com/jqhph/dcat-admin/blob/2.0/resources/assets/dcat/js/extensions/Form.js">Form.js</a> 进行流程控制,如果需要原生表单行为,可以禁用此特</p>
+<pre><code class="language-php">$form-&gt;ajax(false);
+</code></pre>
+<p><a name="layout"></a></p>
+<h3 id="_6">布局</h3>
+<p><code>column</code>多列布局</p>
+<pre><code class="language-php">&lt;?php
+
+use Dcat\Admin\Widgets\Form;
+
+class Setting extends Form
+{
+    public function form()
+    {
+        $this-&gt;column(6, function () {
+            $this-&gt;text('text1');
+
+            ...
+        });
+
+        $this-&gt;column(6, function () {
+            $this-&gt;text('text2');
+
+            ...
+        });
+    }    
+}
+</code></pre>
+<p><code>tab</code>选项卡布局</p>
+<pre><code class="language-php">&lt;?php
+
+use Dcat\Admin\Widgets\Form;
+
+class Setting extends Form
+{
+    public function form()
+    {
+        $this-&gt;tab('选项卡1', function () {
+            $this-&gt;text('text1');
+
+            ...
+        });
+
+        $this-&gt;tab('选项卡2', function () {
+            $this-&gt;text('text2');
+
+            ...
+        });
+    }    
+}
+</code></pre>
+<p><code>row</code>多行布局</p>
+<pre><code class="language-php">public function form()
+{
+    $this-&gt;row(function ($row) {
+        $row-&gt;width(3)-&gt;text('text1');
+
+        ...
+    });
+
+    $this-&gt;row(function ($row) {
+        $row-&gt;width(3)-&gt;text('text2');
+
+        ...
+    });
+} 
+</code></pre>
+<p><a name="modal"></a></p>
+<h3 id="_7">在弹窗中显示</h3>
+<h4 id="_8">基本用法</h4>
+<p>使用命令生成工具表单<code>php artisan admin:form ResetPassword</code>，然后修改表单文件如下</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Admin\Forms;
+
+use Dcat\Admin\Widgets\Form;
+
+class ResetPassword extends Form
+{
+    // 处理请求
+    public function handle(array $input)
+    {
+        $password = $input['password'] ?? null;
+
+        // 逻辑操作
+
+        return $this-&gt;response()-&gt;success('密码修改成功');
+    }
+
+    public function form()
+    {
+        $this-&gt;password('password')-&gt;required();
+        // 密码确认表单
+        $this-&gt;password('password_confirm')-&gt;same('password');
+    }
+
+    // 返回表单数据，如不需要可以删除此方法
+    public function default()
+    {
+        return [
+            'password'         =&gt; '',
+            'password_confirm' =&gt; '',
+        ];
+    }
+}
+</code></pre>
+<p>使用</p>
+<pre><code class="language-php">use App\Admin\Forms\ResetPassword;
+use Dcat\Admin\Widgets\Modal;
+
+$modal = Modal::make()
+    -&gt;lg()
+    -&gt;title('修改密码')
+    -&gt;body(ResetPassword::make())
+    -&gt;button('修改密码');
+</code></pre>
+<h4 id="_9">异步加载</h4>
+<p>只需要让<code>Form</code>表单类实现<code>Dcat\Admin\Contracts\LazyRenderable</code>接口即可支持异步渲染功能，修改上面创建的工具表单类如下</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Admin\Forms;
+
+use Dcat\Admin\Widgets\Form;
+use Dcat\Admin\Traits\LazyWidget;
+use Dcat\Admin\Contracts\LazyRenderable;
+
+class ResetPassword extends Form implements LazyRenderable
+{
+    use LazyWidget; 
+
+    // 处理请求
+    public function handle(array $input)
+    {
+        // 获取外部传递参数
+        $id = $this-&gt;payload['id'] ?? null;
+
+        $password = $input['password'] ?? null;
+
+        // 逻辑操作
+
+        return $this-&gt;response()-&gt;success('密码修改成功');
+    }
+
+    public function form()
+    {
+        // 获取外部传递参数
+        $id = $this-&gt;payload['id'] ?? null;
+
+        $this-&gt;password('password')-&gt;required();
+        // 密码确认表单
+        $this-&gt;password('password_confirm')-&gt;same('password');
+    }
+
+    // 返回表单数据，如不需要可以删除此方法
+    public function default()
+    {
+        // 获取外部传递参数
+        $id = $this-&gt;payload['id'] ?? null;
+
+        return [
+            'password'         =&gt; '',
+            'password_confirm' =&gt; '',
+        ];
+    }
+}
+</code></pre>
+<p>使用代码与上面基本一致，并且我们可以用<code>payload</code>方法往表单里面传递自定义参数</p>
+<pre><code class="language-php">use App\Admin\Forms\ResetPassword;
+use Dcat\Admin\Widgets\Modal;
+
+$modal = Modal::make()
+    -&gt;lg()
+    -&gt;title('修改密码')
+    -&gt;body(ResetPassword::make()-&gt;payload(['id' =&gt; '...'])) // 传递自定义参数
+    -&gt;button('修改密码');
+</code></pre>
+<h4 id="_10">表格行操作弹窗</h4>
+<p>下面通过一个数据表格修改密码的行操作功能来展示弹窗结合工具表单的用法：</p>
+<p>使用命令生成工具表单<code>php artisan admin:form ResetPassword</code>，然后修改表单文件如下</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Admin\Forms;
+
+use Dcat\Admin\Models\Administrator;
+use Dcat\Admin\Traits\LazyWidget;
+use Dcat\Admin\Widgets\Form;
+use Dcat\Admin\Contracts\LazyRenderable;
+
+class ResetPassword extends Form implements LazyRenderable
+{
+    use LazyWidget; // 使用异步加载功能
+
+    // 处理请求
+    public function handle(array $input)
+    {
+        // 获取外部传递参数
+        $id = $this-&gt;payload['id'] ?? null;
+
+        // 表单参数
+        $password = $input['password'] ?? null;
+
+        if (! $id) {
+            return $this-&gt;response()-&gt;error('参数错误');
+        }
+
+        $user = Administrator::query()-&gt;find($id);
+
+        if (! $user) {
+            return $this-&gt;response()-&gt;error('用户不存在');
+        }
+
+        $user-&gt;update(['password' =&gt; bcrypt($password)]);
+
+        return $this-&gt;response()-&gt;success('密码修改成功');
+    }
+
+    public function form()
+    {
+        // 获取外部传递参数
+        //$id = $this-&gt;payload['id'] ?? null;
+
+        $this-&gt;password('password')-&gt;required();
+        // 密码确认表单
+        $this-&gt;password('password_confirm')-&gt;same('password');
+    }
+
+    // 返回表单数据，如不需要可以删除此方法
+    public function default()
+    {
+        return [
+            'password'         =&gt; '',
+            'password_confirm' =&gt; '',
+        ];
+    }
+}
+</code></pre>
+<p>然后运行<code>php artisan admin:action</code>命令，选择选项<code>2</code>，生成数据表格行操作类，并修改如下：</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Admin\Actions\Grid;
+
+use App\Admin\Forms\ResetPassword as ResetPasswordForm;
+use Dcat\Admin\Widgets\Modal;
+use Dcat\Admin\Grid\RowAction;
+
+class ResetPassword extends RowAction
+{
+    protected $title = '修改密码';
+
+    public function render()
+    {
+        // 实例化表单类并传递自定义参数
+        $form = ResetPasswordForm::make()-&gt;payload(['id' =&gt; $this-&gt;getKey()]);
+
+        return Modal::make()
+            -&gt;lg()
+            -&gt;title($this-&gt;title)
+            -&gt;body($form)
+            -&gt;button($this-&gt;title);
+    }
+}
+</code></pre>
+<p>使用</p>
+<pre><code class="language-php">use App\Admin\Actions\Grid\ResetPassword;
+
+$grid-&gt;actions([new ResetPassword()]);
+</code></pre>
+<p>效果</p>
+<p><img alt="" src="{{public}}/assets/img/screenshots/modal-widget-form.png" /></p>
+<p><a name="batch-modal"></a></p>
+<h4 id="_11">表格批量操作弹窗</h4>
+<p>如果你想在批量操作按钮中使用表单弹窗，可以参考以下例子：</p>
+<p>这里我们仍然沿用上面用到的<code>App\Admin\Forms\ResetPassword</code>表单，并修改如下</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Admin\Forms;
+
+use Dcat\Admin\Models\Administrator;
+use Dcat\Admin\Widgets\Form;
+use Dcat\Admin\Traits\LazyWidget;
+use Dcat\Admin\Contracts\LazyRenderable;
+
+class ResetPassword extends Form implements LazyRenderable
+{
+    use LazyWidget;
+
+    // 处理请求
+    public function handle(array $input)
+    {
+        // id转化为数组
+        $id = explode(',', $input['id'] ?? null);
+        $password = $input['password'] ?? null;
+
+        if (! $id) {
+            return $this-&gt;response()-&gt;error('参数错误');
+        }
+
+        $users = Administrator::query()-&gt;find($id);
+
+        if ($users-&gt;isEmpty()) {
+            return $this-&gt;response()-&gt;error('用户不存在');
+        }
+
+        // 这里改为循环批量修改
+        $users-&gt;each(function ($user) use ($password) {
+            $user-&gt;update(['password' =&gt; bcrypt($password)]);
+        });
+
+        return $this-&gt;response()-&gt;success('密码修改成功');
+    }
+
+    public function form()
+    {
+        $this-&gt;password('password')-&gt;required();
+        // 密码确认表单
+        $this-&gt;password('password_confirm')-&gt;same('password');
+
+        // 设置隐藏表单，传递用户id
+        $this-&gt;hidden('id')-&gt;attribute('id', 'reset-password-id');
+    }
+
+    // 返回表单数据，如不需要可以删除此方法
+    public function default()
+    {
+        return [
+            'password'         =&gt; '',
+            'password_confirm' =&gt; '',
+        ];
+    }
+}
+</code></pre>
+<p>然后运行<code>php artisan admin:action</code>命令，选择选项<code>1</code>，生成数据表格批量操作类，并修改如下：</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Admin\Actions\Grid;
+
+use App\Admin\Forms\ResetPassword as ResetPasswordForm;
+use Dcat\Admin\Widgets\Modal;
+use Dcat\Admin\Grid\BatchAction;
+
+class BatchResetPassword extends BatchAction
+{
+    protected $title = '修改密码';
+
+    public function render()
+    {
+        // 实例化表单类
+        $form = ResetPasswordForm::make();
+
+        return Modal::make()
+            -&gt;lg()
+            -&gt;title($this-&gt;title)
+            -&gt;body($form)
+            // 因为此处使用了表单异步加载功能，所以一定要用 onLoad 方法
+            // 如果是非异步方式加载表单，则需要改成 onShow 方法
+            -&gt;onLoad($this-&gt;getModalScript())
+            -&gt;button($this-&gt;title);
+    }
+
+    protected function getModalScript()
+    {
+        // 弹窗显示后往隐藏的id表单中写入批量选中的行ID
+        return &lt;&lt;&lt;JS
+// 获取选中的ID数组
+var key = {$this-&gt;getSelectedKeysScript()}
+
+$('#reset-password-id').val(key);
+JS;
+    }
+}
+</code></pre>
+<p>使用</p>
+<pre><code class="language-php">use App\Admin\Actions\Grid\BatchResetPassword;
+
+$grid-&gt;batchActions([new BatchResetPassword()]);
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

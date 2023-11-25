@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>列的显示和扩展 - My Docs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Welcome to MkDocs</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">2.x <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../" class="dropdown-item">dcat-admin</a>
+</li>
+                                    
+<li>
+    <a href="../1-x-upgrade/" class="dropdown-item">v1.x版本升级指南</a>
+</li>
+                                    
+<li>
+    <a href="../LICENSE/" class="dropdown-item">LICENSE</a>
+</li>
+                                    
+<li>
+    <a href="../action-form/" class="dropdown-item">数据表单动作</a>
+</li>
+                                    
+<li>
+    <a href="../action-grid/" class="dropdown-item">数据表格动作</a>
+</li>
+                                    
+<li>
+    <a href="../action-show/" class="dropdown-item">数据详情动作</a>
+</li>
+                                    
+<li>
+    <a href="../action-tree/" class="dropdown-item">模型树动作</a>
+</li>
+                                    
+<li>
+    <a href="../action/" class="dropdown-item">动作基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../assets/" class="dropdown-item">静态资源加载</a>
+</li>
+                                    
+<li>
+    <a href="../beta-change-log/" class="dropdown-item">BETA版本更新日志</a>
+</li>
+                                    
+<li>
+    <a href="../change-log/" class="dropdown-item">Change log</a>
+</li>
+                                    
+<li>
+    <a href="../custom-authentication/" class="dropdown-item">自定义登陆</a>
+</li>
+                                    
+<li>
+    <a href="../custom-chart/" class="dropdown-item">自定义图表</a>
+</li>
+                                    
+<li>
+    <a href="../custom-navbar/" class="dropdown-item">自定义头部导航条</a>
+</li>
+                                    
+<li>
+    <a href="../custom-page/" class="dropdown-item">视图与自定义页面</a>
+</li>
+                                    
+<li>
+    <a href="../documentation/" class="dropdown-item">Documentation</a>
+</li>
+                                    
+<li>
+    <a href="../extend/" class="dropdown-item">开发扩展</a>
+</li>
+                                    
+<li>
+    <a href="../extension-dev/" class="dropdown-item">开发扩展</a>
+</li>
+                                    
+<li>
+    <a href="../extension-f/" class="dropdown-item">扩展基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../extension-helpers/" class="dropdown-item">开发工具</a>
+</li>
+                                    
+<li>
+    <a href="../extension-theme/" class="dropdown-item">主题开发</a>
+</li>
+                                    
+<li>
+    <a href="../extension-upgrade/" class="dropdown-item">扩展版本与升级</a>
+</li>
+                                    
+<li>
+    <a href="../extensions/" class="dropdown-item">扩展</a>
+</li>
+                                    
+<li>
+    <a href="../function/" class="dropdown-item">帮助函数</a>
+</li>
+                                    
+<li>
+    <a href="../helpers/" class="dropdown-item">开发工具</a>
+</li>
+                                    
+<li>
+    <a href="../installation/" class="dropdown-item">安装</a>
+</li>
+                                    
+<li>
+    <a href="../introduction/" class="dropdown-item">Dcat Admin</a>
+</li>
+                                    
+<li>
+    <a href="../js/" class="dropdown-item">JS组件</a>
+</li>
+                                    
+<li>
+    <a href="../laravel-octane/" class="dropdown-item">Laravel Octane</a>
+</li>
+                                    
+<li>
+    <a href="../lazy/" class="dropdown-item">异步加载基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../menu/" class="dropdown-item">菜单</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-callback/" class="dropdown-item">表单回调</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-data/" class="dropdown-item">表单数据源</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-field-management/" class="dropdown-item">表单字段的管理</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-fields/" class="dropdown-item">表单字段的使用</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-init/" class="dropdown-item">表单初始化</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-layout/" class="dropdown-item">表单布局</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-modal/" class="dropdown-item">表单弹窗</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-step/" class="dropdown-item">分步表单</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-trans/" class="dropdown-item">表单字段翻译</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-upload/" class="dropdown-item">图片/文件上传</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-validation/" class="dropdown-item">表单验证</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-when/" class="dropdown-item">表单字段动态显示</a>
+</li>
+                                    
+<li>
+    <a href="../model-form/" class="dropdown-item">表单基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-actions/" class="dropdown-item">行的使用和扩展</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-async/" class="dropdown-item">表格异步渲染</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">列的显示和扩展</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-column-filter/" class="dropdown-item">列过滤器</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-column/" class="dropdown-item">列的基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-combination/" class="dropdown-item">组合表头</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-custom-tools/" class="dropdown-item">工具栏</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-data/" class="dropdown-item">表格数据源</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-editable/" class="dropdown-item">数据表格行内编辑</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-events/" class="dropdown-item">数据表格事件</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-export/" class="dropdown-item">数据导出</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-exporter/" class="dropdown-item">自定义导出</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-filters/" class="dropdown-item">查询过滤</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-header/" class="dropdown-item">头部和脚部</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-quick-create/" class="dropdown-item">快捷创建</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-quick-search/" class="dropdown-item">表格快捷搜索</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-relationship/" class="dropdown-item">表格关联关系</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-selector/" class="dropdown-item">表格规格筛选器</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-softdelete/" class="dropdown-item">数据软删除</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-trans/" class="dropdown-item">表格字段翻译</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-tree/" class="dropdown-item">树状表格</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid/" class="dropdown-item">表格基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../model-json/" class="dropdown-item">JSON格式字段处理</a>
+</li>
+                                    
+<li>
+    <a href="../model-relationship/" class="dropdown-item">表单关联关系</a>
+</li>
+                                    
+<li>
+    <a href="../model-repository/" class="dropdown-item">数据仓库</a>
+</li>
+                                    
+<li>
+    <a href="../model-show-extend/" class="dropdown-item">详情字段显示扩展</a>
+</li>
+                                    
+<li>
+    <a href="../model-show-field/" class="dropdown-item">字段显示</a>
+</li>
+                                    
+<li>
+    <a href="../model-show-init/" class="dropdown-item">数据详情初始化</a>
+</li>
+                                    
+<li>
+    <a href="../model-show-relation/" class="dropdown-item">关联关系</a>
+</li>
+                                    
+<li>
+    <a href="../model-show-trans/" class="dropdown-item">数据详情字段翻译</a>
+</li>
+                                    
+<li>
+    <a href="../model-show/" class="dropdown-item">数据详情基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../model-tree/" class="dropdown-item">模型树</a>
+</li>
+                                    
+<li>
+    <a href="../multi-app/" class="dropdown-item">多应用 (多后台)</a>
+</li>
+                                    
+<li>
+    <a href="../notice/" class="dropdown-item">开发前必读</a>
+</li>
+                                    
+<li>
+    <a href="../permission/" class="dropdown-item">权限控制</a>
+</li>
+                                    
+<li>
+    <a href="../qa/" class="dropdown-item">常见问题汇总</a>
+</li>
+                                    
+<li>
+    <a href="../quick-start/" class="dropdown-item">快速开始</a>
+</li>
+                                    
+<li>
+    <a href="../response/" class="dropdown-item">动作以及表单响应</a>
+</li>
+                                    
+<li>
+    <a href="../section/" class="dropdown-item">区块（section）</a>
+</li>
+                                    
+<li>
+    <a href="../theme/" class="dropdown-item">主题与颜色</a>
+</li>
+                                    
+<li>
+    <a href="../trans/" class="dropdown-item">多语言</a>
+</li>
+                                    
+<li>
+    <a href="../update/" class="dropdown-item">版本升级须知</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-alert/" class="dropdown-item">警告框</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-box/" class="dropdown-item">卡片</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-charts/" class="dropdown-item">图表</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-checkbox/" class="dropdown-item">单/复选框</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-data-card/" class="dropdown-item">数据统计卡片</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-dialog-form/" class="dropdown-item">Widgets dialog form</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-dropdown/" class="dropdown-item">下拉菜单</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-form/" class="dropdown-item">工具表单</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-js/" class="dropdown-item">Widgets js</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-markdown/" class="dropdown-item">Markdown</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-modal/" class="dropdown-item">模态窗 (Modal)</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-navbar/" class="dropdown-item">Widgets navbar</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-tab/" class="dropdown-item">选项卡</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-table/" class="dropdown-item">Widgets table</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-tooltip/" class="dropdown-item">提示窗</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../model-grid-async/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../model-grid-column-filter/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">列的显示和扩展</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">根据条件显示不同的组件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_3" class="nav-link">列显示</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_11" class="nav-link">帮助方法</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_15" class="nav-link">扩展列的显示功能</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">列的显示和扩展</h1>
+<p>数据表格内置了很多对于列的操作方法，可以通过这些方法很灵活的操作列数据。</p>
+<h2 id="_2">根据条件显示不同的组件</h2>
+<p>有些情况我们需要根据某个条件去判断是否使用列的某个显示功能：</p>
+<blockquote>
+<p>{tip} 需要注意的是，<code>Grid\Column::if</code>只对列的显示相关功能有效，其他方法如表头的相关操作都不能使用此方法！</p>
+</blockquote>
+<pre><code class="language-php">$grid-&gt;column('config')
+    -&gt;if(function ($column) {
+        // 获取当前行其他字段值
+        $username = $this-&gt;username;
+
+        // $column-&gt;getValue() 是当前字段的值
+        return $column-&gt;getValue();
+    })
+    -&gt;display($view)
+    -&gt;copyable()
+    -&gt;else()
+    -&gt;display('');
+</code></pre>
+<p>上面写法等同于</p>
+<pre><code class="language-php">$grid-&gt;column('config')
+    -&gt;if(function ($column) {
+        return $column-&gt;getValue();
+    })
+    -&gt;then(function (Grid\Column $column) {
+        $column-&gt;display($view)-&gt;copyable();
+    })
+    -&gt;else(function (Grid\Column $column) {
+        $column-&gt;display('');
+    });
+</code></pre>
+<p>支持多个<code>if</code></p>
+<pre><code class="language-php">$grid-&gt;column('config')
+    -&gt;if(...)
+    -&gt;then(...)
+    -&gt;else(...)
+
+    -&gt;if(...)
+    -&gt;then(...)
+    -&gt;else(...);
+</code></pre>
+<p>终结条件判断<code>end</code></p>
+<pre><code class="language-php">$grid-&gt;column('status')
+    -&gt;if(...) // 条件1
+    -&gt;display(...)
+    -&gt;display(...)
+
+    -&gt;if(...) // 条件2
+    -&gt;display(...)
+    -&gt;display(...)
+
+    -&gt;end() // 终结前面的条件判断
+    -&gt;display(...); // 所有条件都能生效
+</code></pre>
+<h2 id="_3">列显示</h2>
+<p><code>model-grid</code>内置了若干方法来帮助你扩展列功能</p>
+<h3 id="display">display</h3>
+<p><code>Dcat\Admin\Grid\Column</code>对象内置了<code>display()</code>方法来通过传入的回调函数来处理当前列的值，</p>
+<pre><code class="language-php">$grid-&gt;column('title')-&gt;display(function ($title) {
+
+    return &quot;&lt;span style='color:blue'&gt;$title&lt;/span&gt;&quot;;
+
+});
+</code></pre>
+<p>在传入的匿名函数中可以通过任何方式对数据进行处理，另外匿名函数绑定了当前列的数据作为父对象，可以在函数中调用当前行的数据：</p>
+<pre><code class="language-php">$grid-&gt;column('first_name');
+
+$grid-&gt;column('last_name');
+
+// 不存在的`full_name`字段
+$grid-&gt;column('full_name')-&gt;display(function () {
+    return $this-&gt;first_name . ' ' . $this-&gt;last_name;
+});
+</code></pre>
+<h3 id="html">设置列的HTML属性</h3>
+<p>设列的<code>html</code>属性</p>
+<pre><code class="language-php">$grid-&gt;column('name')-&gt;setAttributes(['style' =&gt; 'font-size:14px']);
+</code></pre>
+<h3 id="_4">列视图</h3>
+<p><code>view</code>方法可以引入一个视图文件。</p>
+<pre><code class="language-php">$grid-&gt;column('content')-&gt;view('admin.fields.content');
+</code></pre>
+<p>默认会传入视图的三个变量：
+ - <code>$model</code> 当前行数据
+ - <code>$name</code> 字段名称
+ - <code>$value</code> 为当前列的值</p>
+<p>模板代码如下：</p>
+<pre><code class="language-blade">&lt;label&gt;名称：{{ $name }}&lt;/label&gt;
+&lt;label&gt;值：{{ $value }}&lt;/label&gt;
+&lt;label&gt;其他字段：{{ $model-&gt;title }}&lt;/label&gt;
+</code></pre>
+<h3 id="_5">图片</h3>
+<pre><code class="language-php">$grid-&gt;column('picture')-&gt;image();
+
+//设置服务器和宽高
+$grid-&gt;column('picture')-&gt;image('http://xxx.com', 100, 100);
+
+// 显示多图
+$grid-&gt;column('pictures')-&gt;display(function ($pictures) {
+
+    return json_decode($pictures, true);
+
+})-&gt;image('http://xxx.com', 100, 100);
+</code></pre>
+<h3 id="label">显示label标签</h3>
+<p>支持<code>Dcat\Admin\Color</code>类中内置的所有颜色</p>
+<pre><code class="language-php">use Dcat\Admin\Admin;
+
+$grid-&gt;column('name')-&gt;label();
+
+// 设置颜色，直接传别名
+$grid-&gt;column('name')-&gt;label('danger');
+
+// 也可以这样使用
+$grid-&gt;column('name')-&gt;label(Admin::color()-&gt;danger());
+
+// 也可以直接传颜色代码
+$grid-&gt;column('name')-&gt;label('#222');
+</code></pre>
+<p>给不同的值设置不同的颜色</p>
+<pre><code class="language-php">use Dcat\Admin\Admin;
+
+$grid-&gt;column('state')-&gt;using([1 =&gt; '未处理', 2 =&gt; '已处理', ...])-&gt;label([
+    'default' =&gt; 'primary', // 设置默认颜色，不设置则默认为 default
+
+    1 =&gt; 'primary',
+    2 =&gt; 'danger',
+    3 =&gt; 'success',
+    4 =&gt; Admin::color()-&gt;info(),
+]);
+</code></pre>
+<h3 id="badge">显示badge标签</h3>
+<p>支持<code>Dcat\Admin\Color</code>类中内置的所有颜色</p>
+<pre><code class="language-php">$grid-&gt;column('name')-&gt;badge();
+
+// 设置颜色，直接传别名
+$grid-&gt;column('name')-&gt;badge('danger');
+
+// 也可以这样使用
+$grid-&gt;column('name')-&gt;badge(Admin::color()-&gt;danger());
+
+// 也可以直接传颜色代码
+$grid-&gt;column('name')-&gt;badge('#222');
+</code></pre>
+<p>给不同的值设置不同的颜色</p>
+<pre><code class="language-php">use Dcat\Admin\Admin;
+
+$grid-&gt;state-&gt;using([1 =&gt; '未处理', 2 =&gt; '已处理', ...])-&gt;badge([
+    'default' =&gt; 'primary', // 设置默认颜色，不设置则默认为 default   
+
+    1 =&gt; 'primary',
+    2 =&gt; 'danger',
+    3 =&gt; 'success',
+    4 =&gt; Admin::color()-&gt;info(),
+]);
+</code></pre>
+<p><a name="bool"></a></p>
+<h3 id="bool">布尔值显示 (bool)</h3>
+<p>将这一列转为<code>bool</code>值之后显示为<code>✓</code>和<code>✗</code>。</p>
+<pre><code class="language-php">$grid-&gt;column('approved')-&gt;bool();
+</code></pre>
+<p>你也可以按照这一列的值指定显示，比如字段的值为<code>Y</code>和<code>N</code>表示<code>true</code>和<code>false</code></p>
+<pre><code class="language-php">$grid-&gt;column('approved')-&gt;bool(['Y' =&gt; true, 'N' =&gt; false]);
+</code></pre>
+<p>效果
+<img alt="" src="https://cdn.learnku.com/uploads/images/202007/12/38389/U0OSrJwzyt.png!large" /></p>
+<h3 id="dot">圆点前缀 (dot)</h3>
+<p>通过<code>dot</code>方法可以在列文字前面加上一个带颜色的圆点</p>
+<pre><code class="language-php">use Dcat\Admin\Admin;
+
+$grid-&gt;column('state')
+    -&gt;using([1 =&gt; '未处理', 2 =&gt; '已处理', ...])
+    -&gt;dot(
+        [
+            1 =&gt; 'primary',
+            2 =&gt; 'danger',
+            3 =&gt; 'success',
+            4 =&gt; Admin::color()-&gt;info(),
+        ], 
+        'primary' // 第二个参数为默认值
+    );
+</code></pre>
+<p>效果
+<img alt="" src="https://cdn.learnku.com/uploads/images/202004/30/38389/ByUqo6bZc8.png!large" /></p>
+<p><a name="expand"></a></p>
+<h3 id="expand">列展开 (expand)</h3>
+<p><code>expand</code>方法可以把内容隐藏，点击按钮的时候显示在表格下一行</p>
+<pre><code class="language-php">$grid-&gt;column('content')
+    -&gt;display('详情') // 设置按钮名称
+    -&gt;expand(function () {
+        // 返回显示的详情
+        // 这里返回 content 字段内容，并用 Card 包裹起来
+        $card = new Card(null, $this-&gt;content);
+
+        return &quot;&lt;div style='padding:10px 10px 0'&gt;$card&lt;/div&gt;&quot;;
+    });
+</code></pre>
+<p>也可以通过以下方式设置按钮</p>
+<pre><code class="language-php">$grid-&gt;column('content')-&gt;expand(function (Grid\Displayers\Expand $expand) {
+    // 设置按钮名称
+    $expand-&gt;button('详情');
+
+    // 返回显示的详情
+    // 这里返回 content 字段内容，并用 Card 包裹起来
+    $card = new Card(null, $this-&gt;content);
+
+    return &quot;&lt;div style='padding:10px 10px 0'&gt;$card&lt;/div&gt;&quot;;
+});
+</code></pre>
+<h4 id="_6">异步加载</h4>
+<blockquote>
+<p>{tip} 更多用法请参考文档<a href="../lazy/">异步加载</a></p>
+</blockquote>
+<p>定义渲染类，继承<code>Dcat\Admin\Support\LazyRenderable</code></p>
+<pre><code class="language-php">use App\Models\Post as PostModel;
+use Dcat\Admin\Support\LazyRenderable;
+use Dcat\Admin\Widgets\Table;
+
+class Post extends LazyRenderable
+{
+    public function render()
+    {
+        // 获取ID
+        $id = $this-&gt;key;
+
+        // 获取其他自定义参数
+        $type = $this-&gt;post_type;
+
+        $data = PostModel::where('user_id', $id)
+            -&gt;where('type', $type)
+            -&gt;get(['title', 'body', 'body', 'created_at'])
+            -&gt;toArray();
+
+        $titles = [
+            'User ID',
+            'Title',
+            'Body',
+            'Created At',
+        ];
+
+        return Table::make($titles, $data);
+    }
+}
+</code></pre>
+<p>使用</p>
+<pre><code class="language-php">$grid-&gt;post-&gt;display('View')-&gt;expand(Post::make(['post_type' =&gt; 1]));
+
+// 可以在闭包内返回异步加载类的实例
+$grid-&gt;post-&gt;expand(function () {
+    // 允许在比包内返回异步加载类的实例
+
+    return Post::make(['title' =&gt; $this-&gt;title]);
+});
+</code></pre>
+<p>效果</p>
+<p><img alt="" src="https://cdn.learnku.com/uploads/images/202006/14/38389/KMHagem4OZ.gif!large" /></p>
+<h4 id="_7">异步加载工具表单</h4>
+<p>定义<a href="../widgets-form/">工具表单</a>类如下</p>
+<blockquote>
+<p>{tip} 更多用法请参考<a href="../lazy/">异步加载</a></p>
+</blockquote>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Admin\Forms;
+
+use Dcat\Admin\Contracts\LazyRenderable;
+use Dcat\Admin\Traits\LazyWidget;
+use Dcat\Admin\Widgets\Form;
+
+class UserProfile extends Form implements LazyRenderable
+{
+    use LazyWidget;
+
+    public function handle(array $input)
+    {
+        // 接收外部传递参数
+        $type = $this-&gt;payload['type'] ?? null;
+
+        return $this-&gt;response()-&gt;success('保存成功');
+    }
+
+    public function form()
+    {
+        // 接收外部传递参数
+        $type = $this-&gt;payload['type'] ?? null;
+
+        $this-&gt;text('name', trans('admin.name'))-&gt;required()-&gt;help('用户昵称');
+        $this-&gt;image('avatar', trans('admin.avatar'))-&gt;autoUpload();
+
+        $this-&gt;password('old_password', trans('admin.old_password'));
+
+        $this-&gt;password('password', trans('admin.password'))
+            -&gt;minLength(5)
+            -&gt;maxLength(20)
+            -&gt;customFormat(function ($v) {
+                if ($v == $this-&gt;password) {
+                    return;
+                }
+
+                return $v;
+            })
+            -&gt;help('请输入5-20个字符');
+        $this-&gt;password('password_confirmation', trans('admin.password_confirmation'))
+            -&gt;same('password')
+            -&gt;help('请输入确认密码');
+    }
+}
+</code></pre>
+<p>使用</p>
+<pre><code class="language-php">$grid-&gt;user-&gt;display('View')-&gt;expand(UserProfile::make(['type' =&gt; 1]));
+</code></pre>
+<p><a name="modal"></a></p>
+<h3 id="modal">弹出模态框 (modal)</h3>
+<p><code>modal</code>方法可以把内容隐藏，点击按钮的时候显示在表格下一行</p>
+<pre><code class="language-php">$grid-&gt;column('content')
+    -&gt;display('查看') // 设置按钮名称
+    -&gt;modal(function ($modal) {
+        // 设置弹窗标题
+        $modal-&gt;title('标题 '.$this-&gt;username);
+
+       // 自定义图标
+       $modal-&gt;icon('feather icon-x');
+
+        $card = new Card(null, $this-&gt;content);
+
+        return &quot;&lt;div style='padding:10px 10px 0'&gt;$card&lt;/div&gt;&quot;;
+    });
+
+// 也可以通过这种方式设置弹窗标题
+$grid-&gt;column('content')
+    -&gt;display('查看') // 设置按钮名称
+    -&gt;modal('弹窗标题', ...);
+</code></pre>
+<h4 id="_8">异步加载</h4>
+<blockquote>
+<p>{tip}  关于异步加载的更具体用法，请参考文档<a href="../lazy/">异步加载</a>       </p>
+</blockquote>
+<p>定义渲染类，继承<code>Dcat\Admin\Support\LazyRenderable</code></p>
+<pre><code class="language-php">use App\Models\Post as PostModel;
+use Dcat\Admin\Support\LazyRenderable;
+use Dcat\Admin\Widgets\Table;
+
+class Post extends LazyRenderable
+{
+    public function render()
+    {
+        // 获取ID
+        $id = $this-&gt;key;
+
+        // 获取其他自定义参数
+        $type = $this-&gt;post_type;
+
+        $data = PostModel::where('user_id', $id)
+            -&gt;where('type', $type)
+            -&gt;get(['title', 'body', 'body', 'created_at'])
+            -&gt;toArray();
+
+        $titles = [
+            'User ID',
+            'Title',
+            'Body',
+            'Created At',
+        ];
+
+        return Table::make($titles, $data);
+    }
+}
+</code></pre>
+<p>使用</p>
+<pre><code class="language-php">$grid-&gt;post-&gt;display('View')-&gt;modal('Post', Post::make(['post_type' =&gt; 2]));
+
+// 可以在闭包内返回异步加载类的实例
+$grid-&gt;post-&gt;modal(function ($modal) {
+    $modal-&gt;title('自定义弹窗标题');
+
+    // 允许在比包内返回异步加载类的实例
+    return Post::make(['title' =&gt; $this-&gt;title]);
+});
+</code></pre>
+<p>效果
+<img alt="" src="https://cdn.learnku.com/uploads/images/202006/14/38389/DvvyZUTXpG.gif!large" /></p>
+<h4 id="_9">异步加载工具表单</h4>
+<p>定义<a href="../widgets-form/">工具表单</a>类如下</p>
+<blockquote>
+<p>{tip} 更多用法请参考<a href="../lazy/">异步加载</a></p>
+</blockquote>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Admin\Forms;
+
+use Dcat\Admin\Contracts\LazyRenderable;
+use Dcat\Admin\Traits\LazyWidget;
+use Dcat\Admin\Widgets\Form;
+
+class UserProfile extends Form implements LazyRenderable
+{
+    use LazyWidget;
+
+    public function handle(array $input)
+    {
+        // 接收外部传递参数
+        $type = $this-&gt;payload['type'] ?? null;
+
+        return $this-&gt;response()-&gt;success('保存成功');
+    }
+
+    public function form()
+    {
+        // 接收外部传递参数
+        $type = $this-&gt;payload['type'] ?? null;
+
+        $this-&gt;text('name', trans('admin.name'))-&gt;required()-&gt;help('用户昵称');
+        $this-&gt;image('avatar', trans('admin.avatar'))-&gt;autoUpload();
+
+        $this-&gt;password('old_password', trans('admin.old_password'));
+
+        $this-&gt;password('password', trans('admin.password'))
+            -&gt;minLength(5)
+            -&gt;maxLength(20)
+            -&gt;customFormat(function ($v) {
+                if ($v == $this-&gt;password) {
+                    return;
+                }
+
+                return $v;
+            })
+            -&gt;help('请输入5-20个字符');
+        $this-&gt;password('password_confirmation', trans('admin.password_confirmation'))
+            -&gt;same('password')
+            -&gt;help('请输入确认密码');
+    }
+}
+</code></pre>
+<p>使用</p>
+<pre><code class="language-php">$grid-&gt;user-&gt;display('View')-&gt;modal(UserProfile::make(['type' =&gt; 1]));
+</code></pre>
+<h3 id="progressbar">进度条 (progressBar)</h3>
+<p><code>progressBar</code>进度条</p>
+<pre><code class="language-php">$grid-&gt;rate-&gt;progressBar();
+
+//设置颜色，默认`primary`,可选`danger`、`warning`、`info`、`primary`、`success`
+$grid-&gt;rate-&gt;progressBar('success');
+
+// 设置进度条尺寸和最大值
+$grid-&gt;rate-&gt;progressBar('success', 'sm', 100);
+</code></pre>
+<h3 id="showtreeindialog">showTreeInDialog</h3>
+<p><code>showTreeInDialog</code>方法可以把一个带有层级关系的数组呈现为树形弹窗，比如权限就可以用此方法展示</p>
+<pre><code class="language-php">// 查出所有的权限数据
+$nodes = (new $permissionModel)-&gt;allNodes();
+
+// 传入二维数组（未分层级）
+$grid-&gt;permissions-&gt;showTreeInDialog($nodes);
+
+// 也可以传入闭包
+$grid-&gt;permissions-&gt;showTreeInDialog(function (Grid\Displayers\DialogTree $tree) use (&amp;$nodes, $roleModel) {
+    // 设置所有节点
+    $tree-&gt;nodes($nodes);
+
+    // 设置节点数据字段名称，默认&quot;id&quot;，&quot;name&quot;，&quot;parent_id&quot;
+    $tree-&gt;setIdColumn('id');
+    $tree-&gt;setTitleColumn('title');
+    $tree-&gt;setParentColumn('parent_id');
+
+    // $this-&gt;roles 可以获取当前行的字段值
+    foreach (array_column($this-&gt;roles, 'slug') as $slug) {
+        if ($roleModel::isAdministrator($slug)) {
+            // 选中所有节点
+            $tree-&gt;checkAll();
+        }
+    }
+});
+</code></pre>
+<p><img alt="" src="https://cdn.learnku.com/uploads/images/202004/26/38389/s1htW08Iko.png!large" /></p>
+<h3 id="using">内容映射 (using)</h3>
+<pre><code class="language-php">$grid-&gt;status-&gt;using([0 =&gt; '未激活', 1 =&gt; '正常']);
+
+// 第二个参数为默认值
+$grid-&gt;gender-&gt;using([1 =&gt; '男', 2 =&gt; '女'], '未知');
+</code></pre>
+<h3 id="_10">字符串分割为数组</h3>
+<p><code>explode</code>方法可以把字符串分割为数组。</p>
+<pre><code class="language-php">$grid-&gt;tag-&gt;explode()-&gt;label();
+
+// 可以指定分隔符，默认&quot;,&quot;
+$grid-&gt;tag-&gt;explode('|')-&gt;label();
+</code></pre>
+<h3 id="prepend">prepend</h3>
+<p><code>prepend</code> 方法用于给 <code>string</code> 或 <code>array</code> 类型的值前面插入内容。</p>
+<pre><code class="language-php">// 当字段值是一个字符串
+$grid-&gt;email-&gt;prepend('mailto:');
+
+// 当字段值是一个数组
+$grid-&gt;arr-&gt;prepend('first item');
+</code></pre>
+<p><code>prepend</code>方法允许传入闭包参数</p>
+<pre><code class="language-php">$grid-&gt;email-&gt;prepend(function ($value, $original) {
+    // $value 是当前字段值
+    // $original 是当前字段从数据库中查询出来的原始值
+
+    // 获取其他字段值
+    $username = $this-&gt;username;
+
+    return &quot;[{$username}]&quot;;
+});
+</code></pre>
+<h3 id="append">append</h3>
+<p><code>append</code> 方法用于给 <code>string</code> 或 <code>array</code> 类型的值后面插入内容。</p>
+<pre><code class="language-php">// 当字段值是一个字符串
+$grid-&gt;email-&gt;append('@gmail.com');
+
+// 当字段值是一个数组
+$grid-&gt;arr-&gt;append('last item');
+</code></pre>
+<p><code>append</code>方法允许传入闭包参数</p>
+<pre><code class="language-php">$grid-&gt;email-&gt;append(function ($value, $original) {
+    // $value 是当前字段值
+    // $original 是当前字段从数据库中查询出来的原始值
+
+    // 获取其他字段值
+    $username = $this-&gt;username;
+
+    return &quot;[{$username}]&quot;;
+});
+</code></pre>
+<h3 id="limit">字符串或数组截取 (limit)</h3>
+<pre><code class="language-php">// 最多显示50个字符
+$grid-&gt;column('content')-&gt;limit(50, '...');
+
+// 如果字段值是数组也支持
+$grid-&gt;tags-&gt;limit(3);
+</code></pre>
+<h3 id="qrcode">列二维码 (qrcode)</h3>
+<pre><code class="language-php">$grid-&gt;website-&gt;qrcode(function () {
+    return $this-&gt;url;
+}, 200, 200);
+</code></pre>
+<h3 id="copyable">可复制 (copyable)</h3>
+<pre><code class="language-php">$grid-&gt;website-&gt;copyable();
+</code></pre>
+<h3 id="orderable">可排序 (orderable)</h3>
+<p>通过<code>Column::orderable</code>可以开启字段可排序功能，此功能需要在你的模型类中<code>use ModelTree</code>或<code>use SortableTrait</code>，并且需要继承<code>Spatie\EloquentSortable\Sortable</code>接口。</p>
+<h4 id="sortabletrait">SortableTrait</h4>
+<p>如果你的数据不是层级结构数据，可以直接使用<code>use SortableTrait</code>，更多用法可参考<a href="https://github.com/spatie/eloquent-sortable">eloquent-sortable</a>。</p>
+<p>模型</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Spatie\EloquentSortable\Sortable;
+use Spatie\EloquentSortable\SortableTrait;
+
+class MyModel extends Model implements Sortable
+{
+    use SortableTrait;
+
+    protected $sortable = [
+        // 设置排序字段名称
+        'order_column_name' =&gt; 'order',
+        // 是否在创建时自动排序，此参数建议设置为true
+        'sort_when_creating' =&gt; true,
+    ];
+}
+</code></pre>
+<p>使用</p>
+<pre><code class="language-php">$grid-&gt;model()-&gt;orderBy('order');
+
+$grid-&gt;order-&gt;orderable();
+</code></pre>
+<h4 id="modeltree">ModelTree</h4>
+<p>如果你的数据是层级结构数据，可以直接使用<code>use Model</code>，下面以权限模型为例来演示用法</p>
+<blockquote>
+<p>{tip} <code>ModelTree</code>实际上也是继承了<a href="https://github.com/spatie/eloquent-sortable">eloquent-sortable</a>的功能。</p>
+</blockquote>
+<pre><code class="language-php">&lt;?php
+
+namespace Dcat\Admin\Models;
+
+use Dcat\Admin\Traits\HasDateTimeFormatter;
+use Dcat\Admin\Traits\ModelTree;
+use Spatie\EloquentSortable\Sortable;
+
+class Permission extends Model implements Sortable
+{
+    use HasDateTimeFormatter,
+        ModelTree {
+            ModelTree::boot as treeBoot;
+        }
+
+    ...    
+}        
+</code></pre>
+<p>使用</p>
+<pre><code class="language-php">$grid-&gt;order-&gt;orderable();
+</code></pre>
+<h3 id="link">链接 (link)</h3>
+<p>将字段显示为一个链接。</p>
+<pre><code class="language-php">// link方法不传参数时，链接的`href`和`text`都是当前列的值
+$grid-&gt;column('homepage')-&gt;link();
+
+// 传入闭包
+$grid-&gt;column('homepage')-&gt;link(function ($value) {
+    return admin_url('users/'.$value);
+});
+</code></pre>
+<p><a name="action"></a></p>
+<h3 id="action">行操作 (action)</h3>
+<blockquote>
+<p>{tip} 在使用这个方法之前，请先阅读<a href="../model-grid-actions/">自定义操作-行操作</a></p>
+</blockquote>
+<p>这个功能可以将某一列显示为一个<strong>行操作</strong>的按钮，比如下面所示是一个标星和取消标星的列操作，
+点击这一列的星标图标之后, 后台会切换字段的状态，页面图标也跟着切换，具体实现代码如下：</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Admin\Extensions\Grid\RowAction;
+
+use Dcat\Admin\Grid\RowAction;
+use Illuminate\Http\Request;
+
+class Star extends RowAction
+{
+    protected function html()
+    {
+        $icon = ($this-&gt;row-&gt;{$this-&gt;getColumnName()}) ? 'fa-star' : 'fa-star-o';
+
+        return &lt;&lt;&lt;HTML
+&lt;i class=&quot;{$this-&gt;getElementClass()} fa {$icon}&quot;&gt;&lt;/i&gt;
+HTML;
+    }
+
+    public function handle(Request $request)
+    {
+        try {
+            $class = $request-&gt;class;
+            $column = $request-&gt;column;
+            $id = $this-&gt;getKey();
+
+            $model = $class::find($id);
+            $model-&gt;{$column} = (int) !$model-&gt;{$column};
+            $model-&gt;save();
+
+            return $this-&gt;response()-&gt;success(&quot;success&quot;)-&gt;refresh();
+        } catch (\Exception $e) {
+            return $this-&gt;response()-&gt;error($e-&gt;getMessage());
+        }
+    }
+
+    public function parameters()
+    {
+        return [
+            'class' =&gt; $this-&gt;modelClass(),
+            'column' =&gt; $this-&gt;getColumnName(),
+        ];
+    }
+
+    public function getColumnName()
+    {
+        return $this-&gt;column-&gt;getName();
+    }
+
+    public function modelClass()
+    {
+        return get_class($this-&gt;parent-&gt;model()-&gt;repository()-&gt;model());
+    }
+}
+</code></pre>
+<p>使用</p>
+<pre><code class="language-php">protected function grid()
+{
+    $grid = new Grid(new $this-&gt;model());
+
+    $grid-&gt;column('star', '-')-&gt;action(Star::class);  // here
+    $grid-&gt;column('id', 'ID')-&gt;sortable()-&gt;bold();
+
+    return $grid;
+}
+</code></pre>
+<p>效果</p>
+<p><img alt="" src="https://cdn.learnku.com/uploads/images/202005/17/38389/g8F7p8gnsE.png!large" /></p>
+<h2 id="_11">帮助方法</h2>
+<h3 id="_12">字符串操作</h3>
+<p>如果当前里的输出数据为字符串，那么可以通过链式方法调用<code>Illuminate\Support\Str</code>的方法。</p>
+<p>比如有如下一列，显示<code>title</code>字段的字符串值:</p>
+<pre><code class="language-php">$grid-&gt;title();
+</code></pre>
+<p>在<code>title</code>列输出的字符串基础上调用<code>Str::title()</code>方法</p>
+<pre><code class="language-php">$grid-&gt;title()-&gt;title();
+</code></pre>
+<p>调用方法之后输出的还是字符串，所以可以继续调用<code>Illuminate\Support\Str</code>的方法：</p>
+<pre><code class="language-php">$grid-&gt;title()-&gt;title()-&gt;ucfirst();
+
+$grid-&gt;title()-&gt;title()-&gt;ucfirst()-&gt;substr(1, 10);
+
+</code></pre>
+<h3 id="_13">数组操作</h3>
+<p>如果当前列输出的是数组，可以直接链式调用<code>Illuminate\Support\Collection</code>方法。</p>
+<p>比如<code>tags</code>列是从一对多关系取出来的数组数据：</p>
+<pre><code class="language-php">$grid-&gt;tags();
+
+array (
+  0 =&gt; 
+  array (
+    'id' =&gt; '16',
+    'name' =&gt; 'php',
+    'created_at' =&gt; '2016-11-13 14:03:03',
+    'updated_at' =&gt; '2016-12-25 04:29:35',
+
+  ),
+  1 =&gt; 
+  array (
+    'id' =&gt; '17',
+    'name' =&gt; 'python',
+    'created_at' =&gt; '2016-11-13 14:03:09',
+    'updated_at' =&gt; '2016-12-25 04:30:27',
+  ),
+)
+
+</code></pre>
+<p>调用<code>Collection::pluck()</code>方法取出数组的中的<code>name</code>列</p>
+<pre><code class="language-php">$grid-&gt;tags()-&gt;pluck('name');
+
+array (
+    0 =&gt; 'php',
+    1 =&gt; 'python',
+  ),
+
+</code></pre>
+<p>取出<code>name</code>列之后输出的还是数组，还能继续调用用<code>Illuminate\Support\Collection</code>的方法</p>
+<pre><code class="language-php">$grid-&gt;tags()-&gt;pluck('name')-&gt;map('ucwords');
+
+array (
+    0 =&gt; 'Php',
+    1 =&gt; 'Python',
+  ),
+</code></pre>
+<p>将数组输出为字符串</p>
+<pre><code class="language-php">$grid-&gt;tags()-&gt;pluck('name')-&gt;map('ucwords')-&gt;implode('-');
+
+&quot;Php-Python&quot;
+</code></pre>
+<h3 id="_14">混合使用</h3>
+<p>在上面两种类型的方法调用中，只要上一步输出的是确定类型的值，便可以调用类型对应的方法，所以可以很灵活的混合使用。</p>
+<p>比如<code>images</code>字段是存储多图片地址数组的JSON格式字符串类型：</p>
+<pre><code class="language-php">
+$grid-&gt;images();
+
+// &quot;['foo.jpg', 'bar.png']&quot;
+
+// 链式方法调用来显示多图
+$grid-&gt;images()-&gt;display(function ($images) {
+    return json_decode($images, true);
+
+})-&gt;map(function ($path) {
+    return 'http://localhost/images/'. $path;
+
+})-&gt;image();
+
+</code></pre>
+<h2 id="_15">扩展列的显示功能</h2>
+<p>可以通过两种方式扩展列功能，第一种是通过匿名函数的方式。</p>
+<blockquote>
+<p>扩展列功能方法后IDE默认是不会自动补全的，这时候可以通过<code>php artisan admin:ide-helper</code>生成IDE提示文件。</p>
+</blockquote>
+<h3 id="_16">匿名函数</h3>
+<p>在<code>app/Admin/bootstrap.php</code>加入以下代码:</p>
+<pre><code class="language-php">use Dcat\Admin\Grid\Column;
+
+// 第二个参数是自定义参数
+Column::extend('color', function ($value, $color) {
+    return &quot;&lt;span style='color: $color'&gt;$value&lt;/span&gt;&quot;;
+});
+</code></pre>
+<p>然后在<code>model-grid</code>中使用这个扩展：</p>
+<pre><code class="language-php">$grid-&gt;title()-&gt;color('#ccc');
+</code></pre>
+<h3 id="_17">扩展类</h3>
+<p>如果列显示逻辑比较复杂，可以通过扩展类来实现。</p>
+<p>扩展类<code>app/Admin/Extensions/Popover.php</code>:</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Admin\Extensions;
+
+use Dcat\Admin\Admin;
+use Dcat\Admin\Grid\Displayers\AbstractDisplayer;
+
+class Popover extends AbstractDisplayer
+{
+    public function display($placement = 'left')
+    {
+        Admin::script(&quot;$('[data-toggle=\&quot;popover\&quot;]').popover()&quot;);
+
+        return &lt;&lt;&lt;EOT
+&lt;button type=&quot;button&quot;
+    class=&quot;btn btn-secondary&quot;
+    title=&quot;popover&quot;
+    data-container=&quot;body&quot;
+    data-toggle=&quot;popover&quot;
+    data-placement=&quot;$placement&quot;
+    data-content=&quot;{$this-&gt;value}&quot;
+    &gt;
+  弹出提示
+&lt;/button&gt;
+EOT;
+
+    }
+}
+</code></pre>
+<p>然后在<code>app/Admin/bootstrap.php</code>注册扩展类：</p>
+<pre><code class="language-php">use Dcat\Admin\Grid\Column;
+use App\Admin\Extensions\Popover;
+
+Column::extend('popover', Popover::class);
+</code></pre>
+<p>然后就能在<code>model-grid</code>中使用了：</p>
+<pre><code class="language-php">$grid-&gt;desciption()-&gt;popover('right');
+</code></pre>
+<h3 id="_18">指定列名</h3>
+<p>出了上述两种方式扩展列功能，我们还可以通过指定列名称的方式扩展列功能</p>
+<p>在<code>app/Admin/bootstrap.php</code>加入以下代码:</p>
+<pre><code class="language-php">use Dcat\Admin\Grid\Column;
+
+// 这个扩展方法等同于
+// $grid-&gt;title()-&gt;display(function ($value) {
+//    return &quot;&lt;span style='color:red'&gt;$value&lt;/span&gt;&quot;
+// });
+Column::define('title', function ($value) {
+    return &quot;&lt;span style='color:red'&gt;$value&lt;/span&gt;&quot;
+});
+
+// 这个扩展方法等同于
+// $grid-&gt;status()-&gt;switch();
+Column::define('status', Dcat\Admin\Grid\Displayers\SwitchDisplay::class);
+</code></pre>
+<p>然后在<code>model-grid</code>中<code>title</code>和<code>status</code>字段会自动使用以上扩展：</p>
+<pre><code class="language-php">$grid-&gt;title();
+$grid-&gt;status();
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

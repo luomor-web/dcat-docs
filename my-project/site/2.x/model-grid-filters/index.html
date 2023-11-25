@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>查询过滤 - My Docs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Welcome to MkDocs</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">2.x <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../" class="dropdown-item">dcat-admin</a>
+</li>
+                                    
+<li>
+    <a href="../1-x-upgrade/" class="dropdown-item">v1.x版本升级指南</a>
+</li>
+                                    
+<li>
+    <a href="../LICENSE/" class="dropdown-item">LICENSE</a>
+</li>
+                                    
+<li>
+    <a href="../action-form/" class="dropdown-item">数据表单动作</a>
+</li>
+                                    
+<li>
+    <a href="../action-grid/" class="dropdown-item">数据表格动作</a>
+</li>
+                                    
+<li>
+    <a href="../action-show/" class="dropdown-item">数据详情动作</a>
+</li>
+                                    
+<li>
+    <a href="../action-tree/" class="dropdown-item">模型树动作</a>
+</li>
+                                    
+<li>
+    <a href="../action/" class="dropdown-item">动作基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../assets/" class="dropdown-item">静态资源加载</a>
+</li>
+                                    
+<li>
+    <a href="../beta-change-log/" class="dropdown-item">BETA版本更新日志</a>
+</li>
+                                    
+<li>
+    <a href="../change-log/" class="dropdown-item">Change log</a>
+</li>
+                                    
+<li>
+    <a href="../custom-authentication/" class="dropdown-item">自定义登陆</a>
+</li>
+                                    
+<li>
+    <a href="../custom-chart/" class="dropdown-item">自定义图表</a>
+</li>
+                                    
+<li>
+    <a href="../custom-navbar/" class="dropdown-item">自定义头部导航条</a>
+</li>
+                                    
+<li>
+    <a href="../custom-page/" class="dropdown-item">视图与自定义页面</a>
+</li>
+                                    
+<li>
+    <a href="../documentation/" class="dropdown-item">Documentation</a>
+</li>
+                                    
+<li>
+    <a href="../extend/" class="dropdown-item">开发扩展</a>
+</li>
+                                    
+<li>
+    <a href="../extension-dev/" class="dropdown-item">开发扩展</a>
+</li>
+                                    
+<li>
+    <a href="../extension-f/" class="dropdown-item">扩展基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../extension-helpers/" class="dropdown-item">开发工具</a>
+</li>
+                                    
+<li>
+    <a href="../extension-theme/" class="dropdown-item">主题开发</a>
+</li>
+                                    
+<li>
+    <a href="../extension-upgrade/" class="dropdown-item">扩展版本与升级</a>
+</li>
+                                    
+<li>
+    <a href="../extensions/" class="dropdown-item">扩展</a>
+</li>
+                                    
+<li>
+    <a href="../function/" class="dropdown-item">帮助函数</a>
+</li>
+                                    
+<li>
+    <a href="../helpers/" class="dropdown-item">开发工具</a>
+</li>
+                                    
+<li>
+    <a href="../installation/" class="dropdown-item">安装</a>
+</li>
+                                    
+<li>
+    <a href="../introduction/" class="dropdown-item">Dcat Admin</a>
+</li>
+                                    
+<li>
+    <a href="../js/" class="dropdown-item">JS组件</a>
+</li>
+                                    
+<li>
+    <a href="../laravel-octane/" class="dropdown-item">Laravel Octane</a>
+</li>
+                                    
+<li>
+    <a href="../lazy/" class="dropdown-item">异步加载基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../menu/" class="dropdown-item">菜单</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-callback/" class="dropdown-item">表单回调</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-data/" class="dropdown-item">表单数据源</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-field-management/" class="dropdown-item">表单字段的管理</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-fields/" class="dropdown-item">表单字段的使用</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-init/" class="dropdown-item">表单初始化</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-layout/" class="dropdown-item">表单布局</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-modal/" class="dropdown-item">表单弹窗</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-step/" class="dropdown-item">分步表单</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-trans/" class="dropdown-item">表单字段翻译</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-upload/" class="dropdown-item">图片/文件上传</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-validation/" class="dropdown-item">表单验证</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-when/" class="dropdown-item">表单字段动态显示</a>
+</li>
+                                    
+<li>
+    <a href="../model-form/" class="dropdown-item">表单基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-actions/" class="dropdown-item">行的使用和扩展</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-async/" class="dropdown-item">表格异步渲染</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-column-display/" class="dropdown-item">列的显示和扩展</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-column-filter/" class="dropdown-item">列过滤器</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-column/" class="dropdown-item">列的基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-combination/" class="dropdown-item">组合表头</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-custom-tools/" class="dropdown-item">工具栏</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-data/" class="dropdown-item">表格数据源</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-editable/" class="dropdown-item">数据表格行内编辑</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-events/" class="dropdown-item">数据表格事件</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-export/" class="dropdown-item">数据导出</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-exporter/" class="dropdown-item">自定义导出</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">查询过滤</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-header/" class="dropdown-item">头部和脚部</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-quick-create/" class="dropdown-item">快捷创建</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-quick-search/" class="dropdown-item">表格快捷搜索</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-relationship/" class="dropdown-item">表格关联关系</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-selector/" class="dropdown-item">表格规格筛选器</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-softdelete/" class="dropdown-item">数据软删除</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-trans/" class="dropdown-item">表格字段翻译</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-tree/" class="dropdown-item">树状表格</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid/" class="dropdown-item">表格基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../model-json/" class="dropdown-item">JSON格式字段处理</a>
+</li>
+                                    
+<li>
+    <a href="../model-relationship/" class="dropdown-item">表单关联关系</a>
+</li>
+                                    
+<li>
+    <a href="../model-repository/" class="dropdown-item">数据仓库</a>
+</li>
+                                    
+<li>
+    <a href="../model-show-extend/" class="dropdown-item">详情字段显示扩展</a>
+</li>
+                                    
+<li>
+    <a href="../model-show-field/" class="dropdown-item">字段显示</a>
+</li>
+                                    
+<li>
+    <a href="../model-show-init/" class="dropdown-item">数据详情初始化</a>
+</li>
+                                    
+<li>
+    <a href="../model-show-relation/" class="dropdown-item">关联关系</a>
+</li>
+                                    
+<li>
+    <a href="../model-show-trans/" class="dropdown-item">数据详情字段翻译</a>
+</li>
+                                    
+<li>
+    <a href="../model-show/" class="dropdown-item">数据详情基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../model-tree/" class="dropdown-item">模型树</a>
+</li>
+                                    
+<li>
+    <a href="../multi-app/" class="dropdown-item">多应用 (多后台)</a>
+</li>
+                                    
+<li>
+    <a href="../notice/" class="dropdown-item">开发前必读</a>
+</li>
+                                    
+<li>
+    <a href="../permission/" class="dropdown-item">权限控制</a>
+</li>
+                                    
+<li>
+    <a href="../qa/" class="dropdown-item">常见问题汇总</a>
+</li>
+                                    
+<li>
+    <a href="../quick-start/" class="dropdown-item">快速开始</a>
+</li>
+                                    
+<li>
+    <a href="../response/" class="dropdown-item">动作以及表单响应</a>
+</li>
+                                    
+<li>
+    <a href="../section/" class="dropdown-item">区块（section）</a>
+</li>
+                                    
+<li>
+    <a href="../theme/" class="dropdown-item">主题与颜色</a>
+</li>
+                                    
+<li>
+    <a href="../trans/" class="dropdown-item">多语言</a>
+</li>
+                                    
+<li>
+    <a href="../update/" class="dropdown-item">版本升级须知</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-alert/" class="dropdown-item">警告框</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-box/" class="dropdown-item">卡片</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-charts/" class="dropdown-item">图表</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-checkbox/" class="dropdown-item">单/复选框</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-data-card/" class="dropdown-item">数据统计卡片</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-dialog-form/" class="dropdown-item">Widgets dialog form</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-dropdown/" class="dropdown-item">下拉菜单</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-form/" class="dropdown-item">工具表单</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-js/" class="dropdown-item">Widgets js</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-markdown/" class="dropdown-item">Markdown</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-modal/" class="dropdown-item">模态窗 (Modal)</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-navbar/" class="dropdown-item">Widgets navbar</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-tab/" class="dropdown-item">选项卡</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-table/" class="dropdown-item">Widgets table</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-tooltip/" class="dropdown-item">提示窗</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../model-grid-exporter/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../model-grid-header/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">查询过滤</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">过滤器布局</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_3" class="nav-link">查询类型</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_4" class="nav-link">表单类型</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_5" class="nav-link">常用方法</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_7" class="nav-link">关联关系字段查询</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_8" class="nav-link">自定义过滤器</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">查询过滤</h1>
+<p><code>model-grid</code>提供了一系列的方法实现表格数据的查询过滤：</p>
+<pre><code class="language-php">// 禁用
+$grid-&gt;disableFilter();
+// 显示
+$grid-&gt;showFilter();
+
+// 禁用过滤器按钮
+$grid-&gt;disableFilterButton();
+// 显示过滤器按钮
+$grid-&gt;showFilterButton();
+
+$grid-&gt;filter(function($filter){
+    // 展开过滤器
+    $filter-&gt;expand();
+
+    // 在这里添加字段过滤器
+    $filter-&gt;equal('id', '产品序列号');
+    $filter-&gt;like('name', 'name');
+    ...
+
+});
+</code></pre>
+<h2 id="_2">过滤器布局</h2>
+<p>默认布局方式为<code>rightSide</code></p>
+<h3 id="rightside">rightSide</h3>
+<pre><code class="language-php">use Dcat\Admin\Grid;
+
+$grid-&gt;filter(function (Grid\Filter $filter) {
+    // 更改为 rightSide 布局
+    $filter-&gt;rightSide();
+
+    ...
+});
+</code></pre>
+<p>效果</p>
+<p><img alt="" src="https://cdn.learnku.com/uploads/images/202004/26/38389/3g9EdvZTQA.png!large" /></p>
+<h3 id="panel">panel</h3>
+<pre><code class="language-php">use Dcat\Admin\Grid;
+
+$grid-&gt;filter(function (Grid\Filter $filter) {
+    // 更改为 panel 布局
+    $filter-&gt;panel();
+
+    // 注意切换为panel布局方式时需要重新调整表单字段的宽度
+    $filter-&gt;equal('id')-&gt;width(3);
+});
+</code></pre>
+<p>效果</p>
+<p><img alt="" src="https://cdn.learnku.com/uploads/images/202004/26/38389/vkPFs0Hnil.png!large" /></p>
+<h3 id="view">自定义布局 (view)</h3>
+<p>如果以上的布局无法满足需求，可以通过<code>view</code>方法自定义过滤器模板</p>
+<pre><code class="language-php">$grid-&gt;filter(function ($filter) {
+    $filter-&gt;view('xxx');
+
+    ...
+});
+</code></pre>
+<p><a name="type"></a></p>
+<h2 id="_3">查询类型</h2>
+<p>目前支持的过滤类型有下面这些:</p>
+<p><a name="equal"></a></p>
+<h3 id="equal">equal</h3>
+<p><code>sql: ... WHERE</code>column<code>= "$input"</code>：</p>
+<pre><code class="language-php">$filter-&gt;equal('column', $label);
+</code></pre>
+<p><a name="nequal"></a></p>
+<h3 id="notequal">notEqual</h3>
+<p><code>sql: ... WHERE</code>column<code>!= "$input"</code>：</p>
+<pre><code class="language-php">$filter-&gt;notEqual('column', $label);
+</code></pre>
+<p><a name="like"></a></p>
+<h3 id="like">like</h3>
+<p><code>sql: ... WHERE</code>column<code>LIKE "%$input%"</code>：</p>
+<pre><code class="language-php">$filter-&gt;like('column', $label);
+</code></pre>
+<h3 id="ilike">ilike</h3>
+<p><code>sql: ... WHERE</code>column<code>ILIKE "%$input%"</code>：</p>
+<pre><code class="language-php">$filter-&gt;ilike('column', $label);
+</code></pre>
+<p><a name="startwith"></a></p>
+<h3 id="startwith">startWith</h3>
+<p><code>sql: ... WHERE</code>column<code>LIKE "$input%"</code>：</p>
+<pre><code class="language-php">$filter-&gt;startWith('column', $label);
+
+// 如果需要使用“ilike”
+$filter-&gt;startWith('column', $label)-&gt;ilike();
+</code></pre>
+<p><a name="endwith"></a></p>
+<h3 id="endwith">endWith</h3>
+<p><code>sql: ... WHERE</code>column<code>LIKE "%$input"</code>：</p>
+<pre><code class="language-php">$filter-&gt;endWith('column', $label);
+
+// 如果需要使用“ilike”
+$filter-&gt;endWith('column', $label)-&gt;ilike();
+</code></pre>
+<p><a name="gt"></a></p>
+<h3 id="gt">gt</h3>
+<p><code>sql: ... WHERE</code>column<code>&gt; "$input"</code>：</p>
+<pre><code class="language-php">$filter-&gt;gt('column', $label);
+</code></pre>
+<p><a name="lt"></a></p>
+<h3 id="lt">lt</h3>
+<p><code>sql: ... WHERE</code>column<code>&lt; "$input"</code>：</p>
+<pre><code class="language-php">$filter-&gt;lt('column', $label);
+</code></pre>
+<p><a name="ngt"></a></p>
+<h3 id="ngt">ngt</h3>
+<p><code>sql: ... WHERE</code>column<code>&lt;= "$input"</code>：</p>
+<pre><code class="language-php">$filter-&gt;ngt('column', $label);
+</code></pre>
+<p><a name="nlt"></a></p>
+<h3 id="nlt">nlt</h3>
+<p><code>sql: ... WHERE</code>column<code>&gt;= "$input"</code>：</p>
+<pre><code class="language-php">$filter-&gt;nlt('column', $label);
+</code></pre>
+<p><a name="between"></a></p>
+<h3 id="between">between</h3>
+<p><code>sql: ... WHERE</code>column<code>BETWEEN "$start" AND "$end"</code>：</p>
+<pre><code class="language-php">$filter-&gt;between('column', $label);
+
+// 设置datetime类型
+$filter-&gt;between('column', $label)-&gt;datetime();
+
+// 设置time类型
+$filter-&gt;between('column', $label)-&gt;time();
+</code></pre>
+<p><a name="in"></a></p>
+<h3 id="in">in</h3>
+<p><code>sql: ... WHERE</code>column<code>in (...$inputs)</code>：</p>
+<pre><code class="language-php">$filter-&gt;in('column', $label)-&gt;multipleSelect(['key' =&gt; 'value']);
+</code></pre>
+<p><a name="notIn"></a></p>
+<h3 id="notin">notIn</h3>
+<p><code>sql: ... WHERE</code>column<code>not in (...$inputs)</code>：</p>
+<pre><code class="language-php">$filter-&gt;notIn('column', $label)-&gt;multipleSelect(['key' =&gt; 'value']);
+</code></pre>
+<p><a name="date"></a></p>
+<h3 id="date">date</h3>
+<p><code>sql: ... WHERE DATE(</code>column<code>) = "$input"</code>：</p>
+<pre><code class="language-php">$filter-&gt;date('column', $label);
+</code></pre>
+<p><a name="day"></a></p>
+<h3 id="day">day</h3>
+<p><code>sql: ... WHERE DAY(</code>column<code>) = "$input"</code>：</p>
+<pre><code class="language-php">$filter-&gt;day('column', $label);
+</code></pre>
+<p><a name="month"></a></p>
+<h3 id="month">month</h3>
+<p><code>sql: ... WHERE MONTH(</code>column<code>) = "$input"</code>：</p>
+<pre><code class="language-php">$filter-&gt;month('column', $label);
+</code></pre>
+<p><a name="year"></a></p>
+<h3 id="year">year</h3>
+<p><code>sql: ... WHERE YEAR(</code>column<code>) = "$input"</code>：</p>
+<pre><code class="language-php">$filter-&gt;year('column', $label);
+</code></pre>
+<p><a name="findinset"></a></p>
+<h3 id="findinset">findInSet</h3>
+<p><code>sql: ... WHERE FIND_IN_SET("$input", $column)</code>：</p>
+<pre><code class="language-php">$filter-&gt;findInSet('column', $label);
+</code></pre>
+<p><a name="where"></a></p>
+<h3 id="where">复杂查询where</h3>
+<p>可以用where来构建比较复杂的查询过滤</p>
+<p><code>sql: ... WHERE</code>title<code>LIKE "%$input" OR</code>content<code>LIKE "%$input"</code>：</p>
+<pre><code class="language-php">$filter-&gt;where('search', function ($query) {
+
+    $query-&gt;where('title', 'like', &quot;%{$this-&gt;input}%&quot;)
+        -&gt;orWhere('content', 'like', &quot;%{$this-&gt;input}%&quot;);
+
+});
+</code></pre>
+<p><code>sql: ... WHERE</code>rate<code>&gt;= 6 AND</code>created_at<code>= {$input}</code>:</p>
+<pre><code class="language-php">$filter-&gt;where('Text', function ($query) {
+
+    $query-&gt;whereRaw(&quot;`rate` &gt;= 6 AND `created_at` = {$this-&gt;input}&quot;);
+
+});
+</code></pre>
+<p>关系查询，查询对应关系<code>profile</code>的字段：</p>
+<pre><code class="language-php">$filter-&gt;where('mobile', function ($query) {
+
+    $query-&gt;whereHas('profile', function ($query) {
+        $query-&gt;where('address', 'like', &quot;%{$this-&gt;input}%&quot;)-&gt;orWhere('email', 'like', &quot;%{$this-&gt;input}%&quot;);
+    });
+
+}, '地址或手机号');
+</code></pre>
+<p><a name="whereBetween"></a></p>
+<h3 id="wherebetween">复杂范围查询whereBetween</h3>
+<p>通过<code>whereBetween</code>可以自定义范围查询</p>
+<pre><code class="language-php">$filter-&gt;whereBetween('created_at', function ($q) {
+    $start = $this-&gt;input['start'] ?? null;
+    $end = $this-&gt;input['end'] ?? null;
+
+    $q-&gt;whereHas('goods', function ($q) use ($start) {
+        if ($start !== null) {
+            $q-&gt;where('price', '&gt;=', $start);
+        }
+
+        if ($end !== null) {
+            $q-&gt;where('price', '&lt;=', $end);
+        }
+    });
+});       
+</code></pre>
+<p>同时这个方法也支持时间日期范围查询</p>
+<pre><code class="language-php">$filter-&gt;whereBetween('created_at', function ($q) {
+    ...
+})-&gt;datetime(); 
+</code></pre>
+<p><a name="group"></a></p>
+<h3 id="group">过滤器组group</h3>
+<p>有时候对同一个字段要设置多种筛选方式，可以通过下面的方式实现</p>
+<pre><code class="language-php">$filter-&gt;group('rate', function ($group) {
+    $group-&gt;gt('大于');
+    $group-&gt;lt('小于');
+    $group-&gt;nlt('不小于');
+    $group-&gt;ngt('不大于');
+    $group-&gt;equal('等于');
+});
+</code></pre>
+<p>有下面的几个方法可以调用</p>
+<pre><code class="language-php">// 等于
+$group-&gt;equal();
+
+// 不等于
+$group-&gt;notEqual();
+
+// 大于
+$group-&gt;gt();
+
+// 小于
+$group-&gt;lt();
+
+// 大于等于
+$group-&gt;nlt();
+
+// 小于等于
+$group-&gt;ngt();
+
+// 匹配
+$group-&gt;match();
+
+// 复杂条件
+$group-&gt;where();
+
+// like查询
+$group-&gt;like();
+
+// like查询
+$group-&gt;contains();
+
+// ilike查询
+$group-&gt;ilike();
+
+// 以输入的内容开头
+$group-&gt;startWith();
+
+// 以输入的内容结尾
+$group-&gt;endWith();
+</code></pre>
+<p><a name="scope"></a></p>
+<h3 id="scope">范围查询scope</h3>
+<p>可以把你最常用的查询定义为一个查询范围，它将会出现在筛选按钮的下拉菜单中，下面是几个例子：</p>
+<pre><code class="language-php">$filter-&gt;scope('male', '男性')-&gt;where('gender', 'm');
+
+// 多条件查询
+$filter-&gt;scope('new', '最近修改')
+    -&gt;whereDate('created_at', date('Y-m-d'))
+    -&gt;orWhere('updated_at', date('Y-m-d'));
+
+// 关联关系查询
+$filter-&gt;scope('address')-&gt;whereHas('profile', function ($query) {
+    $query-&gt;whereNotNull('address');
+});
+
+$filter-&gt;scope('trashed', '被软删除的数据')-&gt;onlyTrashed();
+</code></pre>
+<p>scope方法第一个参数为查询的key, 会出现的url参数中，第二个参数是下拉菜单项的label, 如果不填，第一个参数会作为label显示</p>
+<p>scope方法可以链式调用任何eloquent查询条件，效果参考Demo</p>
+<p><a name="form"></a></p>
+<h2 id="_4">表单类型</h2>
+<p><a name="text"></a></p>
+<h3 id="text">text</h3>
+<p>表单类型默认是<code>text input</code>，可以设置<code>placeholder</code>：</p>
+<pre><code class="language-php">$filter-&gt;equal('column')-&gt;placeholder('请输入。。。');
+</code></pre>
+<p>也可以通过下面的一些方法来限制用户输入格式：</p>
+<pre><code class="language-php">$filter-&gt;equal('column')-&gt;url();
+
+$filter-&gt;equal('column')-&gt;email();
+
+$filter-&gt;equal('column')-&gt;integer();
+
+$filter-&gt;equal('column')-&gt;ip();
+
+$filter-&gt;equal('column')-&gt;mac();
+
+$filter-&gt;equal('column')-&gt;mobile();
+
+// $options 参考 https://github.com/RobinHerbots/Inputmask/blob/4.x/README_numeric.md
+$filter-&gt;equal('column')-&gt;decimal($options = []);
+
+// $options 参考 https://github.com/RobinHerbots/Inputmask/blob/4.x/README_numeric.md
+$filter-&gt;equal('column')-&gt;currency($options = []);
+
+// $options 参考 https://github.com/RobinHerbots/Inputmask/blob/4.x/README_numeric.md
+$filter-&gt;equal('column')-&gt;percentage($options = []);
+
+// $options 参考 https://github.com/RobinHerbots/Inputmask, $icon为input前面的图标
+$filter-&gt;equal('column')-&gt;inputmask($options = [], $icon = 'pencil');
+</code></pre>
+<p><a name="select-table"></a></p>
+<h3 id="selecttable">表格选择器 (selectTable)</h3>
+<pre><code class="language-php">use App\Admin\Renderable\UserTable;
+use Dcat\Admin\Models\Administrator;
+
+$filter-&gt;equal('user_id')
+    -&gt;selectTable(UserTable::make(['id' =&gt; ...])) // 设置渲染类实例，并传递自定义参数
+    -&gt;title('弹窗标题')
+    -&gt;dialogWidth('50%') // 弹窗宽度，默认 800px
+    -&gt;model(Administrator::class, 'id', 'name'); // 设置编辑数据显示
+
+// 上面的代码等同于
+$filter-&gt;equal('user_id')
+    -&gt;selectTable(UserTable::make(['id' =&gt; ...])) // 设置渲染类实例，并传递自定义参数
+    -&gt;options(function ($v) { // 设置编辑数据显示
+        if (! $v) {
+            return [];
+        }
+
+        return Administrator::find($v)-&gt;pluck('name', 'id');
+    });
+</code></pre>
+<p>定义渲染类如下，需要继承<code>Dcat\Admin\Grid\LazyRenderable</code></p>
+<blockquote>
+<p>{tip} 这里使用了数据表格异步加载功能，详细用法请参考<a href="../lazy/">异步加载</a></p>
+</blockquote>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Admin\Renderable;
+
+use Dcat\Admin\Grid;
+use Dcat\Admin\Grid\LazyRenderable;
+use Dcat\Admin\Models\Administrator;
+
+class UserTable extends LazyRenderable
+{
+    public function grid(): Grid
+    {
+        // 获取外部传递的参数
+        $id = $this-&gt;id;
+
+        return Grid::make(new Administrator(), function (Grid $grid) {
+            $grid-&gt;column('id');
+            $grid-&gt;column('username');
+            $grid-&gt;column('name');
+            $grid-&gt;column('created_at');
+            $grid-&gt;column('updated_at');
+
+            // 指定行选择器选中时显示的值的字段名称
+            // 指定行选择器选中时显示的值的字段名称
+            // 指定行选择器选中时显示的值的字段名称
+            // 如果表格数据中带有 “name”、“title”或“username”字段，则可以不用设置
+            $grid-&gt;rowSelector()-&gt;titleColumn('username');
+
+            $grid-&gt;quickSearch(['id', 'username', 'name']);
+
+            $grid-&gt;paginate(10);
+            $grid-&gt;disableActions();
+
+            $grid-&gt;filter(function (Grid\Filter $filter) {
+                $filter-&gt;like('username')-&gt;width(4);
+                $filter-&gt;like('name')-&gt;width(4);
+            });
+        });
+    }
+}
+</code></pre>
+<h4 id="multipleselecttable">多选 (multipleSelectTable)</h4>
+<p>多选的用法与上述<code>selectTable</code>方法一致</p>
+<pre><code class="language-php">$filter-&gt;in('user_id')
+    -&gt;multipleSelectTable(UserTable::make(['id' =&gt; $form-&gt;getKey()])) // 设置渲染类实例，并传递自定义参数
+    -&gt;max(10) // 最多选择 10 个选项，不传则不限制
+    -&gt;model(Administrator::class, 'id', 'name'); // 设置编辑数据显示
+</code></pre>
+<p><a name="select"></a></p>
+<h3 id="select">select</h3>
+<pre><code class="language-php">$filter-&gt;equal('column')-&gt;select(['key' =&gt; 'value'...]);
+
+// 或者从api获取数据，api的格式参考model-form的select组件
+$filter-&gt;equal('column')-&gt;select('api/users');
+</code></pre>
+<p><a name="multipleSelect"></a></p>
+<h3 id="multipleselect">multipleSelect</h3>
+<p>一般用来配合<code>in</code>和<code>notIn</code>两个需要查询数组的查询类型使用，也可以在<code>where</code>类型的查询中使用：</p>
+<pre><code class="language-php">$filter-&gt;in('column')-&gt;multipleSelect(['key' =&gt; 'value'...]);
+
+// 或者从api获取数据，api的格式参考model-form的multipleSelect组件
+$filter-&gt;in('column')-&gt;multipleSelect('api/users');
+</code></pre>
+<p><a name="datetime"></a></p>
+<h3 id="datetime">datetime</h3>
+<p>通过日期时间组件来查询，<code>$options</code>的参数和值参考<a href="http://eonasdan.github.io/bootstrap-datetimepicker/Options/">bootstrap-datetimepicker</a></p>
+<pre><code class="language-php">$filter-&gt;equal('column')-&gt;datetime($options);
+
+// `date()` 相当于 `datetime(['format' =&gt; 'YYYY-MM-DD'])`
+$filter-&gt;equal('column')-&gt;date();
+
+// `time()` 相当于 `datetime(['format' =&gt; 'HH:mm:ss'])`
+$filter-&gt;equal('column')-&gt;time();
+
+// `day()` 相当于 `datetime(['format' =&gt; 'DD'])`
+$filter-&gt;equal('column')-&gt;day();
+
+// `month()` 相当于 `datetime(['format' =&gt; 'MM'])`
+$filter-&gt;equal('column')-&gt;month();
+
+// `year()` 相当于 `datetime(['format' =&gt; 'YYYY'])`
+$filter-&gt;equal('column')-&gt;year();
+
+</code></pre>
+<p>如果你的时间日期字段在数据库中存储的是时间戳类型，那么可以通过<code>toTimestamp</code>方法把表单的值转化为时间戳</p>
+<pre><code class="language-php">$filter-&gt;equal('column')-&gt;datetime($options)-&gt;toTimestamp();
+</code></pre>
+<p><a name="method"></a></p>
+<h2 id="_5">常用方法</h2>
+<p><a name="width"></a></p>
+<h3 id="width">过滤器宽度 (width)</h3>
+<pre><code class="language-php">// 设置为“1-12”之间的值，默认值是“3”
+$filter-&gt;equal('column')-&gt;width(3);
+
+// 也可以写死宽度
+$filter-&gt;equal('column')-&gt;width('250px');
+</code></pre>
+<p><a name="default"></a></p>
+<h3 id="default">设置默认值 (default)</h3>
+<pre><code class="language-php">$filter-&gt;equal('column')-&gt;default('text');
+
+$filter-&gt;equal('column')-&gt;select([0 =&gt; 'PHP', 1 =&gt; 'Java'])-&gt;default(1);
+</code></pre>
+<p><a name="expand"></a></p>
+<h3 id="expand">展开过滤器 (expand)</h3>
+<pre><code class="language-php">$filter-&gt;expand();
+
+$filter-&gt;equal('column');
+...
+</code></pre>
+<p><a name="withoutInputBorder"></a></p>
+<h3 id="input">不显示过滤器input输入框的边框</h3>
+<pre><code class="language-php">$filter-&gt;withoutInputBorder();
+
+$filter-&gt;equal('column');
+...
+</code></pre>
+<p><a name="style"></a></p>
+<h3 id="_6">设置过滤器容器样式</h3>
+<pre><code class="language-php">$filter-&gt;style('padding:0');
+
+$filter-&gt;equal('column');
+...
+</code></pre>
+<p><a name="padding"></a></p>
+<h3 id="padding">设置过滤器容器padding</h3>
+<pre><code class="language-php">$filter-&gt;padding('10px', '10px', '10px', '10px');
+
+$filter-&gt;equal('column');
+...
+</code></pre>
+<h3 id="ignore">忽略筛选项 (ignore)</h3>
+<p>通过<code>ignore</code>方法可以在提交表单时忽略当前筛选项</p>
+<pre><code class="language-php">$filter-&gt;equal('column')-&gt;ignore();
+</code></pre>
+<p><a name="relation"></a></p>
+<h2 id="_7">关联关系字段查询</h2>
+<p>假设你的模型如下</p>
+<pre><code class="language-php">class User extends Model
+{
+    public function profile()
+    {
+        return $this-&gt;hasOne(...);
+    }
+
+    public function myPosts()
+    {
+        return $this-&gt;hasMany(...);
+    }
+}
+</code></pre>
+<p>通过下面的方法可以查询<code>profiles</code>表的<code>first_name</code>字段以及<code>posts</code>表的<code>title</code>字段</p>
+<pre><code class="language-php">$grid-&gt;filter(function ($filter) {
+    $filter-&gt;like('profile.first_name');
+
+    $filter-&gt;like('myPosts.title');
+});
+</code></pre>
+<p>如果安装了 <a href="https://github.com/jqhph/laravel-wherehasin">dcat/laravel-wherehasin</a>，则会优先使用<code>whereHasIn</code>方法进行查询操作</p>
+<p><a name="extend"></a></p>
+<h2 id="_8">自定义过滤器</h2>
+<p>下面通过<code>between</code>的实现来讲解下怎么自定义过滤器。</p>
+<p>首先新建一个过滤器类继承<code>Dcat\Admin\Grid\Filter\AbstractFilter</code>：</p>
+<pre><code class="language-php">&lt;?php
+
+namespace Dcat\Admin\Grid\Filter;
+
+use Dcat\Admin\Admin;
+use Dcat\Admin\Grid\Filter\Presenter\DateTime;
+use Illuminate\Support\Arr;
+
+class Between extends AbstractFilter
+{
+    // 自定义你的过滤器显示模板
+    protected $view = 'admin::filter.between';
+
+    // 这个方法用于生成过滤器字段的唯一id
+    // 通过这个唯一id则可以用js代码对其进行操作
+    public function formatId($column)
+    {
+       $id   = str_replace('.', '_', $column);
+       $name = $this-&gt;parent-&gt;getGrid()-&gt;getName();
+
+       return ['start' =&gt; &quot;{$name}{$id}_start&quot;, 'end' =&gt; &quot;{$name}{$id}_end&quot;];
+    }
+
+    // form表单name属性格式化
+    protected function formatName($column)
+    {
+        $columns = explode('.', $column);
+
+        if (count($columns) == 1) {
+            $name = $columns[0];
+        } else {
+            $name = array_shift($columns);
+
+            foreach ($columns as $column) {
+                $name .= &quot;[$column]&quot;;
+            }
+        }
+
+        return ['start' =&gt; &quot;{$name}[start]&quot;, 'end' =&gt; &quot;{$name}[end]&quot;];
+    }
+
+    // 创建条件
+    // 这里构建的条件支持`Laravel query builder`即可。
+    public function condition($inputs)
+    {
+        if (!Arr::has($inputs, $this-&gt;column)) {
+            return;
+        }
+
+        $this-&gt;value = Arr::get($inputs, $this-&gt;column);
+
+        $value = array_filter($this-&gt;value, function ($val) {
+            return $val !== '';
+        });
+
+        if (empty($value)) {
+            return;
+        }
+
+        if (!isset($value['start']) &amp;&amp; isset($value['end'])) {
+            // 这里返回的数组相当于
+            // $query-&gt;where($this-&gt;column, '&lt;=', $value['end']);
+            return $this-&gt;buildCondition($this-&gt;column, '&lt;=', $value['end']);
+        }
+
+        if (!isset($value['end']) &amp;&amp; isset($value['start'])) {
+            // 这里返回的数组相当于
+            // $query-&gt;where($this-&gt;column, '&gt;=', $value['end']);
+            return $this-&gt;buildCondition($this-&gt;column, '&gt;=', $value['start']);
+        }
+
+        $this-&gt;query = 'whereBetween';
+
+        // 这里返回的数组相当于
+        // $query-&gt;whereBetween($this-&gt;column, $value['end']);
+        return $this-&gt;buildCondition($this-&gt;column, $this-&gt;value);
+    }
+
+    // 自定义过滤器表单显示方式
+    public function datetime($options = [])
+    {
+        $this-&gt;view = 'admin::filter.betweenDatetime';
+
+        DateTime::collectAssets();
+
+        $this-&gt;setupDatetime($options);
+
+        return $this;
+    }
+
+    protected function setupDatetime($options = [])
+    {
+        $options['format'] = Arr::get($options, 'format', 'YYYY-MM-DD HH:mm:ss');
+        $options['locale'] = Arr::get($options, 'locale', config('app.locale'));
+
+        $startOptions = json_encode($options);
+        $endOptions = json_encode($options + ['useCurrent' =&gt; false]);
+
+        // 通过上面格式化后的id对表单进行你想要的操作
+        $script = &lt;&lt;&lt;JS
+            $('#{$this-&gt;id['start']}').datetimepicker($startOptions);
+            $('#{$this-&gt;id['end']}').datetimepicker($endOptions);
+            $(&quot;#{$this-&gt;id['start']}&quot;).on(&quot;dp.change&quot;, function (e) {
+                $('#{$this-&gt;id['end']}').data(&quot;DateTimePicker&quot;).minDate(e.date);
+            });
+            $(&quot;#{$this-&gt;id['end']}&quot;).on(&quot;dp.change&quot;, function (e) {
+                $('#{$this-&gt;id['start']}').data(&quot;DateTimePicker&quot;).maxDate(e.date);
+            });
+JS;
+
+        Admin::script($script);
+    }
+}
+</code></pre>
+<p><code>admin::filter.between</code>模板内容如下：</p>
+<pre><code class="language-php">&lt;div class=&quot;filter-input col-sm-{{ $width }} &quot;  style=&quot;{!! $style !!}&quot;&gt;
+    &lt;div class=&quot;form-group&quot; &gt;
+        &lt;div class=&quot;input-group input-group-sm&quot;&gt;
+            &lt;span class=&quot;input-group-addon&quot;&gt;&lt;b&gt;{!! $label !!}&lt;/b&gt;&lt;/span&gt;
+            &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;{{$label}}&quot; name=&quot;{{$name['start']}}&quot; value=&quot;{{ request($name['start'], \Illuminate\Support\Arr::get($value, 'start')) }}&quot;&gt;
+            &lt;span class=&quot;input-group-addon&quot; style=&quot;border-left: 0; border-right: 0;&quot;&gt;To&lt;/span&gt;
+            &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;{{$label}}&quot; name=&quot;{{$name['end']}}&quot; value=&quot;{{ request($name['end'], \Illuminate\Support\Arr::get($value, 'end')) }}&quot;&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><code>admin::filter.betweenDatetime</code>模板内容如下：</p>
+<pre><code class="language-php">&lt;div class=&quot;filter-input col-sm-{{ $width }}&quot;  style=&quot;{!! $style !!}&quot;&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;div class=&quot;input-group input-group-sm&quot;&gt;
+            &lt;span class=&quot;input-group-addon&quot;&gt;&lt;b&gt;{{$label}}&lt;/b&gt;  &amp;nbsp;&lt;i class=&quot;fa fa-calendar&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+            &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;{{$id['start']}}&quot; placeholder=&quot;{{$label}}&quot; name=&quot;{{$name['start']}}&quot; value=&quot;{{ request($name['start'], \Illuminate\Support\Arr::get($value, 'start')) }}&quot;&gt;
+            &lt;span class=&quot;input-group-addon&quot; style=&quot;border-left: 0; border-right: 0;&quot;&gt;To&lt;/span&gt;
+            &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;{{$id['end']}}&quot; placeholder=&quot;{{$label}}&quot; name=&quot;{{$name['end']}}&quot; value=&quot;{{ request($name['end'], \Illuminate\Support\Arr::get($value, 'end')) }}&quot;&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>现在只要调用<code>extend</code>方法可以使用了，打开<code>app/Admin/bootstrap.php</code>，加入以下代码：</p>
+<pre><code class="language-php">Filter::extend('customBetween', Filter\Between::class);
+</code></pre>
+<p>使用：</p>
+<pre><code class="language-php">$filter-&gt;customBetween('created_at')-&gt;datetime();
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

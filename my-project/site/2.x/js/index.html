@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>JS组件 - My Docs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Welcome to MkDocs</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">2.x <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../" class="dropdown-item">dcat-admin</a>
+</li>
+                                    
+<li>
+    <a href="../1-x-upgrade/" class="dropdown-item">v1.x版本升级指南</a>
+</li>
+                                    
+<li>
+    <a href="../LICENSE/" class="dropdown-item">LICENSE</a>
+</li>
+                                    
+<li>
+    <a href="../action-form/" class="dropdown-item">数据表单动作</a>
+</li>
+                                    
+<li>
+    <a href="../action-grid/" class="dropdown-item">数据表格动作</a>
+</li>
+                                    
+<li>
+    <a href="../action-show/" class="dropdown-item">数据详情动作</a>
+</li>
+                                    
+<li>
+    <a href="../action-tree/" class="dropdown-item">模型树动作</a>
+</li>
+                                    
+<li>
+    <a href="../action/" class="dropdown-item">动作基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../assets/" class="dropdown-item">静态资源加载</a>
+</li>
+                                    
+<li>
+    <a href="../beta-change-log/" class="dropdown-item">BETA版本更新日志</a>
+</li>
+                                    
+<li>
+    <a href="../change-log/" class="dropdown-item">Change log</a>
+</li>
+                                    
+<li>
+    <a href="../custom-authentication/" class="dropdown-item">自定义登陆</a>
+</li>
+                                    
+<li>
+    <a href="../custom-chart/" class="dropdown-item">自定义图表</a>
+</li>
+                                    
+<li>
+    <a href="../custom-navbar/" class="dropdown-item">自定义头部导航条</a>
+</li>
+                                    
+<li>
+    <a href="../custom-page/" class="dropdown-item">视图与自定义页面</a>
+</li>
+                                    
+<li>
+    <a href="../documentation/" class="dropdown-item">Documentation</a>
+</li>
+                                    
+<li>
+    <a href="../extend/" class="dropdown-item">开发扩展</a>
+</li>
+                                    
+<li>
+    <a href="../extension-dev/" class="dropdown-item">开发扩展</a>
+</li>
+                                    
+<li>
+    <a href="../extension-f/" class="dropdown-item">扩展基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../extension-helpers/" class="dropdown-item">开发工具</a>
+</li>
+                                    
+<li>
+    <a href="../extension-theme/" class="dropdown-item">主题开发</a>
+</li>
+                                    
+<li>
+    <a href="../extension-upgrade/" class="dropdown-item">扩展版本与升级</a>
+</li>
+                                    
+<li>
+    <a href="../extensions/" class="dropdown-item">扩展</a>
+</li>
+                                    
+<li>
+    <a href="../function/" class="dropdown-item">帮助函数</a>
+</li>
+                                    
+<li>
+    <a href="../helpers/" class="dropdown-item">开发工具</a>
+</li>
+                                    
+<li>
+    <a href="../installation/" class="dropdown-item">安装</a>
+</li>
+                                    
+<li>
+    <a href="../introduction/" class="dropdown-item">Dcat Admin</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">JS组件</a>
+</li>
+                                    
+<li>
+    <a href="../laravel-octane/" class="dropdown-item">Laravel Octane</a>
+</li>
+                                    
+<li>
+    <a href="../lazy/" class="dropdown-item">异步加载基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../menu/" class="dropdown-item">菜单</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-callback/" class="dropdown-item">表单回调</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-data/" class="dropdown-item">表单数据源</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-field-management/" class="dropdown-item">表单字段的管理</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-fields/" class="dropdown-item">表单字段的使用</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-init/" class="dropdown-item">表单初始化</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-layout/" class="dropdown-item">表单布局</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-modal/" class="dropdown-item">表单弹窗</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-step/" class="dropdown-item">分步表单</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-trans/" class="dropdown-item">表单字段翻译</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-upload/" class="dropdown-item">图片/文件上传</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-validation/" class="dropdown-item">表单验证</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-when/" class="dropdown-item">表单字段动态显示</a>
+</li>
+                                    
+<li>
+    <a href="../model-form/" class="dropdown-item">表单基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-actions/" class="dropdown-item">行的使用和扩展</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-async/" class="dropdown-item">表格异步渲染</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-column-display/" class="dropdown-item">列的显示和扩展</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-column-filter/" class="dropdown-item">列过滤器</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-column/" class="dropdown-item">列的基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-combination/" class="dropdown-item">组合表头</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-custom-tools/" class="dropdown-item">工具栏</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-data/" class="dropdown-item">表格数据源</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-editable/" class="dropdown-item">数据表格行内编辑</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-events/" class="dropdown-item">数据表格事件</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-export/" class="dropdown-item">数据导出</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-exporter/" class="dropdown-item">自定义导出</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-filters/" class="dropdown-item">查询过滤</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-header/" class="dropdown-item">头部和脚部</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-quick-create/" class="dropdown-item">快捷创建</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-quick-search/" class="dropdown-item">表格快捷搜索</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-relationship/" class="dropdown-item">表格关联关系</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-selector/" class="dropdown-item">表格规格筛选器</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-softdelete/" class="dropdown-item">数据软删除</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-trans/" class="dropdown-item">表格字段翻译</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-tree/" class="dropdown-item">树状表格</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid/" class="dropdown-item">表格基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../model-json/" class="dropdown-item">JSON格式字段处理</a>
+</li>
+                                    
+<li>
+    <a href="../model-relationship/" class="dropdown-item">表单关联关系</a>
+</li>
+                                    
+<li>
+    <a href="../model-repository/" class="dropdown-item">数据仓库</a>
+</li>
+                                    
+<li>
+    <a href="../model-show-extend/" class="dropdown-item">详情字段显示扩展</a>
+</li>
+                                    
+<li>
+    <a href="../model-show-field/" class="dropdown-item">字段显示</a>
+</li>
+                                    
+<li>
+    <a href="../model-show-init/" class="dropdown-item">数据详情初始化</a>
+</li>
+                                    
+<li>
+    <a href="../model-show-relation/" class="dropdown-item">关联关系</a>
+</li>
+                                    
+<li>
+    <a href="../model-show-trans/" class="dropdown-item">数据详情字段翻译</a>
+</li>
+                                    
+<li>
+    <a href="../model-show/" class="dropdown-item">数据详情基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../model-tree/" class="dropdown-item">模型树</a>
+</li>
+                                    
+<li>
+    <a href="../multi-app/" class="dropdown-item">多应用 (多后台)</a>
+</li>
+                                    
+<li>
+    <a href="../notice/" class="dropdown-item">开发前必读</a>
+</li>
+                                    
+<li>
+    <a href="../permission/" class="dropdown-item">权限控制</a>
+</li>
+                                    
+<li>
+    <a href="../qa/" class="dropdown-item">常见问题汇总</a>
+</li>
+                                    
+<li>
+    <a href="../quick-start/" class="dropdown-item">快速开始</a>
+</li>
+                                    
+<li>
+    <a href="../response/" class="dropdown-item">动作以及表单响应</a>
+</li>
+                                    
+<li>
+    <a href="../section/" class="dropdown-item">区块（section）</a>
+</li>
+                                    
+<li>
+    <a href="../theme/" class="dropdown-item">主题与颜色</a>
+</li>
+                                    
+<li>
+    <a href="../trans/" class="dropdown-item">多语言</a>
+</li>
+                                    
+<li>
+    <a href="../update/" class="dropdown-item">版本升级须知</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-alert/" class="dropdown-item">警告框</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-box/" class="dropdown-item">卡片</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-charts/" class="dropdown-item">图表</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-checkbox/" class="dropdown-item">单/复选框</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-data-card/" class="dropdown-item">数据统计卡片</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-dialog-form/" class="dropdown-item">Widgets dialog form</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-dropdown/" class="dropdown-item">下拉菜单</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-form/" class="dropdown-item">工具表单</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-js/" class="dropdown-item">Widgets js</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-markdown/" class="dropdown-item">Markdown</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-modal/" class="dropdown-item">模态窗 (Modal)</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-navbar/" class="dropdown-item">Widgets navbar</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-tab/" class="dropdown-item">选项卡</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-table/" class="dropdown-item">Widgets table</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-tooltip/" class="dropdown-item">提示窗</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../introduction/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../laravel-octane/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#js" class="nav-link">JS组件</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#js-ready" class="nav-link">监听JS脚本加载完毕事件 (ready)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#init" class="nav-link">动态监听元素生成 (init)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#js_1" class="nav-link">手动触发JS脚本加载完毕事件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#pjax" class="nav-link">Pjax刷新页面</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#toastr" class="nav-link">Toastr提示框</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#sweetalert2" class="nav-link">sweetalert2弹窗</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#layer" class="nav-link">layer弹出层</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#loading" class="nav-link">Loading效果</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#ajax" class="nav-link">Ajax表单提交</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="js">JS组件</h1>
+<p><code>Dcat Admin</code>内置了一些常用的JS功能组件，通过全局变量<code>Dcat</code>可以访问到这些功能方法。</p>
+<h2 id="js-ready">监听JS脚本加载完毕事件 (ready)</h2>
+<p>通过<code>Dcat.ready</code>方法设置的回调函数会在所有的<code>JS</code>脚本都加载完毕后执行。</p>
+<blockquote>
+<p>{tip} 只有在模板文件中写<code>JS</code>代码才需要使用<code>Dcat.ready</code>，当在<code>php</code>代码中使用<code>Dcat\Admin\Admin::script</code>方法添加<code>JS</code>代码时是不需要使用<code>Dcat.ready</code>方法的。因为在构建页面的时候系统会自动把代码放在<code>Dcat.ready</code>事件内执行。</p>
+</blockquote>
+<pre><code class="language-html">&lt;div&gt;...&lt;/div&gt;
+&lt;script&gt;
+Dcat.ready(function () {
+    // 写你的逻辑
+
+    console.log('所有JS脚本都加载完了');
+});
+&lt;/script&gt;
+</code></pre>
+<p><a name="init"></a></p>
+<h2 id="init">动态监听元素生成 (init)</h2>
+<p>通过<code>Dcat.init</code>可以监听动态生成的页面元素并设置一个回调，下面来举一个简单的例子来演示用法：</p>
+<p>假如一个元素是<code>JS</code>动态生成的，如果我们需要对这个元素绑定一个点击事件的话，那么我们通常需要这么做</p>
+<pre><code class="language-html">&lt;div class=&quot;selector&quot;&gt;test&lt;/div&gt;
+
+&lt;script&gt;
+Dcat.ready(function () {
+    // 需要先 off 再 on 否则页面刷新后会造成重复绑定问题
+    $(document).off('click', '.selector').on('click', '.selector', function () {
+        ...
+    })
+});
+&lt;/script&gt;
+</code></pre>
+<p>上面这种做法一来比较麻烦，需要先<code>off</code>再<code>on</code>；二来无法对动态生成的元素做一些特殊处理，例如你想在<code>.selector</code>生成后改变背景颜色，这个操作就没办法做到。</p>
+<p>在<code>Dcat Admin</code>中我们可以使用<code>Dcat.init</code>方法来监听元素动态生成，可以很方便的解决上面两个问题</p>
+<pre><code class="language-html">&lt;div class=&quot;selector&quot;&gt;test&lt;/div&gt;
+
+&lt;script&gt;
+Dcat.ready(function () {
+    // $this 是当前元素的jquery dom对象
+    // id 是当前元素的id属性，如果当前元素没有id则会自动生成一个随机id
+    Dcat.init('.selector', function ($this, id) {
+        // 修改元素的背景色
+        $this.css({background: &quot;#fff&quot;});
+
+        // 这里不需要 off 再重新 on，因为这个匿名函数只会执行一次
+        $this.on('click', function () {
+            ...
+        });
+    });
+});
+&lt;/script&gt;
+</code></pre>
+<p><code>Dcat.init</code> 接受两个参数</p>
+<ol>
+<li><code>selector</code> 需要监听的元素的<code>css选择器</code></li>
+<li><code>callback</code> 事件回调，当元素生成时触发，且只触发一次</li>
+</ol>
+<p>其中<code>callback</code>回调接收两个参数如下</p>
+<ul>
+<li><code>$this</code> 是当前元素的jquery dom对象</li>
+<li><code>id</code> 是当前元素的id属性，如果当前元素没有id则会自动生成一个随机id</li>
+</ul>
+<h2 id="js_1">手动触发JS脚本加载完毕事件</h2>
+<p>通过<code>Dcat.triggerReady</code>方法可以手动触发<code>JS</code>脚本加载完毕事件，这就意味着会自动执行在此之前所有通过<code>Dcat.ready</code>方法设置的回调函数。</p>
+<blockquote>
+<p>{tip} 这个功能普通开发很少会用到，只有一些比较深度的组件定制会用到，比如<a href="../model-form-modal/">表单弹窗</a>功能就用到了此方法。</p>
+</blockquote>
+<pre><code class="language-js">Dcat.triggerReady();
+</code></pre>
+<h2 id="pjax">Pjax刷新页面</h2>
+<p>通过<code>Dcat.reload</code>方法可以调用<code>Pjax.reload</code>方法实现页面刷新和跳转功能。</p>
+<p>刷新当前页面</p>
+<pre><code class="language-php">Admin::script(
+&lt;&lt;&lt;JS
+    // 3秒后刷新当前页面
+    setTimeout(function () {
+        Dcat.reload();
+    }, 3000);
+JS
+);
+</code></pre>
+<p>跳转页面</p>
+<pre><code class="language-php">$url = admin_url('auth/users');
+
+Admin::script(
+&lt;&lt;&lt;JS
+    // 3秒后跳转到 admin/auth/users 页面
+    setTimeout(function () {
+        Dcat.reload('{$url}');
+    }, 3000);
+JS
+);
+</code></pre>
+<h2 id="toastr">Toastr提示框</h2>
+<p><code>Dcat Admin</code>集成了<a href="https://github.com/CodeSeven/toastr">Toastr</a>插件，下面是使用方法</p>
+<h3 id="success">success</h3>
+<pre><code class="language-js">Dcat.success('更新成功');
+
+// 使用标题
+Dcat.success('更新成功', '我是标题');
+
+// 传递参数
+Dcat.success('更新成功', null, {
+    timeOut: 5000, // 5秒后自动消失
+});
+</code></pre>
+<p><img alt="" src="https://cdn.learnku.com/uploads/images/202004/26/38389/zmB4EPhS3u.png!large" /></p>
+<h3 id="error">error</h3>
+<pre><code class="language-js">Dcat.error('服务器出现未知错误');
+
+// 使用标题
+Dcat.error('服务器出现未知错误', '我是标题');
+
+// 传递参数
+Dcat.error('服务器出现未知错误', null, {
+    timeOut: 5000, // 5秒后自动消失
+});
+</code></pre>
+<h3 id="warning">warning</h3>
+<pre><code class="language-js">Dcat.warning('警告');
+
+// 使用标题
+Dcat.warning('警告', '我是标题');
+
+// 传递参数
+Dcat.warning('警告', null, {
+    timeOut: 5000, // 5秒后自动消失
+});
+</code></pre>
+<h3 id="info">info</h3>
+<pre><code class="language-js">Dcat.info('提示信息');
+
+// 使用标题
+Dcat.info('提示信息', '我是标题');
+
+// 传递参数
+Dcat.info('提示信息', null, {
+    timeOut: 5000, // 5秒后自动消失
+});
+</code></pre>
+<p>更多用法请参考<a href="https://github.com/CodeSeven/toastr">toastr官方文档</a></p>
+<h2 id="sweetalert2">sweetalert2弹窗</h2>
+<p><code>Dcat Admin</code>集成了<a href="https://github.com/sweetalert2/sweetalert2">sweetalert2</a>插件，下面是使用方法</p>
+<h3 id="confirm">confirm</h3>
+<p>通过<code>Dcat.confirm</code>方法可以弹出确认弹窗，此方法接收5个参数</p>
+<ul>
+<li><code>title</code> <code>string</code> 确认信息标题</li>
+<li><code>message</code> <code>string</code> 确认信息内容，此参数可以不传</li>
+<li><code>success</code> <code>function</code> 点击确认按钮触发的回调函数</li>
+<li><code>fail</code> <code>function</code> 点击取消按钮触发的回调函数，此参数可以不传</li>
+<li><code>options</code> <code>object</code> 配置参数，可参考<a href="https://github.com/sweetalert2/sweetalert2">sweetalert2官方文档</a></li>
+</ul>
+<pre><code class="language-js">Dcat.confirm('确认要删除这行数据吗？', null, function () {
+    console.log('确认删除');
+
+    $.post(...);
+});
+</code></pre>
+<p><img alt="" src="https://cdn.learnku.com/uploads/images/202004/26/38389/lp40C74OtV.png!large" /></p>
+<h3 id="success_1">success</h3>
+<pre><code class="language-js">Dcat.swal.success('标题');
+
+Dcat.swal.success('标题', '内容');
+
+Dcat.swal.success('标题', '内容', {
+    ...
+});
+</code></pre>
+<p><img alt="" src="https://cdn.learnku.com/uploads/images/202004/26/38389/OrhZ4dvA5R.png!large" /></p>
+<h3 id="error_1">error</h3>
+<pre><code class="language-js">Dcat.swal.error('标题');
+
+Dcat.swal.error('标题', '内容');
+
+Dcat.swal.error('标题', '内容', {
+    ...
+});
+</code></pre>
+<p><img alt="" src="https://cdn.learnku.com/uploads/images/202004/26/38389/lnp47PDecK.png!large" /></p>
+<h3 id="warning_1">warning</h3>
+<pre><code class="language-js">Dcat.swal.warning('标题');
+
+Dcat.swal.warning('标题', '内容');
+
+Dcat.swal.warning('标题', '内容', {
+    ...
+});
+</code></pre>
+<h3 id="info_1">info</h3>
+<pre><code class="language-js">Dcat.swal.info('标题');
+
+Dcat.swal.info('标题', '内容');
+
+Dcat.swal.info('标题', '内容', {
+    ...
+});
+</code></pre>
+<p>更多用法请参考<a href="https://github.com/sweetalert2/sweetalert2">sweetalert2官方文档</a></p>
+<h2 id="layer">layer弹出层</h2>
+<p><code>Dcat Admin</code>集成了<a href="http://layer.layui.com/">layer弹出层</a>，用法请参考官方文档</p>
+<pre><code class="language-js">layer.open({
+    ...
+})
+</code></pre>
+<h2 id="loading">Loading效果</h2>
+<p><code>Dcat Admin</code>集成了三种常见的loading效果，<a href="http://103.39.211.179:8080/admin/components/loading">在线体验点我</a></p>
+<h3 id="_1">全屏</h3>
+<p>通过<code>Dcat.loading</code>方法可以设置一个占满全屏幕的遮罩层，并在中间位置显示<code>loading</code>图标。</p>
+<p>此方法接收一个<code>object</code>类型的参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>zIndex</td>
+<td><code>int</code></td>
+<td>999991014</td>
+<td>设置css的z-index(层重叠顺序)样式</td>
+</tr>
+<tr>
+<td>width</td>
+<td><code>string</code></td>
+<td>58px</td>
+<td>设置loading图标宽度</td>
+</tr>
+<tr>
+<td>color</td>
+<td><code>string</code></td>
+<td>#bacad6</td>
+<td>设置loading图标的颜色</td>
+</tr>
+<tr>
+<td>background</td>
+<td><code>string</code></td>
+<td>transparent</td>
+<td>设置遮罩层背景颜色</td>
+</tr>
+<tr>
+<td>style</td>
+<td><code>string</code></td>
+<td></td>
+<td>设置loading图标的css样式</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-js">// 开启loading效果
+Dcat.loading();
+
+// 3秒后自动移除loading效果
+setTimeout(function () {
+    Dcat.loading(false);
+})
+</code></pre>
+<p>效果</p>
+<p><img alt="" src="https://cdn.learnku.com/uploads/images/202004/26/38389/FIWAUFg1qn.png!large" /></p>
+<p>更改loading图标的颜色</p>
+<pre><code class="language-js">// 更改颜色
+Dcat.loading({
+    color: Dcat.color.primary,
+});
+</code></pre>
+<p><img alt="" src="https://cdn.learnku.com/uploads/images/202004/26/38389/WPIC4wwq5Q.png!large" /></p>
+<h3 id="_2">附着于指定元素</h3>
+<p>通过<code>$.fn.loading</code>方法可以把loading效果附着于当前元素，此方法同样接收一个<code>object</code>类型参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>zIndex</td>
+<td><code>int</code></td>
+<td>100</td>
+<td>设置css的z-index(层重叠顺序)样式</td>
+</tr>
+<tr>
+<td>width</td>
+<td><code>string</code></td>
+<td>52px</td>
+<td>设置loading图标宽度</td>
+</tr>
+<tr>
+<td>color</td>
+<td><code>string</code></td>
+<td>#bacad6</td>
+<td>设置loading图标的颜色</td>
+</tr>
+<tr>
+<td>background</td>
+<td><code>string</code></td>
+<td>#fff</td>
+<td>设置遮罩层背景颜色</td>
+</tr>
+<tr>
+<td>style</td>
+<td><code>string</code></td>
+<td></td>
+<td>设置loading图标的css样式</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-js">// 开启loading效果
+$('#card').loading();
+
+// 关闭loading效果
+$('#card').loading(false);
+
+// 更改loading图标颜色
+$('#card').loading({
+    color: Dcat.color.primary,
+});
+
+// 更改遮罩层颜色
+$('#card').loading({
+    background: '#f3f3f3',
+});
+</code></pre>
+<p>效果</p>
+<p><img alt="" src="https://cdn.learnku.com/uploads/images/202004/26/38389/ziHL5feEAV.png!large" /></p>
+<h3 id="_3">按钮</h3>
+<pre><code class="language-js">// 开启loading效果
+$('#submit-button').buttonLoading();
+
+// 关闭loading效果
+$('#submit-button').buttonLoading(false);
+</code></pre>
+<p>效果
+<img alt="" src="https://cdn.learnku.com/uploads/images/202004/26/38389/rNMFWAHPqJ.png!large" /></p>
+<h3 id="a">a标签</h3>
+<p>点击<code>a</code>标签同样支持loading效果</p>
+<pre><code class="language-js">// 开启loading效果
+$('a').buttonLoading();
+
+// 关闭loading效果
+$('a').buttonLoading(false);
+</code></pre>
+<p>效果
+<img alt="" src="https://cdn.learnku.com/uploads/images/202004/26/38389/IE8kGdupKW.png!large" /></p>
+<h2 id="ajax">Ajax表单提交</h2>
+<p><code>Dcat Admin</code>集成了<a href="https://github.com/jquery-form/form">jquery-form</a>组件用于实现<code>ajax</code>提交表单功能。</p>
+<p>通过<code>Dcat.Form</code>方法可以当即发起<code>ajax</code>提交表单请求，此方法接受一个<code>object</code>类型参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>form</td>
+<td><code>string</code></td>
+<td><code>object</code></td>
+<td>表单的 jquery 对象或者css选择器</td>
+</tr>
+<tr>
+<td>validate</td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>是否开启表单验证，可参考<a href="#validate">表单验证</a></td>
+</tr>
+<tr>
+<td>errorClass</td>
+<td><code>string</code></td>
+<td>has-error</td>
+<td>字段验证出错时添加的样式，一般使用默认值即可</td>
+</tr>
+<tr>
+<td>errorContainerSelector</td>
+<td><code>string</code></td>
+<td>.with-errors</td>
+<td>表单错误信息容器css选择器，一般使用默认值即可</td>
+</tr>
+<tr>
+<td>groupSelector</td>
+<td><code>string</code></td>
+<td>.form-group,.form-label-group,.form-field</td>
+<td>表单组css选择器，一般使用默认值即可</td>
+</tr>
+<tr>
+<td>errorTemplate</td>
+<td><code>string</code></td>
+<td></td>
+<td>错误信息模板，使用默认值即可</td>
+</tr>
+<tr>
+<td>autoRedirect</td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>保存成功后自动跳转</td>
+</tr>
+<tr>
+<td>autoRemoveError</td>
+<td><code>bool</code></td>
+<td>true</td>
+<td>当表单值发生变化时自动移除表单错误信息</td>
+</tr>
+<tr>
+<td>before</td>
+<td><code>function</code></td>
+<td></td>
+<td>表单提交之前事件，返回<code>false</code>可以阻止表单继续提交</td>
+</tr>
+<tr>
+<td>after</td>
+<td><code>function</code></td>
+<td></td>
+<td>单提交之后事件(不论成功还是失败都会触发)，返回<code>false</code>可以中止后续逻辑</td>
+</tr>
+<tr>
+<td>success</td>
+<td><code>function</code></td>
+<td></td>
+<td>成功事件（接口返回状态码为<code>200</code>则判断为成功），返回<code>false</code>可以中止后续逻辑</td>
+</tr>
+<tr>
+<td>error</td>
+<td><code>function</code></td>
+<td></td>
+<td>失败事件（接口返回状态码非<code>200</code>则判断为失败），返回<code>false</code>可以中止后续逻辑</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_4">基本用法</h3>
+<pre><code class="language-html">&lt;script&gt;
+Dcat.ready(function () {
+    // ajax表单提交
+    $('#login-form').form({
+        validate: true, //开启表单验证
+        before: function (fields, form, opt) {
+            // fields 为表单内容
+            console.log('所有表单字段的值', fields);
+
+            if (...) {
+                // 返回 false 可以阻止表单继续提交
+                return false;
+            }
+        },
+        success: function (response) {
+            // data 为接口返回数据
+            if (! response.status) {
+                Dcat.error(response.data.message);
+
+                return false;
+            }
+
+            Dcat.success(response.data.message);
+
+            if (data.redirect) {
+                Dcat.reload(response.data.value)
+            }
+
+            // 中止后续逻辑（默认逻辑）
+            return false;
+        },
+        error: function (response) {
+            // 当提交表单失败的时候会有默认的处理方法，通常使用默认的方式处理即可
+            var errorData = JSON.parse(response.responseText);
+
+            if (errorData) {
+                Dcat.error(errorData.message);
+            } else {
+                console.log('提交出错', response.responseText);
+            }
+
+            // 终止后续逻辑执行
+            return false;
+        },
+    });
+});
+&lt;/script&gt;
+</code></pre>
+<h3 id="_5">高阶用法</h3>
+<p>如果你想要实现更细粒度的控制，可以通过类似下面这种方式自己绑定提交按钮，然后提交表单</p>
+<pre><code class="language-js">var $form = $('#login-form');
+
+// 禁用默认提交
+$form.on('submit', function () {
+    return false;
+});
+
+// ajax表单提交
+function submit() {
+    Dcat.Form({
+        form: $form,
+        success: function (response) {
+            if (! response.status) {
+                Dcat.error(response.data.message);
+
+                return false;
+            }
+
+            Dcat.success(response.data.message);
+
+            location.href = response.data.value;
+
+            return false;
+        },
+        error: function () {
+            // 非200状态码响应错误
+        }
+    });
+}
+
+// h5表单验证
+function validateForm() {
+    $form.validator('validate');
+
+    // 如果出现错误，则返回false
+    if ($form.find('.has-error').length &gt; 0) {
+        return false;
+    }
+
+    return true;
+}
+
+// 绑定登陆按钮点击事件
+$form.find('[type=&quot;submit&quot;],.submit').click(function (e) {
+    // 表单验证
+    if (validateForm() === false) {
+        return false;
+    }
+
+    // 提交表单
+    submit();
+
+    return false;
+});
+</code></pre>
+<p><a name="validate"></a></p>
+<h3 id="_6">表单验证</h3>
+<p><code>Dcat Admin</code>集成了<a href="https://github.com/1000hz/bootstrap-validator">bootstrap-validator</a>组件用于表单前端验证的功能，
+<a href="https://github.com/1000hz/bootstrap-validator">bootstrap-validator</a>是一款支持H5表单验证的验证器，只需把验证规则写在表单元素的属性上即可自动开启验证，非常方便。</p>
+<h4 id="_7">添加验证规则</h4>
+<pre><code class="language-html">&lt;fieldset class=&quot;form-label-group form-group position-relative has-icon-left&quot;&gt;
+    &lt;input
+
+        minlength=&quot;5&quot; &lt;!-- 加上验证规则 --&gt;
+        maxlength=&quot;20&quot; &lt;!-- 加上验证规则 --&gt;
+        required  &lt;!-- 加上验证规则 --&gt;
+        type=&quot;password&quot;
+        class=&quot;form-control&quot;
+        name=&quot;password&quot;
+    &gt;
+
+    &lt;div class=&quot;form-control-position&quot;&gt;
+        &lt;i class=&quot;feather icon-lock&quot;&gt;&lt;/i&gt;
+    &lt;/div&gt;
+    &lt;label for=&quot;password&quot;&gt;{{ trans('admin.password') }}&lt;/label&gt;
+
+    &lt;!-- 这个加了 .with-errors 样式的 div 即是表单错误信息显示的位置，非常重要 --&gt;
+    &lt;div class=&quot;help-block with-errors&quot;&gt;&lt;/div&gt;
+&lt;/fieldset&gt;
+</code></pre>
+<h4 id="_8">开启表单验证</h4>
+<pre><code class="language-js">$('#xx-form').form({
+    validate: true
+});
+</code></pre>
+<p>效果</p>
+<p><img alt="" src="https://cdn.learnku.com/uploads/images/202004/26/38389/wJxcYaC9GP.png!large" />
+<img alt="" src="https://cdn.learnku.com/uploads/images/202004/26/38389/qdXUaNEMSQ.png!large" /></p>
+<p><a name="extend-validator"></a></p>
+<h4 id="_9">扩展验证规则</h4>
+<p>通过<code>Dcat.validator.extend</code>方法可以扩展表单验证规则</p>
+<pre><code class="language-js">Dcat.validator.extend('maxlength', function ($el) {
+    return $el.val().length &gt; $el.attr('data-maxlength');
+});
+</code></pre>
+<p>使用自定义规则验证表单</p>
+<pre><code class="language-html">&lt;input 
+    type=&quot;input&quot;
+    class=&quot;form-control&quot;
+    name=&quot;username&quot;
+    data-maxlength=&quot;20&quot; &lt;!-- 使用刚刚自定义的验证规则 --&gt;
+    data-maxlength-error=&quot;已超出输入字符长度限制，请输入20个或以下的字符&quot; &lt;!-- 定义错误信息 --&gt;
+ /&gt;
+</code></pre>
+<h4 id="_10">内置验证规则</h4>
+<p>更多内置验证规则请参考<a href="http://1000hz.github.io/bootstrap-validator/">bootstrap-validator官方文档</a></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

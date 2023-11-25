@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>图片/文件上传 - My Docs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Welcome to MkDocs</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">2.x <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../" class="dropdown-item">dcat-admin</a>
+</li>
+                                    
+<li>
+    <a href="../1-x-upgrade/" class="dropdown-item">v1.x版本升级指南</a>
+</li>
+                                    
+<li>
+    <a href="../LICENSE/" class="dropdown-item">LICENSE</a>
+</li>
+                                    
+<li>
+    <a href="../action-form/" class="dropdown-item">数据表单动作</a>
+</li>
+                                    
+<li>
+    <a href="../action-grid/" class="dropdown-item">数据表格动作</a>
+</li>
+                                    
+<li>
+    <a href="../action-show/" class="dropdown-item">数据详情动作</a>
+</li>
+                                    
+<li>
+    <a href="../action-tree/" class="dropdown-item">模型树动作</a>
+</li>
+                                    
+<li>
+    <a href="../action/" class="dropdown-item">动作基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../assets/" class="dropdown-item">静态资源加载</a>
+</li>
+                                    
+<li>
+    <a href="../beta-change-log/" class="dropdown-item">BETA版本更新日志</a>
+</li>
+                                    
+<li>
+    <a href="../change-log/" class="dropdown-item">Change log</a>
+</li>
+                                    
+<li>
+    <a href="../custom-authentication/" class="dropdown-item">自定义登陆</a>
+</li>
+                                    
+<li>
+    <a href="../custom-chart/" class="dropdown-item">自定义图表</a>
+</li>
+                                    
+<li>
+    <a href="../custom-navbar/" class="dropdown-item">自定义头部导航条</a>
+</li>
+                                    
+<li>
+    <a href="../custom-page/" class="dropdown-item">视图与自定义页面</a>
+</li>
+                                    
+<li>
+    <a href="../documentation/" class="dropdown-item">Documentation</a>
+</li>
+                                    
+<li>
+    <a href="../extend/" class="dropdown-item">开发扩展</a>
+</li>
+                                    
+<li>
+    <a href="../extension-dev/" class="dropdown-item">开发扩展</a>
+</li>
+                                    
+<li>
+    <a href="../extension-f/" class="dropdown-item">扩展基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../extension-helpers/" class="dropdown-item">开发工具</a>
+</li>
+                                    
+<li>
+    <a href="../extension-theme/" class="dropdown-item">主题开发</a>
+</li>
+                                    
+<li>
+    <a href="../extension-upgrade/" class="dropdown-item">扩展版本与升级</a>
+</li>
+                                    
+<li>
+    <a href="../extensions/" class="dropdown-item">扩展</a>
+</li>
+                                    
+<li>
+    <a href="../function/" class="dropdown-item">帮助函数</a>
+</li>
+                                    
+<li>
+    <a href="../helpers/" class="dropdown-item">开发工具</a>
+</li>
+                                    
+<li>
+    <a href="../installation/" class="dropdown-item">安装</a>
+</li>
+                                    
+<li>
+    <a href="../introduction/" class="dropdown-item">Dcat Admin</a>
+</li>
+                                    
+<li>
+    <a href="../js/" class="dropdown-item">JS组件</a>
+</li>
+                                    
+<li>
+    <a href="../laravel-octane/" class="dropdown-item">Laravel Octane</a>
+</li>
+                                    
+<li>
+    <a href="../lazy/" class="dropdown-item">异步加载基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../menu/" class="dropdown-item">菜单</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-callback/" class="dropdown-item">表单回调</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-data/" class="dropdown-item">表单数据源</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-field-management/" class="dropdown-item">表单字段的管理</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-fields/" class="dropdown-item">表单字段的使用</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-init/" class="dropdown-item">表单初始化</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-layout/" class="dropdown-item">表单布局</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-modal/" class="dropdown-item">表单弹窗</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-step/" class="dropdown-item">分步表单</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-trans/" class="dropdown-item">表单字段翻译</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">图片/文件上传</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-validation/" class="dropdown-item">表单验证</a>
+</li>
+                                    
+<li>
+    <a href="../model-form-when/" class="dropdown-item">表单字段动态显示</a>
+</li>
+                                    
+<li>
+    <a href="../model-form/" class="dropdown-item">表单基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-actions/" class="dropdown-item">行的使用和扩展</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-async/" class="dropdown-item">表格异步渲染</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-column-display/" class="dropdown-item">列的显示和扩展</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-column-filter/" class="dropdown-item">列过滤器</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-column/" class="dropdown-item">列的基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-combination/" class="dropdown-item">组合表头</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-custom-tools/" class="dropdown-item">工具栏</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-data/" class="dropdown-item">表格数据源</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-editable/" class="dropdown-item">数据表格行内编辑</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-events/" class="dropdown-item">数据表格事件</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-export/" class="dropdown-item">数据导出</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-exporter/" class="dropdown-item">自定义导出</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-filters/" class="dropdown-item">查询过滤</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-header/" class="dropdown-item">头部和脚部</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-quick-create/" class="dropdown-item">快捷创建</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-quick-search/" class="dropdown-item">表格快捷搜索</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-relationship/" class="dropdown-item">表格关联关系</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-selector/" class="dropdown-item">表格规格筛选器</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-softdelete/" class="dropdown-item">数据软删除</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-trans/" class="dropdown-item">表格字段翻译</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid-tree/" class="dropdown-item">树状表格</a>
+</li>
+                                    
+<li>
+    <a href="../model-grid/" class="dropdown-item">表格基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../model-json/" class="dropdown-item">JSON格式字段处理</a>
+</li>
+                                    
+<li>
+    <a href="../model-relationship/" class="dropdown-item">表单关联关系</a>
+</li>
+                                    
+<li>
+    <a href="../model-repository/" class="dropdown-item">数据仓库</a>
+</li>
+                                    
+<li>
+    <a href="../model-show-extend/" class="dropdown-item">详情字段显示扩展</a>
+</li>
+                                    
+<li>
+    <a href="../model-show-field/" class="dropdown-item">字段显示</a>
+</li>
+                                    
+<li>
+    <a href="../model-show-init/" class="dropdown-item">数据详情初始化</a>
+</li>
+                                    
+<li>
+    <a href="../model-show-relation/" class="dropdown-item">关联关系</a>
+</li>
+                                    
+<li>
+    <a href="../model-show-trans/" class="dropdown-item">数据详情字段翻译</a>
+</li>
+                                    
+<li>
+    <a href="../model-show/" class="dropdown-item">数据详情基本使用</a>
+</li>
+                                    
+<li>
+    <a href="../model-tree/" class="dropdown-item">模型树</a>
+</li>
+                                    
+<li>
+    <a href="../multi-app/" class="dropdown-item">多应用 (多后台)</a>
+</li>
+                                    
+<li>
+    <a href="../notice/" class="dropdown-item">开发前必读</a>
+</li>
+                                    
+<li>
+    <a href="../permission/" class="dropdown-item">权限控制</a>
+</li>
+                                    
+<li>
+    <a href="../qa/" class="dropdown-item">常见问题汇总</a>
+</li>
+                                    
+<li>
+    <a href="../quick-start/" class="dropdown-item">快速开始</a>
+</li>
+                                    
+<li>
+    <a href="../response/" class="dropdown-item">动作以及表单响应</a>
+</li>
+                                    
+<li>
+    <a href="../section/" class="dropdown-item">区块（section）</a>
+</li>
+                                    
+<li>
+    <a href="../theme/" class="dropdown-item">主题与颜色</a>
+</li>
+                                    
+<li>
+    <a href="../trans/" class="dropdown-item">多语言</a>
+</li>
+                                    
+<li>
+    <a href="../update/" class="dropdown-item">版本升级须知</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-alert/" class="dropdown-item">警告框</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-box/" class="dropdown-item">卡片</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-charts/" class="dropdown-item">图表</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-checkbox/" class="dropdown-item">单/复选框</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-data-card/" class="dropdown-item">数据统计卡片</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-dialog-form/" class="dropdown-item">Widgets dialog form</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-dropdown/" class="dropdown-item">下拉菜单</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-form/" class="dropdown-item">工具表单</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-js/" class="dropdown-item">Widgets js</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-markdown/" class="dropdown-item">Markdown</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-modal/" class="dropdown-item">模态窗 (Modal)</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-navbar/" class="dropdown-item">Widgets navbar</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-tab/" class="dropdown-item">选项卡</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-table/" class="dropdown-item">Widgets table</a>
+</li>
+                                    
+<li>
+    <a href="../widgets-tooltip/" class="dropdown-item">提示窗</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../model-form-trans/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../model-form-validation/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">图片/文件上传</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">本地上传</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_3" class="nav-link">云盘上传</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_4" class="nav-link">公共方法</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_9" class="nav-link">图片上传内置方法</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_12" class="nav-link">把图片/文件路径保存在其他数据表</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_13" class="nav-link">文件上传失败或无法访问？</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">图片/文件上传</h1>
+<p><a href="../model-form/">数据表单</a>通过以下的调用来生成图片/文件上传表单，支持本地和云存储的文件上传。上传组件是基于<a href="https://fex.baidu.com/webuploader/">webuploader</a>实现的，具体的使用配置可参考<a href="https://fex.baidu.com/webuploader/document.html">webuploader官方文档</a>。</p>
+<blockquote>
+<p>{tip} 文件或图片上传表单字段请不要在模型中设置<strong>访问器</strong>和<strong>修改器</strong>拼接域名，如有相关需求可参考<a href="#withhost">文件/图片域名拼接</a>。</p>
+</blockquote>
+<pre><code class="language-php">$form-&gt;file('file_column');
+$form-&gt;image('image_column');
+</code></pre>
+<p><a name="local"></a></p>
+<h2 id="_2">本地上传</h2>
+<p>先添加存储配置，<code>config/filesystems.php</code> 添加一项<code>disk</code>:</p>
+<pre><code class="language-php">
+'disks' =&gt; [
+    ... ,
+
+    'admin' =&gt; [
+        'driver' =&gt; 'local',
+        'root' =&gt; public_path('uploads'),
+        'visibility' =&gt; 'public',
+        'url' =&gt; env('APP_URL').'/uploads',
+    ],
+],
+
+</code></pre>
+<p>设置上传的路径为<code>public/uploads</code>(public_path('uploads'))。</p>
+<p>然后选择上传的<code>disk</code>，打开<code>config/admin.php</code>找到：</p>
+<pre><code class="language-php">
+'upload'  =&gt; [
+
+    'disk' =&gt; 'admin',
+
+    'directory'  =&gt; [
+        'image'  =&gt; 'images',
+        'file'   =&gt; 'files',
+    ]
+],
+
+</code></pre>
+<p>将<code>disk</code>设置为上面添加的<code>admin</code>，<code>directory.image</code>和<code>directory.file</code>分别为用<code>$form-&gt;image($column)</code>和<code>$form-&gt;file($column)</code>上传的图片和文件的上传目录。</p>
+<p>当然你也可以在代码中指定<code>disk</code>：</p>
+<pre><code class="language-php">$form-&gt;file('file')-&gt;disk('your disk name');
+</code></pre>
+<p><a name="oss"></a></p>
+<h2 id="_3">云盘上传</h2>
+<p>如果需要上传到云存储，需要安装对应<code>laravel storage</code>的适配器，拿七牛云存储举例</p>
+<p>首先安装 <a href="https://github.com/zgldh/qiniu-laravel-storage">zgldh/qiniu-laravel-storage</a></p>
+<p>同样配置好disk，在<code>config/filesystems.php</code> 添加一项:</p>
+<pre><code class="language-php">'disks' =&gt; [
+    ... ,
+    'qiniu' =&gt; [
+        'driver'  =&gt; 'qiniu',
+        'domains' =&gt; [
+            'default'   =&gt; 'xxxxx.com1.z0.glb.clouddn.com', //你的七牛域名
+            'https'     =&gt; 'dn-yourdomain.qbox.me',         //你的HTTPS域名
+            'custom'    =&gt; 'static.abc.com',                //你的自定义域名
+         ],
+        'access_key'=&gt; '',  //AccessKey
+        'secret_key'=&gt; '',  //SecretKey
+        'bucket'    =&gt; '',  //Bucket名字
+        'notify_url'=&gt; '',  //持久化处理回调地址
+        'url'       =&gt; 'http://of8kfibjo.bkt.clouddn.com/',  // 填写文件访问根url
+    ],
+],
+
+</code></pre>
+<p>然后修改<code>dcat-admin</code>的上传配置，打开<code>config/admin.php</code>找到：</p>
+<pre><code class="language-php">
+'upload'  =&gt; [
+
+    'disk' =&gt; 'qiniu',
+
+    'directory'  =&gt; [
+        'image'  =&gt; 'image',
+        'file'   =&gt; 'file',
+    ],
+],
+
+</code></pre>
+<p><code>disk</code>选择上面配置的<code>qiniu</code>，或：</p>
+<pre><code class="language-php">$form-&gt;file('file')-&gt;disk('qiniu');
+</code></pre>
+<p><a name="public"></a></p>
+<h2 id="_4">公共方法</h2>
+<h3 id="thumbnail">缩略图 (thumbnail)</h3>
+<p>上传图片的同时生成缩略图</p>
+<pre><code class="language-php">$form-&gt;image($column[, $label])-&gt;thumbnail('small', $width = 300, $height = 300);
+
+// 生成多张缩略图
+$form-&gt;image($column[, $label])-&gt;thumbnail([
+    'small1' =&gt; [100, 100],
+    'small2' =&gt; [200, 200],
+    'small3' =&gt; [300, 300],
+]);
+</code></pre>
+<pre><code class="language-php">use Dcat\Admin\Traits\Resizable;
+
+class Photo extends Model
+{
+    use Resizable;
+}
+
+// To access thumbnail
+$photo-&gt;thumbnail('small', 'photo_column');
+</code></pre>
+<p><a name="disk"></a></p>
+<h3 id="disk">存储驱动 (disk)</h3>
+<p>修改文件上传源</p>
+<pre><code class="language-php">$form-&gt;file('file')-&gt;disk('your disk name');
+</code></pre>
+<p><a name="move"></a></p>
+<h3 id="move">上传路径 (move)</h3>
+<p>修改上传路径</p>
+<pre><code class="language-php">$form-&gt;file('file')-&gt;move('public/upload/image1/');
+</code></pre>
+<p><a name="name"></a></p>
+<h3 id="name">文件名称 (name)</h3>
+<p>修改上传文件名称</p>
+<pre><code class="language-php">$form-&gt;file('file')-&gt;name('test.text');
+
+$form-&gt;image('picture')-&gt;name(function ($file) {
+    return 'test.'.$file-&gt;guessExtension();
+});
+</code></pre>
+<p><a name="uniqueName"></a></p>
+<h3 id="uniquename">随机名称 (uniqueName)</h3>
+<p>使用随机生成文件名 (md5(uniqid()).extension)</p>
+<pre><code class="language-php">$form-&gt;image('picture')-&gt;uniqueName();
+</code></pre>
+<p><a name="removable"></a></p>
+<h3 id="_5">禁止页面删除文件 (替换上传)</h3>
+<p>通过<code>removable</code>方法可以禁止用户从页面点击删除服务器上的文件，可以实现图片覆盖上传效果。</p>
+<pre><code class="language-php">$form-&gt;file($column[, $label])-&gt;removable(false);
+</code></pre>
+<p><a name="autoUpload"></a></p>
+<h3 id="autoupload">自动上传 (autoUpload)</h3>
+<p>开启这个功能之后选择完文件之后会立即自动上传，页面将不再显示<code>上传</code>按钮，使用方法如下</p>
+<pre><code class="language-php">$form-&gt;file('file')-&gt;autoUpload();
+
+$form-&gt;image('img')-&gt;autoUpload();
+</code></pre>
+<p><a name="retainable"></a></p>
+<h3 id="retainable">禁止删除 (retainable)</h3>
+<p>开启这个功能之后文件将不会从服务器删除</p>
+<pre><code class="language-php">$form-&gt;file('file')-&gt;retainable();
+
+$form-&gt;image('img')-&gt;retainable();
+</code></pre>
+<p><a name="storagePermission"></a></p>
+<h3 id="storagepermission">storagePermission</h3>
+<p>设置上传文件的权限</p>
+<pre><code class="language-php">$form-&gt;image('picture')-&gt;storagePermission(777);
+</code></pre>
+<p><a name="accept"></a></p>
+<h3 id="_6">限制上传文件类型</h3>
+<p>限制上传文件的类型</p>
+<pre><code class="language-php">$form-&gt;file('file')-&gt;accept('jpg,png,gif,jpeg');
+
+// 可以指定 mimeTypes， 多个用逗号分割
+$form-&gt;file('file')-&gt;accept('jpg,png,gif,jpeg', 'image/*');
+</code></pre>
+<p><a name="chunked"></a></p>
+<h3 id="chunked">分块上传 (chunked)</h3>
+<p>启用分块上传</p>
+<pre><code class="language-php">$form-&gt;file('file')-&gt;chunked();
+</code></pre>
+<p><a name="chunkSize"></a></p>
+<h3 id="chunksize">分块大小(chunkSize)</h3>
+<p>设置分块大小，单位为<code>KB</code>，默认<code>5MB</code></p>
+<blockquote>
+<p>{tip} 调用这个方法会自动启用分块上传</p>
+</blockquote>
+<pre><code class="language-php">// 设置为 1MB
+$form-&gt;file('file')-&gt;chunkSize(1024);
+</code></pre>
+<p><a name="maxSize"></a></p>
+<h3 id="maxsize">文件大小(maxSize)</h3>
+<p>设置单个文件最大大小，单位为<code>Kb</code>，默认大小为<code>10M</code>。</p>
+<blockquote>
+<p>{tip} 同时应该保证<code>php.ini</code>配置文件的<code>upload_max_filesize</code>参数值必须大于这个方法设置的值。</p>
+</blockquote>
+<pre><code class="language-php">// 设置单个文件最大为1Mb
+$form-&gt;file('file')-&gt;maxSize(1024);
+</code></pre>
+<p><a name="threads"></a></p>
+<h3 id="threads">并发上传线程数 (threads)</h3>
+<p>设置并发上传线程数，默认<code>3</code></p>
+<pre><code class="language-php">$form-&gt;file('file')-&gt;threads(5);
+</code></pre>
+<p><a name="url"></a></p>
+<h3 id="url">自定义上传接口 (url)</h3>
+<p>通过<code>url</code>可以设置自定义上传接口</p>
+<pre><code class="language-php">$form-&gt;file('file')-&gt;url('users/files');
+</code></pre>
+<p>系统提供了<code>Dcat\Admin\Traits\HasUploadedFile</code>这个<code>trait</code>来帮助开发者更轻松地处理上传文件，用法如下</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Admin\Controllers;
+
+use Dcat\Admin\Traits\HasUploadedFile;
+
+class FileController
+{
+    use HasUploadedFile;
+
+    public function handle()
+    {
+        $disk = $this-&gt;disk('local');
+
+        // 判断是否是删除文件请求
+        if ($this-&gt;isDeleteRequest()) {
+            // 删除文件并响应
+            return $this-&gt;deleteFileAndResponse($disk);
+        }
+
+        // 获取上传的文件
+        $file = $this-&gt;file();
+
+        // 获取上传的字段名称
+        $column = $this-&gt;uploader()-&gt;upload_column;
+
+        $dir = 'my-images';
+        $newName = $column.'-我的文件名称.'.$file-&gt;getClientOriginalExtension();
+
+        $result = $disk-&gt;putFileAs($dir, $file, $newName);
+
+        $path = &quot;{$dir}/$newName&quot;;
+
+        return $result
+            ? $this-&gt;responseUploaded($path, $disk-&gt;url($path))
+            : $this-&gt;responseErrorMessage('文件上传失败');
+    }
+}
+</code></pre>
+<p>在你的路由文件<code>app\Admin\routes.php</code>中加上</p>
+<pre><code class="language-php">$router-&gt;any('users/files', 'FileController@handle');
+</code></pre>
+<p><a name="deleteUrl"></a></p>
+<h3 id="deleteurl">deleteUrl</h3>
+<p>修改删除已上传文件路径，此方法一般不需要修改</p>
+<pre><code class="language-php">$form-&gt;file('file')-&gt;deleteUrl('file/delete');
+</code></pre>
+<p><a name="autoSave"></a></p>
+<h3 id="autosave">自动保存字段值 (autoSave)</h3>
+<p>设置上传文件后是否自动保存文件路径到数据库，此方法默认启用，一般不需要修改</p>
+<pre><code class="language-php">$form-&gt;file('file')-&gt;autoSave(false);
+</code></pre>
+<p><a name="options"></a></p>
+<h3 id="options">配置 (options)</h3>
+<p>自定义<a href="https://fex.baidu.com/webuploader/document.html">webuploader</a>配置</p>
+<pre><code class="language-php">$form-&gt;file('file')-&gt;options(['disableGlobalDnd' =&gt; true]);
+</code></pre>
+<h3 id="sortable">可排序 (sortable)</h3>
+<p>此方法仅针对多图/文件上传表单有效</p>
+<pre><code class="language-php">$form-&gt;multipleImage('images')-&gt;sortable();
+</code></pre>
+<h3 id="compress">压缩图片 (compress)</h3>
+<p>默认不启用</p>
+<pre><code class="language-php">// 启用图片压缩功能
+
+$form-&gt;multipleImage('images')-&gt;compress();
+
+$form-&gt;image('avatar')-&gt;compress([
+    'width' =&gt; 1600,
+    'height' =&gt; 1600,
+
+    // 图片质量，只有type为`image/jpeg`的时候才有效。
+    'quality' =&gt; 90,
+
+    // 是否允许放大，如果想要生成小图的时候不失真，此选项应该设置为false.
+    'allowMagnify' =&gt; false,
+
+    // 是否允许裁剪。
+    'crop' =&gt; false,
+
+    // 是否保留头部meta信息。
+    'preserveHeaders' =&gt; true,
+
+    // 如果发现压缩后文件大小比原来还大，则使用原来图片
+    // 此属性可能会影响图片自动纠正功能
+    'noCompressIfLarger' =&gt; false,
+
+    // 单位字节，如果图片大小小于此值，不会采用压缩。
+    'compressSize' =&gt; 0
+]);
+</code></pre>
+<h3 id="webuploader-on">监听WebUploader文件上传事件 (on)</h3>
+<p>通过 <code>on</code> 方法可以监听 <a href="http://fex.baidu.com/webuploader/doc/index.html#WebUploader_Uploader_events">WebUploader文件上传相关事件</a></p>
+<pre><code class="language-php">$form-&gt;file('...')
+    -&gt;on('startUpload', &lt;&lt;&lt;JS
+        function () {
+            console.log('文件开始上传...', this);
+
+            // 上传文件前附加自定义参数到文件上传接口
+            this.uploader.options.formData['custom_field'] = '...';
+        }
+&lt;&lt;&lt;JS
+    )
+    -&gt;on('uploadFinished', &lt;&lt;&lt;JS
+        function () {
+            console.log('文件上传完毕');
+        }
+&lt;&lt;&lt;JS
+    );
+</code></pre>
+<p><a name="withhost"></a></p>
+<h3 id="_7">文件/图片域名拼接</h3>
+<p>文件或图片上传表单字段请不要在模型中设置<strong>访问器</strong>和<strong>修改器</strong>拼接域名，如果你需要在访问的时候拼接完整域名，可以在模型中定义一个<code>public</code>方法</p>
+<pre><code class="language-php">&lt;?php
+
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+
+class YourModel extends Model
+{
+    // 定义一个public方法访问图片或文件
+    public function getImage()
+    {
+        if (Str::contains($this-&gt;image, '//')) {
+            return $this-&gt;image;
+        }
+
+        return Storage::disk('admin')-&gt;url($this-&gt;image);
+    }
+}
+</code></pre>
+<h3 id="_8">保存域名</h3>
+<p>如果你需要保存文件域名到数据表，可以使用<code>saveFullUrl</code>方法</p>
+<pre><code class="language-php">$form-&gt;image('avatar')-&gt;saveFullUrl();
+
+$form-&gt;file('...')-&gt;saveFullUrl();
+</code></pre>
+<h3 id="change">监听文件上传变动 (change)</h3>
+<p>通过以下方法可以监听文件<strong>上传成功</strong>或文件<strong>被删除</strong>时产生的变动</p>
+<pre><code class="language-php">$file = $form-&gt;file('...');
+
+Admin::script(
+    &lt;&lt;&lt;JS
+$('{$file-&gt;getElementClassSelector()} .file-input').on('change', function () {
+    console.log('文件发生变动', this.value);
+});
+JS
+);
+</code></pre>
+<p><a name="override"></a></p>
+<h3 id="override">覆盖上传 (override)</h3>
+<p>通过 <code>override</code> 方法可以实现文件覆盖上传。</p>
+<pre><code class="language-php">$form-&gt;file('file')-&gt;override();
+
+$form-&gt;image('img')-&gt;override();
+</code></pre>
+<p><a name="imagefun"></a></p>
+<h2 id="_9">图片上传内置方法</h2>
+<p><a name="intervention"></a></p>
+<h3 id="_10">压缩、裁切、添加水印等</h3>
+<p>可以使用压缩、裁切、添加水印等各种方法,需要先安装<a href="http://image.intervention.io/getting_started/installation">intervention/image</a>.</p>
+<p>更多使用方法请参考[<a href="http://image.intervention.io/getting_started/introduction">Intervention</a>]：</p>
+<pre><code class="language-php">$form-&gt;image($column[, $label]);
+
+// 修改图片上传路径和文件名
+$form-&gt;image($column[, $label])-&gt;move($dir, $name);
+
+// 剪裁图片
+$form-&gt;image($column[, $label])-&gt;crop(int $width, int $height, [int $x, int $y]);
+
+// 加水印
+$form-&gt;image($column[, $label])-&gt;insert($watermark, 'center');
+</code></pre>
+<p><a name="dimensions"></a></p>
+<h3 id="_11">限制上传图片的尺寸</h3>
+<p>设置文件上传尺寸限制</p>
+<p>参数： <code>array</code> 单位为像素
+- <code>width</code> 指定宽度
+- <code>height</code> 指定高度
+- <code>min_width</code> 最小宽度
+- <code>min_height</code> 最小高度
+- <code>max_width</code> 最大宽度
+- <code>max_height</code> 最大高度
+- <code>ratio</code> 宽高比 (width/height)</p>
+<pre><code class="language-php">// 上传宽度为100-300像素之间的图片
+$form-&gt;image('img')-&gt;dimensions(['min_width' = 100, 'max_width' =&gt; 300]);
+</code></pre>
+<p><a name="referer"></a></p>
+<h2 id="_12">把图片/文件路径保存在其他数据表</h2>
+<p>通过下面的方法可以把图片或文件的路径保存在单独的附件表，而当前的图片/文件字段只保存ID</p>
+<blockquote>
+<p>{tip} 这里的示例用的是单图上传表单，如果是多图的话可以按这个思路自行调整。</p>
+</blockquote>
+<p>图片/文件表结构</p>
+<pre><code class="language-sql">CREATE TABLE `images` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `path` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+</code></pre>
+<p>使用</p>
+<pre><code class="language-php">$form-&gt;image('image1')
+    -&gt;saving(function ($value) use ($form) {
+        if ($form-&gt;isEditing() &amp;&amp; ! $value) {
+            // 编辑页面，删除图片逻辑
+            Image::destroy($form-&gt;model()-&gt;image1);
+
+            return;
+        }
+
+        // 新增或编辑页面上传图片
+        if ($value) {
+            $model = Image::where('path', $value)-&gt;first();
+        }
+
+        if (empty($model)) {
+            $model = new Image();
+        }
+
+        $model-&gt;path = $value;
+
+        $model-&gt;save();
+
+        return $model-&gt;getKey();
+    })
+    -&gt;customFormat(function ($v) {
+        if (! $v) {
+            return;
+        }
+
+        return Image::find((array) $v)-&gt;pluck('path')-&gt;toArray();
+    });
+</code></pre>
+<h2 id="_13">文件上传失败或无法访问？</h2>
+<p>如果你发现无法上传文件，那么通常有几下几点原因：</p>
+<ol>
+<li><code>Laravel</code>文件上传配置不正确，请检查<code>admin.upload.disk</code>参数。如果你不了解<code>laravel</code>文件上传功能，请阅读文档<a href="https://learnku.com/docs/laravel/7.x/filesystem/7485">Laravel - 文件存储</a></li>
+<li>文件过大，需要调整<code>php.ini</code>的<code>upload_max_filesize</code>参数</li>
+<li>文件上传目录没有写权限</li>
+<li><code>php</code>没有安装或没有开启<code>fileinfo</code>扩展</li>
+</ol>
+<p>如果你的文件上传成功了，却无法正常访问，那么可能是<code>.env</code>配置文件中的<code>APP_URL</code>参数没有设置正确。</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
