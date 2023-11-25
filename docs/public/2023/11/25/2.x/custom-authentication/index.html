@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="自定义登陆重写登陆页面和登陆逻辑方式一，重写登陆控制器方法： 默认的登陆控制器用的是App\Admin\AuthController这个类，可以通过配置参数admin.auth.controller进行修改 1234567891011121314151617181920&lt;?phpnamespace App\Admin\Controllers;use Dcat\Admin\Controller">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/custom-authentication/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="自定义登陆重写登陆页面和登陆逻辑方式一，重写登陆控制器方法： 默认的登陆控制器用的是App\Admin\AuthController这个类，可以通过配置参数admin.auth.controller进行修改 1234567891011121314151617181920&lt;?phpnamespace App\Admin\Controllers;use Dcat\Admin\Controller">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-25T07:16:44.954Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.955Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/custom-authentication" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/custom-authentication/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.954Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="自定义登陆"><a href="#自定义登陆" class="headerlink" title="自定义登陆"></a>自定义登陆</h1><h3 id="重写登陆页面和登陆逻辑"><a href="#重写登陆页面和登陆逻辑" class="headerlink" title="重写登陆页面和登陆逻辑"></a>重写登陆页面和登陆逻辑</h3><p>方式一，重写登陆控制器方法：</p>
+<p>默认的登陆控制器用的是<code>App\Admin\AuthController</code>这个类，可以通过配置参数<code>admin.auth.controller</code>进行修改</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Admin</span>\<span class="title class_">Controllers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Controllers</span>\<span class="title">AuthController</span> <span class="keyword">as</span> <span class="title">BaseAuthController</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AuthController</span> <span class="keyword">extends</span> <span class="title">BaseAuthController</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">// 自定义登陆view模板</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$view</span> = <span class="string">&#x27;admin.login&#x27;</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 重写你的登陆页面逻辑</span></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getLogin</span>(<span class="params">Content <span class="variable">$content</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>方式二，覆写路由：</p>
+<p>在路由文件<code>app/Admin/routes.php</code>中，覆盖掉登陆页面和登陆逻辑的路由，即可实现自定义的功能</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">group</span>([</span><br><span class="line">    <span class="string">&#x27;prefix&#x27;</span>        =&gt; <span class="title function_ invoke__">config</span>(<span class="string">&#x27;admin.prefix&#x27;</span>),</span><br><span class="line">    <span class="string">&#x27;namespace&#x27;</span>     =&gt; <span class="title class_">Admin</span>::<span class="title function_ invoke__">controllerNamespace</span>(),</span><br><span class="line">    <span class="string">&#x27;middleware&#x27;</span>    =&gt; [<span class="string">&#x27;web&#x27;</span>, <span class="string">&#x27;admin&#x27;</span>],</span><br><span class="line">], function (Router <span class="variable">$router</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$router</span>-&gt;<span class="title function_ invoke__">get</span>(<span class="string">&#x27;auth/login&#x27;</span>, <span class="string">&#x27;AuthController@getLogin&#x27;</span>);</span><br><span class="line">    <span class="variable">$router</span>-&gt;<span class="title function_ invoke__">post</span>(<span class="string">&#x27;auth/login&#x27;</span>, <span class="string">&#x27;AuthController@postLogin&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>在自定义的路由器AuthController中的<code>getLogin</code>、<code>postLogin</code>方法里分别实现自己的登陆页面和登陆逻辑。</p>
+<h3 id="重写laravel认证"><a href="#重写laravel认证" class="headerlink" title="重写laravel认证"></a>重写laravel认证</h3><p>如果不使用<code>Dcat Admin</code>内置的认证登陆逻辑，可以参考下面的方式自定义登陆认证逻辑</p>
+<p>首先要先定义一个<code>user provider</code>，用来获取用户身份, 比如<code>app/Providers/CustomUserProvider.php</code>：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Providers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Contracts</span>\<span class="title">Auth</span>\<span class="title">Authenticatable</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Contracts</span>\<span class="title">Auth</span>\<span class="title">UserProvider</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomUserProvider</span> <span class="keyword">implements</span> <span class="title">UserProvider</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">retrieveById</span>(<span class="params"><span class="variable">$identifier</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">retrieveByToken</span>(<span class="params"><span class="variable">$identifier</span>, <span class="variable">$token</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">updateRememberToken</span>(<span class="params">Authenticatable <span class="variable">$user</span>, <span class="variable">$token</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">retrieveByCredentials</span>(<span class="params"><span class="keyword">array</span> <span class="variable">$credentials</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 用$credentials里面的用户名密码去获取用户信息，然后返回Illuminate\Contracts\Auth\Authenticatable对象</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">validateCredentials</span>(<span class="params">Authenticatable <span class="variable">$user</span>, <span class="keyword">array</span> <span class="variable">$credentials</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 用$credentials里面的用户名密码校验用户，返回true或false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在方法<code>retrieveByCredentials</code>和<code>validateCredentials</code>中, 传入的<code>$credentials</code>就是登陆页面提交的用户名和密码数组，然后你可以使用<code>$credentials</code>去实现自己的登陆逻辑</p>
+<p>Interface <code>Illuminate\Contracts\Auth\Authenticatable</code>的定义如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">Illuminate</span>\<span class="title class_">Contracts</span>\<span class="title class_">Auth</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Authenticatable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getAuthIdentifierName</span>(<span class="params"></span>)</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getAuthIdentifier</span>(<span class="params"></span>)</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getAuthPassword</span>(<span class="params"></span>)</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getRememberToken</span>(<span class="params"></span>)</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setRememberToken</span>(<span class="params"><span class="variable">$value</span></span>)</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getRememberTokenName</span>(<span class="params"></span>)</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面interface每个方法的解释参考<a target="_blank" rel="noopener" href="https://laravel.com/docs/5.5/authentication#adding-custom-user-providers">adding-custom-user-providers</a></p>
+<p>定义好了<code>User provider</code>之后，打开<code>app/Providers/AuthServiceProvider.php</code>注册它：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Providers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">Facades</span>\<span class="title">Auth</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Foundation</span>\<span class="title">Support</span>\<span class="title">Providers</span>\<span class="title">AuthServiceProvider</span> <span class="keyword">as</span> <span class="title">ServiceProvider</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AuthServiceProvider</span> <span class="keyword">extends</span> <span class="title">ServiceProvider</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Register any application authentication / authorization services.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">boot</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">registerPolicies</span>();</span><br><span class="line"></span><br><span class="line">        <span class="title class_">Auth</span>::<span class="title function_ invoke__">provider</span>(<span class="string">&#x27;custom&#x27;</span>, function (<span class="variable">$app</span>, <span class="keyword">array</span> <span class="variable">$config</span>) &#123;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// Return an instance of Illuminate\Contracts\Auth\UserProvider...</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">CustomUserProvider</span>();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后修改一下配置,打开<code>config/admin.php</code>，找到<code>auth</code>部分修改:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;auth&#x27;</span> =&gt; [</span><br><span class="line">    <span class="string">&#x27;guards&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;admin&#x27;</span> =&gt; [</span><br><span class="line">            <span class="string">&#x27;driver&#x27;</span> =&gt; <span class="string">&#x27;session&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;provider&#x27;</span> =&gt; <span class="string">&#x27;admin&#x27;</span>,</span><br><span class="line">        ]</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 修改下面</span></span><br><span class="line">    <span class="string">&#x27;providers&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;admin&#x27;</span> =&gt; [</span><br><span class="line">            <span class="string">&#x27;driver&#x27;</span> =&gt; <span class="string">&#x27;custom&#x27;</span>,</span><br><span class="line">        ]</span><br><span class="line">    ],</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+<p>这样就完成了自定义登陆认证的逻辑，自定义登陆算是laravel中比较复杂的部分，需要开发者有耐心的一步步调试完成。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/custom-authentication/" data-id="clpdpxfip000cywnaays70ceu" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/change-log/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/assets/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

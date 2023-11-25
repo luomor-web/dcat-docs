@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="表单回调Form目前提供了下面几个方法来接收回调函数： creating在新增页面调用（非提交操作） 12345678$form-&gt;creating(function (Form $form) &#123;    if (...) &#123; &#x2F;&#x2F; 验证逻辑		$form-&gt;responseValidationMessages(&#x27;title&#x27;, &#x27;tit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/model-form-callback/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="表单回调Form目前提供了下面几个方法来接收回调函数： creating在新增页面调用（非提交操作） 12345678$form-&gt;creating(function (Form $form) &#123;    if (...) &#123; &#x2F;&#x2F; 验证逻辑		$form-&gt;responseValidationMessages(&#x27;title&#x27;, &#x27;tit">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.learnku.com/uploads/images/202109/14/38389/S0KtwNRYGK.png!large">
+<meta property="article:published_time" content="2023-11-25T07:16:44.962Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.963Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.learnku.com/uploads/images/202109/14/38389/S0KtwNRYGK.png!large">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/model-form-callback" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/model-form-callback/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.962Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="表单回调"><a href="#表单回调" class="headerlink" title="表单回调"></a>表单回调</h1><p><code>Form</code>目前提供了下面几个方法来接收回调函数：</p>
+<h3 id="creating"><a href="#creating" class="headerlink" title="creating"></a>creating</h3><p>在新增页面调用（非提交操作）</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">creating</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (...) &#123; <span class="comment">// 验证逻辑</span></span><br><span class="line">		<span class="variable">$form</span>-&gt;<span class="title function_ invoke__">responseValidationMessages</span>(<span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;title格式错误&#x27;</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 如有多个错误信息，第二个参数可以传数组</span></span><br><span class="line">		<span class="variable">$form</span>-&gt;<span class="title function_ invoke__">responseValidationMessages</span>(<span class="string">&#x27;content&#x27;</span>, [<span class="string">&#x27;content格式错误&#x27;</span>, <span class="string">&#x27;content不能为空&#x27;</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="editing"><a href="#editing" class="headerlink" title="editing"></a>editing</h3><p>在编辑页面调用（非提交操作）</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">editing</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (...) &#123; <span class="comment">// 验证逻辑</span></span><br><span class="line">		<span class="variable">$form</span>-&gt;<span class="title function_ invoke__">responseValidationMessages</span>(<span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;title格式错误&#x27;</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 如有多个错误信息，第二个参数可以传数组</span></span><br><span class="line">		<span class="variable">$form</span>-&gt;<span class="title function_ invoke__">responseValidationMessages</span>(<span class="string">&#x27;content&#x27;</span>, [<span class="string">&#x27;content格式错误&#x27;</span>, <span class="string">&#x27;content不能为空&#x27;</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="submitted"><a href="#submitted" class="headerlink" title="submitted"></a>submitted</h3><p>在表单提交前调用，在此事件中可以修改、删除用户提交的数据或者中断提交操作</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">submitted</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="comment">// 获取用户提交参数</span></span><br><span class="line">    <span class="variable">$title</span> = <span class="variable">$form</span>-&gt;title;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 上面写法等同于</span></span><br><span class="line">    <span class="variable">$title</span> = <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">input</span>(<span class="string">&#x27;title&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 删除用户提交的数据</span></span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">deleteInput</span>(<span class="string">&#x27;title&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 中断后续逻辑</span></span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">response</span>()-&gt;<span class="title function_ invoke__">error</span>(<span class="string">&#x27;服务器出错了~&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="saving"><a href="#saving" class="headerlink" title="saving"></a>saving</h3><p>保存前回调，在此事件中可以修改、删除用户提交的数据或者中断提交操作</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">saving</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="comment">// 判断是否是新增操作</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$form</span>-&gt;<span class="title function_ invoke__">isCreating</span>()) &#123;</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 删除用户提交的数据</span></span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">deleteInput</span>(<span class="string">&#x27;title&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 中断后续逻辑</span></span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">response</span>()-&gt;<span class="title function_ invoke__">error</span>(<span class="string">&#x27;服务器出错了~&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="saved"><a href="#saved" class="headerlink" title="saved"></a>saved</h3><p>保存后回调，此事件新增和修改操作共用，通过第二个参数<code>$result</code>可以判断数据是否保存成功。</p>
+<blockquote>
+<p>{tip} 新增页面下，<code>$result</code>的值是新增记录的自增ID</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">saved</span>(function (Form <span class="variable">$form</span>, <span class="variable">$result</span>) &#123;</span><br><span class="line">    <span class="comment">// 判断是否是新增操作</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$form</span>-&gt;<span class="title function_ invoke__">isCreating</span>()) &#123;</span><br><span class="line">    	<span class="comment">// 自增ID</span></span><br><span class="line">    	<span class="variable">$newId</span> = <span class="variable">$result</span>;</span><br><span class="line">    	<span class="comment">// 也可以这样获取自增ID</span></span><br><span class="line">    	<span class="variable">$newId</span> = <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">getKey</span>();</span><br><span class="line">    	</span><br><span class="line">    	<span class="keyword">if</span> (! <span class="variable">$newId</span>) &#123;</span><br><span class="line">    		<span class="keyword">return</span> <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">error</span>(<span class="string">&#x27;数据保存失败&#x27;</span>);</span><br><span class="line">    	&#125;</span><br><span class="line">    	</span><br><span class="line">    	<span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 修改操作</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>{tip} <code>$form-&gt;repository()-&gt;eloquent()</code>為當前新增或編輯後的eloquent</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">saved</span>(function (Form <span class="variable">$form</span>, <span class="variable">$result</span>) &#123;</span><br><span class="line">    <span class="comment">// 在表單保存後獲取eloquent</span></span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">repository</span>()-&gt;<span class="title function_ invoke__">eloquent</span>()-&gt;<span class="title function_ invoke__">update</span>([<span class="string">&#x27;data&#x27;</span> =&gt; <span class="string">&#x27;new&#x27;</span>]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="deleting"><a href="#deleting" class="headerlink" title="deleting"></a>deleting</h3><p>删除前回调</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">deleting</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="comment">// 获取待删除行数据，这里获取的是一个二维数组</span></span><br><span class="line">	<span class="variable">$data</span> = <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">model</span>()-&gt;<span class="title function_ invoke__">toArray</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="deleted"><a href="#deleted" class="headerlink" title="deleted"></a>deleted</h3><p>删除后回调，通过第二个参数<code>$result</code>可以判断数据是否删除成功。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">deleted</span>(function (Form <span class="variable">$form</span>, <span class="variable">$result</span>) &#123;</span><br><span class="line">	<span class="comment">// 获取待删除行数据，这里获取的是一个二维数组</span></span><br><span class="line">	<span class="variable">$data</span> = <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">model</span>()-&gt;<span class="title function_ invoke__">toArray</span>();</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 通过 $result 可以判断数据是否删除成功</span></span><br><span class="line">	<span class="keyword">if</span> (! <span class="variable">$result</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">response</span>()-&gt;<span class="title function_ invoke__">error</span>(<span class="string">&#x27;数据删除失败&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回删除成功提醒，此处跳转参数无效</span></span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">response</span>()-&gt;<span class="title function_ invoke__">success</span>(<span class="string">&#x27;删除成功&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="uploading"><a href="#uploading" class="headerlink" title="uploading"></a>uploading</h3><p>图片、文件上传事件</p>
+<blockquote>
+<p>{tip} 文件上传是一个独立的api请求，这个事件内<code>redirect</code>方法是无效的。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Form</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Form</span>\<span class="title">Field</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Contracts</span>\<span class="title">UploadField</span> <span class="keyword">as</span> <span class="title">UploadFieldInterface</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Symfony</span>\<span class="title">Component</span>\<span class="title">HttpFoundation</span>\<span class="title">File</span>\<span class="title">UploadedFile</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">uploading</span>(function (Form <span class="variable">$form</span>, UploadFieldInterface <span class="variable">$field</span>, UploadedFile <span class="variable">$file</span>) &#123;</span><br><span class="line">	<span class="comment">// $file 即是当前上传的完整文件</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* <span class="doctag">@var</span> Field $field */</span></span><br><span class="line">	<span class="comment">// 获取文件上传字段名称</span></span><br><span class="line">	<span class="variable">$column</span> = <span class="variable">$field</span>-&gt;<span class="title function_ invoke__">column</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="uploaded"><a href="#uploaded" class="headerlink" title="uploaded"></a>uploaded</h3><p>图片、文件上传完毕事件</p>
+<blockquote>
+<p>{tip} 文件上传是一个独立的api请求，这个事件内<code>redirect</code>方法是无效的。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Form</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Form</span>\<span class="title">Field</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Contracts</span>\<span class="title">UploadField</span> <span class="keyword">as</span> <span class="title">UploadFieldInterface</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Symfony</span>\<span class="title">Component</span>\<span class="title">HttpFoundation</span>\<span class="title">File</span>\<span class="title">UploadedFile</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">uploaded</span>(function (Form <span class="variable">$form</span>, UploadFieldInterface <span class="variable">$field</span>, UploadedFile <span class="variable">$file</span>, <span class="variable">$response</span>) &#123;</span><br><span class="line">	<span class="comment">// $file 即是当前上传的完整文件</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* <span class="doctag">@var</span> Field $field */</span></span><br><span class="line">	<span class="comment">// 获取文件上传字段名称</span></span><br><span class="line">	<span class="variable">$column</span> = <span class="variable">$field</span>-&gt;<span class="title function_ invoke__">column</span>();</span><br><span class="line">	</span><br><span class="line">	<span class="variable">$response</span> = (<span class="keyword">array</span>) <span class="variable">$response</span>-&gt;<span class="title function_ invoke__">getData</span>();</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 文件上传成功</span></span><br><span class="line">	<span class="keyword">if</span> (<span class="variable">$response</span>[<span class="string">&#x27;status&#x27;</span>]) &#123;</span><br><span class="line">		<span class="comment">// 文件访问地址</span></span><br><span class="line">		<span class="variable">$url</span> = <span class="variable">$response</span>[<span class="string">&#x27;url&#x27;</span>];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取模型中的数据"><a href="#获取模型中的数据" class="headerlink" title="获取模型中的数据"></a>获取模型中的数据</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">saved</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$id</span> = <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">getKey</span>();</span><br><span class="line"></span><br><span class="line">    <span class="variable">$username</span> = <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">model</span>()-&gt;username;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 获取最终保存的数组</span></span><br><span class="line">    <span class="variable">$updates</span> = <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">updates</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改或删除用户提交的数据"><a href="#修改或删除用户提交的数据" class="headerlink" title="修改或删除用户提交的数据"></a>修改或删除用户提交的数据</h3><p>此功能在<code>saving</code>和<code>submitted</code>事件中有效</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">select</span>(<span class="string">&#x27;author_id&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">saving</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="comment">// 修改用户提交的数据</span></span><br><span class="line">    <span class="variable">$form</span>-&gt;author_id = <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 删除、忽略用户提交的数据</span></span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">deleteInput</span>(<span class="string">&#x27;author_id&#x27;</span>);  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改模型中的数据"><a href="#修改模型中的数据" class="headerlink" title="修改模型中的数据"></a>修改模型中的数据</h3><p>修改模型中的数据需要配合隐藏表单使用。举例：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">hidden</span>(<span class="string">&#x27;author_id&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">saving</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$form</span>-&gt;author_id = <span class="number">1</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="表单响应"><a href="#表单响应" class="headerlink" title="表单响应"></a>表单响应</h3><blockquote>
+<p>{tip} 此方法在<code>creating</code>、<code>editing</code>事件中均不可用。</p>
+</blockquote>
+<p>详细用法请参考文档 <a href="response.md">动作和表单响应</a> 章节。</p>
+<p>redirect（局部刷新&#x2F;单页刷新）</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 跳转并提示成功信息</span></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">saved</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">response</span>()-&gt;<span class="title function_ invoke__">success</span>(<span class="string">&#x27;保存成功&#x27;</span>)-&gt;<span class="title function_ invoke__">redirect</span>(<span class="string">&#x27;auth/user&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 跳转并提示错误信息</span></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">saved</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">response</span>()-&gt;<span class="title function_ invoke__">error</span>(<span class="string">&#x27;系统错误&#x27;</span>)-&gt;<span class="title function_ invoke__">redirect</span>(<span class="string">&#x27;auth/user&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>仅返回错误信息但不跳转</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">saving</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">response</span>()-&gt;<span class="title function_ invoke__">error</span>(<span class="string">&#x27;系统异常&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>也可以通过抛出异常的形式展示错误信息</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">submitted</span>(function (<span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">\Exception</span>(<span class="string">&#x27;禁止访问&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.learnku.com/uploads/images/202109/14/38389/S0KtwNRYGK.png!large"></p>
+<h3 id="返回字段验证出错信息"><a href="#返回字段验证出错信息" class="headerlink" title="返回字段验证出错信息"></a>返回字段验证出错信息</h3><p>通过<code>responseValidationMessages</code>方法可以很方便的返回字段验证出错信息，而不需要使用<code>Laravel validation</code>功能。</p>
+<p>普通使用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">form</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="title class_">Form</span>::<span class="title function_ invoke__">make</span>(<span class="keyword">new</span> <span class="title class_">Model</span>(), <span class="function"><span class="keyword">function</span> (<span class="params">Form <span class="variable">$form</span></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (...) &#123; <span class="comment">// 验证逻辑</span></span><br><span class="line">			<span class="variable">$form</span>-&gt;<span class="title function_ invoke__">responseValidationMessages</span>(<span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;title格式错误&#x27;</span>);</span><br><span class="line">			</span><br><span class="line">			<span class="comment">// 如有多个错误信息，第二个参数可以传数组</span></span><br><span class="line">			<span class="variable">$form</span>-&gt;<span class="title function_ invoke__">responseValidationMessages</span>(<span class="string">&#x27;content&#x27;</span>, [<span class="string">&#x27;content格式错误&#x27;</span>, <span class="string">&#x27;content不能为空&#x27;</span>]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在事件中使用</p>
+<blockquote>
+<p>{tip} 此方法仅在<code>submitted</code>事件中可用</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">submitted</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">	<span class="comment">// 接收表单参数</span></span><br><span class="line">	<span class="variable">$title</span> = <span class="variable">$form</span>-&gt;title;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (...) &#123; <span class="comment">// 验证逻辑</span></span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">responseValidationMessages</span>(<span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;title格式错误&#x27;</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 如有多个错误信息，第二个参数可以传数组</span></span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">responseValidationMessages</span>(<span class="string">&#x27;content&#x27;</span>, [<span class="string">&#x27;content格式错误&#x27;</span>, <span class="string">&#x27;content不能为空&#x27;</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/model-form-callback/" data-id="clpdpxfj7000wywna0pf47mfv" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/menu/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/js/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

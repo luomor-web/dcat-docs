@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="表单验证rulemodel-form使用laravel的验证规则来验证表单提交的数据： 1234567891011$form-&gt;text(&#x27;title&#x27;)-&gt;rules(&#x27;required|min:3&#x27;);&#x2F;&#x2F; 复杂的验证规则可以在回调里面实现$form-&gt;text(&#x27;title&#x27;)-&gt;rules(function">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/model-form-validation/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="表单验证rulemodel-form使用laravel的验证规则来验证表单提交的数据： 1234567891011$form-&gt;text(&#x27;title&#x27;)-&gt;rules(&#x27;required|min:3&#x27;);&#x2F;&#x2F; 复杂的验证规则可以在回调里面实现$form-&gt;text(&#x27;title&#x27;)-&gt;rules(function">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-25T07:16:44.967Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.967Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/model-form-validation" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/model-form-validation/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.967Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="表单验证"><a href="#表单验证" class="headerlink" title="表单验证"></a>表单验证</h1><h3 id="rule"><a href="#rule" class="headerlink" title="rule"></a>rule</h3><p><code>model-form</code>使用laravel的验证规则来验证表单提交的数据：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;title&#x27;</span>)-&gt;<span class="title function_ invoke__">rules</span>(<span class="string">&#x27;required|min:3&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 复杂的验证规则可以在回调里面实现</span></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;title&#x27;</span>)-&gt;<span class="title function_ invoke__">rules</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 如果不是编辑状态，则添加字段唯一验证</span></span><br><span class="line">    <span class="keyword">if</span> (!<span class="variable">$id</span> = <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">model</span>()-&gt;id) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;unique:users,email_address&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>也可以给验证规则自定义错误提示消息：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;code&#x27;</span>)-&gt;<span class="title function_ invoke__">rules</span>(<span class="string">&#x27;required|regex:/^\d+$/|min:10&#x27;</span>, [</span><br><span class="line">    <span class="string">&#x27;regex&#x27;</span> =&gt; <span class="string">&#x27;code必须全部为数字&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;min&#x27;</span>   =&gt; <span class="string">&#x27;code不能少于10个字符&#x27;</span>,</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+<p>如果要允许字段为空，首先要在数据库的表里面对该字段设置为<code>NULL</code>，然后</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;title&#x27;</span>)-&gt;<span class="title function_ invoke__">rules</span>(<span class="string">&#x27;nullable&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>更多规则请参考<a target="_blank" rel="noopener" href="https://laravel.com/docs/5.5/validation">Validation</a>。</p>
+<h3 id="creationRules"><a href="#creationRules" class="headerlink" title="creationRules"></a>creationRules</h3><p>此方法用法和<code>Form\Field::rule</code>用法完全一致，不同的是此方法只有在新增数据时才有效。</p>
+<blockquote>
+<p>{tip} 如果调用了<code>creationRules</code>方法，则<code>rule</code>方法设置的验证规则将会被忽略。</p>
+</blockquote>
+<h3 id="updateRules"><a href="#updateRules" class="headerlink" title="updateRules"></a>updateRules</h3><p>此方法用法和<code>Form\Field::rule</code>用法完全一致，不同的是此方法只有在更新数据时才有效。</p>
+<blockquote>
+<p>{tip} 如果调用了<code>updateRules</code>方法，则<code>rule</code>方法设置的验证规则将会被忽略。</p>
+</blockquote>
+<h2 id="responseValidationMessages"><a href="#responseValidationMessages" class="headerlink" title="responseValidationMessages"></a>responseValidationMessages</h2><p>通过<code>Form::responseValidationMessages</code>方法可以返回自定义验证错误信息，并中断后续逻辑，用法如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 编辑提交时是“PUT”方法</span></span><br><span class="line"><span class="keyword">if</span> (<span class="title function_ invoke__">request</span>()-&gt;<span class="title function_ invoke__">getMethod</span>() == <span class="string">&#x27;PUT&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (...) &#123; <span class="comment">// 你的验证逻辑</span></span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">responseValidationMessages</span>(<span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;title格式错误&#x27;</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 如有多个错误信息，第二个参数可以传数组</span></span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">responseValidationMessages</span>(<span class="string">&#x27;content&#x27;</span>, [<span class="string">&#x27;content格式错误&#x27;</span>, <span class="string">&#x27;content不能为空&#x27;</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;title&#x27;</span>);</span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;content&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>也可以在<code>submitted</code>事件中使用这个方法</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">submitted</span>(function (<span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (...) &#123; <span class="comment">// 你的验证逻辑</span></span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">responseValidationMessages</span>(<span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;title格式错误&#x27;</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 如有多个错误信息，第二个参数可以传数组</span></span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">responseValidationMessages</span>(<span class="string">&#x27;content&#x27;</span>, [<span class="string">&#x27;content格式错误&#x27;</span>, <span class="string">&#x27;content不能为空&#x27;</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="前端验证"><a href="#前端验证" class="headerlink" title="前端验证"></a>前端验证</h2><p>系统继承了<a href="https://github.com/1000hz/bootstrap-validator" target="_blank">bootstrap-validator</a>进行前端表单验证，支持H5表单类型的验证。</p>
+<blockquote>
+<p>{tip} 不支持H5的浏览器也可以使用前端验证，系统已经做好了兼容。大部分表单都支持前端和后端验证，两者可以同时工作不冲突，少部分表单前端验证无效。</p>
+</blockquote>
+<h3 id="H5验证"><a href="#H5验证" class="headerlink" title="H5验证"></a>H5验证</h3><h4 id="required"><a href="#required" class="headerlink" title="required"></a>required</h4><p>必填</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;title&#x27;</span>)-&gt;<span class="title function_ invoke__">required</span>();</span><br></pre></td></tr></table></figure>
+
+<h4 id="number"><a href="#number" class="headerlink" title="number"></a>number</h4><p>只允许输入数字</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;age&#x27;</span>)-&gt;<span class="title function_ invoke__">type</span>(<span class="string">&#x27;number&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>限制范围</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只允许输入 10-60 范围内的数字</span></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;age&#x27;</span>)</span><br><span class="line">    -&gt;<span class="title function_ invoke__">type</span>(<span class="string">&#x27;number&#x27;</span>)</span><br><span class="line">    -&gt;<span class="title function_ invoke__">attribute</span>(<span class="string">&#x27;min&#x27;</span>, <span class="number">10</span>)</span><br><span class="line">    -&gt;<span class="title function_ invoke__">attribute</span>(<span class="string">&#x27;max&#x27;</span>, <span class="number">60</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="email"><a href="#email" class="headerlink" title="email"></a>email</h4><p>邮箱</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">email</span>(<span class="string">&#x27;email&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="url"><a href="#url" class="headerlink" title="url"></a>url</h4><p>链接</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;website&#x27;</span>)-&gt;<span class="title function_ invoke__">type</span>(<span class="string">&#x27;url&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><h4 id="minLength"><a href="#minLength" class="headerlink" title="minLength"></a>minLength</h4><p>限制字符最小长度</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;title&#x27;</span>)-&gt;<span class="title function_ invoke__">minLength</span>(<span class="number">20</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置错误信息</span></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;title&#x27;</span>)-&gt;<span class="title function_ invoke__">minLength</span>(<span class="number">20</span>, <span class="string">&#x27;最少输入20个字符&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="maxLength"><a href="#maxLength" class="headerlink" title="maxLength"></a>maxLength</h4><p>限制字符最大长度</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;title&#x27;</span>)-&gt;<span class="title function_ invoke__">maxLength</span>(<span class="number">50</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置错误信息</span></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;title&#x27;</span>)-&gt;<span class="title function_ invoke__">minLength</span>(<span class="number">50</span>, <span class="string">&#x27;不能超过50个字符&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="same"><a href="#same" class="headerlink" title="same"></a>same</h4><p>限制当前字段值必须与给定字段的值相等，常用于密码确认</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">password</span>(<span class="string">&#x27;password&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">password</span>(<span class="string">&#x27;password_confirm&#x27;</span>)-&gt;<span class="title function_ invoke__">same</span>(<span class="string">&#x27;password&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置错误信息</span></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">password</span>(<span class="string">&#x27;password_confirm&#x27;</span>)-&gt;<span class="title function_ invoke__">same</span>(<span class="string">&#x27;password&#x27;</span>, <span class="string">&#x27;两次密码输入不一致&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="自定义"><a href="#自定义" class="headerlink" title="自定义"></a>自定义</h3><p>开发者可以通过以下方法自定义前端验证规则。</p>
+<p>在 <code>app/Admin/bootstrap.php</code> 中添加以下代码。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Form</span>\<span class="title">Field</span>;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Field\Text</span>::<span class="title function_ invoke__">macro</span>(<span class="string">&#x27;len&#x27;</span>, function (<span class="keyword">int</span> <span class="variable">$length</span>, ?<span class="keyword">string</span> <span class="variable">$error</span> = <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="comment">// 前端验证逻辑扩展</span></span><br><span class="line">    <span class="title class_">Admin</span>::<span class="title function_ invoke__">script</span>(</span><br><span class="line">                <span class="string">&lt;&lt;&lt;&#x27;JS&#x27;</span></span><br><span class="line"><span class="string">Dcat.validator.extend(&#x27;len&#x27;, function ($el) &#123;</span></span><br><span class="line"><span class="string">    return $el.val().length != $el.attr(&#x27;data-len&#x27;);</span></span><br><span class="line"><span class="string">&#125;);</span></span><br><span class="line"><span class="string">JS</span></span><br><span class="line">        );</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 同时添加后端验证逻辑，这个可以看需要</span></span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">rules</span>(<span class="string">&#x27;size:&#x27;</span>.<span class="variable">$length</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">attribute</span>([</span><br><span class="line">            <span class="string">&#x27;data-len&#x27;</span>       =&gt; <span class="variable">$length</span>,</span><br><span class="line">            <span class="string">&#x27;data-len-error&#x27;</span> =&gt; <span class="title function_ invoke__">str_replace</span>(</span><br><span class="line">                [<span class="string">&#x27;:attribute&#x27;</span>, <span class="string">&#x27;:len&#x27;</span>],</span><br><span class="line">                [<span class="variable">$this</span>-&gt;label, <span class="variable">$length</span>],</span><br><span class="line">                <span class="variable">$error</span> ?: <span class="string">&quot;只能输入:len个字符&quot;</span></span><br><span class="line">            ),</span><br><span class="line">        ]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>使用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;name&#x27;</span>)-&gt;<span class="title function_ invoke__">len</span>(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/model-form-validation/" data-id="clpdpxfji0016ywnac7z3c4v5" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/model-grid-async/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/model-form-when/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

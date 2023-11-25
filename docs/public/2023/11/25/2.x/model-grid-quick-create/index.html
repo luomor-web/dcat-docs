@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="快捷创建在表格中开启这个功能之后，会在表格头部增加一个form表单来创建数据，对于一些简单的表格页面，可以方便快速创建数据，不用跳转到创建页面操作          基本使用 {tip} 需要注意的是，快捷创建表单中的每一项，在form表单页面要设置相同类型的表单项。  1234$grid-&gt;quickCreate(function (Grid\Tools\QuickCreate $crea">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/model-grid-quick-create/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="快捷创建在表格中开启这个功能之后，会在表格头部增加一个form表单来创建数据，对于一些简单的表格页面，可以方便快速创建数据，不用跳转到创建页面操作          基本使用 {tip} 需要注意的是，快捷创建表单中的每一项，在form表单页面要设置相同类型的表单项。  1234$grid-&gt;quickCreate(function (Grid\Tools\QuickCreate $crea">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/img/screenshots/quick-create.png">
+<meta property="og:image" content="http://example.com/assets/img/screenshots/select-resource.png">
+<meta property="article:published_time" content="2023-11-25T07:16:44.974Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.975Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/img/screenshots/quick-create.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/model-grid-quick-create" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/model-grid-quick-create/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.974Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="快捷创建"><a href="#快捷创建" class="headerlink" title="快捷创建"></a>快捷创建</h1><p>在表格中开启这个功能之后，会在表格头部增加一个<code>form</code>表单来创建数据，对于一些简单的表格页面，可以方便快速创建数据，不用跳转到创建页面操作</p>
+<a href="/assets/img/screenshots/quick-create.png" target="_blank">
+    <img  src="/assets/img/screenshots/quick-create.png" style="box-shadow:0 1px 6px 1px rgba(0, 0, 0, 0.12)" width="100%">
+</a>
+
+
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><blockquote>
+<p>{tip} 需要注意的是，快捷创建表单中的每一项，在<code>form</code>表单页面要设置相同类型的表单项。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">quickCreate</span>(function (Grid\Tools\QuickCreate <span class="variable">$create</span>) &#123;</span><br><span class="line">    <span class="variable">$create</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;名称&#x27;</span>);</span><br><span class="line">    <span class="variable">$create</span>-&gt;<span class="title function_ invoke__">email</span>(<span class="string">&#x27;email&#x27;</span>, <span class="string">&#x27;邮箱&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置提交地址"><a href="#设置提交地址" class="headerlink" title="设置提交地址"></a>设置提交地址</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">quickCreate</span>(function (Grid\Tools\QuickCreate <span class="variable">$create</span>) &#123;</span><br><span class="line">    <span class="variable">$create</span>-&gt;<span class="title function_ invoke__">action</span>(<span class="string">&#x27;auth/users&#x27;</span>);</span><br><span class="line">    <span class="variable">$create</span>-&gt;<span class="title function_ invoke__">method</span>(<span class="string">&#x27;GET&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<p>表单支持的表单项有下面的几种类型</p>
+<h3 id="文本-text"><a href="#文本-text" class="headerlink" title="文本(text)"></a>文本(text)</h3><p>文本输入框</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$create</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;column_name&#x27;</span>, <span class="string">&#x27;placeholder...&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="隐藏表单-hidden"><a href="#隐藏表单-hidden" class="headerlink" title="隐藏表单(hidden)"></a>隐藏表单(hidden)</h3><p>文本输入框</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$create</span>-&gt;<span class="title function_ invoke__">hidden</span>(<span class="string">&#x27;column_name&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="邮箱-email"><a href="#邮箱-email" class="headerlink" title="邮箱(email)"></a>邮箱(email)</h3><p>邮箱输入框</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$create</span>-&gt;<span class="title function_ invoke__">email</span>(<span class="string">&#x27;column_name&#x27;</span>, <span class="string">&#x27;placeholder...&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="IP输入框"><a href="#IP输入框" class="headerlink" title="IP输入框"></a>IP输入框</h3><p>ip地址输入框</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$create</span>-&gt;<span class="title function_ invoke__">ip</span>(<span class="string">&#x27;column_name&#x27;</span>, <span class="string">&#x27;placeholder...&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="URL输入框"><a href="#URL输入框" class="headerlink" title="URL输入框"></a>URL输入框</h3><p>url输入框</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$create</span>-&gt;<span class="title function_ invoke__">url</span>(<span class="string">&#x27;column_name&#x27;</span>, <span class="string">&#x27;placeholder...&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="密码-password"><a href="#密码-password" class="headerlink" title="密码(password)"></a>密码(password)</h3><p>密码输入框</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$create</span>-&gt;<span class="title function_ invoke__">password</span>(<span class="string">&#x27;column_name&#x27;</span>, <span class="string">&#x27;placeholder...&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="手机号-mobile"><a href="#手机号-mobile" class="headerlink" title="手机号(mobile)"></a>手机号(mobile)</h3><p>手机号输入框</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$create</span>-&gt;<span class="title function_ invoke__">mobile</span>(<span class="string">&#x27;column_name&#x27;</span>, <span class="string">&#x27;placeholder...&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="整数-integer"><a href="#整数-integer" class="headerlink" title="整数(integer)"></a>整数(integer)</h3><p>整形数字输入框</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$create</span>-&gt;<span class="keyword">integer</span>(<span class="string">&#x27;column_name&#x27;</span>, <span class="string">&#x27;placeholder...&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="下拉选框-select"><a href="#下拉选框-select" class="headerlink" title="下拉选框(select)"></a>下拉选框(select)</h3><p>单选框</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$create</span>-&gt;<span class="title function_ invoke__">select</span>(<span class="string">&#x27;column_name&#x27;</span>, <span class="string">&#x27;placeholder...&#x27;</span>)-&gt;<span class="title function_ invoke__">options</span>([</span><br><span class="line">    <span class="number">1</span> =&gt; <span class="string">&#x27;foo&#x27;</span>,</span><br><span class="line">    <span class="number">2</span> =&gt; <span class="string">&#x27;bar&#x27;</span>,</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="下拉选框多选-multipleSelect"><a href="#下拉选框多选-multipleSelect" class="headerlink" title="下拉选框多选(multipleSelect)"></a>下拉选框多选(multipleSelect)</h3><p>多选框</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$create</span>-&gt;<span class="title function_ invoke__">multipleSelect</span>(<span class="string">&#x27;column_name&#x27;</span>, <span class="string">&#x27;placeholder...&#x27;</span>)-&gt;<span class="title function_ invoke__">options</span>([</span><br><span class="line">    <span class="number">1</span> =&gt; <span class="string">&#x27;foo&#x27;</span>,</span><br><span class="line">    <span class="number">2</span> =&gt; <span class="string">&#x27;bar&#x27;</span>,</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+<h3 id="标签-tags"><a href="#标签-tags" class="headerlink" title="标签(tags)"></a>标签(tags)</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$create</span>-&gt;<span class="title function_ invoke__">tags</span>(<span class="string">&#x27;column_name&#x27;</span>, <span class="string">&#x27;placeholder...&#x27;</span>)-&gt;<span class="title function_ invoke__">options</span>([</span><br><span class="line">    <span class="number">1</span> =&gt; <span class="string">&#x27;foo&#x27;</span>,</span><br><span class="line">    <span class="number">2</span> =&gt; <span class="string">&#x27;bar&#x27;</span>,</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+<h3 id="弹窗选择器-selectResource"><a href="#弹窗选择器-selectResource" class="headerlink" title="弹窗选择器(selectResource)"></a>弹窗选择器(selectResource)</h3><p>通过<code>selectResource</code>表单可以构建一个弹窗选择器，可以从弹窗里面选择表格数据，并且支持数据筛选等操作。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"> <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">selectResource</span>(<span class="string">&#x27;user&#x27;</span>)</span><br><span class="line">    -&gt;<span class="title function_ invoke__">path</span>(<span class="string">&#x27;auth/users&#x27;</span>) <span class="comment">// 设置表格页面链接</span></span><br><span class="line">    -&gt;<span class="title function_ invoke__">options</span>(function (<span class="variable">$v</span>) &#123; <span class="comment">// 显示已选中的数据</span></span><br><span class="line">        <span class="keyword">if</span> (!<span class="variable">$v</span>) <span class="keyword">return</span> <span class="variable">$v</span>;</span><br><span class="line">        <span class="variable">$userModel</span> = <span class="title function_ invoke__">config</span>(<span class="string">&#x27;admin.database.users_model&#x27;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$userModel</span>::<span class="title function_ invoke__">find</span>(<span class="variable">$v</span>)-&gt;<span class="title function_ invoke__">pluck</span>(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;id&#x27;</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 设置为多选</span></span><br><span class="line"> <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">selectResource</span>(<span class="string">&#x27;user&#x27;</span>)</span><br><span class="line">    -&gt;<span class="title function_ invoke__">path</span>(<span class="string">&#x27;auth/users&#x27;</span>) </span><br><span class="line">    -&gt;<span class="title function_ invoke__">multiple</span>() <span class="comment">// 设置为多选</span></span><br><span class="line">    -&gt;<span class="title function_ invoke__">options</span>(function (<span class="variable">$v</span>) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;);  </span><br><span class="line">    </span><br><span class="line"><span class="comment">// 限制最大选择数量</span></span><br><span class="line"> <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">selectResource</span>(<span class="string">&#x27;user&#x27;</span>)</span><br><span class="line">    -&gt;<span class="title function_ invoke__">path</span>(<span class="string">&#x27;auth/users&#x27;</span>) </span><br><span class="line">    -&gt;<span class="title function_ invoke__">multiple</span>(<span class="number">3</span>) <span class="comment">// 最多选择3个选项</span></span><br><span class="line">    -&gt;<span class="title function_ invoke__">options</span>(function (<span class="variable">$v</span>) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;);       </span><br></pre></td></tr></table></figure>
+
+<p>然后设置你的路由<code>app/Admin/routes.php</code></p>
+<blockquote>
+<p>{tip} 这里的添加路由只是示例，如果是新增的控制器需要加路由，如果路由已经存在则不需要再添加。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$router</span>-&gt;<span class="title function_ invoke__">resource</span>(<span class="string">&#x27;auth/users&#x27;</span>, <span class="string">&#x27;UserController&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><code>auth/users</code>页面实现代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Models</span>\<span class="title">Administrator</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">IFrameGrid</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Controllers</span>\<span class="title">AdminController</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserController</span> <span class="keyword">extends</span> <span class="title">AdminController</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">iFrameGrid</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$grid</span> = <span class="keyword">new</span> <span class="title class_">IFrameGrid</span>(<span class="keyword">new</span> <span class="title class_">Administrator</span>());</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 指定行选择器选中时显示的值的字段名称</span></span><br><span class="line">        <span class="comment">// 指定行选择器选中时显示的值的字段名称</span></span><br><span class="line">        <span class="comment">// 指定行选择器选中时显示的值的字段名称</span></span><br><span class="line">        <span class="comment">// 如果表格数据中带有 “name”、“title”或“username”字段，则可以不用设置</span></span><br><span class="line">        <span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">rowSelector</span>()-&gt;<span class="title function_ invoke__">titleColumn</span>(<span class="string">&#x27;username&#x27;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="variable">$grid</span>-&gt;id-&gt;<span class="title function_ invoke__">sortable</span>();</span><br><span class="line">        <span class="variable">$grid</span>-&gt;username;</span><br><span class="line">        <span class="variable">$grid</span>-&gt;name;</span><br><span class="line">    </span><br><span class="line">        <span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">filter</span>(function (Grid\Filter <span class="variable">$filter</span>) &#123;</span><br><span class="line">            <span class="variable">$filter</span>-&gt;<span class="title function_ invoke__">equal</span>(<span class="string">&#x27;id&#x27;</span>);</span><br><span class="line">            <span class="variable">$filter</span>-&gt;<span class="title function_ invoke__">like</span>(<span class="string">&#x27;username&#x27;</span>);</span><br><span class="line">            <span class="variable">$filter</span>-&gt;<span class="title function_ invoke__">like</span>(<span class="string">&#x27;name&#x27;</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$grid</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果</p>
+<a href="/assets/img/screenshots/select-resource.png" target="_blank">
+    <img  src="/assets/img/screenshots/select-resource.png" style="box-shadow:0 1px 6px 1px rgba(0, 0, 0, 0.12)" width="100%">
+</a>
+
+
+<h3 id="日期时间选择"><a href="#日期时间选择" class="headerlink" title="日期时间选择"></a>日期时间选择</h3><p>时间日期输入框</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$create</span>-&gt;<span class="title function_ invoke__">datetime</span>(<span class="string">&#x27;column_name&#x27;</span>, <span class="string">&#x27;placeholder...&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="时间选择-time"><a href="#时间选择-time" class="headerlink" title="时间选择(time)"></a>时间选择(time)</h3><p>时间输入框</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$create</span>-&gt;<span class="title function_ invoke__">time</span>(<span class="string">&#x27;column_name&#x27;</span>, <span class="string">&#x27;placeholder...&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="日期选择"><a href="#日期选择" class="headerlink" title="日期选择"></a>日期选择</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$create</span>-&gt;<span class="title function_ invoke__">date</span>(<span class="string">&#x27;column_name&#x27;</span>, <span class="string">&#x27;placeholder...&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/model-grid-quick-create/" data-id="clpdpxfk7001nywna7vfq4rum" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/model-grid-header/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/model-grid-exporter/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

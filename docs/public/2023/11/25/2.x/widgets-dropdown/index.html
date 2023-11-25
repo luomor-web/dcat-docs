@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="下拉菜单通过Dcat\Admin\Widgets\Dropdown这个类可以快速帮大家构建下拉菜单功能。 基本用法123456789101112131415161718192021222324252627282930&lt;?phpuse Dcat\Admin\Widgets\Dropdown;use Dcat\Admin\Layout\Content;class MyController&amp;#12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/widgets-dropdown/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="下拉菜单通过Dcat\Admin\Widgets\Dropdown这个类可以快速帮大家构建下拉菜单功能。 基本用法123456789101112131415161718192021222324252627282930&lt;?phpuse Dcat\Admin\Widgets\Dropdown;use Dcat\Admin\Layout\Content;class MyController&amp;#12">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/img/screenshots/dropdown-1.png">
+<meta property="og:image" content="http://example.com/assets/img/screenshots/dropdown-2.png">
+<meta property="og:image" content="http://example.com/assets/img/screenshots/dropdown-3.png">
+<meta property="og:image" content="http://example.com/assets/img/screenshots/dropdown-4.png">
+<meta property="article:published_time" content="2023-11-25T07:16:44.991Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.991Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/img/screenshots/dropdown-1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/widgets-dropdown" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/widgets-dropdown/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.991Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="下拉菜单"><a href="#下拉菜单" class="headerlink" title="下拉菜单"></a>下拉菜单</h1><p>通过<code>Dcat\Admin\Widgets\Dropdown</code>这个类可以快速帮大家构建下拉菜单功能。</p>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Widgets</span>\<span class="title">Dropdown</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Layout</span>\<span class="title">Content</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyController</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span>(<span class="params">Content <span class="variable">$content</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$options</span> = [</span><br><span class="line">            <span class="string">&#x27;名称1&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;名称2&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;名称3&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;名称4&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;名称5&#x27;</span>,</span><br><span class="line">        ];</span><br><span class="line">        </span><br><span class="line">        <span class="variable">$dropdown</span> = <span class="title class_">Dropdown</span>::<span class="title function_ invoke__">make</span>(<span class="variable">$options</span>)</span><br><span class="line">            -&gt;<span class="title function_ invoke__">button</span>(<span class="string">&#x27;分类导航&#x27;</span>) <span class="comment">// 设置按钮</span></span><br><span class="line">            -&gt;<span class="title function_ invoke__">buttonClass</span>(<span class="string">&#x27;btn btn-white  waves-effect&#x27;</span>) <span class="comment">// 设置按钮样式</span></span><br><span class="line">            -&gt;<span class="title function_ invoke__">map</span>(function (<span class="variable">$label</span>, <span class="variable">$key</span>) &#123;</span><br><span class="line">                <span class="comment">// 格式化菜单选项</span></span><br><span class="line">                <span class="variable">$url</span> = <span class="title function_ invoke__">admin_url</span>(<span class="string">&#x27;categories/&#x27;</span>.<span class="variable">$key</span>);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> <span class="string">&quot;&lt;a href=&#x27;<span class="subst">$url</span>&#x27;&gt;<span class="subst">&#123;$label&#125;</span>&lt;/a&gt;&quot;</span>;</span><br><span class="line">            &#125;);</span><br><span class="line">         </span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$content</span>-&gt;<span class="title function_ invoke__">body</span>(<span class="variable">$dropdown</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>效果</p>
+<a href="/assets/img/screenshots/dropdown-1.png" target="_blank">
+    <img src="/assets/img/screenshots/dropdown-1.png"  style="box-shadow:0 1px 6px 1px rgba(0, 0, 0, 0.12)" width="70%" >
+</a>
+
+<h3 id="点击菜单更换按钮文本"><a href="#点击菜单更换按钮文本" class="headerlink" title="点击菜单更换按钮文本"></a>点击菜单更换按钮文本</h3><p><code>click</code>方法可以让选中的菜单文本显示在按钮中，做到类似下拉选框的效果。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$options</span> = [</span><br><span class="line">    ...</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="variable">$dropdown</span> = <span class="title class_">Dropdown</span>::<span class="title function_ invoke__">make</span>(<span class="variable">$options</span>)</span><br><span class="line">    -&gt;<span class="title function_ invoke__">button</span>(<span class="string">&#x27;选择&#x27;</span>) <span class="comment">// 设置按钮</span></span><br><span class="line">    -&gt;<span class="title function_ invoke__">click</span>();</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置标题"><a href="#设置标题" class="headerlink" title="设置标题"></a>设置标题</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$options1</span> = [</span><br><span class="line">    <span class="string">&#x27;名称1&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;名称2&#x27;</span>,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="variable">$options2</span> = [</span><br><span class="line">    <span class="string">&#x27;测试1&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;测试2&#x27;</span>,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="variable">$dropdown</span> = <span class="title class_">Dropdown</span>::<span class="title function_ invoke__">make</span>()</span><br><span class="line">    -&gt;<span class="title function_ invoke__">button</span>(<span class="string">&#x27;使用标题&#x27;</span>)</span><br><span class="line">    -&gt;<span class="title function_ invoke__">options</span>(<span class="variable">$options1</span>, <span class="string">&#x27;标题1&#x27;</span>)</span><br><span class="line">    -&gt;<span class="title function_ invoke__">options</span>(<span class="variable">$options2</span>, <span class="string">&#x27;标题2&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>效果</p>
+<a href="/assets/img/screenshots/dropdown-2.png" target="_blank">
+    <img src="/assets/img/screenshots/dropdown-2.png"  style="box-shadow:0 1px 6px 1px rgba(0, 0, 0, 0.12)" width="70%" >
+</a>
+
+<h3 id="增加分割线"><a href="#增加分割线" class="headerlink" title="增加分割线"></a>增加分割线</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$options</span> = [</span><br><span class="line">    <span class="string">&#x27;名称1&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;名称2&#x27;</span>,</span><br><span class="line">    <span class="title class_">Dropdown</span>::<span class="variable constant_">DIVIDER</span>,</span><br><span class="line">    <span class="string">&#x27;名称3&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;名称4&#x27;</span>,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="variable">$dropdown</span> = <span class="title class_">Dropdown</span>::<span class="title function_ invoke__">make</span>()</span><br><span class="line">    -&gt;<span class="title function_ invoke__">button</span>(<span class="string">&#x27;使用分割线&#x27;</span>)</span><br><span class="line">    -&gt;<span class="title function_ invoke__">options</span>(<span class="variable">$options</span>)</span><br></pre></td></tr></table></figure>
+<p>效果</p>
+<a href="/assets/img/screenshots/dropdown-3.png" target="_blank">
+    <img src="/assets/img/screenshots/dropdown-3.png"  style="box-shadow:0 1px 6px 1px rgba(0, 0, 0, 0.12)" width="70%" >
+</a>
+
+<h3 id="自定义按钮"><a href="#自定义按钮" class="headerlink" title="自定义按钮"></a>自定义按钮</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span>(<span class="params">Content <span class="variable">$content</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$options</span> = [</span><br><span class="line">            <span class="string">&#x27;名称1&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;名称2&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;名称3&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;名称4&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;名称5&#x27;</span>,</span><br><span class="line">        ];</span><br><span class="line">        </span><br><span class="line">        <span class="variable">$dropdown</span> = <span class="title class_">Dropdown</span>::<span class="title function_ invoke__">make</span>(<span class="variable">$options</span>)</span><br><span class="line">            -&gt;<span class="title function_ invoke__">map</span>(function (<span class="variable">$label</span>, <span class="variable">$key</span>) &#123;</span><br><span class="line">                <span class="comment">// 格式化菜单选项</span></span><br><span class="line">                <span class="variable">$url</span> = <span class="title function_ invoke__">admin_url</span>(<span class="string">&#x27;categories/&#x27;</span>.<span class="variable">$key</span>);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> <span class="string">&quot;&lt;a href=&#x27;<span class="subst">$url</span>&#x27;&gt;<span class="subst">&#123;$label&#125;</span>&lt;/a&gt;&quot;</span>;</span><br><span class="line">            &#125;);</span><br><span class="line">         </span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$content</span>-&gt;<span class="title function_ invoke__">body</span>(</span><br><span class="line">            <span class="string">&lt;&lt;&lt;HTML</span></span><br><span class="line"><span class="string">&lt;div class=&#x27;dropdown&#x27;&gt;</span></span><br><span class="line"><span class="string">     &lt;button class=&#x27;btn btn-primary dropdown-toggle&#x27; data-toggle=&#x27;dropdown&#x27;&gt;</span></span><br><span class="line"><span class="string">        &lt;i class=&#x27;feather icon-email&#x27;&gt;&lt;/i&gt; 自定义按钮 </span></span><br><span class="line"><span class="string">     &lt;/button&gt;</span></span><br><span class="line"><span class="string">     <span class="subst">&#123;$dropdown-&gt;render()&#125;</span></span></span><br><span class="line"><span class="string">&lt;/div&gt;            </span></span><br><span class="line"><span class="string">HTML</span>            </span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果</p>
+<a href="/assets/img/screenshots/dropdown-4.png" target="_blank">
+    <img src="/assets/img/screenshots/dropdown-4.png"  style="box-shadow:0 1px 6px 1px rgba(0, 0, 0, 0.12)" width="70%" >
+</a>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/widgets-dropdown/" data-id="clpdpxfl5002kywna8vuu65pn" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/widgets-dialog-form/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/widgets-form/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="数据详情基本使用Dcat\Admin\Show用来显示数据详情，先来个例子，数据库中有posts表： 1234567891011CREATE TABLE &#96;posts&#96; (  &#96;id&#96; int(10) unsigned NOT NULL AUTO_INCREMENT,  &#96;author_id&#96; int(10) unsigned NOT NULL ,  &#96;title&#96; varchar(255) CO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/model-show/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="数据详情基本使用Dcat\Admin\Show用来显示数据详情，先来个例子，数据库中有posts表： 1234567891011CREATE TABLE &#96;posts&#96; (  &#96;id&#96; int(10) unsigned NOT NULL AUTO_INCREMENT,  &#96;author_id&#96; int(10) unsigned NOT NULL ,  &#96;title&#96; varchar(255) CO">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/img/screenshots/show-rows.png">
+<meta property="article:published_time" content="2023-11-25T07:16:44.982Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.983Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/img/screenshots/show-rows.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/model-show" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/model-show/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.982Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="数据详情基本使用"><a href="#数据详情基本使用" class="headerlink" title="数据详情基本使用"></a>数据详情基本使用</h1><p><code>Dcat\Admin\Show</code>用来显示数据详情，先来个例子，数据库中有posts表：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `posts` (</span><br><span class="line">  `id` <span class="type">int</span>(<span class="number">10</span>) unsigned <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  `author_id` <span class="type">int</span>(<span class="number">10</span>) unsigned <span class="keyword">NOT</span> <span class="keyword">NULL</span> ,</span><br><span class="line">  `title` <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `content` <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `rate` <span class="type">int</span>(<span class="number">255</span>) <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `release_at` <span class="type">timestamp</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;0000-00-00 00:00:00&#x27;</span>,</span><br><span class="line">  `created_at` <span class="type">timestamp</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;0000-00-00 00:00:00&#x27;</span>,</span><br><span class="line">  `updated_at` <span class="type">timestamp</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;0000-00-00 00:00:00&#x27;</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8 <span class="keyword">COLLATE</span><span class="operator">=</span>utf8_unicode_ci;</span><br></pre></td></tr></table></figure>
+<p>对应的数据模型为<code>App\Models\Post</code>，数据仓库为<code>App\Admin\Repositories\Post</code>，下面的代码可以显示posts表的数据详情：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Admin</span>\<span class="title class_">Controllers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>\<span class="title">Controller</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Admin</span>\<span class="title">Repositories</span>\<span class="title">Post</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Layout</span>\<span class="title">Content</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Show</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Admin</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PostController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params"><span class="variable">$id</span>, Content <span class="variable">$content</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$content</span>-&gt;<span class="title function_ invoke__">header</span>(<span class="string">&#x27;Post&#x27;</span>)</span><br><span class="line">            -&gt;<span class="title function_ invoke__">description</span>(<span class="string">&#x27;详情&#x27;</span>)</span><br><span class="line">            -&gt;<span class="title function_ invoke__">body</span>(<span class="title class_">Show</span>::<span class="title function_ invoke__">make</span>(<span class="variable">$id</span>, <span class="keyword">new</span> <span class="title class_">Post</span>(), function (Show <span class="variable">$show</span>) &#123;</span><br><span class="line">                <span class="variable">$show</span>-&gt;<span class="title function_ invoke__">id</span>(<span class="string">&#x27;ID&#x27;</span>);</span><br><span class="line">                <span class="variable">$show</span>-&gt;<span class="title function_ invoke__">title</span>(<span class="string">&#x27;标题&#x27;</span>);</span><br><span class="line">                <span class="variable">$show</span>-&gt;<span class="title function_ invoke__">content</span>(<span class="string">&#x27;内容&#x27;</span>);</span><br><span class="line">                <span class="variable">$show</span>-&gt;<span class="title function_ invoke__">rate</span>();</span><br><span class="line">                <span class="variable">$show</span>-&gt;<span class="title function_ invoke__">created_at</span>();</span><br><span class="line">                <span class="variable">$show</span>-&gt;<span class="title function_ invoke__">updated_at</span>();</span><br><span class="line">                <span class="variable">$show</span>-&gt;<span class="title function_ invoke__">release_at</span>();</span><br><span class="line">            &#125;));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="基本使用方法"><a href="#基本使用方法" class="headerlink" title="基本使用方法"></a>基本使用方法</h2><h3 id="HTML内容转义"><a href="#HTML内容转义" class="headerlink" title="HTML内容转义"></a>HTML内容转义</h3><p>为了防止XSS攻击, 默认输出的内容都会使用HTML转义，如果你不想转义输出<code>HTML</code>，可以调用<code>unescape</code>方法：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$show</span>-&gt;<span class="title function_ invoke__">avatar</span>()-&gt;<span class="title function_ invoke__">unescape</span>()-&gt;<span class="keyword">as</span>(<span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$avatar</span></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;&lt;img src=&#x27;<span class="subst">&#123;$avatar&#125;</span>&#x27; /&gt;&quot;</span>;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置字段宽度"><a href="#设置字段宽度" class="headerlink" title="设置字段宽度"></a>设置字段宽度</h3><p>字段宽度默认值为“3”，可以设置1-12之间的数字。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$show</span>-&gt;created_at-&gt;<span class="title function_ invoke__">width</span>(<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改面板的样式和标题"><a href="#修改面板的样式和标题" class="headerlink" title="修改面板的样式和标题"></a>修改面板的样式和标题</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$show</span>-&gt;<span class="title function_ invoke__">panel</span>()</span><br><span class="line">    -&gt;<span class="title function_ invoke__">style</span>(<span class="string">&#x27;danger&#x27;</span>)</span><br><span class="line">    -&gt;<span class="title function_ invoke__">title</span>(<span class="string">&#x27;post基本信息...&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>style的取值可以是primary、info、danger、warning、default</p>
+<h3 id="面板工具设置"><a href="#面板工具设置" class="headerlink" title="面板工具设置"></a>面板工具设置</h3><p>面板右上角默认有三个按钮编辑、删除、列表，可以分别用下面的方式关掉它们：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$show</span>-&gt;<span class="title function_ invoke__">panel</span>()</span><br><span class="line">    -&gt;<span class="title function_ invoke__">tools</span>(function (<span class="variable">$tools</span>) &#123;</span><br><span class="line">        <span class="variable">$tools</span>-&gt;<span class="title function_ invoke__">disableEdit</span>();</span><br><span class="line">        <span class="variable">$tools</span>-&gt;<span class="title function_ invoke__">disableList</span>();</span><br><span class="line">        <span class="variable">$tools</span>-&gt;<span class="title function_ invoke__">disableDelete</span>();</span><br><span class="line">        <span class="comment">// 显示快捷编辑按钮</span></span><br><span class="line">        <span class="variable">$tools</span>-&gt;<span class="title function_ invoke__">showQuickEdit</span>();</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="自定义复杂工具按钮"><a href="#自定义复杂工具按钮" class="headerlink" title="自定义复杂工具按钮"></a>自定义复杂工具按钮</h4><p>请参考文档<a href="action-show.md">数据详情动作</a></p>
+<h3 id="多列布局"><a href="#多列布局" class="headerlink" title="多列布局"></a>多列布局</h3><p>使用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$show</span>-&gt;<span class="title function_ invoke__">row</span>(function (Show\Row <span class="variable">$show</span>) &#123;</span><br><span class="line">    <span class="variable">$show</span>-&gt;<span class="title function_ invoke__">width</span>(<span class="number">3</span>)-&gt;id;</span><br><span class="line">    <span class="variable">$show</span>-&gt;<span class="title function_ invoke__">width</span>(<span class="number">3</span>)-&gt;name;</span><br><span class="line">    <span class="variable">$show</span>-&gt;<span class="title function_ invoke__">width</span>(<span class="number">5</span>)-&gt;email;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable">$show</span>-&gt;<span class="title function_ invoke__">row</span>(function (Show\Row <span class="variable">$show</span>) &#123;</span><br><span class="line">    <span class="variable">$show</span>-&gt;<span class="title function_ invoke__">width</span>(<span class="number">5</span>)-&gt;email_verified_at;</span><br><span class="line">    <span class="variable">$show</span>-&gt;created_at;</span><br><span class="line">    <span class="variable">$show</span>-&gt;updated_at;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable">$show</span>-&gt;<span class="title function_ invoke__">row</span>(function (Show\Row <span class="variable">$show</span>) &#123;</span><br><span class="line">    <span class="variable">$show</span>-&gt;<span class="title function_ invoke__">width</span>(<span class="number">3</span>)-&gt;<span class="title function_ invoke__">field</span>(<span class="string">&#x27;profile.first_name&#x27;</span>);</span><br><span class="line">    <span class="variable">$show</span>-&gt;<span class="title function_ invoke__">field</span>(<span class="string">&#x27;profile.last_name&#x27;</span>);</span><br><span class="line">    <span class="variable">$show</span>-&gt;<span class="title function_ invoke__">width</span>(<span class="number">3</span>)-&gt;<span class="title function_ invoke__">field</span>(<span class="string">&#x27;profile.postcode&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>效果<br><a href="/assets/img/screenshots/show-rows.png" target="_blank"><br>    <img class="img img-full" src="/assets/img/screenshots/show-rows.png"><br></a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/model-show/" data-id="clpdpxfkp0023ywna4h185b0l" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/model-tree/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/model-show-relation/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="扩展基本使用基本使用设置扩展相关目录读写权限在使用扩展功能之前，需要先保证所在用户拥有扩展相关目录的读写权限，否则可能造成扩展安装失败，请保证拥有以下几个目录的读写权限  项目目录&#x2F;dcat-admin-extensions 扩展的安装目录，可以根据配置参数 admin.extensions.dir 进行更改 public&#x2F;vendor 扩展静态资源发布目录 resources&#x2F;lang 语言包目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/extension-f/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="扩展基本使用基本使用设置扩展相关目录读写权限在使用扩展功能之前，需要先保证所在用户拥有扩展相关目录的读写权限，否则可能造成扩展安装失败，请保证拥有以下几个目录的读写权限  项目目录&#x2F;dcat-admin-extensions 扩展的安装目录，可以根据配置参数 admin.extensions.dir 进行更改 public&#x2F;vendor 扩展静态资源发布目录 resources&#x2F;lang 语言包目">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-25T07:16:44.958Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.958Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/extension-f" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/extension-f/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.958Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="扩展基本使用"><a href="#扩展基本使用" class="headerlink" title="扩展基本使用"></a>扩展基本使用</h1><h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><h3 id="设置扩展相关目录读写权限"><a href="#设置扩展相关目录读写权限" class="headerlink" title="设置扩展相关目录读写权限"></a>设置扩展相关目录读写权限</h3><p>在使用扩展功能之前，需要先保证所在用户拥有扩展相关目录的读写权限，否则可能造成扩展安装失败，请保证拥有以下几个目录的读写权限</p>
+<ol>
+<li><code>项目目录/dcat-admin-extensions</code> 扩展的安装目录，可以根据配置参数 <code>admin.extensions.dir</code> 进行更改</li>
+<li><code>public/vendor</code> 扩展静态资源发布目录</li>
+<li><code>resources/lang</code> 语言包目录</li>
+</ol>
+<h3 id="扩展安装"><a href="#扩展安装" class="headerlink" title="扩展安装"></a>扩展安装</h3><p><code>Dcat Admin</code>中扩展支持以下三种安装方式，安装成功后均能在扩展管理页面<code>admin/auth/extensions</code>看到相关扩展信息</p>
+<h4 id="1-通过应用市场安装"><a href="#1-通过应用市场安装" class="headerlink" title="1.通过应用市场安装"></a>1.通过应用市场安装</h4><p>敬请期待…</p>
+<h4 id="2-本地安装"><a href="#2-本地安装" class="headerlink" title="2.本地安装"></a>2.本地安装</h4><p>下载扩展的<code>zip</code>压缩包，注意必须是<code>zip</code>格式，然后打开扩展管理页面<code>admin/auth/extensions</code>，然后点击表格工具栏的<code>本地安装</code>按钮上传提交即可。</p>
+<h4 id="3-composer安装"><a href="#3-composer安装" class="headerlink" title="3.composer安装"></a>3.composer安装</h4><p>根据扩展开发者文档提供的说明，直接使用composer安装即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require &#123;扩展名称&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="启用扩展"><a href="#启用扩展" class="headerlink" title="启用扩展"></a>启用扩展</h4><p>安装之后，需要在扩展管理页面点击 <code>更新至xxx版本</code> 以及更新 <code>启用</code> 按钮之后方可正常使用</p>
+<h2 id="开发扩展"><a href="#开发扩展" class="headerlink" title="开发扩展"></a>开发扩展</h2><p>详细的开发教程，请参考文档 <a href="extension-dev.md">开发扩展</a> 章节。</p>
+<p><a name="service"></a></p>
+<h3 id="服务注册与初始化"><a href="#服务注册与初始化" class="headerlink" title="服务注册与初始化"></a>服务注册与初始化</h3><blockquote>
+<p>{tip} 如果你对服务提供者的概念并不熟悉，请先前往<a target="_blank" rel="noopener" href="https://learnku.com/docs/laravel/8.x/providers/9362">Laravel文档 - 服务提供者</a>学习。</p>
+</blockquote>
+<p>扩展的 <code>ServiceProvider</code> 类实际上是一个<a target="_blank" rel="noopener" href="https://learnku.com/docs/laravel/8.x/providers/9362">服务提供者</a>，唯一的区别是扩展的 <code>ServiceProvider</code> 不能重写 <code>boot</code> 方法，需要通过 <code>init</code> 代替 <code>boot</code>方法。</p>
+<p><a name="version"></a></p>
+<h3 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h3><p>每个扩展都有一个<code>version.php</code>文件，通过这个文件可以实现版本管理功能，每次发布新版本我们只需要往这个文件添加新的版本号以及相关描述即可</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> [</span><br><span class="line">    <span class="comment">// key 是版本号，注意这里不要带 v 前缀！</span></span><br><span class="line">    <span class="string">&#x27;1.0.0&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;版本描述信息，可以有多条&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;描述2...&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;create_operation_log.php&#x27;</span>, <span class="comment">// 版本迁移文件，可以有多条</span></span><br><span class="line">    ],</span><br><span class="line">    </span><br><span class="line">    <span class="string">&#x27;1.0.1&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;版本描述信息，可以有多条&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;update_operation_log.php&#x27;</span>, <span class="comment">// 版本迁移文件</span></span><br><span class="line">    ],</span><br><span class="line">    </span><br><span class="line">    ...</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="升级版本"><a href="#升级版本" class="headerlink" title="升级版本"></a>升级版本</h4><p>安装了新的版本代码之后，可以在扩展管理页面<code>admin/auth/extensions</code>中点击更新按钮进行升级。</p>
+<p>点击升级后如果有迁移文件则会运行迁移文件，如果有菜单则会重新创建菜单，如果有静态资源则会自动重新发布资源文件。</p>
+<h4 id="回滚版本"><a href="#回滚版本" class="headerlink" title="回滚版本"></a>回滚版本</h4><p>通过命令 <code>php artisan admin:ext-rollback &#123;扩展名称&#125; &#123;版本号&#125;</code> 可以回滚到指定版本，但需要注意的是，回滚扩展会删除数据，可能会导致数据丢失，请谨慎操作！！！</p>
+<h4 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h4><p>如果你的扩展已安装，通过扩展页面 <code>admin/auth/extensions</code> 可以扩展进行卸载，但需要注意的是，卸载扩展会删除数据，可能会导致数据丢失，请谨慎操作！！！</p>
+<p>如果你想完全移除扩展的代码，则直接删除 <code>dcat-admin-extensions</code> 目录下对应的扩展文件夹即可。</p>
+<p><a name="view"></a></p>
+<h3 id="视图-view"><a href="#视图-view" class="headerlink" title="视图 (view)"></a>视图 (view)</h3><p>视图的默认目录为<code>扩展目录/resources/view</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">├── resources </span><br><span class="line">│   ├── ...</span><br><span class="line">│   └── views <span class="comment"># 视图目录</span></span><br><span class="line">│       └── index.blade.php <span class="comment"># 视图示例文件</span></span><br></pre></td></tr></table></figure>
+
+<p>只要把视图文件放在上述目录，系统就会自动给视图目录注册别名，别名与扩展名称相同。假设你的扩展包名称为 <code>dcat-admin/form-step</code>，则可以通过以下方式加载视图</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="string">&#x27;dcat-admin.form-step::index&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><a name="assets"></a></p>
+<h3 id="静态资源"><a href="#静态资源" class="headerlink" title="静态资源"></a>静态资源</h3><p>假设你的扩展包名称为 <code>dcat-admin/form-step</code>，如果你的扩展中包含静态资源如下，那么你可以通过 <code>FormStepServiceProvider</code> 上的 <code>$js</code> 和 <code>$css</code> 属性为你的静态资源注册别名</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">└── resources </span><br><span class="line">    └─── assets</span><br><span class="line">      ├── css</span><br><span class="line">      │   └── index.css</span><br><span class="line">      └── js</span><br><span class="line">          └── index.js</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FormStepServiceProvider</span> <span class="keyword">extends</span> <span class="title">ServiceProvider</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$js</span> = [</span><br><span class="line">        <span class="string">&#x27;js/index.js&#x27;</span>,</span><br><span class="line">    ];</span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$css</span> = [</span><br><span class="line">        <span class="string">&#x27;css/index.css&#x27;</span>,</span><br><span class="line">    ];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后就可以通过下面的方法加载静态资源</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Admin</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 直接用你的 包名 即可引入扩展包的静态资源</span></span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">requireAssets</span>(<span class="string">&#x27;@dcat-admin.form-step&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+
+<p>当然你也可以不通过 <code>$js</code> 和 <code>$css</code> 属性注册别名，那么也可以用下面的方法直接加载静态资源，效果是一样的</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 上面的写法相当于</span></span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">js</span>([<span class="string">&#x27;@dcat-admin.form-step/js/index.js&#x27;</span>]);</span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">css</span>([<span class="string">&#x27;@dcat-admin.form-step/css/index.css&#x27;</span>]);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/extension-f/" data-id="clpdpxfiw000jywna6vlsb0xa" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/function/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/extension-helpers/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

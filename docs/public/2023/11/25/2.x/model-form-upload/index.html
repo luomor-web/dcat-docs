@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="图片&#x2F;文件上传数据表单通过以下的调用来生成图片&#x2F;文件上传表单，支持本地和云存储的文件上传。上传组件是基于webuploader实现的，具体的使用配置可参考webuploader官方文档。  {tip} 文件或图片上传表单字段请不要在模型中设置访问器和修改器拼接域名，如有相关需求可参考文件&#x2F;图片域名拼接。  12$form-&gt;file(&#x27;file_col">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/model-form-upload/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="图片&#x2F;文件上传数据表单通过以下的调用来生成图片&#x2F;文件上传表单，支持本地和云存储的文件上传。上传组件是基于webuploader实现的，具体的使用配置可参考webuploader官方文档。  {tip} 文件或图片上传表单字段请不要在模型中设置访问器和修改器拼接域名，如有相关需求可参考文件&#x2F;图片域名拼接。  12$form-&gt;file(&#x27;file_col">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-25T07:16:44.966Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.967Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/model-form-upload" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/model-form-upload/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.966Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="图片-文件上传"><a href="#图片-文件上传" class="headerlink" title="图片&#x2F;文件上传"></a>图片&#x2F;文件上传</h1><p><a href="model-form.md">数据表单</a>通过以下的调用来生成图片&#x2F;文件上传表单，支持本地和云存储的文件上传。上传组件是基于<a target="_blank" rel="noopener" href="https://fex.baidu.com/webuploader/">webuploader</a>实现的，具体的使用配置可参考<a target="_blank" rel="noopener" href="https://fex.baidu.com/webuploader/document.html">webuploader官方文档</a>。</p>
+<blockquote>
+<p>{tip} 文件或图片上传表单字段请不要在模型中设置<strong>访问器</strong>和<strong>修改器</strong>拼接域名，如有相关需求可参考<a href="#withhost">文件&#x2F;图片域名拼接</a>。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">file</span>(<span class="string">&#x27;file_column&#x27;</span>);</span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">image</span>(<span class="string">&#x27;image_column&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><a name="local"></a></p>
+<h2 id="本地上传"><a href="#本地上传" class="headerlink" title="本地上传"></a>本地上传</h2><p>先添加存储配置，<code>config/filesystems.php</code> 添加一项<code>disk</code>:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="string">&#x27;disks&#x27;</span> =&gt; [</span><br><span class="line">    ... ,</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;admin&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;driver&#x27;</span> =&gt; <span class="string">&#x27;local&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;root&#x27;</span> =&gt; <span class="title function_ invoke__">public_path</span>(<span class="string">&#x27;uploads&#x27;</span>),</span><br><span class="line">        <span class="string">&#x27;visibility&#x27;</span> =&gt; <span class="string">&#x27;public&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;url&#x27;</span> =&gt; <span class="title function_ invoke__">env</span>(<span class="string">&#x27;APP_URL&#x27;</span>).<span class="string">&#x27;/uploads&#x27;</span>,</span><br><span class="line">    ],</span><br><span class="line">],</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>设置上传的路径为<code>public/uploads</code>(public_path(‘uploads’))。</p>
+<p>然后选择上传的<code>disk</code>，打开<code>config/admin.php</code>找到：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line"><span class="string">&#x27;upload&#x27;</span>  =&gt; [</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;disk&#x27;</span> =&gt; <span class="string">&#x27;admin&#x27;</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;directory&#x27;</span>  =&gt; [</span><br><span class="line">        <span class="string">&#x27;image&#x27;</span>  =&gt; <span class="string">&#x27;images&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;file&#x27;</span>   =&gt; <span class="string">&#x27;files&#x27;</span>,</span><br><span class="line">    ]</span><br><span class="line">],</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>将<code>disk</code>设置为上面添加的<code>admin</code>，<code>directory.image</code>和<code>directory.file</code>分别为用<code>$form-&gt;image($column)</code>和<code>$form-&gt;file($column)</code>上传的图片和文件的上传目录。</p>
+<p>当然你也可以在代码中指定<code>disk</code>：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">file</span>(<span class="string">&#x27;file&#x27;</span>)-&gt;<span class="title function_ invoke__">disk</span>(<span class="string">&#x27;your disk name&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><a name="oss"></a></p>
+<h2 id="云盘上传"><a href="#云盘上传" class="headerlink" title="云盘上传"></a>云盘上传</h2><p>如果需要上传到云存储，需要安装对应<code>laravel storage</code>的适配器，拿七牛云存储举例</p>
+<p>首先安装 <a target="_blank" rel="noopener" href="https://github.com/zgldh/qiniu-laravel-storage">zgldh&#x2F;qiniu-laravel-storage</a></p>
+<p>同样配置好disk，在<code>config/filesystems.php</code> 添加一项:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;disks&#x27;</span> =&gt; [</span><br><span class="line">    ... ,</span><br><span class="line">    <span class="string">&#x27;qiniu&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;driver&#x27;</span>  =&gt; <span class="string">&#x27;qiniu&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;domains&#x27;</span> =&gt; [</span><br><span class="line">            <span class="string">&#x27;default&#x27;</span>   =&gt; <span class="string">&#x27;xxxxx.com1.z0.glb.clouddn.com&#x27;</span>, <span class="comment">//你的七牛域名</span></span><br><span class="line">            <span class="string">&#x27;https&#x27;</span>     =&gt; <span class="string">&#x27;dn-yourdomain.qbox.me&#x27;</span>,         <span class="comment">//你的HTTPS域名</span></span><br><span class="line">            <span class="string">&#x27;custom&#x27;</span>    =&gt; <span class="string">&#x27;static.abc.com&#x27;</span>,                <span class="comment">//你的自定义域名</span></span><br><span class="line">         ],</span><br><span class="line">        <span class="string">&#x27;access_key&#x27;</span>=&gt; <span class="string">&#x27;&#x27;</span>,  <span class="comment">//AccessKey</span></span><br><span class="line">        <span class="string">&#x27;secret_key&#x27;</span>=&gt; <span class="string">&#x27;&#x27;</span>,  <span class="comment">//SecretKey</span></span><br><span class="line">        <span class="string">&#x27;bucket&#x27;</span>    =&gt; <span class="string">&#x27;&#x27;</span>,  <span class="comment">//Bucket名字</span></span><br><span class="line">        <span class="string">&#x27;notify_url&#x27;</span>=&gt; <span class="string">&#x27;&#x27;</span>,  <span class="comment">//持久化处理回调地址</span></span><br><span class="line">        <span class="string">&#x27;url&#x27;</span>       =&gt; <span class="string">&#x27;http://of8kfibjo.bkt.clouddn.com/&#x27;</span>,  <span class="comment">// 填写文件访问根url</span></span><br><span class="line">    ],</span><br><span class="line">],</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>然后修改<code>dcat-admin</code>的上传配置，打开<code>config/admin.php</code>找到：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="string">&#x27;upload&#x27;</span>  =&gt; [</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;disk&#x27;</span> =&gt; <span class="string">&#x27;qiniu&#x27;</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;directory&#x27;</span>  =&gt; [</span><br><span class="line">        <span class="string">&#x27;image&#x27;</span>  =&gt; <span class="string">&#x27;image&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;file&#x27;</span>   =&gt; <span class="string">&#x27;file&#x27;</span>,</span><br><span class="line">    ],</span><br><span class="line">],</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>disk</code>选择上面配置的<code>qiniu</code>，或：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">file</span>(<span class="string">&#x27;file&#x27;</span>)-&gt;<span class="title function_ invoke__">disk</span>(<span class="string">&#x27;qiniu&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><a name="public"></a></p>
+<h2 id="公共方法"><a href="#公共方法" class="headerlink" title="公共方法"></a>公共方法</h2><h3 id="缩略图-thumbnail"><a href="#缩略图-thumbnail" class="headerlink" title="缩略图 (thumbnail)"></a>缩略图 (thumbnail)</h3><p>上传图片的同时生成缩略图</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">image</span>(<span class="variable">$column</span>[, <span class="variable">$label</span>])-&gt;<span class="title function_ invoke__">thumbnail</span>(<span class="string">&#x27;small&#x27;</span>, <span class="variable">$width</span> = <span class="number">300</span>, <span class="variable">$height</span> = <span class="number">300</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生成多张缩略图</span></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">image</span>(<span class="variable">$column</span>[, <span class="variable">$label</span>])-&gt;<span class="title function_ invoke__">thumbnail</span>([</span><br><span class="line">    <span class="string">&#x27;small1&#x27;</span> =&gt; [<span class="number">100</span>, <span class="number">100</span>],</span><br><span class="line">    <span class="string">&#x27;small2&#x27;</span> =&gt; [<span class="number">200</span>, <span class="number">200</span>],</span><br><span class="line">    <span class="string">&#x27;small3&#x27;</span> =&gt; [<span class="number">300</span>, <span class="number">300</span>],</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Traits</span>\<span class="title">Resizable</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Photo</span> <span class="keyword">extends</span> <span class="title">Model</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">use</span> <span class="title">Resizable</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// To access thumbnail</span></span><br><span class="line"><span class="variable">$photo</span>-&gt;<span class="title function_ invoke__">thumbnail</span>(<span class="string">&#x27;small&#x27;</span>, <span class="string">&#x27;photo_column&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><a name="disk"></a></p>
+<h3 id="存储驱动-disk"><a href="#存储驱动-disk" class="headerlink" title="存储驱动 (disk)"></a>存储驱动 (disk)</h3><p>修改文件上传源</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">file</span>(<span class="string">&#x27;file&#x27;</span>)-&gt;<span class="title function_ invoke__">disk</span>(<span class="string">&#x27;your disk name&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><a name="move"></a></p>
+<h3 id="上传路径-move"><a href="#上传路径-move" class="headerlink" title="上传路径 (move)"></a>上传路径 (move)</h3><p>修改上传路径</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">file</span>(<span class="string">&#x27;file&#x27;</span>)-&gt;<span class="title function_ invoke__">move</span>(<span class="string">&#x27;public/upload/image1/&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><a name="name"></a></p>
+<h3 id="文件名称-name"><a href="#文件名称-name" class="headerlink" title="文件名称 (name)"></a>文件名称 (name)</h3><p>修改上传文件名称</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">file</span>(<span class="string">&#x27;file&#x27;</span>)-&gt;<span class="title function_ invoke__">name</span>(<span class="string">&#x27;test.text&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">image</span>(<span class="string">&#x27;picture&#x27;</span>)-&gt;<span class="title function_ invoke__">name</span>(function (<span class="variable">$file</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;test.&#x27;</span>.<span class="variable">$file</span>-&gt;<span class="title function_ invoke__">guessExtension</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><a name="uniqueName"></a></p>
+<h3 id="随机名称-uniqueName"><a href="#随机名称-uniqueName" class="headerlink" title="随机名称 (uniqueName)"></a>随机名称 (uniqueName)</h3><p>使用随机生成文件名 (md5(uniqid()).extension)</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">image</span>(<span class="string">&#x27;picture&#x27;</span>)-&gt;<span class="title function_ invoke__">uniqueName</span>();</span><br></pre></td></tr></table></figure>
+
+<p><a name="removable"></a></p>
+<h3 id="禁止页面删除文件-替换上传"><a href="#禁止页面删除文件-替换上传" class="headerlink" title="禁止页面删除文件 (替换上传)"></a>禁止页面删除文件 (替换上传)</h3><p>通过<code>removable</code>方法可以禁止用户从页面点击删除服务器上的文件，可以实现图片覆盖上传效果。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">file</span>(<span class="variable">$column</span>[, <span class="variable">$label</span>])-&gt;<span class="title function_ invoke__">removable</span>(<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+
+<p><a name="autoUpload"></a></p>
+<h3 id="自动上传-autoUpload"><a href="#自动上传-autoUpload" class="headerlink" title="自动上传 (autoUpload)"></a>自动上传 (autoUpload)</h3><p>开启这个功能之后选择完文件之后会立即自动上传，页面将不再显示<code>上传</code>按钮，使用方法如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">file</span>(<span class="string">&#x27;file&#x27;</span>)-&gt;<span class="title function_ invoke__">autoUpload</span>();</span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">image</span>(<span class="string">&#x27;img&#x27;</span>)-&gt;<span class="title function_ invoke__">autoUpload</span>();</span><br></pre></td></tr></table></figure>
+
+<p><a name="retainable"></a></p>
+<h3 id="禁止删除-retainable"><a href="#禁止删除-retainable" class="headerlink" title="禁止删除 (retainable)"></a>禁止删除 (retainable)</h3><p>开启这个功能之后文件将不会从服务器删除</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">file</span>(<span class="string">&#x27;file&#x27;</span>)-&gt;<span class="title function_ invoke__">retainable</span>();</span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">image</span>(<span class="string">&#x27;img&#x27;</span>)-&gt;<span class="title function_ invoke__">retainable</span>();</span><br></pre></td></tr></table></figure>
+
+
+<p><a name="storagePermission"></a></p>
+<h3 id="storagePermission"><a href="#storagePermission" class="headerlink" title="storagePermission"></a>storagePermission</h3><p>设置上传文件的权限</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">image</span>(<span class="string">&#x27;picture&#x27;</span>)-&gt;<span class="title function_ invoke__">storagePermission</span>(<span class="number">777</span>);</span><br></pre></td></tr></table></figure>
+
+
+<p><a name="accept"></a></p>
+<h3 id="限制上传文件类型"><a href="#限制上传文件类型" class="headerlink" title="限制上传文件类型"></a>限制上传文件类型</h3><p>限制上传文件的类型</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">file</span>(<span class="string">&#x27;file&#x27;</span>)-&gt;<span class="title function_ invoke__">accept</span>(<span class="string">&#x27;jpg,png,gif,jpeg&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以指定 mimeTypes， 多个用逗号分割</span></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">file</span>(<span class="string">&#x27;file&#x27;</span>)-&gt;<span class="title function_ invoke__">accept</span>(<span class="string">&#x27;jpg,png,gif,jpeg&#x27;</span>, <span class="string">&#x27;image/*&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><a name="chunked"></a></p>
+<h3 id="分块上传-chunked"><a href="#分块上传-chunked" class="headerlink" title="分块上传 (chunked)"></a>分块上传 (chunked)</h3><p>启用分块上传</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">file</span>(<span class="string">&#x27;file&#x27;</span>)-&gt;<span class="title function_ invoke__">chunked</span>();</span><br></pre></td></tr></table></figure>
+
+<p><a name="chunkSize"></a></p>
+<h3 id="分块大小-chunkSize"><a href="#分块大小-chunkSize" class="headerlink" title="分块大小(chunkSize)"></a>分块大小(chunkSize)</h3><p>设置分块大小，单位为<code>KB</code>，默认<code>5MB</code></p>
+<blockquote>
+<p>{tip} 调用这个方法会自动启用分块上传</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置为 1MB</span></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">file</span>(<span class="string">&#x27;file&#x27;</span>)-&gt;<span class="title function_ invoke__">chunkSize</span>(<span class="number">1024</span>);</span><br></pre></td></tr></table></figure>
+
+<p><a name="maxSize"></a></p>
+<h3 id="文件大小-maxSize"><a href="#文件大小-maxSize" class="headerlink" title="文件大小(maxSize)"></a>文件大小(maxSize)</h3><p>设置单个文件最大大小，单位为<code>Kb</code>，默认大小为<code>10M</code>。</p>
+<blockquote>
+<p>{tip} 同时应该保证<code>php.ini</code>配置文件的<code>upload_max_filesize</code>参数值必须大于这个方法设置的值。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置单个文件最大为1Mb</span></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">file</span>(<span class="string">&#x27;file&#x27;</span>)-&gt;<span class="title function_ invoke__">maxSize</span>(<span class="number">1024</span>);</span><br></pre></td></tr></table></figure>
+
+<p><a name="threads"></a></p>
+<h3 id="并发上传线程数-threads"><a href="#并发上传线程数-threads" class="headerlink" title="并发上传线程数 (threads)"></a>并发上传线程数 (threads)</h3><p>设置并发上传线程数，默认<code>3</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">file</span>(<span class="string">&#x27;file&#x27;</span>)-&gt;<span class="title function_ invoke__">threads</span>(<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+
+<p><a name="url"></a></p>
+<h3 id="自定义上传接口-url"><a href="#自定义上传接口-url" class="headerlink" title="自定义上传接口 (url)"></a>自定义上传接口 (url)</h3><p>通过<code>url</code>可以设置自定义上传接口</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">file</span>(<span class="string">&#x27;file&#x27;</span>)-&gt;<span class="title function_ invoke__">url</span>(<span class="string">&#x27;users/files&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>系统提供了<code>Dcat\Admin\Traits\HasUploadedFile</code>这个<code>trait</code>来帮助开发者更轻松地处理上传文件，用法如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Admin</span>\<span class="title class_">Controllers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Traits</span>\<span class="title">HasUploadedFile</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FileController</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">use</span> <span class="title">HasUploadedFile</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$disk</span> = <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">disk</span>(<span class="string">&#x27;local&#x27;</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 判断是否是删除文件请求</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">isDeleteRequest</span>()) &#123;</span><br><span class="line">            <span class="comment">// 删除文件并响应</span></span><br><span class="line">            <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">deleteFileAndResponse</span>(<span class="variable">$disk</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 获取上传的文件</span></span><br><span class="line">        <span class="variable">$file</span> = <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">file</span>();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取上传的字段名称</span></span><br><span class="line">        <span class="variable">$column</span> = <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">uploader</span>()-&gt;upload_column;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$dir</span> = <span class="string">&#x27;my-images&#x27;</span>;</span><br><span class="line">        <span class="variable">$newName</span> = <span class="variable">$column</span>.<span class="string">&#x27;-我的文件名称.&#x27;</span>.<span class="variable">$file</span>-&gt;<span class="title function_ invoke__">getClientOriginalExtension</span>();</span><br><span class="line"></span><br><span class="line">        <span class="variable">$result</span> = <span class="variable">$disk</span>-&gt;<span class="title function_ invoke__">putFileAs</span>(<span class="variable">$dir</span>, <span class="variable">$file</span>, <span class="variable">$newName</span>);</span><br><span class="line"></span><br><span class="line">        <span class="variable">$path</span> = <span class="string">&quot;<span class="subst">&#123;$dir&#125;</span>/<span class="subst">$newName</span>&quot;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$result</span></span><br><span class="line">            ? <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">responseUploaded</span>(<span class="variable">$path</span>, <span class="variable">$disk</span>-&gt;<span class="title function_ invoke__">url</span>(<span class="variable">$path</span>))</span><br><span class="line">            : <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">responseErrorMessage</span>(<span class="string">&#x27;文件上传失败&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在你的路由文件<code>app\Admin\routes.php</code>中加上</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$router</span>-&gt;<span class="title function_ invoke__">any</span>(<span class="string">&#x27;users/files&#x27;</span>, <span class="string">&#x27;FileController@handle&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+
+<p><a name="deleteUrl"></a></p>
+<h3 id="deleteUrl"><a href="#deleteUrl" class="headerlink" title="deleteUrl"></a>deleteUrl</h3><p>修改删除已上传文件路径，此方法一般不需要修改</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">file</span>(<span class="string">&#x27;file&#x27;</span>)-&gt;<span class="title function_ invoke__">deleteUrl</span>(<span class="string">&#x27;file/delete&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><a name="autoSave"></a></p>
+<h3 id="自动保存字段值-autoSave"><a href="#自动保存字段值-autoSave" class="headerlink" title="自动保存字段值 (autoSave)"></a>自动保存字段值 (autoSave)</h3><p>设置上传文件后是否自动保存文件路径到数据库，此方法默认启用，一般不需要修改</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">file</span>(<span class="string">&#x27;file&#x27;</span>)-&gt;<span class="title function_ invoke__">autoSave</span>(<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<p><a name="options"></a></p>
+<h3 id="配置-options"><a href="#配置-options" class="headerlink" title="配置 (options)"></a>配置 (options)</h3><p>自定义<a target="_blank" rel="noopener" href="https://fex.baidu.com/webuploader/document.html">webuploader</a>配置</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">file</span>(<span class="string">&#x27;file&#x27;</span>)-&gt;<span class="title function_ invoke__">options</span>([<span class="string">&#x27;disableGlobalDnd&#x27;</span> =&gt; <span class="literal">true</span>]);</span><br></pre></td></tr></table></figure>
+
+<h3 id="可排序-sortable"><a href="#可排序-sortable" class="headerlink" title="可排序 (sortable)"></a>可排序 (sortable)</h3><p>此方法仅针对多图&#x2F;文件上传表单有效</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">multipleImage</span>(<span class="string">&#x27;images&#x27;</span>)-&gt;<span class="title function_ invoke__">sortable</span>();</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="压缩图片-compress"><a href="#压缩图片-compress" class="headerlink" title="压缩图片 (compress)"></a>压缩图片 (compress)</h3><p>默认不启用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 启用图片压缩功能</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">multipleImage</span>(<span class="string">&#x27;images&#x27;</span>)-&gt;<span class="title function_ invoke__">compress</span>();</span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">image</span>(<span class="string">&#x27;avatar&#x27;</span>)-&gt;<span class="title function_ invoke__">compress</span>([</span><br><span class="line">	<span class="string">&#x27;width&#x27;</span> =&gt; <span class="number">1600</span>,</span><br><span class="line">	<span class="string">&#x27;height&#x27;</span> =&gt; <span class="number">1600</span>,</span><br><span class="line"></span><br><span class="line">	// 图片质量，只有type为`image/jpeg`的时候才有效。</span><br><span class="line">	<span class="string">&#x27;quality&#x27;</span> =&gt; <span class="number">90</span>,</span><br><span class="line"></span><br><span class="line">	// 是否允许放大，如果想要生成小图的时候不失真，此选项应该设置为<span class="literal">false</span>.</span><br><span class="line">	<span class="string">&#x27;allowMagnify&#x27;</span> =&gt; <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">	// 是否允许裁剪。</span><br><span class="line">	<span class="string">&#x27;crop&#x27;</span> =&gt; <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">	// 是否保留头部meta信息。</span><br><span class="line">	<span class="string">&#x27;preserveHeaders&#x27;</span> =&gt; <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">	// 如果发现压缩后文件大小比原来还大，则使用原来图片</span><br><span class="line">	// 此属性可能会影响图片自动纠正功能</span><br><span class="line">	<span class="string">&#x27;noCompressIfLarger&#x27;</span> =&gt; <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">	// 单位字节，如果图片大小小于此值，不会采用压缩。</span><br><span class="line">	<span class="string">&#x27;compressSize&#x27;</span> =&gt; <span class="number">0</span></span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+<h3 id="监听WebUploader文件上传事件-on"><a href="#监听WebUploader文件上传事件-on" class="headerlink" title="监听WebUploader文件上传事件 (on)"></a>监听WebUploader文件上传事件 (on)</h3><p>通过 <code>on</code> 方法可以监听 <a target="_blank" rel="noopener" href="http://fex.baidu.com/webuploader/doc/index.html#WebUploader_Uploader_events">WebUploader文件上传相关事件</a></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">file</span>(<span class="string">&#x27;...&#x27;</span>)</span><br><span class="line">	-&gt;<span class="title function_ invoke__">on</span>(<span class="string">&#x27;startUpload&#x27;</span>, <span class="string">&lt;&lt;&lt;JS</span></span><br><span class="line"><span class="string">		function () &#123;</span></span><br><span class="line"><span class="string">			console.log(&#x27;文件开始上传...&#x27;, this);</span></span><br><span class="line"><span class="string">			</span></span><br><span class="line"><span class="string">			// 上传文件前附加自定义参数到文件上传接口</span></span><br><span class="line"><span class="string">			this.uploader.options.formData[&#x27;custom_field&#x27;] = &#x27;...&#x27;;</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">&lt;&lt;&lt;JS</span></span><br><span class="line">    )</span><br><span class="line">	-&gt;<span class="title function_ invoke__">on</span>(<span class="string">&#x27;uploadFinished&#x27;</span>, <span class="string">&lt;&lt;&lt;JS</span></span><br><span class="line"><span class="string">    	function () &#123;</span></span><br><span class="line"><span class="string">    		console.log(&#x27;文件上传完毕&#x27;);</span></span><br><span class="line"><span class="string">    	&#125;</span></span><br><span class="line"><span class="string">&lt;&lt;&lt;JS</span></span><br><span class="line">    );</span><br></pre></td></tr></table></figure>
+
+
+<p><a name="withhost"></a></p>
+<h3 id="文件-图片域名拼接"><a href="#文件-图片域名拼接" class="headerlink" title="文件&#x2F;图片域名拼接"></a>文件&#x2F;图片域名拼接</h3><p>文件或图片上传表单字段请不要在模型中设置<strong>访问器</strong>和<strong>修改器</strong>拼接域名，如果你需要在访问的时候拼接完整域名，可以在模型中定义一个<code>public</code>方法</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">Str</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">Facades</span>\<span class="title">Storage</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">YourModel</span> <span class="keyword">extends</span> <span class="title">Model</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">// 定义一个public方法访问图片或文件</span></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getImage</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="title class_">Str</span>::<span class="title function_ invoke__">contains</span>(<span class="variable">$this</span>-&gt;image, <span class="string">&#x27;//&#x27;</span>)) &#123;</span><br><span class="line">		    <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;image;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">return</span> <span class="title class_">Storage</span>::<span class="title function_ invoke__">disk</span>(<span class="string">&#x27;admin&#x27;</span>)-&gt;<span class="title function_ invoke__">url</span>(<span class="variable">$this</span>-&gt;image);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="保存域名"><a href="#保存域名" class="headerlink" title="保存域名"></a>保存域名</h3><p>如果你需要保存文件域名到数据表，可以使用<code>saveFullUrl</code>方法</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">image</span>(<span class="string">&#x27;avatar&#x27;</span>)-&gt;<span class="title function_ invoke__">saveFullUrl</span>();</span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">file</span>(<span class="string">&#x27;...&#x27;</span>)-&gt;<span class="title function_ invoke__">saveFullUrl</span>();</span><br></pre></td></tr></table></figure>
+
+<h3 id="监听文件上传变动-change"><a href="#监听文件上传变动-change" class="headerlink" title="监听文件上传变动 (change)"></a>监听文件上传变动 (change)</h3><p>通过以下方法可以监听文件<strong>上传成功</strong>或文件<strong>被删除</strong>时产生的变动</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$file</span> = <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">file</span>(<span class="string">&#x27;...&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">script</span>(</span><br><span class="line">	<span class="string">&lt;&lt;&lt;JS</span></span><br><span class="line"><span class="string">$(&#x27;<span class="subst">&#123;$file-&gt;getElementClassSelector()&#125;</span> .file-input&#x27;).on(&#x27;change&#x27;, function () &#123;</span></span><br><span class="line"><span class="string">	console.log(&#x27;文件发生变动&#x27;, this.value);</span></span><br><span class="line"><span class="string">&#125;);</span></span><br><span class="line"><span class="string">JS</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p><a name="override"></a></p>
+<h3 id="覆盖上传-override"><a href="#覆盖上传-override" class="headerlink" title="覆盖上传 (override)"></a>覆盖上传 (override)</h3><p>通过 <code>override</code> 方法可以实现文件覆盖上传。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">file</span>(<span class="string">&#x27;file&#x27;</span>)-&gt;<span class="title function_ invoke__">override</span>();</span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">image</span>(<span class="string">&#x27;img&#x27;</span>)-&gt;<span class="title function_ invoke__">override</span>();</span><br></pre></td></tr></table></figure>
+
+
+<p><a name="imagefun"></a></p>
+<h2 id="图片上传内置方法"><a href="#图片上传内置方法" class="headerlink" title="图片上传内置方法"></a>图片上传内置方法</h2><p><a name="intervention"></a></p>
+<h3 id="压缩、裁切、添加水印等"><a href="#压缩、裁切、添加水印等" class="headerlink" title="压缩、裁切、添加水印等"></a>压缩、裁切、添加水印等</h3><p>可以使用压缩、裁切、添加水印等各种方法,需要先安装<a target="_blank" rel="noopener" href="http://image.intervention.io/getting_started/installation">intervention&#x2F;image</a>.</p>
+<p>更多使用方法请参考[<a target="_blank" rel="noopener" href="http://image.intervention.io/getting_started/introduction">Intervention</a>]：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">image</span>(<span class="variable">$column</span>[, <span class="variable">$label</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改图片上传路径和文件名</span></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">image</span>(<span class="variable">$column</span>[, <span class="variable">$label</span>])-&gt;<span class="title function_ invoke__">move</span>(<span class="variable">$dir</span>, <span class="variable">$name</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 剪裁图片</span></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">image</span>(<span class="variable">$column</span>[, <span class="variable">$label</span>])-&gt;<span class="title function_ invoke__">crop</span>(<span class="keyword">int</span> <span class="variable">$width</span>, <span class="keyword">int</span> <span class="variable">$height</span>, [<span class="keyword">int</span> <span class="variable">$x</span>, <span class="keyword">int</span> <span class="variable">$y</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加水印</span></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">image</span>(<span class="variable">$column</span>[, <span class="variable">$label</span>])-&gt;<span class="title function_ invoke__">insert</span>(<span class="variable">$watermark</span>, <span class="string">&#x27;center&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><a name="dimensions"></a></p>
+<h3 id="限制上传图片的尺寸"><a href="#限制上传图片的尺寸" class="headerlink" title="限制上传图片的尺寸"></a>限制上传图片的尺寸</h3><p>设置文件上传尺寸限制</p>
+<p>参数： <code>array</code> 单位为像素</p>
+<ul>
+<li><code>width</code> 指定宽度</li>
+<li><code>height</code> 指定高度</li>
+<li><code>min_width</code> 最小宽度</li>
+<li><code>min_height</code> 最小高度</li>
+<li><code>max_width</code> 最大宽度</li>
+<li><code>max_height</code> 最大高度</li>
+<li><code>ratio</code> 宽高比 (width&#x2F;height)</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 上传宽度为100-300像素之间的图片</span></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">image</span>(<span class="string">&#x27;img&#x27;</span>)-&gt;<span class="title function_ invoke__">dimensions</span>([<span class="string">&#x27;min_width&#x27;</span> = <span class="number">100</span>, <span class="string">&#x27;max_width&#x27;</span> =&gt; <span class="number">300</span>]);</span><br></pre></td></tr></table></figure>
+<p><a name="referer"></a></p>
+<h2 id="把图片-文件路径保存在其他数据表"><a href="#把图片-文件路径保存在其他数据表" class="headerlink" title="把图片&#x2F;文件路径保存在其他数据表"></a>把图片&#x2F;文件路径保存在其他数据表</h2><p>通过下面的方法可以把图片或文件的路径保存在单独的附件表，而当前的图片&#x2F;文件字段只保存ID</p>
+<blockquote>
+<p>{tip} 这里的示例用的是单图上传表单，如果是多图的话可以按这个思路自行调整。</p>
+</blockquote>
+<p>图片&#x2F;文件表结构</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `images` (</span><br><span class="line">  `id` <span class="type">int</span>(<span class="number">10</span>) unsigned <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  `path` <span class="type">varchar</span>(<span class="number">191</span>) <span class="keyword">COLLATE</span> utf8mb4_unicode_ci <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  `created_at` <span class="type">timestamp</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `updated_at` <span class="type">timestamp</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`)</span><br><span class="line">) ENGINE<span class="operator">=</span>MyISAM AUTO_INCREMENT<span class="operator">=</span><span class="number">4</span> <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4 <span class="keyword">COLLATE</span><span class="operator">=</span>utf8mb4_unicode_ci;</span><br></pre></td></tr></table></figure>
+<p>使用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">image</span>(<span class="string">&#x27;image1&#x27;</span>)</span><br><span class="line">    -&gt;<span class="title function_ invoke__">saving</span>(function (<span class="variable">$value</span>) <span class="keyword">use</span> ($<span class="title">form</span>) &#123;</span><br><span class="line">        <span class="title">if</span> ($<span class="title">form</span>-&gt;<span class="title">isEditing</span>() &amp;&amp; ! $<span class="title">value</span>) &#123;</span><br><span class="line">            // 编辑页面，删除图片逻辑</span><br><span class="line">            <span class="title">Image</span>::<span class="title">destroy</span>($<span class="title">form</span>-&gt;<span class="title">model</span>()-&gt;<span class="title">image1</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 新增或编辑页面上传图片</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$value</span>) &#123;</span><br><span class="line">            <span class="variable">$model</span> = <span class="title class_">Image</span>::<span class="title function_ invoke__">where</span>(<span class="string">&#x27;path&#x27;</span>, <span class="variable">$value</span>)-&gt;<span class="title function_ invoke__">first</span>();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">empty</span>(<span class="variable">$model</span>)) &#123;</span><br><span class="line">            <span class="variable">$model</span> = <span class="keyword">new</span> <span class="title class_">Image</span>();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$model</span>-&gt;path = <span class="variable">$value</span>;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$model</span>-&gt;<span class="title function_ invoke__">save</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$model</span>-&gt;<span class="title function_ invoke__">getKey</span>();</span><br><span class="line">    &#125;)</span><br><span class="line">    -&gt;<span class="title function_ invoke__">customFormat</span>(function (<span class="variable">$v</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (! <span class="variable">$v</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="title class_">Image</span>::<span class="title function_ invoke__">find</span>((<span class="keyword">array</span>) <span class="variable">$v</span>)-&gt;<span class="title function_ invoke__">pluck</span>(<span class="string">&#x27;path&#x27;</span>)-&gt;<span class="title function_ invoke__">toArray</span>();</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="文件上传失败或无法访问？"><a href="#文件上传失败或无法访问？" class="headerlink" title="文件上传失败或无法访问？"></a>文件上传失败或无法访问？</h2><p>如果你发现无法上传文件，那么通常有几下几点原因：</p>
+<ol>
+<li><code>Laravel</code>文件上传配置不正确，请检查<code>admin.upload.disk</code>参数。如果你不了解<code>laravel</code>文件上传功能，请阅读文档<a target="_blank" rel="noopener" href="https://learnku.com/docs/laravel/7.x/filesystem/7485">Laravel - 文件存储</a></li>
+<li>文件过大，需要调整<code>php.ini</code>的<code>upload_max_filesize</code>参数</li>
+<li>文件上传目录没有写权限</li>
+<li><code>php</code>没有安装或没有开启<code>fileinfo</code>扩展</li>
+</ol>
+<p>如果你的文件上传成功了，却无法正常访问，那么可能是<code>.env</code>配置文件中的<code>APP_URL</code>参数没有设置正确。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/model-form-upload/" data-id="clpdpxfjh0015ywnagckq3vfd" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/model-form-trans/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/model-form-layout/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

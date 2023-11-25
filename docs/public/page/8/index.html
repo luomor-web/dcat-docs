@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-2.x/model-form-callback" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/model-form-callback/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.962Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="表单回调"><a href="#表单回调" class="headerlink" title="表单回调"></a>表单回调</h1><p><code>Form</code>目前提供了下面几个方法来接收回调函数：</p>
+<h3 id="creating"><a href="#creating" class="headerlink" title="creating"></a>creating</h3><p>在新增页面调用（非提交操作）</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">creating</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (...) &#123; <span class="comment">// 验证逻辑</span></span><br><span class="line">		<span class="variable">$form</span>-&gt;<span class="title function_ invoke__">responseValidationMessages</span>(<span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;title格式错误&#x27;</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 如有多个错误信息，第二个参数可以传数组</span></span><br><span class="line">		<span class="variable">$form</span>-&gt;<span class="title function_ invoke__">responseValidationMessages</span>(<span class="string">&#x27;content&#x27;</span>, [<span class="string">&#x27;content格式错误&#x27;</span>, <span class="string">&#x27;content不能为空&#x27;</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="editing"><a href="#editing" class="headerlink" title="editing"></a>editing</h3><p>在编辑页面调用（非提交操作）</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">editing</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (...) &#123; <span class="comment">// 验证逻辑</span></span><br><span class="line">		<span class="variable">$form</span>-&gt;<span class="title function_ invoke__">responseValidationMessages</span>(<span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;title格式错误&#x27;</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 如有多个错误信息，第二个参数可以传数组</span></span><br><span class="line">		<span class="variable">$form</span>-&gt;<span class="title function_ invoke__">responseValidationMessages</span>(<span class="string">&#x27;content&#x27;</span>, [<span class="string">&#x27;content格式错误&#x27;</span>, <span class="string">&#x27;content不能为空&#x27;</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="submitted"><a href="#submitted" class="headerlink" title="submitted"></a>submitted</h3><p>在表单提交前调用，在此事件中可以修改、删除用户提交的数据或者中断提交操作</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">submitted</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="comment">// 获取用户提交参数</span></span><br><span class="line">    <span class="variable">$title</span> = <span class="variable">$form</span>-&gt;title;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 上面写法等同于</span></span><br><span class="line">    <span class="variable">$title</span> = <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">input</span>(<span class="string">&#x27;title&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 删除用户提交的数据</span></span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">deleteInput</span>(<span class="string">&#x27;title&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 中断后续逻辑</span></span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">response</span>()-&gt;<span class="title function_ invoke__">error</span>(<span class="string">&#x27;服务器出错了~&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="saving"><a href="#saving" class="headerlink" title="saving"></a>saving</h3><p>保存前回调，在此事件中可以修改、删除用户提交的数据或者中断提交操作</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">saving</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="comment">// 判断是否是新增操作</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$form</span>-&gt;<span class="title function_ invoke__">isCreating</span>()) &#123;</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 删除用户提交的数据</span></span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">deleteInput</span>(<span class="string">&#x27;title&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 中断后续逻辑</span></span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">response</span>()-&gt;<span class="title function_ invoke__">error</span>(<span class="string">&#x27;服务器出错了~&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="saved"><a href="#saved" class="headerlink" title="saved"></a>saved</h3><p>保存后回调，此事件新增和修改操作共用，通过第二个参数<code>$result</code>可以判断数据是否保存成功。</p>
+<blockquote>
+<p>{tip} 新增页面下，<code>$result</code>的值是新增记录的自增ID</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">saved</span>(function (Form <span class="variable">$form</span>, <span class="variable">$result</span>) &#123;</span><br><span class="line">    <span class="comment">// 判断是否是新增操作</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$form</span>-&gt;<span class="title function_ invoke__">isCreating</span>()) &#123;</span><br><span class="line">    	<span class="comment">// 自增ID</span></span><br><span class="line">    	<span class="variable">$newId</span> = <span class="variable">$result</span>;</span><br><span class="line">    	<span class="comment">// 也可以这样获取自增ID</span></span><br><span class="line">    	<span class="variable">$newId</span> = <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">getKey</span>();</span><br><span class="line">    	</span><br><span class="line">    	<span class="keyword">if</span> (! <span class="variable">$newId</span>) &#123;</span><br><span class="line">    		<span class="keyword">return</span> <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">error</span>(<span class="string">&#x27;数据保存失败&#x27;</span>);</span><br><span class="line">    	&#125;</span><br><span class="line">    	</span><br><span class="line">    	<span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 修改操作</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>{tip} <code>$form-&gt;repository()-&gt;eloquent()</code>為當前新增或編輯後的eloquent</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">saved</span>(function (Form <span class="variable">$form</span>, <span class="variable">$result</span>) &#123;</span><br><span class="line">    <span class="comment">// 在表單保存後獲取eloquent</span></span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">repository</span>()-&gt;<span class="title function_ invoke__">eloquent</span>()-&gt;<span class="title function_ invoke__">update</span>([<span class="string">&#x27;data&#x27;</span> =&gt; <span class="string">&#x27;new&#x27;</span>]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="deleting"><a href="#deleting" class="headerlink" title="deleting"></a>deleting</h3><p>删除前回调</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">deleting</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="comment">// 获取待删除行数据，这里获取的是一个二维数组</span></span><br><span class="line">	<span class="variable">$data</span> = <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">model</span>()-&gt;<span class="title function_ invoke__">toArray</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="deleted"><a href="#deleted" class="headerlink" title="deleted"></a>deleted</h3><p>删除后回调，通过第二个参数<code>$result</code>可以判断数据是否删除成功。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">deleted</span>(function (Form <span class="variable">$form</span>, <span class="variable">$result</span>) &#123;</span><br><span class="line">	<span class="comment">// 获取待删除行数据，这里获取的是一个二维数组</span></span><br><span class="line">	<span class="variable">$data</span> = <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">model</span>()-&gt;<span class="title function_ invoke__">toArray</span>();</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 通过 $result 可以判断数据是否删除成功</span></span><br><span class="line">	<span class="keyword">if</span> (! <span class="variable">$result</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">response</span>()-&gt;<span class="title function_ invoke__">error</span>(<span class="string">&#x27;数据删除失败&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回删除成功提醒，此处跳转参数无效</span></span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">response</span>()-&gt;<span class="title function_ invoke__">success</span>(<span class="string">&#x27;删除成功&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="uploading"><a href="#uploading" class="headerlink" title="uploading"></a>uploading</h3><p>图片、文件上传事件</p>
+<blockquote>
+<p>{tip} 文件上传是一个独立的api请求，这个事件内<code>redirect</code>方法是无效的。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Form</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Form</span>\<span class="title">Field</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Contracts</span>\<span class="title">UploadField</span> <span class="keyword">as</span> <span class="title">UploadFieldInterface</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Symfony</span>\<span class="title">Component</span>\<span class="title">HttpFoundation</span>\<span class="title">File</span>\<span class="title">UploadedFile</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">uploading</span>(function (Form <span class="variable">$form</span>, UploadFieldInterface <span class="variable">$field</span>, UploadedFile <span class="variable">$file</span>) &#123;</span><br><span class="line">	<span class="comment">// $file 即是当前上传的完整文件</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* <span class="doctag">@var</span> Field $field */</span></span><br><span class="line">	<span class="comment">// 获取文件上传字段名称</span></span><br><span class="line">	<span class="variable">$column</span> = <span class="variable">$field</span>-&gt;<span class="title function_ invoke__">column</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="uploaded"><a href="#uploaded" class="headerlink" title="uploaded"></a>uploaded</h3><p>图片、文件上传完毕事件</p>
+<blockquote>
+<p>{tip} 文件上传是一个独立的api请求，这个事件内<code>redirect</code>方法是无效的。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Form</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Form</span>\<span class="title">Field</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Contracts</span>\<span class="title">UploadField</span> <span class="keyword">as</span> <span class="title">UploadFieldInterface</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Symfony</span>\<span class="title">Component</span>\<span class="title">HttpFoundation</span>\<span class="title">File</span>\<span class="title">UploadedFile</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">uploaded</span>(function (Form <span class="variable">$form</span>, UploadFieldInterface <span class="variable">$field</span>, UploadedFile <span class="variable">$file</span>, <span class="variable">$response</span>) &#123;</span><br><span class="line">	<span class="comment">// $file 即是当前上传的完整文件</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* <span class="doctag">@var</span> Field $field */</span></span><br><span class="line">	<span class="comment">// 获取文件上传字段名称</span></span><br><span class="line">	<span class="variable">$column</span> = <span class="variable">$field</span>-&gt;<span class="title function_ invoke__">column</span>();</span><br><span class="line">	</span><br><span class="line">	<span class="variable">$response</span> = (<span class="keyword">array</span>) <span class="variable">$response</span>-&gt;<span class="title function_ invoke__">getData</span>();</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 文件上传成功</span></span><br><span class="line">	<span class="keyword">if</span> (<span class="variable">$response</span>[<span class="string">&#x27;status&#x27;</span>]) &#123;</span><br><span class="line">		<span class="comment">// 文件访问地址</span></span><br><span class="line">		<span class="variable">$url</span> = <span class="variable">$response</span>[<span class="string">&#x27;url&#x27;</span>];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取模型中的数据"><a href="#获取模型中的数据" class="headerlink" title="获取模型中的数据"></a>获取模型中的数据</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">saved</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$id</span> = <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">getKey</span>();</span><br><span class="line"></span><br><span class="line">    <span class="variable">$username</span> = <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">model</span>()-&gt;username;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 获取最终保存的数组</span></span><br><span class="line">    <span class="variable">$updates</span> = <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">updates</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改或删除用户提交的数据"><a href="#修改或删除用户提交的数据" class="headerlink" title="修改或删除用户提交的数据"></a>修改或删除用户提交的数据</h3><p>此功能在<code>saving</code>和<code>submitted</code>事件中有效</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">select</span>(<span class="string">&#x27;author_id&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">saving</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="comment">// 修改用户提交的数据</span></span><br><span class="line">    <span class="variable">$form</span>-&gt;author_id = <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 删除、忽略用户提交的数据</span></span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">deleteInput</span>(<span class="string">&#x27;author_id&#x27;</span>);  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改模型中的数据"><a href="#修改模型中的数据" class="headerlink" title="修改模型中的数据"></a>修改模型中的数据</h3><p>修改模型中的数据需要配合隐藏表单使用。举例：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">hidden</span>(<span class="string">&#x27;author_id&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">saving</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$form</span>-&gt;author_id = <span class="number">1</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="表单响应"><a href="#表单响应" class="headerlink" title="表单响应"></a>表单响应</h3><blockquote>
+<p>{tip} 此方法在<code>creating</code>、<code>editing</code>事件中均不可用。</p>
+</blockquote>
+<p>详细用法请参考文档 <a href="response.md">动作和表单响应</a> 章节。</p>
+<p>redirect（局部刷新&#x2F;单页刷新）</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 跳转并提示成功信息</span></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">saved</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">response</span>()-&gt;<span class="title function_ invoke__">success</span>(<span class="string">&#x27;保存成功&#x27;</span>)-&gt;<span class="title function_ invoke__">redirect</span>(<span class="string">&#x27;auth/user&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 跳转并提示错误信息</span></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">saved</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">response</span>()-&gt;<span class="title function_ invoke__">error</span>(<span class="string">&#x27;系统错误&#x27;</span>)-&gt;<span class="title function_ invoke__">redirect</span>(<span class="string">&#x27;auth/user&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>仅返回错误信息但不跳转</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">saving</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">response</span>()-&gt;<span class="title function_ invoke__">error</span>(<span class="string">&#x27;系统异常&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>也可以通过抛出异常的形式展示错误信息</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">submitted</span>(function (<span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">\Exception</span>(<span class="string">&#x27;禁止访问&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.learnku.com/uploads/images/202109/14/38389/S0KtwNRYGK.png!large"></p>
+<h3 id="返回字段验证出错信息"><a href="#返回字段验证出错信息" class="headerlink" title="返回字段验证出错信息"></a>返回字段验证出错信息</h3><p>通过<code>responseValidationMessages</code>方法可以很方便的返回字段验证出错信息，而不需要使用<code>Laravel validation</code>功能。</p>
+<p>普通使用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">form</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="title class_">Form</span>::<span class="title function_ invoke__">make</span>(<span class="keyword">new</span> <span class="title class_">Model</span>(), <span class="function"><span class="keyword">function</span> (<span class="params">Form <span class="variable">$form</span></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (...) &#123; <span class="comment">// 验证逻辑</span></span><br><span class="line">			<span class="variable">$form</span>-&gt;<span class="title function_ invoke__">responseValidationMessages</span>(<span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;title格式错误&#x27;</span>);</span><br><span class="line">			</span><br><span class="line">			<span class="comment">// 如有多个错误信息，第二个参数可以传数组</span></span><br><span class="line">			<span class="variable">$form</span>-&gt;<span class="title function_ invoke__">responseValidationMessages</span>(<span class="string">&#x27;content&#x27;</span>, [<span class="string">&#x27;content格式错误&#x27;</span>, <span class="string">&#x27;content不能为空&#x27;</span>]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在事件中使用</p>
+<blockquote>
+<p>{tip} 此方法仅在<code>submitted</code>事件中可用</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">submitted</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">	<span class="comment">// 接收表单参数</span></span><br><span class="line">	<span class="variable">$title</span> = <span class="variable">$form</span>-&gt;title;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (...) &#123; <span class="comment">// 验证逻辑</span></span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">responseValidationMessages</span>(<span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;title格式错误&#x27;</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 如有多个错误信息，第二个参数可以传数组</span></span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">responseValidationMessages</span>(<span class="string">&#x27;content&#x27;</span>, [<span class="string">&#x27;content格式错误&#x27;</span>, <span class="string">&#x27;content不能为空&#x27;</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/model-form-callback/" data-id="clpdpxfj7000wywna0pf47mfv" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2.x/js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/js/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.961Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="JS组件"><a href="#JS组件" class="headerlink" title="JS组件"></a>JS组件</h1><p><code>Dcat Admin</code>内置了一些常用的JS功能组件，通过全局变量<code>Dcat</code>可以访问到这些功能方法。</p>
+<h2 id="监听JS脚本加载完毕事件-ready"><a href="#监听JS脚本加载完毕事件-ready" class="headerlink" title="监听JS脚本加载完毕事件 (ready)"></a>监听JS脚本加载完毕事件 (ready)</h2><p>通过<code>Dcat.ready</code>方法设置的回调函数会在所有的<code>JS</code>脚本都加载完毕后执行。</p>
+<blockquote>
+<p>{tip} 只有在模板文件中写<code>JS</code>代码才需要使用<code>Dcat.ready</code>，当在<code>php</code>代码中使用<code>Dcat\Admin\Admin::script</code>方法添加<code>JS</code>代码时是不需要使用<code>Dcat.ready</code>方法的。因为在构建页面的时候系统会自动把代码放在<code>Dcat.ready</code>事件内执行。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Dcat</span>.<span class="title function_">ready</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 写你的逻辑</span></span></span><br><span class="line"><span class="language-javascript">    </span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;所有JS脚本都加载完了&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">&#125;);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><a name="init"></a></p>
+<h2 id="动态监听元素生成-init"><a href="#动态监听元素生成-init" class="headerlink" title="动态监听元素生成 (init)"></a>动态监听元素生成 (init)</h2><p>通过<code>Dcat.init</code>可以监听动态生成的页面元素并设置一个回调，下面来举一个简单的例子来演示用法：</p>
+<p>假如一个元素是<code>JS</code>动态生成的，如果我们需要对这个元素绑定一个点击事件的话，那么我们通常需要这么做</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;selector&quot;</span>&gt;</span>test<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Dcat</span>.<span class="title function_">ready</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 需要先 off 再 on 否则页面刷新后会造成重复绑定问题</span></span></span><br><span class="line"><span class="language-javascript">    $(<span class="variable language_">document</span>).<span class="title function_">off</span>(<span class="string">&#x27;click&#x27;</span>, <span class="string">&#x27;.selector&#x27;</span>).<span class="title function_">on</span>(<span class="string">&#x27;click&#x27;</span>, <span class="string">&#x27;.selector&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        ...</span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript">&#125;);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>上面这种做法一来比较麻烦，需要先<code>off</code>再<code>on</code>；二来无法对动态生成的元素做一些特殊处理，例如你想在<code>.selector</code>生成后改变背景颜色，这个操作就没办法做到。</p>
+<p>在<code>Dcat Admin</code>中我们可以使用<code>Dcat.init</code>方法来监听元素动态生成，可以很方便的解决上面两个问题</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;selector&quot;</span>&gt;</span>test<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Dcat</span>.<span class="title function_">ready</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// $this 是当前元素的jquery dom对象</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// id 是当前元素的id属性，如果当前元素没有id则会自动生成一个随机id</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title class_">Dcat</span>.<span class="title function_">init</span>(<span class="string">&#x27;.selector&#x27;</span>, <span class="keyword">function</span> (<span class="params">$this, id</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 修改元素的背景色</span></span></span><br><span class="line"><span class="language-javascript">        $this.<span class="title function_">css</span>(&#123;<span class="attr">background</span>: <span class="string">&quot;#fff&quot;</span>&#125;);</span></span><br><span class="line"><span class="language-javascript">        </span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 这里不需要 off 再重新 on，因为这个匿名函数只会执行一次</span></span></span><br><span class="line"><span class="language-javascript">        $this.<span class="title function_">on</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            ...</span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript">    &#125;);</span></span><br><span class="line"><span class="language-javascript">&#125;);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>Dcat.init</code> 接受两个参数</p>
+<ol>
+<li><code>selector</code> 需要监听的元素的<code>css选择器</code></li>
+<li><code>callback</code> 事件回调，当元素生成时触发，且只触发一次</li>
+</ol>
+<p>其中<code>callback</code>回调接收两个参数如下</p>
+<ul>
+<li><code>$this</code> 是当前元素的jquery dom对象</li>
+<li><code>id</code> 是当前元素的id属性，如果当前元素没有id则会自动生成一个随机id</li>
+</ul>
+<h2 id="手动触发JS脚本加载完毕事件"><a href="#手动触发JS脚本加载完毕事件" class="headerlink" title="手动触发JS脚本加载完毕事件"></a>手动触发JS脚本加载完毕事件</h2><p>通过<code>Dcat.triggerReady</code>方法可以手动触发<code>JS</code>脚本加载完毕事件，这就意味着会自动执行在此之前所有通过<code>Dcat.ready</code>方法设置的回调函数。</p>
+<blockquote>
+<p>{tip} 这个功能普通开发很少会用到，只有一些比较深度的组件定制会用到，比如<a href="model-form-modal.md">表单弹窗</a>功能就用到了此方法。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">triggerReady</span>();</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Pjax刷新页面"><a href="#Pjax刷新页面" class="headerlink" title="Pjax刷新页面"></a>Pjax刷新页面</h2><p>通过<code>Dcat.reload</code>方法可以调用<code>Pjax.reload</code>方法实现页面刷新和跳转功能。</p>
+<p>刷新当前页面</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">script</span>(</span><br><span class="line"><span class="string">&lt;&lt;&lt;JS</span></span><br><span class="line"><span class="string">    // 3秒后刷新当前页面</span></span><br><span class="line"><span class="string">    setTimeout(function () &#123;</span></span><br><span class="line"><span class="string">        Dcat.reload();</span></span><br><span class="line"><span class="string">    &#125;, 3000);</span></span><br><span class="line"><span class="string">JS</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>跳转页面</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$url</span> = <span class="title function_ invoke__">admin_url</span>(<span class="string">&#x27;auth/users&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">script</span>(</span><br><span class="line"><span class="string">&lt;&lt;&lt;JS</span></span><br><span class="line"><span class="string">    // 3秒后跳转到 admin/auth/users 页面</span></span><br><span class="line"><span class="string">    setTimeout(function () &#123;</span></span><br><span class="line"><span class="string">        Dcat.reload(&#x27;<span class="subst">&#123;$url&#125;</span>&#x27;);</span></span><br><span class="line"><span class="string">    &#125;, 3000);</span></span><br><span class="line"><span class="string">JS</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Toastr提示框"><a href="#Toastr提示框" class="headerlink" title="Toastr提示框"></a>Toastr提示框</h2><p><code>Dcat Admin</code>集成了<a target="_blank" rel="noopener" href="https://github.com/CodeSeven/toastr">Toastr</a>插件，下面是使用方法</p>
+<h3 id="success"><a href="#success" class="headerlink" title="success"></a>success</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">success</span>(<span class="string">&#x27;更新成功&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用标题</span></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">success</span>(<span class="string">&#x27;更新成功&#x27;</span>, <span class="string">&#x27;我是标题&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 传递参数</span></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">success</span>(<span class="string">&#x27;更新成功&#x27;</span>, <span class="literal">null</span>, &#123;</span><br><span class="line">    <span class="attr">timeOut</span>: <span class="number">5000</span>, <span class="comment">// 5秒后自动消失</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/zmB4EPhS3u.png!large"></p>
+<h3 id="error"><a href="#error" class="headerlink" title="error"></a>error</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">error</span>(<span class="string">&#x27;服务器出现未知错误&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用标题</span></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">error</span>(<span class="string">&#x27;服务器出现未知错误&#x27;</span>, <span class="string">&#x27;我是标题&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 传递参数</span></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">error</span>(<span class="string">&#x27;服务器出现未知错误&#x27;</span>, <span class="literal">null</span>, &#123;</span><br><span class="line">    <span class="attr">timeOut</span>: <span class="number">5000</span>, <span class="comment">// 5秒后自动消失</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="warning"><a href="#warning" class="headerlink" title="warning"></a>warning</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">warning</span>(<span class="string">&#x27;警告&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用标题</span></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">warning</span>(<span class="string">&#x27;警告&#x27;</span>, <span class="string">&#x27;我是标题&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 传递参数</span></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">warning</span>(<span class="string">&#x27;警告&#x27;</span>, <span class="literal">null</span>, &#123;</span><br><span class="line">    <span class="attr">timeOut</span>: <span class="number">5000</span>, <span class="comment">// 5秒后自动消失</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="info"><a href="#info" class="headerlink" title="info"></a>info</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">info</span>(<span class="string">&#x27;提示信息&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用标题</span></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">info</span>(<span class="string">&#x27;提示信息&#x27;</span>, <span class="string">&#x27;我是标题&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 传递参数</span></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">info</span>(<span class="string">&#x27;提示信息&#x27;</span>, <span class="literal">null</span>, &#123;</span><br><span class="line">    <span class="attr">timeOut</span>: <span class="number">5000</span>, <span class="comment">// 5秒后自动消失</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>更多用法请参考<a target="_blank" rel="noopener" href="https://github.com/CodeSeven/toastr">toastr官方文档</a></p>
+<h2 id="sweetalert2弹窗"><a href="#sweetalert2弹窗" class="headerlink" title="sweetalert2弹窗"></a>sweetalert2弹窗</h2><p><code>Dcat Admin</code>集成了<a target="_blank" rel="noopener" href="https://github.com/sweetalert2/sweetalert2">sweetalert2</a>插件，下面是使用方法</p>
+<h3 id="confirm"><a href="#confirm" class="headerlink" title="confirm"></a>confirm</h3><p>通过<code>Dcat.confirm</code>方法可以弹出确认弹窗，此方法接收5个参数</p>
+<ul>
+<li><code>title</code> <code>string</code> 确认信息标题</li>
+<li><code>message</code> <code>string</code> 确认信息内容，此参数可以不传</li>
+<li><code>success</code> <code>function</code> 点击确认按钮触发的回调函数</li>
+<li><code>fail</code> <code>function</code> 点击取消按钮触发的回调函数，此参数可以不传</li>
+<li><code>options</code> <code>object</code> 配置参数，可参考<a target="_blank" rel="noopener" href="https://github.com/sweetalert2/sweetalert2">sweetalert2官方文档</a></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">confirm</span>(<span class="string">&#x27;确认要删除这行数据吗？&#x27;</span>, <span class="literal">null</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;确认删除&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">    $.<span class="title function_">post</span>(...);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/lp40C74OtV.png!large"></p>
+<h3 id="success-1"><a href="#success-1" class="headerlink" title="success"></a>success</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Dcat</span>.<span class="property">swal</span>.<span class="title function_">success</span>(<span class="string">&#x27;标题&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="property">swal</span>.<span class="title function_">success</span>(<span class="string">&#x27;标题&#x27;</span>, <span class="string">&#x27;内容&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="property">swal</span>.<span class="title function_">success</span>(<span class="string">&#x27;标题&#x27;</span>, <span class="string">&#x27;内容&#x27;</span>, &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/OrhZ4dvA5R.png!large"></p>
+<h3 id="error-1"><a href="#error-1" class="headerlink" title="error"></a>error</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Dcat</span>.<span class="property">swal</span>.<span class="title function_">error</span>(<span class="string">&#x27;标题&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="property">swal</span>.<span class="title function_">error</span>(<span class="string">&#x27;标题&#x27;</span>, <span class="string">&#x27;内容&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="property">swal</span>.<span class="title function_">error</span>(<span class="string">&#x27;标题&#x27;</span>, <span class="string">&#x27;内容&#x27;</span>, &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/lnp47PDecK.png!large"></p>
+<h3 id="warning-1"><a href="#warning-1" class="headerlink" title="warning"></a>warning</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Dcat</span>.<span class="property">swal</span>.<span class="title function_">warning</span>(<span class="string">&#x27;标题&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="property">swal</span>.<span class="title function_">warning</span>(<span class="string">&#x27;标题&#x27;</span>, <span class="string">&#x27;内容&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="property">swal</span>.<span class="title function_">warning</span>(<span class="string">&#x27;标题&#x27;</span>, <span class="string">&#x27;内容&#x27;</span>, &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="info-1"><a href="#info-1" class="headerlink" title="info"></a>info</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Dcat</span>.<span class="property">swal</span>.<span class="title function_">info</span>(<span class="string">&#x27;标题&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="property">swal</span>.<span class="title function_">info</span>(<span class="string">&#x27;标题&#x27;</span>, <span class="string">&#x27;内容&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="property">swal</span>.<span class="title function_">info</span>(<span class="string">&#x27;标题&#x27;</span>, <span class="string">&#x27;内容&#x27;</span>, &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>更多用法请参考<a target="_blank" rel="noopener" href="https://github.com/sweetalert2/sweetalert2">sweetalert2官方文档</a></p>
+<h2 id="layer弹出层"><a href="#layer弹出层" class="headerlink" title="layer弹出层"></a>layer弹出层</h2><p><code>Dcat Admin</code>集成了<a target="_blank" rel="noopener" href="http://layer.layui.com/">layer弹出层</a>，用法请参考官方文档</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">layer.<span class="title function_">open</span>(&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Loading效果"><a href="#Loading效果" class="headerlink" title="Loading效果"></a>Loading效果</h2><p><code>Dcat Admin</code>集成了三种常见的loading效果，<a target="_blank" rel="noopener" href="http://103.39.211.179:8080/admin/components/loading">在线体验点我</a></p>
+<h3 id="全屏"><a href="#全屏" class="headerlink" title="全屏"></a>全屏</h3><p>通过<code>Dcat.loading</code>方法可以设置一个占满全屏幕的遮罩层，并在中间位置显示<code>loading</code>图标。</p>
+<p>此方法接收一个<code>object</code>类型的参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>zIndex</td>
+<td><code>int</code></td>
+<td>999991014</td>
+<td>设置css的z-index(层重叠顺序)样式</td>
+</tr>
+<tr>
+<td>width</td>
+<td><code>string</code></td>
+<td>58px</td>
+<td>设置loading图标宽度</td>
+</tr>
+<tr>
+<td>color</td>
+<td><code>string</code></td>
+<td>#bacad6</td>
+<td>设置loading图标的颜色</td>
+</tr>
+<tr>
+<td>background</td>
+<td><code>string</code></td>
+<td>transparent</td>
+<td>设置遮罩层背景颜色</td>
+</tr>
+<tr>
+<td>style</td>
+<td><code>string</code></td>
+<td></td>
+<td>设置loading图标的css样式</td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开启loading效果</span></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">loading</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3秒后自动移除loading效果</span></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title class_">Dcat</span>.<span class="title function_">loading</span>(<span class="literal">false</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>效果</p>
+<p><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/FIWAUFg1qn.png!large"></p>
+<p>更改loading图标的颜色</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 更改颜色</span></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">loading</span>(&#123;</span><br><span class="line">    <span class="attr">color</span>: <span class="title class_">Dcat</span>.<span class="property">color</span>.<span class="property">primary</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/WPIC4wwq5Q.png!large"></p>
+<h3 id="附着于指定元素"><a href="#附着于指定元素" class="headerlink" title="附着于指定元素"></a>附着于指定元素</h3><p>通过<code>$.fn.loading</code>方法可以把loading效果附着于当前元素，此方法同样接收一个<code>object</code>类型参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>zIndex</td>
+<td><code>int</code></td>
+<td>100</td>
+<td>设置css的z-index(层重叠顺序)样式</td>
+</tr>
+<tr>
+<td>width</td>
+<td><code>string</code></td>
+<td>52px</td>
+<td>设置loading图标宽度</td>
+</tr>
+<tr>
+<td>color</td>
+<td><code>string</code></td>
+<td>#bacad6</td>
+<td>设置loading图标的颜色</td>
+</tr>
+<tr>
+<td>background</td>
+<td><code>string</code></td>
+<td>#fff</td>
+<td>设置遮罩层背景颜色</td>
+</tr>
+<tr>
+<td>style</td>
+<td><code>string</code></td>
+<td></td>
+<td>设置loading图标的css样式</td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开启loading效果</span></span><br><span class="line">$(<span class="string">&#x27;#card&#x27;</span>).<span class="title function_">loading</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 关闭loading效果</span></span><br><span class="line">$(<span class="string">&#x27;#card&#x27;</span>).<span class="title function_">loading</span>(<span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 更改loading图标颜色</span></span><br><span class="line">$(<span class="string">&#x27;#card&#x27;</span>).<span class="title function_">loading</span>(&#123;</span><br><span class="line">    <span class="attr">color</span>: <span class="title class_">Dcat</span>.<span class="property">color</span>.<span class="property">primary</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 更改遮罩层颜色</span></span><br><span class="line">$(<span class="string">&#x27;#card&#x27;</span>).<span class="title function_">loading</span>(&#123;</span><br><span class="line">    <span class="attr">background</span>: <span class="string">&#x27;#f3f3f3&#x27;</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>效果</p>
+<p><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/ziHL5feEAV.png!large"></p>
+<h3 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开启loading效果</span></span><br><span class="line">$(<span class="string">&#x27;#submit-button&#x27;</span>).<span class="title function_">buttonLoading</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 关闭loading效果</span></span><br><span class="line">$(<span class="string">&#x27;#submit-button&#x27;</span>).<span class="title function_">buttonLoading</span>(<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<p>效果<br><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/rNMFWAHPqJ.png!large"></p>
+<h3 id="a标签"><a href="#a标签" class="headerlink" title="a标签"></a>a标签</h3><p>点击<code>a</code>标签同样支持loading效果</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开启loading效果</span></span><br><span class="line">$(<span class="string">&#x27;a&#x27;</span>).<span class="title function_">buttonLoading</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 关闭loading效果</span></span><br><span class="line">$(<span class="string">&#x27;a&#x27;</span>).<span class="title function_">buttonLoading</span>(<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<p>效果<br><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/IE8kGdupKW.png!large"></p>
+<h2 id="Ajax表单提交"><a href="#Ajax表单提交" class="headerlink" title="Ajax表单提交"></a>Ajax表单提交</h2><p><code>Dcat Admin</code>集成了<a target="_blank" rel="noopener" href="https://github.com/jquery-form/form">jquery-form</a>组件用于实现<code>ajax</code>提交表单功能。</p>
+<p>通过<code>Dcat.Form</code>方法可以当即发起<code>ajax</code>提交表单请求，此方法接受一个<code>object</code>类型参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>form</td>
+<td><code>string</code></td>
+<td><code>object</code></td>
+<td>表单的 jquery 对象或者css选择器</td>
+</tr>
+<tr>
+<td>validate</td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>是否开启表单验证，可参考<a href="#validate">表单验证</a></td>
+</tr>
+<tr>
+<td>errorClass</td>
+<td><code>string</code></td>
+<td>has-error</td>
+<td>字段验证出错时添加的样式，一般使用默认值即可</td>
+</tr>
+<tr>
+<td>errorContainerSelector</td>
+<td><code>string</code></td>
+<td>.with-errors</td>
+<td>表单错误信息容器css选择器，一般使用默认值即可</td>
+</tr>
+<tr>
+<td>groupSelector</td>
+<td><code>string</code></td>
+<td>.form-group,.form-label-group,.form-field</td>
+<td>表单组css选择器，一般使用默认值即可</td>
+</tr>
+<tr>
+<td>errorTemplate</td>
+<td><code>string</code></td>
+<td></td>
+<td>错误信息模板，使用默认值即可</td>
+</tr>
+<tr>
+<td>autoRedirect</td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>保存成功后自动跳转</td>
+</tr>
+<tr>
+<td>autoRemoveError</td>
+<td><code>bool</code></td>
+<td>true</td>
+<td>当表单值发生变化时自动移除表单错误信息</td>
+</tr>
+<tr>
+<td>before</td>
+<td><code>function</code></td>
+<td></td>
+<td>表单提交之前事件，返回<code>false</code>可以阻止表单继续提交</td>
+</tr>
+<tr>
+<td>after</td>
+<td><code>function</code></td>
+<td></td>
+<td>单提交之后事件(不论成功还是失败都会触发)，返回<code>false</code>可以中止后续逻辑</td>
+</tr>
+<tr>
+<td>success</td>
+<td><code>function</code></td>
+<td></td>
+<td>成功事件（接口返回状态码为<code>200</code>则判断为成功），返回<code>false</code>可以中止后续逻辑</td>
+</tr>
+<tr>
+<td>error</td>
+<td><code>function</code></td>
+<td></td>
+<td>失败事件（接口返回状态码非<code>200</code>则判断为失败），返回<code>false</code>可以中止后续逻辑</td>
+</tr>
+</tbody></table>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Dcat</span>.<span class="title function_">ready</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// ajax表单提交</span></span></span><br><span class="line"><span class="language-javascript">    $(<span class="string">&#x27;#login-form&#x27;</span>).<span class="title function_">form</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">validate</span>: <span class="literal">true</span>, <span class="comment">//开启表单验证</span></span></span><br><span class="line"><span class="language-javascript">        <span class="attr">before</span>: <span class="keyword">function</span> (<span class="params">fields, form, opt</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// fields 为表单内容</span></span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;所有表单字段的值&#x27;</span>, fields);</span></span><br><span class="line"><span class="language-javascript">            </span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (...) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// 返回 false 可以阻止表单继续提交</span></span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">response</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// data 为接口返回数据</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (! response.<span class="property">status</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="title class_">Dcat</span>.<span class="title function_">error</span>(response.<span class="property">data</span>.<span class="property">message</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="title class_">Dcat</span>.<span class="title function_">success</span>(response.<span class="property">data</span>.<span class="property">message</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">			<span class="keyword">if</span> (data.<span class="property">redirect</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">			    <span class="title class_">Dcat</span>.<span class="title function_">reload</span>(response.<span class="property">data</span>.<span class="property">value</span>)</span></span><br><span class="line"><span class="language-javascript">			&#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 中止后续逻辑（默认逻辑）</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">error</span>: <span class="keyword">function</span> (<span class="params">response</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 当提交表单失败的时候会有默认的处理方法，通常使用默认的方式处理即可</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> errorData = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(response.<span class="property">responseText</span>);</span></span><br><span class="line"><span class="language-javascript">            </span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (errorData) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="title class_">Dcat</span>.<span class="title function_">error</span>(errorData.<span class="property">message</span>);</span></span><br><span class="line"><span class="language-javascript">            &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;提交出错&#x27;</span>, response.<span class="property">responseText</span>);</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">            </span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 终止后续逻辑执行</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">    &#125;);</span></span><br><span class="line"><span class="language-javascript">&#125;);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="高阶用法"><a href="#高阶用法" class="headerlink" title="高阶用法"></a>高阶用法</h3><p>如果你想要实现更细粒度的控制，可以通过类似下面这种方式自己绑定提交按钮，然后提交表单</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $form = $(<span class="string">&#x27;#login-form&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 禁用默认提交</span></span><br><span class="line">$form.<span class="title function_">on</span>(<span class="string">&#x27;submit&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ajax表单提交</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">submit</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title class_">Dcat</span>.<span class="title class_">Form</span>(&#123;</span><br><span class="line">        <span class="attr">form</span>: $form,</span><br><span class="line">        <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">response</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (! response.<span class="property">status</span>) &#123;</span><br><span class="line">                <span class="title class_">Dcat</span>.<span class="title function_">error</span>(response.<span class="property">data</span>.<span class="property">message</span>);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="title class_">Dcat</span>.<span class="title function_">success</span>(response.<span class="property">data</span>.<span class="property">message</span>);</span><br><span class="line"></span><br><span class="line">            location.<span class="property">href</span> = response.<span class="property">data</span>.<span class="property">value</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">error</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">            <span class="comment">// 非200状态码响应错误</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// h5表单验证</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">validateForm</span>(<span class="params"></span>) &#123;</span><br><span class="line">    $form.<span class="title function_">validator</span>(<span class="string">&#x27;validate&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果出现错误，则返回false</span></span><br><span class="line">    <span class="keyword">if</span> ($form.<span class="title function_">find</span>(<span class="string">&#x27;.has-error&#x27;</span>).<span class="property">length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 绑定登陆按钮点击事件</span></span><br><span class="line">$form.<span class="title function_">find</span>(<span class="string">&#x27;[type=&quot;submit&quot;],.submit&#x27;</span>).<span class="title function_">click</span>(<span class="keyword">function</span> (<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="comment">// 表单验证</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="title function_">validateForm</span>() === <span class="literal">false</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 提交表单</span></span><br><span class="line">    <span class="title function_">submit</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<p><a name="validate"></a></p>
+<h3 id="表单验证"><a href="#表单验证" class="headerlink" title="表单验证"></a>表单验证</h3><p><code>Dcat Admin</code>集成了<a target="_blank" rel="noopener" href="https://github.com/1000hz/bootstrap-validator">bootstrap-validator</a>组件用于表单前端验证的功能，<br><a target="_blank" rel="noopener" href="https://github.com/1000hz/bootstrap-validator">bootstrap-validator</a>是一款支持H5表单验证的验证器，只需把验证规则写在表单元素的属性上即可自动开启验证，非常方便。</p>
+<h4 id="添加验证规则"><a href="#添加验证规则" class="headerlink" title="添加验证规则"></a>添加验证规则</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">fieldset</span> <span class="attr">class</span>=<span class="string">&quot;form-label-group form-group position-relative has-icon-left&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">    </span></span><br><span class="line"><span class="tag">        <span class="attr">minlength</span>=<span class="string">&quot;5&quot;</span> &lt;!<span class="attr">--</span> <span class="attr">加上验证规则</span> <span class="attr">--</span>&gt;</span></span><br><span class="line">        maxlength=&quot;20&quot; <span class="comment">&lt;!-- 加上验证规则 --&gt;</span></span><br><span class="line">        required  <span class="comment">&lt;!-- 加上验证规则 --&gt;</span></span><br><span class="line">        type=&quot;password&quot;</span><br><span class="line">        class=&quot;form-control&quot;</span><br><span class="line">        name=&quot;password&quot;</span><br><span class="line">    &gt;</span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;form-control-position&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;feather icon-lock&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;password&quot;</span>&gt;</span>&#123;&#123; trans(&#x27;admin.password&#x27;) &#125;&#125;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 这个加了 .with-errors 样式的 div 即是表单错误信息显示的位置，非常重要 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;help-block with-errors&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">fieldset</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="开启表单验证"><a href="#开启表单验证" class="headerlink" title="开启表单验证"></a>开启表单验证</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;#xx-form&#x27;</span>).<span class="title function_">form</span>(&#123;</span><br><span class="line">    <span class="attr">validate</span>: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>效果</p>
+<p><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/wJxcYaC9GP.png!large"><br><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/qdXUaNEMSQ.png!large"></p>
+<p><a name="extend-validator"></a></p>
+<h4 id="扩展验证规则"><a href="#扩展验证规则" class="headerlink" title="扩展验证规则"></a>扩展验证规则</h4><p>通过<code>Dcat.validator.extend</code>方法可以扩展表单验证规则</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Dcat</span>.<span class="property">validator</span>.<span class="title function_">extend</span>(<span class="string">&#x27;maxlength&#x27;</span>, <span class="keyword">function</span> (<span class="params">$el</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> $el.<span class="title function_">val</span>().<span class="property">length</span> &gt; $el.<span class="title function_">attr</span>(<span class="string">&#x27;data-maxlength&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>使用自定义规则验证表单</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">type</span>=<span class="string">&quot;input&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">class</span>=<span class="string">&quot;form-control&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">name</span>=<span class="string">&quot;username&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">data-maxlength</span>=<span class="string">&quot;20&quot;</span> &lt;!<span class="attr">--</span> <span class="attr">使用刚刚自定义的验证规则</span> <span class="attr">--</span>&gt;</span></span><br><span class="line">    data-maxlength-error=&quot;已超出输入字符长度限制，请输入20个或以下的字符&quot; <span class="comment">&lt;!-- 定义错误信息 --&gt;</span></span><br><span class="line"> /&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="内置验证规则"><a href="#内置验证规则" class="headerlink" title="内置验证规则"></a>内置验证规则</h4><p>更多内置验证规则请参考<a target="_blank" rel="noopener" href="http://1000hz.github.io/bootstrap-validator/">bootstrap-validator官方文档</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/js/" data-id="clpdpxfj3000sywna2e5j361r" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2.x/laravel-octane" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/laravel-octane/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.961Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Laravel-Octane"><a href="#Laravel-Octane" class="headerlink" title="Laravel Octane"></a>Laravel Octane</h1><p><a target="_blank" rel="noopener" href="https://github.com/laravel/octane">Laravel Octane</a> 是一个基于 <code>Swoole/RoadRunner</code> 驱动的可以提升 <code>Laravel</code> 框架性能的项目，安装后可以大幅提升<code>Laravel</code>项目的性能。</p>
+<p><code>Dcat Admin</code>兼容了<code>Laravel Octane</code>环境，只需在配置文件<code>config/octane.php</code>中加入如下配置即可：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="string">&#x27;listeners&#x27;</span> =&gt; [</span><br><span class="line">    ...,</span><br><span class="line"></span><br><span class="line">    <span class="title class_">RequestReceived</span>::<span class="variable language_">class</span> =&gt; [</span><br><span class="line">        ...<span class="title class_">Octane</span>::<span class="title function_ invoke__">prepareApplicationForNextOperation</span>(),</span><br><span class="line">        ...<span class="title class_">Octane</span>::<span class="title function_ invoke__">prepareApplicationForNextRequest</span>(),</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 开启对 Dcat Admin 的支持</span></span><br><span class="line">        <span class="title class_">Dcat\Admin\Octane\Listeners\FlushAdminState</span>::<span class="variable language_">class</span>,</span><br><span class="line">    ],</span><br><span class="line">    </span><br><span class="line">    ...</span><br><span class="line">],    </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/laravel/octane">Laravel Octane</a>目前仍处于<code>beta</code>版本阶段，关于<a target="_blank" rel="noopener" href="https://github.com/laravel/octane">Laravel Octane</a>的安装与更多介绍请前往文档 <a target="_blank" rel="noopener" href="https://github.com/laravel/octane">https://github.com/laravel/octane</a> 查看。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/laravel-octane/" data-id="clpdpxfj4000tywna2kcidaqu" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2.x/helpers" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/helpers/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.960Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h1><p><code>Dcat Admin</code>提供了一些开发工具以帮助开发者提升开发效率。<br>如果需要禁用开发工具，则把配置文件中的<code>app.debug</code>或<code>admin.helpers.enable</code>的参数值设置为<code>false</code>即可。</p>
+<h3 id="代码生成器"><a href="#代码生成器" class="headerlink" title="代码生成器"></a>代码生成器</h3><p>代码生成器可以通过界面一键生成增删改查代码，支持根据已有数据表生成增删改查代码，打开浏览器访问<code>http://localhost:8000/admin/helpers/scaffold</code>即可使用。</p>
+<blockquote>
+<p>{tip} 如果你的开发环境不是<code>windows</code>系统，请给整个项目<code>777</code>权限，否则可能无法生成文件。</p>
+</blockquote>
+<h3 id="扩展包管理"><a href="#扩展包管理" class="headerlink" title="扩展包管理"></a>扩展包管理</h3><p><code>Dcat Admin</code>支持可视化管理扩展包，只要通过<code>composer</code>安装进来的扩展包都能在管理界面中看到，支持通过界面启用和导入扩展包，打开浏览器访问<code>http://localhost:8000/admin/helpers/extensions</code>即可使用。</p>
+<h3 id="IDE自动补全"><a href="#IDE自动补全" class="headerlink" title="IDE自动补全"></a>IDE自动补全</h3><p>通过<code>php artisan admin:ide-helper</code>命令可以生成IDE自动补全文件，可以生成<code>Grid</code>、<code>Form</code>、<code>Show</code>等功能的IDE自动补全提示文件。</p>
+<h3 id="图标"><a href="#图标" class="headerlink" title="图标"></a>图标</h3><p>访问<code>http://localhost:8000/admin/helpers/icons</code>可以查看已支持的图标列表。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/helpers/" data-id="clpdpxfj1000pywnaa0giabxp" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2.x/installation" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/installation/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.960Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p><a name="env"></a></p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
+<li>PHP &gt;&#x3D; <code>7.1</code></li>
+<li>Laravel <code>5.5.0</code> ~ <code>9.*</code></li>
+<li>Fileinfo PHP Extension</li>
+</ul>
+<p><a name="start"></a></p>
+<h2 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h2><blockquote>
+<p>{tip} 如果安装过程中出现<code>composer</code>下载过慢或安装失败的情况，请运行命令<code>composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/</code>把<code>composer</code>镜像更换为阿里云镜像。</p>
+</blockquote>
+<p>首先需要安装<code>laravel</code>，如已安装可以跳过此步骤</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">composer create-project --prefer-dist laravel/laravel 项目名称 7.*</span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line">composer create-project --prefer-dist laravel/laravel 项目名称</span><br></pre></td></tr></table></figure>
+
+<p>安装完<code>laravel</code>之后需要修改<code>.env</code>文件，设置数据库连接设置正确</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DB_CONNECTION=mysql</span><br><span class="line">DB_HOST=127.0.0.1</span><br><span class="line">DB_PORT=3306</span><br><span class="line">DB_DATABASE=dcat-admin</span><br><span class="line">DB_USERNAME=root</span><br><span class="line">DB_PASSWORD=</span><br></pre></td></tr></table></figure>
+
+<p>安装<code>dcat-admin</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd &#123;项目名称&#125;</span><br><span class="line"></span><br><span class="line">composer require dcat/laravel-admin:&quot;2.*&quot; -vvv</span><br></pre></td></tr></table></figure>
+
+<p>然后运行下面的命令来发布资源：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan admin:publish</span><br></pre></td></tr></table></figure>
+
+<p>在该命令会生成配置文件<code>config/admin.php</code>，可以在里面修改安装的地址、数据库连接、以及表名，建议都是用默认配置不修改。</p>
+<p>然后运行下面的命令完成安装：</p>
+<blockquote>
+<p>{tip} 执行这一步命令可能会报以下错误<code>Specified key was too long ... 767 bytes</code>，如果出现这个报错，请在<code>app/Providers/AppServiceProvider.php</code>文件的<code>boot</code>方法中加上代码<code>\Schema::defaultStringLength(191);</code>，然后删除掉数据库中的所有数据表，再重新运行一遍<code>php artisan admin:install</code>命令即可。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan admin:install</span><br></pre></td></tr></table></figure>
+
+<p>上述步骤操作完成之后就可以配置<code>web</code>服务了，<strong>注意需要把<code>web</code>目录指向<code>public</code>目录</strong>！如果用的是<code>nginx</code>，还需要在配置中加上伪静态配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">	try_files $uri $uri/ /index.php?$query_string;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>启动服务后，在浏览器打开 <code>http://localhost/admin</code>，使用用户名 <code>admin</code> 和密码 <code>admin</code>登陆。</p>
+<p><a name="files"></a></p>
+<h2 id="生成的文件"><a href="#生成的文件" class="headerlink" title="生成的文件"></a>生成的文件</h2><p>安装完成之后,会在项目目录中生成以下的文件:</p>
+<p><a name="config"></a></p>
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>安装完成之后，<code>dcat-admin</code>所有的配置都在<code>config/admin.php</code>文件中。</p>
+<p><a name="admin"></a></p>
+<h3 id="后台项目文件"><a href="#后台项目文件" class="headerlink" title="后台项目文件"></a>后台项目文件</h3><p>安装完成之后，后台的安装目录为<code>app/Admin</code>，之后大部分的后台开发编码工作都是在这个目录下进行。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">app/Admin</span><br><span class="line">├── Controllers</span><br><span class="line">│   ├── AuthController.php</span><br><span class="line">│   └── HomeController.php</span><br><span class="line">├── Metrics</span><br><span class="line">│   └── Examples</span><br><span class="line">│       ├── NewDevices.php</span><br><span class="line">│       ├── NewUsers.php</span><br><span class="line">│       ├── ProductOrders.php</span><br><span class="line">│       ├── Sessions.php</span><br><span class="line">│       ├── Tickets.php</span><br><span class="line">│       └── TotalUsers.php</span><br><span class="line">├── bootstrap.php</span><br><span class="line">└── routes.php</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><code>app/Admin/routes.php</code>文件用来配置后台路由。</li>
+<li><code>app/Admin/bootstrap.php</code> 是<code>dcat-admin</code>的启动文件, 使用方法请参考文件里面的注释.</li>
+<li><code>app/Admin/Controllers</code>目录用来存放后台控制器文件，该目录下的<code>HomeController.php</code>文件是后台首页的显示控制器，<code>AuthController.php</code>为后台管理员登录鉴权控制器。</li>
+<li><code>app/Admin/Metrics/Examples</code>里面存放的是<code>数据统计卡片(Metric Card)</code>的示例代码.</li>
+</ol>
+<p><a name="assets"></a></p>
+<h3 id="静态文件"><a href="#静态文件" class="headerlink" title="静态文件"></a>静态文件</h3><p>后台所需的前端静态文件在<code>/public/vendor/dcat-admin</code>目录下。</p>
+<p><a name="migrations"></a></p>
+<h3 id="数据表迁移文件"><a href="#数据表迁移文件" class="headerlink" title="数据表迁移文件"></a>数据表迁移文件</h3><p>对应的数据表迁移文件在<code>/database/migrations</code>目录下。</p>
+<p><a name="lang"></a></p>
+<h3 id="语言包"><a href="#语言包" class="headerlink" title="语言包"></a>语言包</h3><p>语言包文件在<code>/resources/lang</code>目录下。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/installation/" data-id="clpdpxfj2000qywna96jd40yu" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2.x/introduction" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/introduction/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.960Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Dcat-Admin"><a href="#Dcat-Admin" class="headerlink" title="Dcat Admin"></a>Dcat Admin</h1><p><code>Dcat Admin</code>是一个基于<a target="_blank" rel="noopener" href="https://www.laravel-admin.org/">laravel-admin</a>二次开发而成的后台系统构建工具，只需极少的代码即可快速构建出一个功能完善的高颜值后台系统。支持页面一键生成CURD代码，内置丰富的后台常用组件，开箱即用，让开发者告别冗杂的HTML代码，对后端开发者非常友好。</p>
+<p align="center">
+    <a target="_blank" rel="noopener" href="https://github.com/jqhph/dcat-admin/blob/master/LICENSE"><img style="display:inline" src="https://img.shields.io/badge/license-MIT-7389D8.svg?style=flat" ></a>
+    <a target="_blank" rel="noopener" href="https://travis-ci.org/jqhph/dcat-admin">
+        <img style="display:inline"  src="https://travis-ci.org/jqhph/dcat-admin.svg?branch=master" alt="Build Status">
+    </a>
+    <a target="_blank" rel="noopener" href="https://packagist.org/packages/dcat/laravel-admin">
+        <img style="display:inline"  src="https://img.shields.io/packagist/dt/dcat/laravel-admin.svg?color=" /></a> 
+    <a><img style="display:inline"  src="https://img.shields.io/badge/php-7.1+-59a9f8.svg?style=flat" /></a> 
+    <a><img style="display:inline"  src="https://img.shields.io/badge/laravel-5.5+-59a9f8.svg?style=flat" ></a>
+</p>
+
+<h3 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://laravel.com/">Laravel</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ColorlibHQ/AdminLTE">AdminLTE3</a></li>
+<li><a target="_blank" rel="noopener" href="https://getbootstrap.net/">Bootstrap4</a></li>
+<li>jQuery3</li>
+</ul>
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ul>
+<li>简洁优雅、灵活可扩展的API</li>
+<li>用户管理</li>
+<li>RBAC权限管理，支持无限级权限节点</li>
+<li>菜单管理</li>
+<li>使用pjax构建无刷新页面，支持<strong>按需加载</strong>静态资源，可以无限扩展组件而不影响整体性能</li>
+<li>松耦合的页面构建与数据操作设计，可轻松切换数据源</li>
+<li>自定义页面</li>
+<li>自定义主题配色</li>
+<li>多主题切换功能，内置多种主题色</li>
+<li>可轻松构建无菜单栏的独立页面（如可用于构建弹窗选择器等功能）</li>
+<li>插件功能</li>
+<li>可视化代码生成器，可根据数据表一键生成增删改查页面</li>
+<li>数据表格构建工具，内置丰富的表格常用功能（如组合表头、数据导出、搜索、快捷创建、批量操作等）</li>
+<li>树状表格功能构建工具，支持分页和点击加载</li>
+<li>数据表单构建工具，内置丰富的表单类型，支持表单异步提交</li>
+<li>分步表单构建工具</li>
+<li>弹窗表单构建工具</li>
+<li>数据详情页构建工具</li>
+<li>无限层级树状页面构建工具，支持用拖拽的方式实现数据的层级、排序等操作</li>
+<li>内置丰富的常用页面组件（如图表、数据统计卡片、下拉菜单、Tab卡片、提示工具等）</li>
+<li><code>Section</code>功能（类似<code>Wordpress</code>的<code>Filter</code>和<code>blade</code>模板的<code>section</code>标签）</li>
+<li>异步文件上传表单，支持分块多线程上传</li>
+<li>多应用(多后台)</li>
+<li>插件市场，只需在管理页面轻轻点击鼠标即可完成插件的安装、更新和卸载等操作(<code>暂未实现</code>)</li>
+</ul>
+<h3 id="交流"><a href="#交流" class="headerlink" title="交流"></a>交流</h3><p><strong>QQ群</strong> 704661955</p>
+<p><strong>扩展开发者QQ群</strong> 679738409</p>
+<h3 id="加入我们"><a href="#加入我们" class="headerlink" title="加入我们"></a>加入我们</h3><p>如果您对这个项目感兴趣，非常欢迎加入项目开发团队，参与这个项目的功能维护与开发。欢迎任何形式的贡献（包括但不限于以下）：</p>
+<ul>
+<li>贡献代码</li>
+<li>完善文档</li>
+<li>撰写教程</li>
+<li>完善注释</li>
+<li>…</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/introduction/" data-id="clpdpxfj2000rywnahdk60k71" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2.x/extension-upgrade" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/extension-upgrade/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.959Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="扩展版本与升级"><a href="#扩展版本与升级" class="headerlink" title="扩展版本与升级"></a>扩展版本与升级</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/extension-upgrade/" data-id="clpdpxfiy000mywna58mcd0py" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2.x/extensions" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/extensions/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.959Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h1><table>
+<thead>
+<tr>
+<th>扩展</th>
+<th>描述</th>
+<th>dcat-admin 版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/jqhph/dcat-page">dcat-page</a></td>
+<td>一个简洁的静态站点构建工具</td>
+<td>*</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/jqhph/dcat-admin-ueditor">ueditor</a></td>
+<td>百度在线编辑器</td>
+<td>*</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/jqhph/dcat-admin-gank">gank</a></td>
+<td>干货集中营</td>
+<td>*</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/extensions/" data-id="clpdpxfiz000nywna94iscevj" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2.x/function" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/function/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.959Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="帮助函数"><a href="#帮助函数" class="headerlink" title="帮助函数"></a>帮助函数</h1><h3 id="admin-redirect"><a href="#admin-redirect" class="headerlink" title="admin_redirect"></a>admin_redirect</h3><blockquote>
+<p>Since <code>v2.1.7-beta</code></p>
+</blockquote>
+<p>跳转到指定<code>url</code>，此函数可用于代替<code>redirect</code>函数，支持<code>pjax</code>以及<code>ajax</code>请求</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 不需要添加admin前缀</span></span><br><span class="line"><span class="keyword">return</span> <span class="title function_ invoke__">admin_redirect</span>(<span class="string">&#x27;auth/users&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果想要跳转到非admin前缀的链接，需要传递完整url链接</span></span><br><span class="line"><span class="keyword">return</span> <span class="title function_ invoke__">admin_redirect</span>(<span class="title function_ invoke__">url</span>(<span class="string">&#x27;users&#x27;</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-exist"><a href="#admin-exist" class="headerlink" title="admin_exist"></a>admin_exist</h3><p><code>admin_exist</code> 用于中断程序执行，并响应数据到浏览器进行显示，用于代替 <code>exit</code> 和 <code>die</code>，下面简单介绍下用法</p>
+<p>用法1，返回 <code>Content</code> 布局对象，此用法可用于返回错误信息显示到前端</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Widgets</span>\<span class="title">Alert</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Layout</span>\<span class="title">Content</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 中断程序，并显示自定义页面到前端</span></span><br><span class="line"><span class="title function_ invoke__">admin_exit</span>(</span><br><span class="line">    <span class="title class_">Content</span>::<span class="title function_ invoke__">make</span>()</span><br><span class="line">        -&gt;<span class="title function_ invoke__">title</span>(<span class="string">&#x27;标题&#x27;</span>)</span><br><span class="line">        -&gt;<span class="title function_ invoke__">description</span>(<span class="string">&#x27;描述&#x27;</span>)</span><br><span class="line">        -&gt;<span class="title function_ invoke__">body</span>(<span class="string">&#x27;页面内容1&#x27;</span>)</span><br><span class="line">        -&gt;<span class="title function_ invoke__">body</span>(<span class="title class_">Alert</span>::<span class="title function_ invoke__">make</span>(<span class="string">&#x27;服务器出错了~&#x27;</span>, <span class="string">&#x27;Error&#x27;</span>)-&gt;<span class="title function_ invoke__">danger</span>())</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>效果如下</p>
+<p><img src="https://cdn.learnku.com/uploads/images/202101/11/38389/FLg6C7kwRq.png!large"></p>
+<p>用法2，返回 <code>json</code> 格式数据，此用法经常用于表单提交数据的<code>api</code>请求拦截，或<code>Action</code>的<code>api</code>请求拦截</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Admin</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">admin_exit</span>(</span><br><span class="line">    <span class="title class_">Admin</span>::<span class="title function_ invoke__">json</span>()</span><br><span class="line">        -&gt;<span class="title function_ invoke__">success</span>(<span class="string">&#x27;成功了&#x27;</span>)</span><br><span class="line">        -&gt;<span class="title function_ invoke__">refresh</span>()</span><br><span class="line">        -&gt;<span class="title function_ invoke__">data</span>([</span><br><span class="line">            ...</span><br><span class="line">        ])</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当然也可以直接响应数组</span></span><br><span class="line"><span class="title function_ invoke__">admin_exit</span>([</span><br><span class="line">   ...</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+<p>用法3，直接相应<code>Response</code>对象或字符串</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">admin_exit</span>(<span class="string">&#x27;Hello world&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">admin_exit</span>(<span class="title function_ invoke__">response</span>(<span class="string">&#x27;Hello world&#x27;</span>, <span class="number">500</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-color"><a href="#admin-color" class="headerlink" title="admin_color"></a>admin_color</h3><p>获取内置颜色，关于主题颜色更多用法请参考<a href="theme.md#color">主题 - 颜色</a>章节</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取主题色的三种方式</span></span><br><span class="line"><span class="variable">$primary</span> = <span class="title function_ invoke__">admin_color</span>(<span class="string">&#x27;primary&#x27;</span>);</span><br><span class="line"><span class="variable">$primary</span> = <span class="title function_ invoke__">admin_color</span>()-&gt;<span class="title function_ invoke__">get</span>(<span class="string">&#x27;primary&#x27;</span>);</span><br><span class="line"><span class="variable">$primary</span> = <span class="title function_ invoke__">admin_color</span>()-&gt;<span class="title function_ invoke__">primary</span>();</span><br><span class="line"></span><br><span class="line"><span class="variable">$color</span> = <span class="title function_ invoke__">admin_color</span>();</span><br><span class="line"><span class="variable">$color</span>-&gt;<span class="title function_ invoke__">lighten</span>(<span class="string">&#x27;primary&#x27;</span>, <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-js"><a href="#admin-js" class="headerlink" title="admin_js"></a>admin_js</h3><p>可以在任意位置引入<code>js</code>文件，更多用法参考<a href="assets.md">静态资源</a>章节</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">admin_js</span>([<span class="string">&#x27;@admin/xxx.js&#x27;</span>]);</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-css"><a href="#admin-css" class="headerlink" title="admin_css"></a>admin_css</h3><p>可以在任意位置引入<code>css</code>文件，更多用法参考<a href="assets.md">静态资源</a>章节</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">admin_css</span>([<span class="string">&#x27;@admin/xxx.css&#x27;</span>]);</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-require-assets"><a href="#admin-require-assets" class="headerlink" title="admin_require_assets"></a>admin_require_assets</h3><p>可以在任意位置引入静态资源组件，更多用法参考<a href="assets.md">静态资源</a>章节</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">admin_require_assets</span>([<span class="string">&#x27;@datime&#x27;</span>]);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="admin-path"><a href="#admin-path" class="headerlink" title="admin_path"></a>admin_path</h3><p>获取<code>Dcat Admin</code>安装的应用路径，默认目录是<code>app/Admin</code>：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$bootstrap</span> = <span class="title function_ invoke__">admin_path</span>(<span class="string">&#x27;bootstrap.php&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-url"><a href="#admin-url" class="headerlink" title="admin_url"></a>admin_url</h3><p>获取<code>Dcat Admin</code>应用的路由完整url：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回： http://localhost/admin/auth/users</span></span><br><span class="line"><span class="variable">$url</span> = <span class="title function_ invoke__">admin_url</span>(<span class="string">&#x27;auth/users&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-route"><a href="#admin-route" class="headerlink" title="admin_route"></a>admin_route</h3><p>根据别名获取URL</p>
+<p><code>app/Admin/routes.php</code>路由注册如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">group</span>([</span><br><span class="line">    <span class="string">&#x27;prefix&#x27;</span>        =&gt; <span class="title function_ invoke__">config</span>(<span class="string">&#x27;admin.route.prefix&#x27;</span>),</span><br><span class="line">    <span class="string">&#x27;namespace&#x27;</span>     =&gt; <span class="title function_ invoke__">config</span>(<span class="string">&#x27;admin.route.namespace&#x27;</span>),</span><br><span class="line">    <span class="string">&#x27;middleware&#x27;</span>    =&gt; <span class="title function_ invoke__">config</span>(<span class="string">&#x27;admin.route.middleware&#x27;</span>),</span><br><span class="line">], function (Router <span class="variable">$router</span>) &#123;</span><br><span class="line">	<span class="comment">// 设置别名</span></span><br><span class="line">	<span class="variable">$router</span>-&gt;<span class="title function_ invoke__">resource</span>(<span class="string">&#x27;users&#x27;</span>, <span class="string">&#x27;UserController&#x27;</span>, [</span><br><span class="line">		<span class="string">&#x27;names&#x27;</span> =&gt; [<span class="string">&#x27;index&#x27;</span> =&gt; <span class="string">&#x27;my-users&#x27;</span>],</span><br><span class="line">	]);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>根据别名获取URL</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取url</span></span><br><span class="line"><span class="variable">$url</span> = <span class="title function_ invoke__">admin_route</span>(<span class="string">&#x27;my-users&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断路由</span></span><br><span class="line"><span class="variable">$isUsers</span> = <span class="title function_ invoke__">request</span>()-&gt;<span class="title function_ invoke__">routeIs</span>(<span class="title function_ invoke__">admin_route_name</span>(<span class="string">&#x27;users&#x27;</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-base-path"><a href="#admin-base-path" class="headerlink" title="admin_base_path"></a>admin_base_path</h3><p>获取<code>Dcat Admin</code>应用的路由路径：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回： /admin/auth/users</span></span><br><span class="line"><span class="variable">$path</span> = <span class="title function_ invoke__">admin_base_path</span>(<span class="string">&#x27;auth/users&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-toastr"><a href="#admin-toastr" class="headerlink" title="admin_toastr"></a>admin_toastr</h3><p>在页面刷新后弹出一个<code>toastr</code>提示窗，参数：</p>
+<ul>
+<li><code>$message</code> 提示窗内容</li>
+<li><code>$type</code> 提示窗类型，默认<code>success</code>，支持<code>success</code>、<code>info</code>、<code>warning</code>、<code>error</code></li>
+<li><code>$options</code> toastr配置参数</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">admin_alert</span>(<span class="string">&#x27;更新成功&#x27;</span>, <span class="string">&#x27;success&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-success"><a href="#admin-success" class="headerlink" title="admin_success"></a>admin_success</h3><p>在页面刷新后在页面顶部显示一个成功消息：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">admin_success</span>(<span class="string">&#x27;标题&#x27;</span>, <span class="string">&#x27;成功了&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-error"><a href="#admin-error" class="headerlink" title="admin_error"></a>admin_error</h3><p>在页面刷新后在页面顶部显示一个错误消息：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">admin_error</span>(<span class="string">&#x27;标题&#x27;</span>, <span class="string">&#x27;失败了&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-warning"><a href="#admin-warning" class="headerlink" title="admin_warning"></a>admin_warning</h3><p>在页面刷新后在页面顶部显示一个警告消息：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">admin_warning</span>(<span class="string">&#x27;标题&#x27;</span>, <span class="string">&#x27;警告&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-info"><a href="#admin-info" class="headerlink" title="admin_info"></a>admin_info</h3><p>在页面刷新后在页面顶部显示一个提示消息：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">admin_info</span>(<span class="string">&#x27;标题&#x27;</span>, <span class="string">&#x27;内容&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-asset"><a href="#admin-asset" class="headerlink" title="admin_asset"></a>admin_asset</h3><p>获取静态资源的完整链接：</p>
+<blockquote>
+<p>{tip} 此函数支持别名.</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 引入css</span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;&#123;&#123; admin_asset(&quot;</span>@<span class="attr">admin</span>/<span class="attr">dcat-admin</span>/<span class="attr">main.min.css</span>&quot;) &#125;&#125;&quot;&gt;</span></span><br><span class="line"></span><br><span class="line">// 引入js</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;&#123;&#123; admin_asset(&#x27;@admin/dcat-admin/main.min.js&#x27;)&#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-trans-field"><a href="#admin-trans-field" class="headerlink" title="admin_trans_field"></a>admin_trans_field</h3><p>翻译当前控制器的字段，控制器名称去除<code>Controller</code>后缀之后再转化为小写中划线就是语言包的名称，如：控制器名称为<code>UserProfileController</code>，则对应的语言包名称为<code>user-profile.php</code>。</p>
+<blockquote>
+<p>{tip} 如果当前控制器对应的语言包中不存在该字段翻译，则会去公共翻译文件<code>global.php</code>中查找。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$name</span> = <span class="title function_ invoke__">admin_trans_field</span>(<span class="string">&#x27;name&#x27;</span>);</span><br><span class="line"><span class="variable">$createdAt</span> = <span class="title function_ invoke__">admin_trans_field</span>(<span class="string">&#x27;created_at&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>语言包内容如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> [</span><br><span class="line">    <span class="string">&#x27;fields&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;名称&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;created_at&#x27;</span> =&gt; <span class="string">&#x27;创建时间&#x27;</span>,</span><br><span class="line">    ],</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="admin-trans-label"><a href="#admin-trans-label" class="headerlink" title="admin_trans_label"></a>admin_trans_label</h3><p>翻译当前控制器的自定义内容，控制器名称去除<code>Controller</code>后缀之后再转化为小写中划线就是语言包的名称，如：控制器名称为<code>UserProfileController</code>，则对应的语言包名称为<code>user-profile.php</code>。</p>
+<blockquote>
+<p>{tip} 如果当前控制器对应的语言包中不存在该字段翻译，则会去公共翻译文件<code>global.php</code>中查找。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$user</span> = <span class="title function_ invoke__">admin_trans_label</span>(<span class="string">&#x27;User&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>语言包内容如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> [</span><br><span class="line">    <span class="string">&#x27;labels&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;User&#x27;</span> =&gt; <span class="string">&#x27;管理员&#x27;</span>,</span><br><span class="line">    ],</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-trans-option"><a href="#admin-trans-option" class="headerlink" title="admin_trans_option"></a>admin_trans_option</h3><p>翻译当前控制器的字段选项值，控制器名称去除<code>Controller</code>后缀之后再转化为小写中划线就是语言包的名称，如：控制器名称为<code>UserProfileController</code>，则对应的语言包名称为<code>user-profile.php</code>。</p>
+<blockquote>
+<p>{tip} 如果当前控制器对应的语言包中不存在该字段翻译，则会去公共翻译文件<code>global.php</code>中查找。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$status</span> = <span class="title function_ invoke__">admin_trans_option</span>(<span class="number">1</span>, <span class="string">&#x27;status&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>语言包内容如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> [</span><br><span class="line">    <span class="string">&#x27;options&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;status&#x27;</span> =&gt; [</span><br><span class="line">            <span class="number">1</span> =&gt; <span class="string">&#x27;启用&#x27;</span>,</span><br><span class="line">            <span class="number">0</span> =&gt; <span class="string">&#x27;禁用&#x27;</span></span><br><span class="line">        ],</span><br><span class="line">    ],</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/function/" data-id="clpdpxfj0000oywnadz0oashu" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2.x/extension-f" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/extension-f/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.958Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="扩展基本使用"><a href="#扩展基本使用" class="headerlink" title="扩展基本使用"></a>扩展基本使用</h1><h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><h3 id="设置扩展相关目录读写权限"><a href="#设置扩展相关目录读写权限" class="headerlink" title="设置扩展相关目录读写权限"></a>设置扩展相关目录读写权限</h3><p>在使用扩展功能之前，需要先保证所在用户拥有扩展相关目录的读写权限，否则可能造成扩展安装失败，请保证拥有以下几个目录的读写权限</p>
+<ol>
+<li><code>项目目录/dcat-admin-extensions</code> 扩展的安装目录，可以根据配置参数 <code>admin.extensions.dir</code> 进行更改</li>
+<li><code>public/vendor</code> 扩展静态资源发布目录</li>
+<li><code>resources/lang</code> 语言包目录</li>
+</ol>
+<h3 id="扩展安装"><a href="#扩展安装" class="headerlink" title="扩展安装"></a>扩展安装</h3><p><code>Dcat Admin</code>中扩展支持以下三种安装方式，安装成功后均能在扩展管理页面<code>admin/auth/extensions</code>看到相关扩展信息</p>
+<h4 id="1-通过应用市场安装"><a href="#1-通过应用市场安装" class="headerlink" title="1.通过应用市场安装"></a>1.通过应用市场安装</h4><p>敬请期待…</p>
+<h4 id="2-本地安装"><a href="#2-本地安装" class="headerlink" title="2.本地安装"></a>2.本地安装</h4><p>下载扩展的<code>zip</code>压缩包，注意必须是<code>zip</code>格式，然后打开扩展管理页面<code>admin/auth/extensions</code>，然后点击表格工具栏的<code>本地安装</code>按钮上传提交即可。</p>
+<h4 id="3-composer安装"><a href="#3-composer安装" class="headerlink" title="3.composer安装"></a>3.composer安装</h4><p>根据扩展开发者文档提供的说明，直接使用composer安装即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require &#123;扩展名称&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="启用扩展"><a href="#启用扩展" class="headerlink" title="启用扩展"></a>启用扩展</h4><p>安装之后，需要在扩展管理页面点击 <code>更新至xxx版本</code> 以及更新 <code>启用</code> 按钮之后方可正常使用</p>
+<h2 id="开发扩展"><a href="#开发扩展" class="headerlink" title="开发扩展"></a>开发扩展</h2><p>详细的开发教程，请参考文档 <a href="extension-dev.md">开发扩展</a> 章节。</p>
+<p><a name="service"></a></p>
+<h3 id="服务注册与初始化"><a href="#服务注册与初始化" class="headerlink" title="服务注册与初始化"></a>服务注册与初始化</h3><blockquote>
+<p>{tip} 如果你对服务提供者的概念并不熟悉，请先前往<a target="_blank" rel="noopener" href="https://learnku.com/docs/laravel/8.x/providers/9362">Laravel文档 - 服务提供者</a>学习。</p>
+</blockquote>
+<p>扩展的 <code>ServiceProvider</code> 类实际上是一个<a target="_blank" rel="noopener" href="https://learnku.com/docs/laravel/8.x/providers/9362">服务提供者</a>，唯一的区别是扩展的 <code>ServiceProvider</code> 不能重写 <code>boot</code> 方法，需要通过 <code>init</code> 代替 <code>boot</code>方法。</p>
+<p><a name="version"></a></p>
+<h3 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h3><p>每个扩展都有一个<code>version.php</code>文件，通过这个文件可以实现版本管理功能，每次发布新版本我们只需要往这个文件添加新的版本号以及相关描述即可</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> [</span><br><span class="line">    <span class="comment">// key 是版本号，注意这里不要带 v 前缀！</span></span><br><span class="line">    <span class="string">&#x27;1.0.0&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;版本描述信息，可以有多条&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;描述2...&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;create_operation_log.php&#x27;</span>, <span class="comment">// 版本迁移文件，可以有多条</span></span><br><span class="line">    ],</span><br><span class="line">    </span><br><span class="line">    <span class="string">&#x27;1.0.1&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;版本描述信息，可以有多条&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;update_operation_log.php&#x27;</span>, <span class="comment">// 版本迁移文件</span></span><br><span class="line">    ],</span><br><span class="line">    </span><br><span class="line">    ...</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="升级版本"><a href="#升级版本" class="headerlink" title="升级版本"></a>升级版本</h4><p>安装了新的版本代码之后，可以在扩展管理页面<code>admin/auth/extensions</code>中点击更新按钮进行升级。</p>
+<p>点击升级后如果有迁移文件则会运行迁移文件，如果有菜单则会重新创建菜单，如果有静态资源则会自动重新发布资源文件。</p>
+<h4 id="回滚版本"><a href="#回滚版本" class="headerlink" title="回滚版本"></a>回滚版本</h4><p>通过命令 <code>php artisan admin:ext-rollback &#123;扩展名称&#125; &#123;版本号&#125;</code> 可以回滚到指定版本，但需要注意的是，回滚扩展会删除数据，可能会导致数据丢失，请谨慎操作！！！</p>
+<h4 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h4><p>如果你的扩展已安装，通过扩展页面 <code>admin/auth/extensions</code> 可以扩展进行卸载，但需要注意的是，卸载扩展会删除数据，可能会导致数据丢失，请谨慎操作！！！</p>
+<p>如果你想完全移除扩展的代码，则直接删除 <code>dcat-admin-extensions</code> 目录下对应的扩展文件夹即可。</p>
+<p><a name="view"></a></p>
+<h3 id="视图-view"><a href="#视图-view" class="headerlink" title="视图 (view)"></a>视图 (view)</h3><p>视图的默认目录为<code>扩展目录/resources/view</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">├── resources </span><br><span class="line">│   ├── ...</span><br><span class="line">│   └── views <span class="comment"># 视图目录</span></span><br><span class="line">│       └── index.blade.php <span class="comment"># 视图示例文件</span></span><br></pre></td></tr></table></figure>
+
+<p>只要把视图文件放在上述目录，系统就会自动给视图目录注册别名，别名与扩展名称相同。假设你的扩展包名称为 <code>dcat-admin/form-step</code>，则可以通过以下方式加载视图</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="string">&#x27;dcat-admin.form-step::index&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><a name="assets"></a></p>
+<h3 id="静态资源"><a href="#静态资源" class="headerlink" title="静态资源"></a>静态资源</h3><p>假设你的扩展包名称为 <code>dcat-admin/form-step</code>，如果你的扩展中包含静态资源如下，那么你可以通过 <code>FormStepServiceProvider</code> 上的 <code>$js</code> 和 <code>$css</code> 属性为你的静态资源注册别名</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">└── resources </span><br><span class="line">    └─── assets</span><br><span class="line">      ├── css</span><br><span class="line">      │   └── index.css</span><br><span class="line">      └── js</span><br><span class="line">          └── index.js</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FormStepServiceProvider</span> <span class="keyword">extends</span> <span class="title">ServiceProvider</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$js</span> = [</span><br><span class="line">        <span class="string">&#x27;js/index.js&#x27;</span>,</span><br><span class="line">    ];</span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$css</span> = [</span><br><span class="line">        <span class="string">&#x27;css/index.css&#x27;</span>,</span><br><span class="line">    ];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后就可以通过下面的方法加载静态资源</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Admin</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 直接用你的 包名 即可引入扩展包的静态资源</span></span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">requireAssets</span>(<span class="string">&#x27;@dcat-admin.form-step&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+
+<p>当然你也可以不通过 <code>$js</code> 和 <code>$css</code> 属性注册别名，那么也可以用下面的方法直接加载静态资源，效果是一样的</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 上面的写法相当于</span></span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">js</span>([<span class="string">&#x27;@dcat-admin.form-step/js/index.js&#x27;</span>]);</span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">css</span>([<span class="string">&#x27;@dcat-admin.form-step/css/index.css&#x27;</span>]);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/extension-f/" data-id="clpdpxfiw000jywna6vlsb0xa" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

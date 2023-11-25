@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="列过滤器这个功能可以给表格的列设置一个过滤器，可以更方便的根据这一列进行数据表格过滤操作 ![](&#x2F;assets&#x2F;img&#x2F;screenshots&#x2F;column-filter.png) 字符串比较查询123456use Dcat\Admin\Grid;&#x2F;&#x2F; WHERE &#96;username&#96; &#x3D; &quot;$input&quot;$grid-&gt;usern">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/model-grid-column-filter/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="列过滤器这个功能可以给表格的列设置一个过滤器，可以更方便的根据这一列进行数据表格过滤操作 ![](&#x2F;assets&#x2F;img&#x2F;screenshots&#x2F;column-filter.png) 字符串比较查询123456use Dcat\Admin\Grid;&#x2F;&#x2F; WHERE &#96;username&#96; &#x3D; &quot;$input&quot;$grid-&gt;usern">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/img/screenshots/column-value-filter-1.png">
+<meta property="og:image" content="http://example.com/assets/img/screenshots/column-value-filter-search.png">
+<meta property="og:image" content="http://example.com/assets/img/screenshots/column-value-filter.png">
+<meta property="og:image" content="http://example.com/assets/img/screenshots/grid-column-filter-between.png">
+<meta property="article:published_time" content="2023-11-25T07:16:44.969Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.970Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/img/screenshots/column-value-filter-1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/model-grid-column-filter" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/model-grid-column-filter/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.969Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="列过滤器"><a href="#列过滤器" class="headerlink" title="列过滤器"></a>列过滤器</h1><p>这个功能可以给表格的列设置一个过滤器，可以更方便的根据这一列进行数据表格过滤操作</p>
+<p>![](&#x2F;assets&#x2F;img&#x2F;screenshots&#x2F;column-filter.png)</p>
+<h2 id="字符串比较查询"><a href="#字符串比较查询" class="headerlink" title="字符串比较查询"></a>字符串比较查询</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// WHERE `username` = &quot;$input&quot;</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;username-&gt;<span class="title function_ invoke__">filter</span>(</span><br><span class="line">    <span class="title class_">Grid\Column\Filter\Equal</span>::<span class="title function_ invoke__">make</span>()</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>上面的调用可以给 <code>username</code> 这一列的头部加上一个 <code>input</code> 类型的过滤器，点击过滤器图标展开过滤器，输入查询提交后，会对这一列执行 <code>等于</code> 查询。</p>
+<h3 id="开启字段值查询"><a href="#开启字段值查询" class="headerlink" title="开启字段值查询"></a>开启字段值查询</h3><p>这个功能可以给每一列字段的值设置一个过滤器，点击该列字段的值就可以进行数据表格过滤操作，非常方便。</p>
+<blockquote>
+<p>{tip} 开启此功能之后会把这个字段的原始值作为搜索内容，不会受 <code>display</code> 方法影响。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置为 label 或调用 display 方法不会影响查询内容</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;ip-&gt;<span class="title function_ invoke__">label</span>()-&gt;<span class="title function_ invoke__">filter</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 相当于</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;ip-&gt;<span class="title function_ invoke__">filter</span>(</span><br><span class="line">    <span class="title class_">Grid\Column\Filter\Equal</span>::<span class="title function_ invoke__">make</span>()-&gt;<span class="title function_ invoke__">valueFilter</span>()</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>鼠标移动到开启了值查询功能的列上面，右边会显示一个“放大镜”图标<br><a href="/assets/img/screenshots/column-value-filter-1.png" target="_blank"><br>    <img class="img" width="400px" src="/assets/img/screenshots/column-value-filter-1.png"><br></a></p>
+<p>点击列之后，表头会出现“重置”按钮，点击可以取消筛选</p>
+<a href="/assets/img/screenshots/column-value-filter-search.png" target="_blank">
+    <img class="img" width="400px" src="/assets/img/screenshots/column-value-filter-search.png">
+</a>
+
+<h4 id="设置值的字段名称"><a href="#设置值的字段名称" class="headerlink" title="设置值的字段名称"></a>设置值的字段名称</h4><p>如果当前列的值并非用户想要搜索的值，可以通过以下方法更改字段名称。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">model</span>()-&gt;<span class="title function_ invoke__">with</span>(<span class="string">&#x27;user&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实际搜索的会是 name 字段的值</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;username-&gt;<span class="title function_ invoke__">filter</span>(<span class="string">&#x27;name&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 二维数组</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;user_id-&gt;<span class="title function_ invoke__">filter</span>(<span class="string">&#x27;user.id&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 闭包</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;user_id-&gt;<span class="title function_ invoke__">filter</span>(function () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;user[<span class="string">&#x27;id&#x27;</span>];</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="隐藏表头的筛选器图标"><a href="#隐藏表头的筛选器图标" class="headerlink" title="隐藏表头的筛选器图标"></a>隐藏表头的筛选器图标</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span>-&gt;user_id-&gt;<span class="title function_ invoke__">filterByValue</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 相当于</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;user_id-&gt;<span class="title function_ invoke__">filter</span>(</span><br><span class="line">    <span class="title class_">Grid\Column\Filter\Equal</span>::<span class="title function_ invoke__">make</span>()</span><br><span class="line">        -&gt;<span class="title function_ invoke__">valueFilter</span>()</span><br><span class="line">        -&gt;<span class="title function_ invoke__">hide</span>()</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>效果如下</p>
+<a href="/assets/img/screenshots/column-value-filter.png" target="_blank">
+    <img class="img" width="400px" src="/assets/img/screenshots/column-value-filter.png">
+</a>
+
+
+
+<h3 id="其余Input表单类型过滤器"><a href="#其余Input表单类型过滤器" class="headerlink" title="其余Input表单类型过滤器"></a>其余Input表单类型过滤器</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// WHERE `username` LIKE &quot;%&#123;$input&#125;%&quot;</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;username-&gt;<span class="title function_ invoke__">filter</span>(</span><br><span class="line">    <span class="title class_">Grid\Column\Filter\Like</span>::<span class="title function_ invoke__">make</span>()</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// WHERE `username` LIKE &quot;&#123;$input&#125;%&quot;</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;username-&gt;<span class="title function_ invoke__">filter</span>(</span><br><span class="line">    <span class="title class_">Grid\Column\Filter\StartWith</span>::<span class="title function_ invoke__">make</span>()</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// WHERE `username` &gt; &quot;$input&quot;</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;username-&gt;<span class="title function_ invoke__">filter</span>(</span><br><span class="line">    <span class="title class_">Grid\Column\Filter\Gt</span>::<span class="title function_ invoke__">make</span>()</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// WHERE `username` &lt;= &quot;$input&quot;</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;username-&gt;<span class="title function_ invoke__">filter</span>(</span><br><span class="line">    <span class="title class_">Grid\Column\Filter\Ngt</span>::<span class="title function_ invoke__">make</span>()</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// WHERE `username` &lt; &quot;$input&quot;</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;username-&gt;<span class="title function_ invoke__">filter</span>(</span><br><span class="line">    <span class="title class_">Grid\Column\Filter\Lt</span>::<span class="title function_ invoke__">make</span>()</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// WHERE `username` &gt;= &quot;$input&quot;</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;username-&gt;<span class="title function_ invoke__">filter</span>(</span><br><span class="line">    <span class="title class_">Grid\Column\Filter\Nlt</span>::<span class="title function_ invoke__">make</span>()</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="时间日期"><a href="#时间日期" class="headerlink" title="时间日期"></a>时间日期</h3><p>如果字段是时间、日期相关的字段，可以使用下面的方法</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">date</span>()-&gt;<span class="title function_ invoke__">filter</span>(</span><br><span class="line">    <span class="title class_">Grid\Column\Filter\Equal</span>::<span class="title function_ invoke__">make</span>()-&gt;<span class="title function_ invoke__">date</span>()</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">time</span>()-&gt;<span class="title function_ invoke__">filter</span>(</span><br><span class="line">    <span class="title class_">Grid\Column\Filter\Like</span>::<span class="title function_ invoke__">make</span>()-&gt;<span class="title function_ invoke__">time</span>()</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">datetime</span>()-&gt;<span class="title function_ invoke__">filter</span>(</span><br><span class="line">    <span class="title class_">Grid\Column\Filter\Gt</span>::<span class="title function_ invoke__">make</span>()-&gt;<span class="title function_ invoke__">datetime</span>(<span class="string">&#x27;YYYY-MM-DD HH:mm:ss&#x27;</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<a href="/assets/img/screenshots/grid-column-filter-between.png" target="_blank">
+    <img class="img" width="400px" src="/assets/img/screenshots/grid-column-filter-between.png">
+</a>
+
+
+<h2 id="多选查询"><a href="#多选查询" class="headerlink" title="多选查询"></a>多选查询</h2><p>假设需要在表格数据中通过 <code>status</code> 字段过滤一个或者多个状态的数据，使用多选过滤可以非常方便的实现</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;status&#x27;</span>, <span class="string">&#x27;状态&#x27;</span>)-&gt;<span class="title function_ invoke__">filter</span>(</span><br><span class="line">    <span class="title class_">Grid\Column\Filter\In</span>::<span class="title function_ invoke__">make</span>([</span><br><span class="line">        <span class="number">0</span> =&gt; <span class="string">&#x27;未知&#x27;</span>,</span><br><span class="line">        <span class="number">1</span> =&gt; <span class="string">&#x27;已下单&#x27;</span>,</span><br><span class="line">        <span class="number">2</span> =&gt; <span class="string">&#x27;已付款&#x27;</span>,</span><br><span class="line">        <span class="number">3</span> =&gt; <span class="string">&#x27;已取消&#x27;</span>,</span><br><span class="line">    ])</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h2 id="范围查询"><a href="#范围查询" class="headerlink" title="范围查询"></a>范围查询</h2><p>假设需要通过 <code>price</code> 字段过滤出某个价格范围内的数据</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;price&#x27;</span>)-&gt;<span class="title function_ invoke__">filter</span>(</span><br><span class="line">    <span class="title class_">Grid\Column\Filter\Between</span>::<span class="title function_ invoke__">make</span>()</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>或者是时间、日期范围的过滤</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">date</span>()-&gt;<span class="title function_ invoke__">filter</span>(</span><br><span class="line">    <span class="title class_">Grid\Column\Filter\Between</span>::<span class="title function_ invoke__">make</span>()-&gt;<span class="title function_ invoke__">date</span>()</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">time</span>()-&gt;<span class="title function_ invoke__">filter</span>(</span><br><span class="line">    <span class="title class_">Grid\Column\Filter\Between</span>::<span class="title function_ invoke__">make</span>()-&gt;<span class="title function_ invoke__">time</span>()</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">datetime</span>()-&gt;<span class="title function_ invoke__">filter</span>(</span><br><span class="line">    <span class="title class_">Grid\Column\Filter\Between</span>::<span class="title function_ invoke__">make</span>()-&gt;<span class="title function_ invoke__">datetime</span>()</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h2 id="指定查询字段名"><a href="#指定查询字段名" class="headerlink" title="指定查询字段名"></a>指定查询字段名</h2><p>通过<code>setColumnName</code>方法可以指定查询字段的名称</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;column&#x27;</span>)-&gt;<span class="title function_ invoke__">filter</span>(</span><br><span class="line">    <span class="title class_">Grid\Column\Filter\Equal</span>::<span class="title function_ invoke__">make</span>()-&gt;<span class="title function_ invoke__">setColumnName</span>(<span class="string">&#x27;custom_column&#x27;</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="查询json字段"><a href="#查询json字段" class="headerlink" title="查询json字段"></a>查询json字段</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;column&#x27;</span>)-&gt;<span class="title function_ invoke__">filter</span>(</span><br><span class="line">    <span class="title class_">Grid\Column\Filter\Equal</span>::<span class="title function_ invoke__">make</span>()-&gt;<span class="title function_ invoke__">setColumnName</span>(<span class="string">&#x27;json_column-&gt;label&#x27;</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="关联关系字段查询"><a href="#关联关系字段查询" class="headerlink" title="关联关系字段查询"></a>关联关系字段查询</h3><p>如果安装了 <a target="_blank" rel="noopener" href="https://github.com/jqhph/laravel-wherehasin">dcat&#x2F;laravel-wherehasin</a>，则会优先使用<code>whereHasIn</code>方法进行查询操作</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;user.name&#x27;</span>)-&gt;<span class="title function_ invoke__">filter</span>(</span><br><span class="line">    <span class="title class_">Grid\Column\Filter\Equal</span>::<span class="title function_ invoke__">make</span>()</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;user_name&#x27;</span>)-&gt;<span class="title function_ invoke__">filter</span>(</span><br><span class="line">    <span class="title class_">Grid\Column\Filter\Equal</span>::<span class="title function_ invoke__">make</span>()-&gt;<span class="title function_ invoke__">setColumnName</span>(<span class="string">&#x27;user.name&#x27;</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/model-grid-column-filter/" data-id="clpdpxfjo001cywna3k5jcdvw" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/model-grid-column-display/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/model-grid-actions/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

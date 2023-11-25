@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="动作基本使用开发者通过 Action 动作类可以非常方便的开发出一个含有特定功能的操作，可以非常方便的让用户与服务器产生交互。 例如，页面上需要一个按钮，用户点击之后可以向服务器发起请求，通过弹窗展示当前登录用户的信息，那么这个功能按钮就可以用 Action 来开发。 示例下面我们就开始开发一个用于查看登录用户信息的按钮： 使用命令创建Action类首先需要先创建 Action 类，运行命令 1p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/action/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="动作基本使用开发者通过 Action 动作类可以非常方便的开发出一个含有特定功能的操作，可以非常方便的让用户与服务器产生交互。 例如，页面上需要一个按钮，用户点击之后可以向服务器发起请求，通过弹窗展示当前登录用户的信息，那么这个功能按钮就可以用 Action 来开发。 示例下面我们就开始开发一个用于查看登录用户信息的按钮： 使用命令创建Action类首先需要先创建 Action 类，运行命令 1p">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/img/screenshots/action-default.png">
+<meta property="article:published_time" content="2023-11-25T07:16:44.952Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.953Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/img/screenshots/action-default.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/action" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/action/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.952Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="动作基本使用"><a href="#动作基本使用" class="headerlink" title="动作基本使用"></a>动作基本使用</h1><p>开发者通过 <code>Action</code> 动作类可以非常方便的开发出一个含有特定功能的操作，可以非常方便的让用户与服务器产生交互。</p>
+<p>例如，页面上需要一个按钮，用户点击之后可以向服务器发起请求，通过弹窗展示当前登录用户的信息，那么这个功能按钮就可以用 <code>Action</code> 来开发。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>下面我们就开始开发一个用于查看登录用户信息的按钮：</p>
+<h3 id="使用命令创建Action类"><a href="#使用命令创建Action类" class="headerlink" title="使用命令创建Action类"></a>使用命令创建Action类</h3><p>首先需要先创建 <code>Action</code> 类，运行命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan admin:action</span><br></pre></td></tr></table></figure>
+
+<p>运行成功之后会看到命令窗口出现如下信息，让开发者选择一个 <code>Action</code> 类的类型，这里我们输入 <code>0</code> 就行</p>
+<blockquote>
+<p>{tip} <code>default</code>类型的动作类，可以用在页面的任意位置。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Which <span class="built_in">type</span> of action would you like to make?:</span><br><span class="line"> [0] default</span><br><span class="line"> [1] grid-batch</span><br><span class="line"> [2] grid-row</span><br><span class="line"> [3] grid-tool</span><br><span class="line"> [4] form-tool</span><br><span class="line"> [5] show-tool</span><br><span class="line"> [6] tree-tool</span><br><span class="line">&gt; 0 <span class="comment"># 输入 0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>接着输入 <code>Action</code> 类名称，这里需要输入 <code>大驼峰</code> 风格的英文字母</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Please enter a name of action class:</span><br><span class="line">&gt; ShowCurrentAdminUser</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>类名输入完成之后会出现以下信息让开发者输入类的命名空间，默认的命名空间是 <code>App\Admin\Actions</code>，这里我们直接按回车跳过就行了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Please enter the namespace of action class [App\Admin\Actions]:</span><br><span class="line">&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这样一个 <code>Action</code> 类就创建完成了，刚刚创建的类路径是 <code>app/Admin/Actions/ShowCurrentAdminUser.php</code></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>修改 <code>Action</code> 类如下</p>
+<blockquote>
+<p>{tip} 如果你的动作类中需要通过构造方法传递参数，则一定要给构造方法的所有参数都设置一个默认值！</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Admin</span>\<span class="title class_">Actions</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Admin</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Widgets</span>\<span class="title">Table</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Actions</span>\<span class="title">Action</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Actions</span>\<span class="title">Response</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Traits</span>\<span class="title">HasPermissions</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Contracts</span>\<span class="title">Auth</span>\<span class="title">Authenticatable</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Eloquent</span>\<span class="title">Model</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Http</span>\<span class="title">Request</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ShowCurrentAdminUser</span> <span class="keyword">extends</span> <span class="title">Action</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 按钮标题</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@var</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$title</span> = <span class="string">&#x27;个人信息&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@var</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$modalId</span> = <span class="string">&#x27;show-current-user&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 处理当前动作的请求接口，如果不需要请直接删除</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> Request $request</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> Response</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params">Request <span class="variable">$request</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 获取当前登录用户模型</span></span><br><span class="line">        <span class="variable">$user</span> = <span class="title class_">Admin</span>::<span class="title function_ invoke__">user</span>();</span><br><span class="line">        <span class="comment">// 这里我们用表格展示模型数据</span></span><br><span class="line">        <span class="variable">$table</span> = <span class="title class_">Table</span>::<span class="title function_ invoke__">make</span>(<span class="variable">$user</span>-&gt;<span class="title function_ invoke__">toArray</span>());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">response</span>()</span><br><span class="line">            -&gt;<span class="title function_ invoke__">success</span>(<span class="string">&#x27;查询成功&#x27;</span>)</span><br><span class="line">            -&gt;<span class="title function_ invoke__">html</span>(<span class="variable">$table</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 处理响应的HTML字符串，附加到弹窗节点中</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">handleHtmlResponse</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&lt;&lt;&lt;&#x27;JS&#x27;</span></span><br><span class="line"><span class="string">function (target, html, data) &#123;</span></span><br><span class="line"><span class="string">    var $modal = $(target.data(&#x27;target&#x27;)); </span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    $modal.find(&#x27;.modal-body&#x27;).html(html)</span></span><br><span class="line"><span class="string">    $modal.modal(&#x27;show&#x27;)</span></span><br><span class="line"><span class="string">&#125;        </span></span><br><span class="line"><span class="string">JS</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 设置HTML标签的属性</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">setupHtmlAttributes</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 添加class</span></span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">addHtmlClass</span>(<span class="string">&#x27;btn btn-primary&#x27;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 保存弹窗的ID</span></span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">setHtmlAttribute</span>(<span class="string">&#x27;data-target&#x27;</span>, <span class="string">&#x27;#&#x27;</span>.<span class="variable">$this</span>-&gt;modalId);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">parent</span>::<span class="title function_ invoke__">setupHtmlAttributes</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 设置按钮的HTML，这里我们需要附加上弹窗的HTML</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string|void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">html</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 按钮的html</span></span><br><span class="line">        <span class="variable">$html</span> = <span class="built_in">parent</span>::<span class="title function_ invoke__">html</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&lt;&lt;&lt;HTML</span></span><br><span class="line"><span class="string"><span class="subst">&#123;$html&#125;</span>        </span></span><br><span class="line"><span class="string">&lt;div class=&quot;modal fade&quot; id=&quot;<span class="subst">&#123;$this-&gt;modalId&#125;</span>&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot;&gt;</span></span><br><span class="line"><span class="string">  &lt;div class=&quot;modal-dialog modal-lg&quot; role=&quot;document&quot;&gt;</span></span><br><span class="line"><span class="string">    &lt;div class=&quot;modal-content&quot;&gt;</span></span><br><span class="line"><span class="string">      &lt;div class=&quot;modal-header&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot; aria-label=&quot;Close&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/span&gt;&lt;/button&gt;</span></span><br><span class="line"><span class="string">        &lt;h4 class=&quot;modal-title&quot;&gt;<span class="subst">&#123;$this-&gt;title()&#125;</span>&lt;/h4&gt;</span></span><br><span class="line"><span class="string">      &lt;/div&gt;</span></span><br><span class="line"><span class="string">      &lt;div class=&quot;modal-body&quot;&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">  &lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br><span class="line"><span class="string">HTML</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 确认弹窗信息，如不需要可以删除此方法 </span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string|void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">confirm</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// return [&#x27;Confirm?&#x27;, &#x27;contents&#x27;];</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 动作权限判断，返回false则表示无权限，如果不需要可以删除此方法</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> Model|Authenticatable|HasPermissions|null $user</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> bool</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">authorize</span>(<span class="params"><span class="variable">$user</span></span>): <span class="title">bool</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通过这个方法可以设置动作发起请求时需要附带的参数，如果不需要可以删除此方法</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> array</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">parameters</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> [];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>修改完之后就可以开始使用了</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Admin</span>\<span class="title">Actions</span>\<span class="title">ShowCurrentAdminUser</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IndexController</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span>(<span class="params">Content <span class="variable">$content</span></span>)</span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">	    <span class="keyword">return</span> <span class="variable">$content</span>-&gt;<span class="title function_ invoke__">body</span>(<span class="title class_">ShowCurrentAdminUser</span>::<span class="title function_ invoke__">make</span>());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下</p>
+<a href="/assets/img/screenshots/action-default.png" target="_blank">
+    <img class="img img-full" src="/assets/img/screenshots/action-default.png" />
+</a>
+
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><p><code>Dcat\Admin\Actions\Action</code> 类可用属性说明</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>title</td>
+<td><code>string</code></td>
+<td></td>
+<td>标题</td>
+</tr>
+<tr>
+<td>selectorPrefix</td>
+<td><code>public</code> <code>string</code></td>
+<td><code>.admin-action-</code></td>
+<td>目标元素的<code>Css</code>选择器</td>
+</tr>
+<tr>
+<td>method</td>
+<td><code>string</code></td>
+<td><code>POST</code></td>
+<td>与服务器交互的请求方法</td>
+</tr>
+<tr>
+<td>event</td>
+<td><code>string</code></td>
+<td><code>click</code></td>
+<td>目标元素绑定的事件，默认为点击事件</td>
+</tr>
+<tr>
+<td>disabled</td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>是否渲染动作元素，设置<code>true</code>则不渲染</td>
+</tr>
+<tr>
+<td>usingHandler</td>
+<td><code>bool</code></td>
+<td><code>true</code></td>
+<td>当此属性设置为<code>false</code>，则无论<code>Action</code>中是否包含<code>handle</code>方法都不会向服务器发起请求</td>
+</tr>
+</tbody></table>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p><code>Dcat\Admin\Actions\Action</code> 类方法说明</p>
+<h3 id="创建实例-make"><a href="#创建实例-make" class="headerlink" title="创建实例 (make)"></a>创建实例 (make)</h3><p>此方法是一个静态方法，用于实例化动作类</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$action</span> = <span class="title class_">MyAction</span>::<span class="title function_ invoke__">make</span>(<span class="variable">$param1</span>, <span class="variable">$param2</span>...);</span><br></pre></td></tr></table></figure>
+
+<h3 id="处理请求-handle"><a href="#处理请求-handle" class="headerlink" title="处理请求 (handle)"></a>处理请求 (handle)</h3><p>当<code>Action</code>类中包含此方法之时，目标元素会被绑定通过<code>event</code>属性设置的事件（默认为<code>click</code>）。如果事件被触发，则会向服务器发起请求，而<code>handle</code>方法则可以处理并响应此请求。</p>
+<blockquote>
+<p>{tip} 如果没有此方法，则目标元素不会被绑定事件。</p>
+</blockquote>
+<h3 id="响应-response"><a href="#响应-response" class="headerlink" title="响应 (response)"></a>响应 (response)</h3><p>参考 <a href="response.md">动作以及表单响应</a> 章节</p>
+<h3 id="设置请求数据-parameters"><a href="#设置请求数据-parameters" class="headerlink" title="设置请求数据 (parameters)"></a>设置请求数据 (parameters)</h3><p>通过这个方法可以设置动作发起请求时需要附带的参数</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Actions</span>\<span class="title">Action</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Http</span>\<span class="title">Request</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyAction</span> <span class="keyword">extends</span> <span class="title">Action</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params">Request <span class="variable">$request</span></span>) </span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 接收参数</span></span><br><span class="line">        <span class="variable">$key1</span> = <span class="variable">$request</span>-&gt;<span class="title function_ invoke__">get</span>(<span class="string">&#x27;key1&#x27;</span>);</span><br><span class="line">        <span class="variable">$key2</span> = <span class="variable">$request</span>-&gt;<span class="title function_ invoke__">get</span>(<span class="string">&#x27;key2&#x27;</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">response</span>()-&gt;<span class="title function_ invoke__">success</span>(<span class="string">&#x27;成功！&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">parameters</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> [</span><br><span class="line">        	<span class="string">&#x27;key1&#x27;</span> =&gt; <span class="string">&#x27;value1&#x27;</span>,</span><br><span class="line">        	<span class="string">&#x27;key2&#x27;</span> =&gt; <span class="string">&#x27;value2&#x27;</span>,    </span><br><span class="line">		];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="确认弹窗-confirm"><a href="#确认弹窗-confirm" class="headerlink" title="确认弹窗 (confirm)"></a>确认弹窗 (confirm)</h3><p>设置确认信息，此方法要求返回一个<code>string</code>类型参数。</p>
+<p>当此方法返回值不为空时会加入确认窗功能，当事件被触发时自动弹出确认框，点击确认后才会进行下一步操作。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">confirm</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&#x27;你确定要删除此行内容吗？&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>显示弹窗标题和内容</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">confirm</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> [<span class="string">&#x27;你确定要删除此行内容吗？&#x27;</span>, <span class="string">&#x27;弹窗内容&#x27;</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="发起请求之前执行的JS代码-actionScript"><a href="#发起请求之前执行的JS代码-actionScript" class="headerlink" title="发起请求之前执行的JS代码 (actionScript)"></a>发起请求之前执行的JS代码 (actionScript)</h3><p>设置动作执行的前置<code>js</code>代码，当按钮绑定的事件被触发后，发起请求之前会执行通过此方法设置的<code>js</code>代码，此方法要求返回一个<code>js</code>的匿名函数。</p>
+<p><code>js</code>匿名函数接收以下三个参数：</p>
+<ul>
+<li><code>data</code> <code>object</code> 需要传递给接口的数据对象</li>
+<li><code>target</code> <code>object</code> 动作按钮的<code>jQuery</code>对象</li>
+<li><code>action</code> <code>object</code> 动作的管理对象</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">actionScript</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&lt;&lt;&lt;JS</span></span><br><span class="line"><span class="string">function (data, target, action) &#123;</span></span><br><span class="line"><span class="string">    console.log(&#x27;发起请求之前&#x27;, data, target, action);</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    // return false; 在这里return false可以终止执行后面的操作	</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    // 更改传递到接口的主键值</span></span><br><span class="line"><span class="string">    action.options.key = 123;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">JS</span>	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a name="handleHtmlResponse"></a></p>
+<h3 id="处理服务器响应的HTML代码-handleHtmlResponse"><a href="#处理服务器响应的HTML代码-handleHtmlResponse" class="headerlink" title="处理服务器响应的HTML代码 (handleHtmlResponse)"></a>处理服务器响应的HTML代码 (handleHtmlResponse)</h3><p>处理服务器响应的<code>HTML</code>代码，此方法要求返回一个<code>js</code>匿名函数。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">handleHtmlResponse</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&lt;&lt;&lt;&#x27;JS&#x27;</span></span><br><span class="line"><span class="string">function (target, html, data) &#123;</span></span><br><span class="line"><span class="string">    // target 参数是动作按钮的JQ对象</span></span><br><span class="line"><span class="string">    // html 参数是接口返回HTML字符串</span></span><br><span class="line"><span class="string">    // data 参数是接口返回的完整数据的json对象</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    target.html(html);</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">JS</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="权限-authorize"><a href="#权限-authorize" class="headerlink" title="权限 (authorize)"></a>权限 (authorize)</h3><p>此方法用于判断登录用户的操作权限，默认返回<code>true</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">authorize</span>(<span class="params"><span class="variable">$user</span></span>): <span class="title">bool</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="variable">$user</span>-&gt;<span class="title function_ invoke__">can</span>(<span class="string">&#x27;do-action&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="无权限响应-failedAuthorization"><a href="#无权限响应-failedAuthorization" class="headerlink" title="无权限响应 (failedAuthorization)"></a>无权限响应 (failedAuthorization)</h3><p>此方法用于设置鉴权失败的响应内容，如果需要则可覆写此方法</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">failedAuthorization</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">response</span>()-&gt;<span class="title function_ invoke__">error</span>(<span class="title function_ invoke__">__</span>(<span class="string">&#x27;admin.deny&#x27;</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="隐藏或显示-disable"><a href="#隐藏或显示-disable" class="headerlink" title="隐藏或显示 (disable)"></a>隐藏或显示 (disable)</h3><p>设置显示或隐藏此动作</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 隐藏</span></span><br><span class="line"><span class="title class_">MyAction</span>::<span class="title function_ invoke__">make</span>()-&gt;<span class="title function_ invoke__">disable</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 显示</span></span><br><span class="line"><span class="title class_">MyAction</span>::<span class="title function_ invoke__">make</span>()-&gt;<span class="title function_ invoke__">disable</span>(<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="判断是否显示-allowed"><a href="#判断是否显示-allowed" class="headerlink" title="判断是否显示 (allowed)"></a>判断是否显示 (allowed)</h3><p>判断动作是否允许显示</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="title class_">MyAction</span>::<span class="title function_ invoke__">make</span>()-&gt;<span class="title function_ invoke__">allowed</span>()) &#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置主键-setKey"><a href="#设置主键-setKey" class="headerlink" title="设置主键 (setKey)"></a>设置主键 (setKey)</h3><p>设置数据主键</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$id</span> = ...;</span><br><span class="line"></span><br><span class="line"><span class="title class_">MyAction</span>::<span class="title function_ invoke__">make</span>()-&gt;<span class="title function_ invoke__">setKey</span>(<span class="variable">$id</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取主键值-getKey"><a href="#获取主键值-getKey" class="headerlink" title="获取主键值 (getKey)"></a>获取主键值 (getKey)</h3><p>获取数据主键，此方法在<code>handle</code>方法内也同样可用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Actions</span>\<span class="title">Action</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Http</span>\<span class="title">Request</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyAction</span> <span class="keyword">extends</span> <span class="title">Action</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params">Request <span class="variable">$request</span></span>) </span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$id</span> = <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">getKey</span>();</span><br><span class="line">        </span><br><span class="line">        ...</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">response</span>()-&gt;<span class="title function_ invoke__">success</span>(<span class="string">&#x27;成功！&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">title</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;标题 <span class="subst">&#123;$this-&gt;key()&#125;</span>&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="获取目标元素样式-getElementClass"><a href="#获取目标元素样式-getElementClass" class="headerlink" title="获取目标元素样式 (getElementClass)"></a>获取目标元素样式 (getElementClass)</h3><p>获取动作目标元素（按钮）的<code>class</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$class</span> = <span class="title class_">MyAction</span>::<span class="title function_ invoke__">make</span>()-&gt;<span class="title function_ invoke__">getElementClass</span>();</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取目标元素的Css选择器-selector"><a href="#获取目标元素的Css选择器-selector" class="headerlink" title="获取目标元素的Css选择器 (selector)"></a>获取目标元素的Css选择器 (selector)</h3><p>获取动作目标元素（按钮）的CSS选择器</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$selector</span> = <span class="title class_">MyAction</span>::<span class="title function_ invoke__">make</span>()-&gt;<span class="title function_ invoke__">selector</span>();</span><br><span class="line"></span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">script</span>(</span><br><span class="line">	<span class="string">&lt;&lt;&lt;JS</span></span><br><span class="line"><span class="string">	$(&#x27;<span class="subst">$selector</span>&#x27;).click(...);</span></span><br><span class="line"><span class="string">JS</span>	</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="追加样式-addHtmlClass"><a href="#追加样式-addHtmlClass" class="headerlink" title="追加样式 (addHtmlClass)"></a>追加样式 (addHtmlClass)</h3><p>追加获取动作目标元素（按钮）的<code>class</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">MyAction</span>::<span class="title function_ invoke__">make</span>()-&gt;<span class="title function_ invoke__">addHtmlClass</span>(<span class="string">&#x27;btn btn-primary&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">MyAction</span>::<span class="title function_ invoke__">make</span>()-&gt;<span class="title function_ invoke__">addHtmlClass</span>([<span class="string">&#x27;btn&#x27;</span>, <span class="string">&#x27;btn-primary&#x27;</span>]);</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置目标元素的HTML-html"><a href="#设置目标元素的HTML-html" class="headerlink" title="设置目标元素的HTML (html)"></a>设置目标元素的HTML (html)</h3><p>此方法用于设置动作目标元素的<code>HTML</code>代码，如有需要可以覆写</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">html</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&lt;&lt;&lt;HTML</span></span><br><span class="line"><span class="string">&lt;a <span class="subst">&#123;$this-&gt;formatHtmlAttributes()&#125;</span>&gt;<span class="subst">&#123;$this-&gt;title()&#125;</span>&lt;/a&gt;</span></span><br><span class="line"><span class="string">HTML</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加JS代码-script"><a href="#添加JS代码-script" class="headerlink" title="添加JS代码 (script)"></a>添加JS代码 (script)</h3><p>此方法用于在<code>render</code>方法执行完毕之前添加<code>JS</code>代码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">script</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&lt;&lt;&lt;JS</span></span><br><span class="line"><span class="string">console.log(&#x27;...&#x27;)</span></span><br><span class="line"><span class="string">JS</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置目标元素的HTML属性-setHtmlAttribute"><a href="#设置目标元素的HTML属性-setHtmlAttribute" class="headerlink" title="设置目标元素的HTML属性 (setHtmlAttribute)"></a>设置目标元素的HTML属性 (setHtmlAttribute)</h3><p>设置目标元素的<code>HTML</code>标签属性</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">MyAction</span>::<span class="title function_ invoke__">make</span>()-&gt;<span class="title function_ invoke__">setHtmlAttribute</span>(<span class="string">&#x27;name&#x27;</span>, <span class="variable">$value</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 批量设置</span></span><br><span class="line"><span class="title class_">MyAction</span>::<span class="title function_ invoke__">make</span>()-&gt;<span class="title function_ invoke__">setHtmlAttribute</span>([<span class="string">&#x27;name&#x27;</span> =&gt; <span class="variable">$value</span>]);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/action/" data-id="clpdpxfik0008ywnabp4j4f55" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/action-tree/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/action-form/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

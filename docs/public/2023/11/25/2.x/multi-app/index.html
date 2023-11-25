@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="多应用 (多后台)默认安装后使用的是单应用模式，如果你想在同一个laravel项目中使用多应用模式，那么可以采用多后台模式，最终项目中的目录结构大概如下 12345678910111213141516app ├──Admin │   ├── Controllers │   │   ├── ExampleController.php │   │   └── HomeController.php │">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/multi-app/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="多应用 (多后台)默认安装后使用的是单应用模式，如果你想在同一个laravel项目中使用多应用模式，那么可以采用多后台模式，最终项目中的目录结构大概如下 12345678910111213141516app ├──Admin │   ├── Controllers │   │   ├── ExampleController.php │   │   └── HomeController.php │">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-25T07:16:44.984Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.984Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/multi-app" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/multi-app/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.984Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="多应用-多后台"><a href="#多应用-多后台" class="headerlink" title="多应用 (多后台)"></a>多应用 (多后台)</h1><p>默认安装后使用的是单应用模式，如果你想在同一个<code>laravel</code>项目中使用多应用模式，那么可以采用多后台模式，最终项目中的目录结构大概如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">app</span><br><span class="line"> ├──Admin</span><br><span class="line"> │   ├── Controllers</span><br><span class="line"> │   │   ├── ExampleController.php</span><br><span class="line"> │   │   └── HomeController.php</span><br><span class="line"> │   ├── Metrics</span><br><span class="line"> │   │   └── ...</span><br><span class="line"> │   ├── bootstrap.php</span><br><span class="line"> │   └── routes.php</span><br><span class="line"> │</span><br><span class="line"> ├──Admin2</span><br><span class="line"> │    └── ...</span><br><span class="line"> │   </span><br><span class="line"> │──Admin3</span><br><span class="line"> │    └── ...</span><br><span class="line"> ...</span><br></pre></td></tr></table></figure>
+
+<h3 id="生成新应用"><a href="#生成新应用" class="headerlink" title="生成新应用"></a>生成新应用</h3><p>运行命令，此命令只接受一个参数：应用名称，注意这里的应用名称请一定要使用<strong>大驼峰风格</strong>命名</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan admin:app NewAdmin</span><br></pre></td></tr></table></figure>
+
+<p>运行成功后你的项目中会新增一个新的应用目录<code>app/NewAdmin</code>，以及新的配置文件<code>config/new-admin.php</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">app</span><br><span class="line"> └──Admin</span><br><span class="line">    ├── Controllers</span><br><span class="line">    │   ├── ExampleController.php</span><br><span class="line">    │   └── HomeController.php</span><br><span class="line">    ├── Metrics</span><br><span class="line">    │   └── ...</span><br><span class="line">    ├── bootstrap.php</span><br><span class="line">    └── routes.php</span><br><span class="line">config</span><br><span class="line"> └──new-admin.php</span><br></pre></td></tr></table></figure>
+
+<h3 id="启用"><a href="#启用" class="headerlink" title="启用"></a>启用</h3><p>新应用生成完之后，就可以开始启用这个新应用了，打开配置文件<code>config/admin.php</code>，加入以下代码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> [</span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">    <span class="string">&#x27;multi_app&#x27;</span> =&gt; [</span><br><span class="line">        <span class="comment">// 与新应用的配置文件名称一致</span></span><br><span class="line">        <span class="comment">// 设置为true启用，false则是停用</span></span><br><span class="line">        <span class="string">&#x27;new-admin&#x27;</span> =&gt; <span class="literal">true</span>,</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<p>然后就可以打开浏览器访问这个新应用了<code>http://localhost:8000/new-admin</code>。</p>
+<h3 id="更改路由前缀"><a href="#更改路由前缀" class="headerlink" title="更改路由前缀"></a>更改路由前缀</h3><p>目前只能通过路由前缀区分不同应用，如果你想要更改应用的前缀，可以打开配置文件<code>new-admin.php</code>找到<code>route.prefix</code>参数进行更改即可</p>
+<h3 id="更改菜单"><a href="#更改菜单" class="headerlink" title="更改菜单"></a>更改菜单</h3><p>如果你想要在新应用中展示不同的菜单，可以参考以下方法</p>
+<p>1.首先需要创建新的菜单表以及其关联表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `new_admin_menu` (</span><br><span class="line">  `id` <span class="type">int</span>(<span class="number">10</span>) unsigned <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  `parent_id` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;0&#x27;</span>,</span><br><span class="line">  `<span class="keyword">order</span>` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;0&#x27;</span>,</span><br><span class="line">  `title` <span class="type">varchar</span>(<span class="number">50</span>) <span class="keyword">COLLATE</span> utf8mb4_unicode_ci <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `icon` <span class="type">varchar</span>(<span class="number">50</span>) <span class="keyword">COLLATE</span> utf8mb4_unicode_ci <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `uri` <span class="type">varchar</span>(<span class="number">50</span>) <span class="keyword">COLLATE</span> utf8mb4_unicode_ci <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `created_at` <span class="type">timestamp</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `updated_at` <span class="type">timestamp</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`)</span><br><span class="line">) ENGINE<span class="operator">=</span>MyISAM <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4 <span class="keyword">COLLATE</span><span class="operator">=</span>utf8mb4_unicode_ci;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `new_admin_permission_menu` (</span><br><span class="line">  `permission_id` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `menu_id` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `created_at` <span class="type">timestamp</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `updated_at` <span class="type">timestamp</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">UNIQUE</span> KEY `admin_permission_menu_permission_id_menu_id_index` (`permission_id`,`menu_id`) <span class="keyword">USING</span> BTREE</span><br><span class="line">) ENGINE<span class="operator">=</span>MyISAM <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4 <span class="keyword">COLLATE</span><span class="operator">=</span>utf8mb4_unicode_ci;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `new_admin_role_permissions` (</span><br><span class="line">  `role_id` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `permission_id` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `created_at` <span class="type">timestamp</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `updated_at` <span class="type">timestamp</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">UNIQUE</span> KEY `admin_role_permissions_role_id_permission_id_index` (`role_id`,`permission_id`) <span class="keyword">USING</span> BTREE</span><br><span class="line">) ENGINE<span class="operator">=</span>MyISAM <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4 <span class="keyword">COLLATE</span><span class="operator">=</span>utf8mb4_unicode_ci;</span><br></pre></td></tr></table></figure>
+
+<p>2.创建新的菜单模型，注意这里需要继承默认的菜单模型！！！</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Models</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Models</span>\<span class="title">Menu</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NewMenu</span> <span class="keyword">extends</span> <span class="title">Menu</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$table</span> = <span class="string">&#x27;new_admin_menu&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.打开新应用的配置文件<code>config/new-admin.php</code>，然后修改以下参数</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> [</span><br><span class="line">    ...</span><br><span class="line">	</span><br><span class="line">	<span class="string">&#x27;database&#x27;</span> =&gt; [</span><br><span class="line"></span><br><span class="line">	  ...</span><br><span class="line"></span><br><span class="line">	  <span class="comment">// 写入新的模型和菜单表</span></span><br><span class="line">	  <span class="string">&#x27;menu_table&#x27;</span> =&gt; <span class="string">&#x27;new_admin_menu&#x27;</span>,</span><br><span class="line">	  <span class="string">&#x27;menu_model&#x27;</span> =&gt; <span class="title class_">App\Models\NewMenu</span>::<span class="variable language_">class</span>,</span><br><span class="line"></span><br><span class="line">      ...</span><br><span class="line">	  </span><br><span class="line">	  <span class="comment">// 新的中间表</span></span><br><span class="line">	  <span class="string">&#x27;role_menu_table&#x27;</span> =&gt; <span class="string">&#x27;new_admin_role_menu&#x27;</span>,</span><br><span class="line">	  <span class="string">&#x27;permission_menu_table&#x27;</span> =&gt; <span class="string">&#x27;new_admin_permission_menu&#x27;</span>,</span><br><span class="line">	],</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<p>这样新的应用就可以使用独立的菜单功能了</p>
+<h3 id="更改用户和权限"><a href="#更改用户和权限" class="headerlink" title="更改用户和权限"></a>更改用户和权限</h3><p>自定义用户和权限可以参考以上更改菜单的方式。另外如果是自定义用户的话，还需要更改配置文件<code>config/new-admin.php</code>中的以下参数</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"> ...</span><br><span class="line"></span><br><span class="line"> <span class="string">&#x27;auth&#x27;</span> =&gt; [</span><br><span class="line">      ...</span><br><span class="line">      </span><br><span class="line">      <span class="string">&#x27;guard&#x27;</span> =&gt; <span class="string">&#x27;new-admin&#x27;</span>, <span class="comment">// 必须是一个新的名字</span></span><br><span class="line">      </span><br><span class="line"><span class="string">&#x27;guards&#x27;</span> =&gt; [</span><br><span class="line">	<span class="string">&#x27;new-admin&#x27;</span> =&gt; [</span><br><span class="line">		<span class="string">&#x27;driver&#x27;</span>   =&gt; <span class="string">&#x27;session&#x27;</span>,</span><br><span class="line">		<span class="string">&#x27;provider&#x27;</span> =&gt; <span class="string">&#x27;new-admin&#x27;</span>, <span class="comment">// 必须是一个新的名字</span></span><br><span class="line">	],</span><br><span class="line">],</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;providers&#x27;</span> =&gt; [</span><br><span class="line">	<span class="string">&#x27;new-admin&#x27;</span> =&gt; [ <span class="comment">// 必须是一个新的名字</span></span><br><span class="line">		<span class="string">&#x27;driver&#x27;</span> =&gt; <span class="string">&#x27;eloquent&#x27;</span>,</span><br><span class="line">		<span class="comment">// 这里换成新用户表的模型</span></span><br><span class="line">		<span class="string">&#x27;model&#x27;</span>  =&gt; <span class="title class_">App\Models\NewAdministrator</span>::<span class="variable language_">class</span>,</span><br><span class="line">	],</span><br><span class="line">],</span><br><span class="line"></span><br><span class="line">      ...</span><br><span class="line"></span><br><span class="line">  ],</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用不同域名区分应用"><a href="#使用不同域名区分应用" class="headerlink" title="使用不同域名区分应用"></a>使用不同域名区分应用</h3><p>默认是通过路由前缀区分应用的，如果想要使用域名区分应用，只需要更改如下配置即可</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;route&#x27;</span> =&gt; [</span><br><span class="line">    <span class="string">&#x27;domain&#x27;</span> =&gt; <span class="string">&#x27;dev.dcat.com&#x27;</span>, <span class="comment">// 配置你的域名</span></span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;prefix&#x27;</span> =&gt; <span class="string">&#x27;&#x27;</span>, <span class="comment">// 路由前缀建议设置为空</span></span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;namespace&#x27;</span> =&gt; <span class="string">&#x27;App\\Admin\\Controllers&#x27;</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;middleware&#x27;</span> =&gt; [<span class="string">&#x27;web&#x27;</span>, <span class="string">&#x27;admin&#x27;</span>],</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/multi-app/" data-id="clpdpxfku0025ywna1134grhq" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/qa/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/model-tree/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

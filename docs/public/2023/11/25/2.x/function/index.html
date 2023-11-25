@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="帮助函数admin_redirect Since v2.1.7-beta  跳转到指定url，此函数可用于代替redirect函数，支持pjax以及ajax请求 12345&#x2F;&#x2F; 不需要添加admin前缀return admin_redirect(&#x27;auth&#x2F;users&#x27;);&#x2F;&#x2F; 如果想要跳转到非admin前缀的链接，需要传递完整url链接return admin_redirec">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/function/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="帮助函数admin_redirect Since v2.1.7-beta  跳转到指定url，此函数可用于代替redirect函数，支持pjax以及ajax请求 12345&#x2F;&#x2F; 不需要添加admin前缀return admin_redirect(&#x27;auth&#x2F;users&#x27;);&#x2F;&#x2F; 如果想要跳转到非admin前缀的链接，需要传递完整url链接return admin_redirec">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.learnku.com/uploads/images/202101/11/38389/FLg6C7kwRq.png!large">
+<meta property="article:published_time" content="2023-11-25T07:16:44.959Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.960Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.learnku.com/uploads/images/202101/11/38389/FLg6C7kwRq.png!large">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/function" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/function/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.959Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="帮助函数"><a href="#帮助函数" class="headerlink" title="帮助函数"></a>帮助函数</h1><h3 id="admin-redirect"><a href="#admin-redirect" class="headerlink" title="admin_redirect"></a>admin_redirect</h3><blockquote>
+<p>Since <code>v2.1.7-beta</code></p>
+</blockquote>
+<p>跳转到指定<code>url</code>，此函数可用于代替<code>redirect</code>函数，支持<code>pjax</code>以及<code>ajax</code>请求</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 不需要添加admin前缀</span></span><br><span class="line"><span class="keyword">return</span> <span class="title function_ invoke__">admin_redirect</span>(<span class="string">&#x27;auth/users&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果想要跳转到非admin前缀的链接，需要传递完整url链接</span></span><br><span class="line"><span class="keyword">return</span> <span class="title function_ invoke__">admin_redirect</span>(<span class="title function_ invoke__">url</span>(<span class="string">&#x27;users&#x27;</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-exist"><a href="#admin-exist" class="headerlink" title="admin_exist"></a>admin_exist</h3><p><code>admin_exist</code> 用于中断程序执行，并响应数据到浏览器进行显示，用于代替 <code>exit</code> 和 <code>die</code>，下面简单介绍下用法</p>
+<p>用法1，返回 <code>Content</code> 布局对象，此用法可用于返回错误信息显示到前端</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Widgets</span>\<span class="title">Alert</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Layout</span>\<span class="title">Content</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 中断程序，并显示自定义页面到前端</span></span><br><span class="line"><span class="title function_ invoke__">admin_exit</span>(</span><br><span class="line">    <span class="title class_">Content</span>::<span class="title function_ invoke__">make</span>()</span><br><span class="line">        -&gt;<span class="title function_ invoke__">title</span>(<span class="string">&#x27;标题&#x27;</span>)</span><br><span class="line">        -&gt;<span class="title function_ invoke__">description</span>(<span class="string">&#x27;描述&#x27;</span>)</span><br><span class="line">        -&gt;<span class="title function_ invoke__">body</span>(<span class="string">&#x27;页面内容1&#x27;</span>)</span><br><span class="line">        -&gt;<span class="title function_ invoke__">body</span>(<span class="title class_">Alert</span>::<span class="title function_ invoke__">make</span>(<span class="string">&#x27;服务器出错了~&#x27;</span>, <span class="string">&#x27;Error&#x27;</span>)-&gt;<span class="title function_ invoke__">danger</span>())</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>效果如下</p>
+<p><img src="https://cdn.learnku.com/uploads/images/202101/11/38389/FLg6C7kwRq.png!large"></p>
+<p>用法2，返回 <code>json</code> 格式数据，此用法经常用于表单提交数据的<code>api</code>请求拦截，或<code>Action</code>的<code>api</code>请求拦截</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Admin</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">admin_exit</span>(</span><br><span class="line">    <span class="title class_">Admin</span>::<span class="title function_ invoke__">json</span>()</span><br><span class="line">        -&gt;<span class="title function_ invoke__">success</span>(<span class="string">&#x27;成功了&#x27;</span>)</span><br><span class="line">        -&gt;<span class="title function_ invoke__">refresh</span>()</span><br><span class="line">        -&gt;<span class="title function_ invoke__">data</span>([</span><br><span class="line">            ...</span><br><span class="line">        ])</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当然也可以直接响应数组</span></span><br><span class="line"><span class="title function_ invoke__">admin_exit</span>([</span><br><span class="line">   ...</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+<p>用法3，直接相应<code>Response</code>对象或字符串</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">admin_exit</span>(<span class="string">&#x27;Hello world&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">admin_exit</span>(<span class="title function_ invoke__">response</span>(<span class="string">&#x27;Hello world&#x27;</span>, <span class="number">500</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-color"><a href="#admin-color" class="headerlink" title="admin_color"></a>admin_color</h3><p>获取内置颜色，关于主题颜色更多用法请参考<a href="theme.md#color">主题 - 颜色</a>章节</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取主题色的三种方式</span></span><br><span class="line"><span class="variable">$primary</span> = <span class="title function_ invoke__">admin_color</span>(<span class="string">&#x27;primary&#x27;</span>);</span><br><span class="line"><span class="variable">$primary</span> = <span class="title function_ invoke__">admin_color</span>()-&gt;<span class="title function_ invoke__">get</span>(<span class="string">&#x27;primary&#x27;</span>);</span><br><span class="line"><span class="variable">$primary</span> = <span class="title function_ invoke__">admin_color</span>()-&gt;<span class="title function_ invoke__">primary</span>();</span><br><span class="line"></span><br><span class="line"><span class="variable">$color</span> = <span class="title function_ invoke__">admin_color</span>();</span><br><span class="line"><span class="variable">$color</span>-&gt;<span class="title function_ invoke__">lighten</span>(<span class="string">&#x27;primary&#x27;</span>, <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-js"><a href="#admin-js" class="headerlink" title="admin_js"></a>admin_js</h3><p>可以在任意位置引入<code>js</code>文件，更多用法参考<a href="assets.md">静态资源</a>章节</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">admin_js</span>([<span class="string">&#x27;@admin/xxx.js&#x27;</span>]);</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-css"><a href="#admin-css" class="headerlink" title="admin_css"></a>admin_css</h3><p>可以在任意位置引入<code>css</code>文件，更多用法参考<a href="assets.md">静态资源</a>章节</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">admin_css</span>([<span class="string">&#x27;@admin/xxx.css&#x27;</span>]);</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-require-assets"><a href="#admin-require-assets" class="headerlink" title="admin_require_assets"></a>admin_require_assets</h3><p>可以在任意位置引入静态资源组件，更多用法参考<a href="assets.md">静态资源</a>章节</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">admin_require_assets</span>([<span class="string">&#x27;@datime&#x27;</span>]);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="admin-path"><a href="#admin-path" class="headerlink" title="admin_path"></a>admin_path</h3><p>获取<code>Dcat Admin</code>安装的应用路径，默认目录是<code>app/Admin</code>：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$bootstrap</span> = <span class="title function_ invoke__">admin_path</span>(<span class="string">&#x27;bootstrap.php&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-url"><a href="#admin-url" class="headerlink" title="admin_url"></a>admin_url</h3><p>获取<code>Dcat Admin</code>应用的路由完整url：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回： http://localhost/admin/auth/users</span></span><br><span class="line"><span class="variable">$url</span> = <span class="title function_ invoke__">admin_url</span>(<span class="string">&#x27;auth/users&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-route"><a href="#admin-route" class="headerlink" title="admin_route"></a>admin_route</h3><p>根据别名获取URL</p>
+<p><code>app/Admin/routes.php</code>路由注册如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">group</span>([</span><br><span class="line">    <span class="string">&#x27;prefix&#x27;</span>        =&gt; <span class="title function_ invoke__">config</span>(<span class="string">&#x27;admin.route.prefix&#x27;</span>),</span><br><span class="line">    <span class="string">&#x27;namespace&#x27;</span>     =&gt; <span class="title function_ invoke__">config</span>(<span class="string">&#x27;admin.route.namespace&#x27;</span>),</span><br><span class="line">    <span class="string">&#x27;middleware&#x27;</span>    =&gt; <span class="title function_ invoke__">config</span>(<span class="string">&#x27;admin.route.middleware&#x27;</span>),</span><br><span class="line">], function (Router <span class="variable">$router</span>) &#123;</span><br><span class="line">	<span class="comment">// 设置别名</span></span><br><span class="line">	<span class="variable">$router</span>-&gt;<span class="title function_ invoke__">resource</span>(<span class="string">&#x27;users&#x27;</span>, <span class="string">&#x27;UserController&#x27;</span>, [</span><br><span class="line">		<span class="string">&#x27;names&#x27;</span> =&gt; [<span class="string">&#x27;index&#x27;</span> =&gt; <span class="string">&#x27;my-users&#x27;</span>],</span><br><span class="line">	]);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>根据别名获取URL</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取url</span></span><br><span class="line"><span class="variable">$url</span> = <span class="title function_ invoke__">admin_route</span>(<span class="string">&#x27;my-users&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断路由</span></span><br><span class="line"><span class="variable">$isUsers</span> = <span class="title function_ invoke__">request</span>()-&gt;<span class="title function_ invoke__">routeIs</span>(<span class="title function_ invoke__">admin_route_name</span>(<span class="string">&#x27;users&#x27;</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-base-path"><a href="#admin-base-path" class="headerlink" title="admin_base_path"></a>admin_base_path</h3><p>获取<code>Dcat Admin</code>应用的路由路径：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回： /admin/auth/users</span></span><br><span class="line"><span class="variable">$path</span> = <span class="title function_ invoke__">admin_base_path</span>(<span class="string">&#x27;auth/users&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-toastr"><a href="#admin-toastr" class="headerlink" title="admin_toastr"></a>admin_toastr</h3><p>在页面刷新后弹出一个<code>toastr</code>提示窗，参数：</p>
+<ul>
+<li><code>$message</code> 提示窗内容</li>
+<li><code>$type</code> 提示窗类型，默认<code>success</code>，支持<code>success</code>、<code>info</code>、<code>warning</code>、<code>error</code></li>
+<li><code>$options</code> toastr配置参数</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">admin_alert</span>(<span class="string">&#x27;更新成功&#x27;</span>, <span class="string">&#x27;success&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-success"><a href="#admin-success" class="headerlink" title="admin_success"></a>admin_success</h3><p>在页面刷新后在页面顶部显示一个成功消息：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">admin_success</span>(<span class="string">&#x27;标题&#x27;</span>, <span class="string">&#x27;成功了&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-error"><a href="#admin-error" class="headerlink" title="admin_error"></a>admin_error</h3><p>在页面刷新后在页面顶部显示一个错误消息：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">admin_error</span>(<span class="string">&#x27;标题&#x27;</span>, <span class="string">&#x27;失败了&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-warning"><a href="#admin-warning" class="headerlink" title="admin_warning"></a>admin_warning</h3><p>在页面刷新后在页面顶部显示一个警告消息：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">admin_warning</span>(<span class="string">&#x27;标题&#x27;</span>, <span class="string">&#x27;警告&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-info"><a href="#admin-info" class="headerlink" title="admin_info"></a>admin_info</h3><p>在页面刷新后在页面顶部显示一个提示消息：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">admin_info</span>(<span class="string">&#x27;标题&#x27;</span>, <span class="string">&#x27;内容&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-asset"><a href="#admin-asset" class="headerlink" title="admin_asset"></a>admin_asset</h3><p>获取静态资源的完整链接：</p>
+<blockquote>
+<p>{tip} 此函数支持别名.</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 引入css</span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;&#123;&#123; admin_asset(&quot;</span>@<span class="attr">admin</span>/<span class="attr">dcat-admin</span>/<span class="attr">main.min.css</span>&quot;) &#125;&#125;&quot;&gt;</span></span><br><span class="line"></span><br><span class="line">// 引入js</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;&#123;&#123; admin_asset(&#x27;@admin/dcat-admin/main.min.js&#x27;)&#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-trans-field"><a href="#admin-trans-field" class="headerlink" title="admin_trans_field"></a>admin_trans_field</h3><p>翻译当前控制器的字段，控制器名称去除<code>Controller</code>后缀之后再转化为小写中划线就是语言包的名称，如：控制器名称为<code>UserProfileController</code>，则对应的语言包名称为<code>user-profile.php</code>。</p>
+<blockquote>
+<p>{tip} 如果当前控制器对应的语言包中不存在该字段翻译，则会去公共翻译文件<code>global.php</code>中查找。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$name</span> = <span class="title function_ invoke__">admin_trans_field</span>(<span class="string">&#x27;name&#x27;</span>);</span><br><span class="line"><span class="variable">$createdAt</span> = <span class="title function_ invoke__">admin_trans_field</span>(<span class="string">&#x27;created_at&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>语言包内容如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> [</span><br><span class="line">    <span class="string">&#x27;fields&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;名称&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;created_at&#x27;</span> =&gt; <span class="string">&#x27;创建时间&#x27;</span>,</span><br><span class="line">    ],</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="admin-trans-label"><a href="#admin-trans-label" class="headerlink" title="admin_trans_label"></a>admin_trans_label</h3><p>翻译当前控制器的自定义内容，控制器名称去除<code>Controller</code>后缀之后再转化为小写中划线就是语言包的名称，如：控制器名称为<code>UserProfileController</code>，则对应的语言包名称为<code>user-profile.php</code>。</p>
+<blockquote>
+<p>{tip} 如果当前控制器对应的语言包中不存在该字段翻译，则会去公共翻译文件<code>global.php</code>中查找。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$user</span> = <span class="title function_ invoke__">admin_trans_label</span>(<span class="string">&#x27;User&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>语言包内容如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> [</span><br><span class="line">    <span class="string">&#x27;labels&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;User&#x27;</span> =&gt; <span class="string">&#x27;管理员&#x27;</span>,</span><br><span class="line">    ],</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-trans-option"><a href="#admin-trans-option" class="headerlink" title="admin_trans_option"></a>admin_trans_option</h3><p>翻译当前控制器的字段选项值，控制器名称去除<code>Controller</code>后缀之后再转化为小写中划线就是语言包的名称，如：控制器名称为<code>UserProfileController</code>，则对应的语言包名称为<code>user-profile.php</code>。</p>
+<blockquote>
+<p>{tip} 如果当前控制器对应的语言包中不存在该字段翻译，则会去公共翻译文件<code>global.php</code>中查找。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$status</span> = <span class="title function_ invoke__">admin_trans_option</span>(<span class="number">1</span>, <span class="string">&#x27;status&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>语言包内容如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> [</span><br><span class="line">    <span class="string">&#x27;options&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;status&#x27;</span> =&gt; [</span><br><span class="line">            <span class="number">1</span> =&gt; <span class="string">&#x27;启用&#x27;</span>,</span><br><span class="line">            <span class="number">0</span> =&gt; <span class="string">&#x27;禁用&#x27;</span></span><br><span class="line">        ],</span><br><span class="line">    ],</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/function/" data-id="clpdpxfj0000oywnadz0oashu" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/extensions/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/extension-f/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

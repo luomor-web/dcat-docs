@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="表单字段的管理扩展自定义组件在开始扩展表单组件之前需要先了解动态监听元素生成 (init)功能，表单组件的JS代码建议都使用Dcat.init方法监听并初始化，否则可能无法兼容Form::hasMany以及Form::array等动态生成字段的表单类型。 集成富文本编辑器wangEditorwangEditor是一个优秀的国产的轻量级富文本编辑器，如果dcat-admin自带的基于ckeditor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/model-form-field-management/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="表单字段的管理扩展自定义组件在开始扩展表单组件之前需要先了解动态监听元素生成 (init)功能，表单组件的JS代码建议都使用Dcat.init方法监听并初始化，否则可能无法兼容Form::hasMany以及Form::array等动态生成字段的表单类型。 集成富文本编辑器wangEditorwangEditor是一个优秀的国产的轻量级富文本编辑器，如果dcat-admin自带的基于ckeditor">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-25T07:16:44.963Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.964Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/model-form-field-management" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/model-form-field-management/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.963Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="表单字段的管理"><a href="#表单字段的管理" class="headerlink" title="表单字段的管理"></a>表单字段的管理</h1><h2 id="扩展自定义组件"><a href="#扩展自定义组件" class="headerlink" title="扩展自定义组件"></a>扩展自定义组件</h2><p>在开始扩展表单组件之前需要先了解<a href="js.md#init">动态监听元素生成 (init)</a>功能，表单组件的<code>JS</code>代码建议都使用<code>Dcat.init</code>方法监听并初始化，否则可能无法兼容<code>Form::hasMany</code>以及<code>Form::array</code>等动态生成字段的表单类型。</p>
+<h3 id="集成富文本编辑器wangEditor"><a href="#集成富文本编辑器wangEditor" class="headerlink" title="集成富文本编辑器wangEditor"></a>集成富文本编辑器wangEditor</h3><p><a target="_blank" rel="noopener" href="http://www.wangeditor.com/">wangEditor</a>是一个优秀的国产的轻量级富文本编辑器，如果<code>dcat-admin</code>自带的基于<code>ckeditor</code>的编辑器组件使用上有问题，可以通过下面的步骤可以集成它，并覆盖掉默认的<code>editor</code>：</p>
+<blockquote>
+<p>为了方便演示，示例中直接使用CDN链接。实际开发中需要先下载前端库文件<a target="_blank" rel="noopener" href="https://github.com/wangfupeng1988/wangEditor/releases">wangEditor</a>到服务器，解压到目录<code>public/vendor/wangEditor-4.7.1</code>。</p>
+</blockquote>
+<p>新建组件类<code>app/Admin/Extensions/Form/WangEditor.php</code>。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Admin</span>\<span class="title class_">Extensions</span>\<span class="title class_">Form</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Form</span>\<span class="title">Field</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WangEditor</span> <span class="keyword">extends</span> <span class="title">Field</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$view</span> = <span class="string">&#x27;admin.wang-editor&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>新建视图文件<code>resources/views/admin/wang-editor.blade.php</code>：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;&#123;&#123;$viewClass[&#x27;form-group&#x27;]&#125;&#125;&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">&quot;&#123;&#123;$viewClass[&#x27;label&#x27;]&#125;&#125; control-label&quot;</span>&gt;</span>&#123;&#123;$label&#125;&#125;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;&#123;&#123;$viewClass[&#x27;field&#x27;]&#125;&#125;&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        @include(&#x27;admin::form.error&#x27;)</span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> &#123;!! $<span class="attr">attributes</span> !!&#125; <span class="attr">style</span>=<span class="string">&quot;width: 100%; height: 100%;&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;!! $value !!&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">name</span>=<span class="string">&quot;&#123;&#123;$name&#125;&#125;&quot;</span> <span class="attr">value</span>=<span class="string">&quot;&#123;&#123; old($column, $value) &#125;&#125;&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        @include(&#x27;admin::form.help-block&#x27;)</span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- script标签加上 &quot;init&quot; 属性后会自动使用 Dcat.init() 方法动态监听元素生成 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">require</span>=<span class="string">&quot;@wang-editor&quot;</span> <span class="attr">init</span>=<span class="string">&quot;&#123;!! $selector !!&#125;&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> E = <span class="variable language_">window</span>.<span class="property">wangEditor</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// id 变量是 Dcat.init() 自动生成的，是一个唯一的随机字符串</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> editor = <span class="keyword">new</span> <span class="title function_">E</span>(<span class="string">&#x27;#&#x27;</span> + id);</span></span><br><span class="line"><span class="language-javascript">    editor.<span class="property">config</span>.<span class="property">zIndex</span> = <span class="number">0</span></span></span><br><span class="line"><span class="language-javascript">    editor.<span class="property">config</span>.<span class="property">uploadImgShowBase64</span> = <span class="literal">true</span></span></span><br><span class="line"><span class="language-javascript">    editor.<span class="property">config</span>.<span class="property">onchange</span> = <span class="keyword">function</span> (<span class="params">html</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        $this.<span class="title function_">parents</span>(<span class="string">&#x27;.form-field&#x27;</span>).<span class="title function_">find</span>(<span class="string">&#x27;input[type=&quot;hidden&quot;]&#x27;</span>).<span class="title function_">val</span>(html);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    editor.<span class="title function_">create</span>()</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后注册进<code>dcat-admin</code>，在<code>app/Admin/bootstrap.php</code>中添加以下代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Admin</span>\<span class="title">Extensions</span>\<span class="title">Form</span>\<span class="title">WangEditor</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Form</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册前端组件别名</span></span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">asset</span>()-&gt;<span class="title function_ invoke__">alias</span>(<span class="string">&#x27;@wang-editor&#x27;</span>, [</span><br><span class="line">    // 为了方便演示效果，这里直接加载CDN链接，实际开发中可以下载到服务器加载</span><br><span class="line">    <span class="string">&#x27;js&#x27;</span> =&gt; [<span class="string">&#x27;https://cdn.jsdelivr.net/npm/wangeditor@4.7.1/dist/wangEditor.min.js&#x27;</span>],</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Form</span>::<span class="title function_ invoke__">extend</span>(<span class="string">&#x27;editor&#x27;</span>, <span class="title class_">WangEditor</span>::<span class="variable language_">class</span>);</span><br></pre></td></tr></table></figure>
+
+<p>调用:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">editor</span>(<span class="string">&#x27;body&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="集成富文本编辑器ckeditor"><a href="#集成富文本编辑器ckeditor" class="headerlink" title="集成富文本编辑器ckeditor"></a>集成富文本编辑器ckeditor</h3><p>先下载<a target="_blank" rel="noopener" href="http://ckeditor.com/download">ckeditor</a> 并解压到&#x2F;public目录，比如放在<code>/public/packages/</code>目录下。</p>
+<p>然后新建扩展文件<code>app/Admin/Extensions/Form/CKEditor.php</code>:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Admin</span>\<span class="title class_">Extensions</span>\<span class="title class_">Form</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Form</span>\<span class="title">Field</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CKEditor</span> <span class="keyword">extends</span> <span class="title">Field</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$view</span> = <span class="string">&#x27;admin.ckeditor&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>新建view <code>resources/views/admin/ckeditor.blade.php</code>:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;&#123;&#123;$viewClass[&#x27;form-group&#x27;]&#125;&#125;&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">&quot;&#123;&#123;$viewClass[&#x27;label&#x27;]&#125;&#125; control-label&quot;</span>&gt;</span>&#123;&#123;$label&#125;&#125;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;&#123;&#123;$viewClass[&#x27;field&#x27;]&#125;&#125;&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        @include(&#x27;admin::form.error&#x27;)</span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">&quot;&#123;&#123; $name&#125;&#125;&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;&#123;&#123; $placeholder &#125;&#125;&quot;</span> &#123;!! $<span class="attr">attributes</span> !!&#125; &gt;</span>&#123;!! $value !!&#125;<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        @include(&#x27;admin::form.help-block&#x27;)</span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">require</span>=<span class="string">&quot;@ckeditor&quot;</span> <span class="attr">init</span>=<span class="string">&quot;&#123;!! $selector !!&#125;&quot;</span>&gt;</span></span><br><span class="line">    $this.ckeditor();</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后在<code>app/Admin/bootstrap.php</code>中引入扩展：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Admin</span>\<span class="title">Extensions</span>\<span class="title">Form</span>\<span class="title">CKEditor</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Form</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册前端组件别名</span></span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">asset</span>()-&gt;<span class="title function_ invoke__">alias</span>(<span class="string">&#x27;@ckeditor&#x27;</span>, [</span><br><span class="line">    <span class="string">&#x27;js&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;/packages/ckeditor/ckeditor.js&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;/packages/ckeditor/adapters/jquery.js&#x27;</span>,</span><br><span class="line">    ],</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Form</span>::<span class="title function_ invoke__">extend</span>(<span class="string">&#x27;ckeditor&#x27;</span>, <span class="title class_">CKEditor</span>::<span class="variable language_">class</span>);</span><br></pre></td></tr></table></figure>
+
+<p>然后就能在form中使用了:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">ckeditor</span>(<span class="string">&#x27;content&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="集成PHP-editor"><a href="#集成PHP-editor" class="headerlink" title="集成PHP editor"></a>集成PHP editor</h3><p>通过下面的步骤来扩展一个基于<a target="_blank" rel="noopener" href="http://codemirror.net/index.html">codemirror</a>的PHP代码编辑器，效果参考<a target="_blank" rel="noopener" href="http://codemirror.net/mode/php/">PHP mode</a>。</p>
+<p>先将<a target="_blank" rel="noopener" href="http://codemirror.net/codemirror.zip">codemirror</a>库下载并解压到前端资源目录下，比如放在<code>public/packages/codemirror-5.20.2</code>目录下。</p>
+<p>新建组件类<code>app/Admin/Extensions/Form/PHPEditor.php</code>:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Admin</span>\<span class="title class_">Extensions</span>\<span class="title class_">Form</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Form</span>\<span class="title">Field</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PHPEditor</span> <span class="keyword">extends</span> <span class="title">Field</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$view</span> = <span class="string">&#x27;admin.php-editor&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>{tip} 类中的静态资源也同样可以从外部引入，参考<a target="_blank" rel="noopener" href="https://github.com/jqhph/dcat-admin/blob/master/src/Form/Field/Editor.php">Editor.php</a></p>
+</blockquote>
+<p>创建视图<code>resources/views/admin/php-editor.blade.php</code>:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;&#123;&#123;$viewClass[&#x27;form-group&#x27;]&#125;&#125;&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">&quot;&#123;&#123;$viewClass[&#x27;label&#x27;]&#125;&#125; control-label&quot;</span>&gt;</span>&#123;&#123;$label&#125;&#125;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;&#123;&#123;$viewClass[&#x27;field&#x27;]&#125;&#125;&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        @include(&#x27;admin::form.error&#x27;)</span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">class</span>=<span class="string">&quot;&#123;&#123; $class &#125;&#125;&quot;</span>   &#123;!! $<span class="attr">attributes</span> !!&#125; &gt;</span>&#123;!! $value !!&#125;<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">name</span>=<span class="string">&quot;&#123;&#123;$name&#125;&#125;&quot;</span> <span class="attr">value</span>=<span class="string">&quot;&#123;&#123; old($column, $value) &#125;&#125;&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        @include(&#x27;admin::form.help-block&#x27;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">require</span>=<span class="string">&quot;@phpeditor&quot;</span> <span class="attr">init</span>=<span class="string">&quot;&#123;!! $selector !!&#125;&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> <span class="title class_">Editor</span> = <span class="title class_">CodeMirror</span>.<span class="title function_">fromTextArea</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(id), &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">lineNumbers</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">mode</span>: <span class="string">&quot;text/x-php&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">extraKeys</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="string">&quot;Tab&quot;</span>: <span class="keyword">function</span>(<span class="params">cm</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">                cm.<span class="title function_">replaceSelection</span>(<span class="string">&quot;    &quot;</span> , <span class="string">&quot;end&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;);</span></span><br><span class="line"><span class="language-javascript">    <span class="title class_">Editor</span>.<span class="title function_">on</span>(<span class="string">&quot;change&quot;</span>, <span class="keyword">function</span> (<span class="params">Editor, changes</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> val = <span class="title class_">Editor</span>.<span class="title function_">getValue</span>();</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//console.log(val);</span></span></span><br><span class="line"><span class="language-javascript">        $this.<span class="title function_">parents</span>(<span class="string">&#x27;.form-field&#x27;</span>).<span class="title function_">find</span>(<span class="string">&#x27;input[type=&quot;hidden&quot;]&#x27;</span>).<span class="title function_">val</span>(val);</span></span><br><span class="line"><span class="language-javascript">    &#125;);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>最后找到文件<code>app/Admin/bootstrap.php</code>,如果文件不存在，请更新<code>dcat-admin</code>，然后新建该文件,添加下面代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">use App\Admin\Extensions\Form\PHPEditor;</span><br><span class="line">use Dcat\Admin\Form;</span><br><span class="line"></span><br><span class="line">Admin::asset()-&gt;alias(&#x27;@phpeditor&#x27;, [</span><br><span class="line">    &#x27;js&#x27; =&gt; [</span><br><span class="line">        &#x27;/packages/codemirror-5.20.2/lib/codemirror.js&#x27;,</span><br><span class="line">        &#x27;/packages/codemirror-5.20.2/addon/edit/matchbrackets.js&#x27;,</span><br><span class="line">        &#x27;/packages/codemirror-5.20.2/mode/htmlmixed/htmlmixed.js&#x27;,</span><br><span class="line">        &#x27;/packages/codemirror-5.20.2/mode/xml/xml.js&#x27;,</span><br><span class="line">        &#x27;/packages/codemirror-5.20.2/mode/javascript/javascript.js&#x27;,</span><br><span class="line">        &#x27;/packages/codemirror-5.20.2/mode/css/css.js&#x27;,</span><br><span class="line">        &#x27;/packages/codemirror-5.20.2/mode/clike/clike.js&#x27;,</span><br><span class="line">        &#x27;/packages/codemirror-5.20.2/mode/php/php.js&#x27;,</span><br><span class="line">    ],</span><br><span class="line">    &#x27;css&#x27; =&gt; &#x27;/packages/codemirror-5.20.2/lib/codemirror.css&#x27;,</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line">Form::extend(&#x27;php&#x27;, PHPEditor::class);</span><br></pre></td></tr></table></figure>
+
+<p>这样就能在<a href="model-form.md">model-form</a>中使用PHP编辑器了：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$form-&gt;php(&#x27;code&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>通过这种方式，可以添加任意你想要添加的<code>form</code>组件。</p>
+<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><p>表单组件是<code>Dcat Admin</code>中最为复杂的组件，下面列一些在扩展表单组件中可能需要用到的方法</p>
+<h3 id="处理用户输入的表单值-prepareInputValue"><a href="#处理用户输入的表单值-prepareInputValue" class="headerlink" title="处理用户输入的表单值 (prepareInputValue)"></a>处理用户输入的表单值 (prepareInputValue)</h3><p>通过<code>prepareInputValue</code>方法可以处理用户输入的表单值，默认不做任何处理。此方法在<code>Form</code>表单的<code>saving</code>事件触发之后，表单字段的<code>saving</code>方法之前执行</p>
+<blockquote>
+<p>{tip} 这个功能类似<code>Laravel model</code>中的<strong>修改器</strong>。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PHPEditor</span> <span class="keyword">extends</span> <span class="title">Field</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	...</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 把用户输入的表单值转化为 string 格式保存到数据库</span></span><br><span class="line">	<span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">prepareInputValue</span>(<span class="params"><span class="variable">$value</span></span>)</span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (<span class="keyword">string</span>) <span class="variable">$value</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="处理待显示的字段值-formatFieldData"><a href="#处理待显示的字段值-formatFieldData" class="headerlink" title="处理待显示的字段值 (formatFieldData)"></a>处理待显示的字段值 (formatFieldData)</h3><p>通过<code>formatFieldData</code>方法可以处理处理待显示的字段值。此方法在表单字段的<code>customFormat</code>方法之前执行</p>
+<blockquote>
+<p>{tip} 这个功能类似<code>Laravel model</code>中的<strong>访问器</strong>。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PHPEditor</span> <span class="keyword">extends</span> <span class="title">Field</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	...</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 把字段值转化为数组格式</span></span><br><span class="line">	<span class="comment">// $data是当前表单的编辑数据，数据格式是 array</span></span><br><span class="line">	<span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">formatFieldData</span>(<span class="params"><span class="variable">$data</span></span>)</span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">	    <span class="comment">// 获取到当前字段值</span></span><br><span class="line">		<span class="variable">$value</span> = <span class="built_in">parent</span>::<span class="title function_ invoke__">formatFieldData</span>(<span class="variable">$data</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 处理字段值</span></span><br><span class="line">		...</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">return</span> <span class="variable">$value</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取元素CSS选择器-getElementClassSelector"><a href="#获取元素CSS选择器-getElementClassSelector" class="headerlink" title="获取元素CSS选择器 (getElementClassSelector)"></a>获取元素CSS选择器 (getElementClassSelector)</h3><p>表单组件类实例化后会根据字段名称生成一个<code>css class</code>，然后传递到模板中，我们通常可以通过这个<code>class</code>获取到当前表单的元素对象</p>
+<p>模板</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;&#123;&#123;$viewClass[&#x27;form-group&#x27;]&#125;&#125;&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;&#123;&#123; $viewClass[&#x27;label&#x27;] &#125;&#125; control-label&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;!! $label !!&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;&#123;&#123;$viewClass[&#x27;field&#x27;]&#125;&#125;&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        @include(&#x27;admin::form.error&#x27;)</span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">name</span>=<span class="string">&quot;&#123;&#123;$name&#125;&#125;&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">select</span> <span class="attr">style</span>=<span class="string">&quot;width: 100%;&quot;</span> <span class="attr">name</span>=<span class="string">&quot;&#123;&#123;$name&#125;&#125;&quot;</span> &#123;!! $<span class="attr">attributes</span> !!&#125; &gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">		   @foreach($options as $select =&gt; $option)</span><br><span class="line">			   <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;&#123;&#123;$select&#125;&#125;&quot;</span> &#123;&#123; <span class="attr">Dcat</span>\<span class="attr">Admin</span>\<span class="attr">Support</span>\<span class="attr">Helper::equal</span>($<span class="attr">select</span>, $<span class="attr">value</span>) ?&#x27;<span class="attr">selected</span>&#x27;<span class="attr">:</span>&#x27;&#x27; &#125;&#125;&gt;</span>&#123;&#123;$option&#125;&#125;<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">		   @endforeach</span><br><span class="line">        <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        @include(&#x27;admin::form.help-block&#x27;)</span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">require</span>=<span class="string">&quot;...&quot;</span> <span class="attr">init</span>=<span class="string">&quot;&#123;!! $selector !!&#125;&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 这里的 $selector 即是当前字段的 css选择器</span></span></span><br><span class="line"><span class="language-javascript">    $this.<span class="title function_">select2</span>($configs);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="JS代码"><a href="#JS代码" class="headerlink" title="JS代码"></a>JS代码</h3><p>为了让扩展的表单组件能够兼容<code>HasMany</code>、<code>array</code>以及<code>Table</code>表单，我们必须使用<a href="js.md#init">动态监听元素生成 (init)</a>功能</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;&#123;&#123;$viewClass[&#x27;form-group&#x27;]&#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">require</span>=<span class="string">&quot;...&quot;</span> <span class="attr">init</span>=<span class="string">&quot;&#123;!! $selector !!&#125;&quot;</span>&gt;</span></span><br><span class="line">    $this.select2($configs);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/model-form-field-management/" data-id="clpdpxfj9000yywna9i4l36q2" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/model-form-data/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/lazy/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

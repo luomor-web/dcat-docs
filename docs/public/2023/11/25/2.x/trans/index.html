@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="多语言在Dcat Admin中使用多语言翻译非常方便，数据表格、数据表单、数据详情和模型树的字段都支持自动读取语言包翻译，具体可参考表格字段翻译、表单字段翻译、数据详情字段翻译。 语言包文件语言包文件类型大概如下 1234567resources&#x2F;lang    ├── ...    └── en        ├── admin.php   # 系统内容语言包，包括菜单标题翻译等都在里面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/trans/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="多语言在Dcat Admin中使用多语言翻译非常方便，数据表格、数据表单、数据详情和模型树的字段都支持自动读取语言包翻译，具体可参考表格字段翻译、表单字段翻译、数据详情字段翻译。 语言包文件语言包文件类型大概如下 1234567resources&#x2F;lang    ├── ...    └── en        ├── admin.php   # 系统内容语言包，包括菜单标题翻译等都在里面">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-25T07:16:44.987Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.988Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/trans" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/trans/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.987Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="多语言"><a href="#多语言" class="headerlink" title="多语言"></a>多语言</h1><p>在<code>Dcat Admin</code>中使用多语言翻译非常方便，数据表格、数据表单、数据详情和模型树的字段都支持自动读取语言包翻译，具体可参考<a href="model-grid-trans.md">表格字段翻译</a>、<a href="model-form-trans.md">表单字段翻译</a>、<a href="model-show-trans.md">数据详情字段翻译</a>。</p>
+<h2 id="语言包文件"><a href="#语言包文件" class="headerlink" title="语言包文件"></a>语言包文件</h2><p>语言包文件类型大概如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">resources/lang</span><br><span class="line">    ├── ...</span><br><span class="line">    └── en</span><br><span class="line">        ├── admin.php   <span class="comment"># 系统内容语言包，包括菜单标题翻译等都在里面</span></span><br><span class="line">        ├── global.php  <span class="comment"># 控制器公共语言包</span></span><br><span class="line">        ├── &#123;xxx&#125;.php   <span class="comment"># 控制器语言包，一个控制器对应一个语言包</span></span><br><span class="line">        └── ...         </span><br></pre></td></tr></table></figure>
+
+
+<p>控制器语言包名称需要与控制器名相对应，例如控制器名<code>UserProfileController</code>，则对应的语言包为<code>resources/lang/&#123;当前语言&#125;/user-profile.php</code>（需要转化为小写中划线风格）。</p>
+<h2 id="控制器语言包内容格式"><a href="#控制器语言包内容格式" class="headerlink" title="控制器语言包内容格式"></a>控制器语言包内容格式</h2><p>控制器语言包（包括<code>global.php</code>）中的内容分为三个类别：</p>
+<ul>
+<li><code>fields</code> 数据字段的翻译，这个类别下放置数据字段的翻译</li>
+<li><code>labels</code> 自定义内容翻译，这个类别下是对数据字段外的内容翻译，可以是任何自定义内容</li>
+<li><code>options</code> 枚举选项翻译</li>
+</ul>
+<p>下面是例子：</p>
+<p>假设控制器语言包<code>user-profile.php</code>内容如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> [</span><br><span class="line">    <span class="string">&#x27;labels&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;UserProfile&#x27;</span> =&gt; <span class="string">&#x27;用户中心&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;list&#x27;</span>        =&gt; <span class="string">&#x27;列表&#x27;</span>,</span><br><span class="line">        </span><br><span class="line">        <span class="string">&#x27;pagination&#x27;</span> =&gt; [</span><br><span class="line">            <span class="string">&#x27;range&#x27;</span> =&gt; <span class="string">&#x27;从 :first 到 :last ，总共 :total 条&#x27;</span>,</span><br><span class="line">        ],</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&#x27;fields&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;name&#x27;</span>      =&gt; <span class="string">&#x27;名称&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;published&#x27;</span> =&gt; <span class="string">&#x27;发布&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;author&#x27;</span>    =&gt; <span class="string">&#x27;作者&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;status&#x27;</span>    =&gt; <span class="string">&#x27;状态&#x27;</span>,</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&#x27;options&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;status&#x27;</span> =&gt; [</span><br><span class="line">            <span class="number">0</span> =&gt; <span class="string">&#x27;未激活&#x27;</span>,</span><br><span class="line">            <span class="number">1</span> =&gt; <span class="string">&#x27;已激活&#x27;</span>,</span><br><span class="line">        ],</span><br><span class="line">    ],</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<p>则语言包可以这么使用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserProfileController</span> <span class="title">extend</span> <span class="title">AdminController</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">title</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// labels翻译示例，最终翻译成 “用户中心”</span></span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">admin_trans_label</span>(<span class="string">&#x27;UserProfile&#x27;</span>);    </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// fields和options翻译示例</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">grid</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$grid</span> = <span class="keyword">new</span> <span class="title class_">Grid</span>(<span class="keyword">new</span> <span class="title class_">UserProfile</span>());</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 显示调用语言包翻译，这里会把 “name” 字段翻译成 “名称”</span></span><br><span class="line">        <span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">name</span>(<span class="title function_ invoke__">admin_trans_field</span>(<span class="string">&#x27;name&#x27;</span>));</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 隐式使用语言包翻译，“author” 字段会自动翻译成 “作者”</span></span><br><span class="line">        <span class="variable">$grid</span>-&gt;author;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 调用options翻译</span></span><br><span class="line">        <span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">status</span>()-&gt;<span class="title function_ invoke__">using</span>(<span class="title function_ invoke__">admin_trans</span>(<span class="string">&#x27;user-profile.options.status&#x27;</span>));</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$grid</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="admin-trans-field"><a href="#admin-trans-field" class="headerlink" title="admin_trans_field"></a>admin_trans_field</h3><p>这个函数用于翻译<code>fields</code>类别下内容，会自动找对应控制器下的翻译文件，如果翻译不存在会去找<code>global.php</code>中的翻译。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">admin_trans_field</span>(<span class="string">&#x27;name&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-trans-label"><a href="#admin-trans-label" class="headerlink" title="admin_trans_label"></a>admin_trans_label</h3><p>这个函数用于翻译<code>labels</code>类别下内容，会自动找对应控制器下的翻译文件，如果翻译不存在会去找<code>global.php</code>中的翻译。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">admin_trans_label</span>(<span class="string">&#x27;Posts&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">admin_trans_label</span>(<span class="string">&#x27;pagination.range&#x27;</span>, [<span class="string">&#x27;first&#x27;</span> =&gt; <span class="number">1</span>, <span class="string">&#x27;last&#x27;</span> =&gt; <span class="number">1</span>, <span class="string">&#x27;total&#x27;</span> =&gt; <span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-trans-option"><a href="#admin-trans-option" class="headerlink" title="admin_trans_option"></a>admin_trans_option</h3><p>这个函数用于翻译<code>options</code>类别下内容，会自动找对应控制器下的翻译文件，如果翻译不存在会去找<code>global.php</code>中的翻译。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">admin_trans_option</span>(<span class="number">1</span>, <span class="string">&#x27;status&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="admin-trans"><a href="#admin-trans" class="headerlink" title="admin_trans"></a>admin_trans</h3><p>此方法与<code>Laravel</code>框架自带的<code>trans</code>方法用法没有区别，唯一的区别是：当翻译的内容找不到时，会去<code>global.php</code>中再找一次。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 先去 user.php 中找 first_name 的翻译，如果找不到会去 global.php 中找</span></span><br><span class="line"><span class="title function_ invoke__">admin_trans</span>(<span class="string">&#x27;user.first_name&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="公共翻译文件"><a href="#公共翻译文件" class="headerlink" title="公共翻译文件"></a>公共翻译文件</h2><p>所有常用的翻译都可以放在<code>resources/lang/&#123;当前语言&#125;/global.php</code>中，当控制器翻译文件不存在时会读取公共翻译文件翻译。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> [</span><br><span class="line">    <span class="string">&#x27;fields&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;id&#x27;</span>                    =&gt; <span class="string">&#x27;ID&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;name&#x27;</span>                  =&gt; <span class="string">&#x27;名称&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;username&#x27;</span>              =&gt; <span class="string">&#x27;用户名&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;email&#x27;</span>                 =&gt; <span class="string">&#x27;邮箱&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;password&#x27;</span>              =&gt; <span class="string">&#x27;密码&#x27;</span>,</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&#x27;labels&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;list&#x27;</span>   =&gt; <span class="string">&#x27;列表&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;edit&#x27;</span>   =&gt; <span class="string">&#x27;编辑&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;detail&#x27;</span> =&gt; <span class="string">&#x27;详细&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;create&#x27;</span> =&gt; <span class="string">&#x27;创建&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;root&#x27;</span>   =&gt; <span class="string">&#x27;顶级&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;scaffold&#x27;</span> =&gt; <span class="string">&#x27;代码生成器&#x27;</span>,</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&#x27;options&#x27;</span> =&gt; [</span><br><span class="line">    ],</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="默认面包屑翻译"><a href="#默认面包屑翻译" class="headerlink" title="默认面包屑翻译"></a>默认面包屑翻译</h2><p>例如你的访问路径是<code>/admin/my-users</code>，控制器是<code>MyUserController</code>，那么则可以在控制器对应的翻译文件中加上</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> [</span><br><span class="line">    <span class="string">&#x27;labels&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;my-users&#x27;</span> =&gt; <span class="string">&#x27;用户&#x27;</span>,</span><br><span class="line">    ],</span><br><span class="line">    ...</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/trans/" data-id="clpdpxfkz002cywna0cqw3su9" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/theme/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/quick-start/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

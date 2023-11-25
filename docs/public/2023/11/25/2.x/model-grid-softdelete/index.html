@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="数据软删除先参考Laravel文档实现模型的软删除: 1234567891011&lt;?phpnamespace App\Models;use Illuminate\Database\Eloquent\Model;use Illuminate\Database\Eloquent\SoftDeletes;class Post extends Model&#123;    use SoftDelet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/model-grid-softdelete/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="数据软删除先参考Laravel文档实现模型的软删除: 1234567891011&lt;?phpnamespace App\Models;use Illuminate\Database\Eloquent\Model;use Illuminate\Database\Eloquent\SoftDeletes;class Post extends Model&#123;    use SoftDelet">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/img/screenshots/trash-button.png">
+<meta property="article:published_time" content="2023-11-25T07:16:44.976Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.977Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/img/screenshots/trash-button.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/model-grid-softdelete" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/model-grid-softdelete/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.976Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="数据软删除"><a href="#数据软删除" class="headerlink" title="数据软删除"></a>数据软删除</h1><p>先参考<code>Laravel</code>文档实现模型的<a target="_blank" rel="noopener" href="https://learnku.com/docs/laravel/6.x/eloquent/5176#soft-deleting">软删除</a>:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Models</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Eloquent</span>\<span class="title">Model</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Eloquent</span>\<span class="title">SoftDeletes</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Post</span> <span class="keyword">extends</span> <span class="title">Model</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">use</span> <span class="title">SoftDeletes</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样在<code>grid</code>列表中显示的数据都是未被删除的数据</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="title class_">Grid</span>::<span class="title function_ invoke__">make</span>(<span class="keyword">new</span> <span class="title class_">Post</span>(), <span class="function"><span class="keyword">function</span> (<span class="params">Grid <span class="variable">$grid</span></span>) </span>&#123;</span><br><span class="line">	<span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">id</span>(<span class="string">&#x27;ID&#x27;</span>)-&gt;<span class="title function_ invoke__">sortable</span>();</span><br><span class="line">	<span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">title</span>(<span class="string">&#x27;Title&#x27;</span>);</span><br><span class="line">	<span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">created_at</span>(<span class="string">&#x27;Created at&#x27;</span>);</span><br><span class="line">	<span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">updated_at</span>(<span class="string">&#x27;Updated at&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="回收站入口"><a href="#回收站入口" class="headerlink" title="回收站入口"></a>回收站入口</h2><p>接下来需要增加一个入口，能让我们看到被软删除的数据，这里可以使用<code>model-grid</code>的<a href="model-grid-filters.md#scope">范围过滤器</a>来实现</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">filter</span>(function () &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 范围过滤器，调用模型的`onlyTrashed`方法，查询出被软删除的数据。</span></span><br><span class="line">    <span class="variable">$filter</span>-&gt;<span class="title function_ invoke__">scope</span>(<span class="string">&#x27;trashed&#x27;</span>, <span class="string">&#x27;回收站&#x27;</span>)-&gt;<span class="title function_ invoke__">onlyTrashed</span>();</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>在表头的筛选按钮的下拉菜单中就会出现一个<code>回收站</code>按钮，点击它，就会调用模型的<code>onlyTrashed</code>方法，从表中查询出被删除的数据，也就是回收站中的数据。</p>
+<img style="box-shadow:0 1px 6px 1px rgba(0, 0, 0, 0.12)" width="40%" src="/assets/img/screenshots/trash-button.png">
+
+
+
+<h2 id="行恢复操作"><a href="#行恢复操作" class="headerlink" title="行恢复操作"></a>行恢复操作</h2><p>按照下面的方法，我们可以在回收站中的每一行数据加上一个恢复操作，方便恢复数据</p>
+<p>先定义操作类<code>app/Admin/Actions/Post/Restore.php</code>：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Admin</span>\<span class="title class_">Actions</span>\<span class="title class_">Post</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>\<span class="title">RowAction</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Http</span>\<span class="title">Request</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Restore</span> <span class="keyword">extends</span> <span class="title">RowAction</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$title</span> = <span class="string">&#x27;恢复&#x27;</span>;</span><br><span class="line">        </span><br><span class="line">	<span class="keyword">protected</span> <span class="variable">$model</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 注意构造方法的参数必须要有默认值</span></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="keyword">string</span> <span class="variable">$model</span> = <span class="literal">null</span></span>) </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="variable language_">$this</span>-&gt;model = <span class="variable">$model</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params">Request <span class="variable">$request</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$key</span> = <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">getKey</span>();</span><br><span class="line">        <span class="variable">$model</span> = <span class="variable">$request</span>-&gt;<span class="title function_ invoke__">get</span>(<span class="string">&#x27;model&#x27;</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="variable">$model</span>::<span class="title function_ invoke__">withTrashed</span>()-&gt;<span class="title function_ invoke__">findOrFail</span>(<span class="variable">$key</span>)-&gt;<span class="title function_ invoke__">restore</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">response</span>()-&gt;<span class="title function_ invoke__">success</span>(<span class="string">&#x27;已恢复&#x27;</span>)-&gt;<span class="title function_ invoke__">refresh</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">confirm</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> [<span class="string">&#x27;确定恢复吗？&#x27;</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">parameters</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> [</span><br><span class="line">            <span class="string">&#x27;model&#x27;</span> =&gt; <span class="variable language_">$this</span>-&gt;model,    </span><br><span class="line">		];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>添加到行操作:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Models</span>\<span class="title">Post</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Admin</span>\<span class="title">Actions</span>\<span class="title">Post</span>\<span class="title">Restore</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">actions</span>(function (Grid\Displayers\Actions <span class="variable">$actions</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="title function_ invoke__">request</span>(<span class="string">&#x27;_scope_&#x27;</span>) == <span class="string">&#x27;trashed&#x27;</span>) &#123;</span><br><span class="line">        <span class="variable">$actions</span>-&gt;<span class="title function_ invoke__">append</span>(<span class="keyword">new</span> <span class="title class_">Restore</span>(<span class="title class_">Post</span>::<span class="variable language_">class</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="批量恢复操作"><a href="#批量恢复操作" class="headerlink" title="批量恢复操作"></a>批量恢复操作</h2><p>先定义操作类<code>app/Admin/Actions/Post/BatchRestore.php</code>：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Admin</span>\<span class="title class_">Actions</span>\<span class="title class_">Post</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>\<span class="title">BatchAction</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Http</span>\<span class="title">Request</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BatchRestore</span> <span class="keyword">extends</span> <span class="title">BatchAction</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$title</span> = <span class="string">&#x27;恢复&#x27;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$model</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 注意构造方法的参数必须要有默认值</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="keyword">string</span> <span class="variable">$model</span> = <span class="literal">null</span></span>) </span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;model = <span class="variable">$model</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params">Request <span class="variable">$request</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$model</span> = <span class="variable">$request</span>-&gt;<span class="title function_ invoke__">get</span>(<span class="string">&#x27;model&#x27;</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">foreach</span> ((<span class="keyword">array</span>) <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">getKey</span>() <span class="keyword">as</span> <span class="variable">$key</span>) &#123;</span><br><span class="line">			<span class="variable">$model</span>::<span class="title function_ invoke__">withTrashed</span>()-&gt;<span class="title function_ invoke__">findOrFail</span>(<span class="variable">$key</span>)-&gt;<span class="title function_ invoke__">restore</span>();</span><br><span class="line">		&#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">response</span>()-&gt;<span class="title function_ invoke__">success</span>(<span class="string">&#x27;已恢复&#x27;</span>)-&gt;<span class="title function_ invoke__">refresh</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">confirm</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> [<span class="string">&#x27;确定恢复吗？&#x27;</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">parameters</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> [</span><br><span class="line">			<span class="string">&#x27;model&#x27;</span> =&gt; <span class="variable language_">$this</span>-&gt;model,    </span><br><span class="line">		];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>添加到批量操作:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Models</span>\<span class="title">Post</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Admin</span>\<span class="title">Actions</span>\<span class="title">Post</span>\<span class="title">BatchRestore</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">batchActions</span>(function (Grid\Tools\BatchActions <span class="variable">$batch</span>) &#123;</span><br><span class="line">	<span class="keyword">if</span> (<span class="title function_ invoke__">request</span>(<span class="string">&#x27;_scope_&#x27;</span>) == <span class="string">&#x27;trashed&#x27;</span>) &#123;</span><br><span class="line">		<span class="variable">$batch</span>-&gt;<span class="title function_ invoke__">add</span>(<span class="keyword">new</span> <span class="title class_">BatchRestore</span>(<span class="title class_">Post</span>::<span class="variable language_">class</span>));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/model-grid-softdelete/" data-id="clpdpxfki001rywnadi7tc11l" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/model-grid/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/model-grid-quick-search/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

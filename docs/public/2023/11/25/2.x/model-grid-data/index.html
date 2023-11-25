@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="表格数据源数据仓库(Repository)是一个可以提供特定接口对数据进行读写操作的类，通过数据仓库的引入，可以让页面的构建不再关心数据读写功能的具体实现，开发者只需要实现特定的操作接口即可轻松切换数据源。关于数据仓库的详细用法请参考文档数据仓库。  {tip} 表格的数据是通过 Dcat\Admin\Contracts\Repository::get 接口获取的。   数据来自模型 {tip}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/model-grid-data/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="表格数据源数据仓库(Repository)是一个可以提供特定接口对数据进行读写操作的类，通过数据仓库的引入，可以让页面的构建不再关心数据读写功能的具体实现，开发者只需要实现特定的操作接口即可轻松切换数据源。关于数据仓库的详细用法请参考文档数据仓库。  {tip} 表格的数据是通过 Dcat\Admin\Contracts\Repository::get 接口获取的。   数据来自模型 {tip}">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-25T07:16:44.971Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.971Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/model-grid-data" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/model-grid-data/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.971Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="表格数据源"><a href="#表格数据源" class="headerlink" title="表格数据源"></a>表格数据源</h1><p>数据仓库(<code>Repository</code>)是一个可以提供特定接口对数据进行读写操作的类，通过数据仓库的引入，可以让页面的构建不再关心数据读写功能的具体实现，开发者只需要实现特定的操作接口即可轻松切换数据源。关于数据仓库的详细用法请参考文档<a href="model-repository.md">数据仓库</a>。</p>
+<blockquote>
+<p>{tip} 表格的数据是通过 <code>Dcat\Admin\Contracts\Repository::get</code> 接口获取的。</p>
+</blockquote>
+<p><a name="model"></a></p>
+<h2 id="数据来自模型"><a href="#数据来自模型" class="headerlink" title="数据来自模型"></a>数据来自模型</h2><blockquote>
+<p>{tip} 如果你的数据来自<code>Model</code>，那么你也可以直接使用<code>Model</code>实例，底层会自动把<code>Model</code>转化为数据仓库实例。</p>
+</blockquote>
+<p>当数据源支持<code>Eloquent Model</code>时，只需创建一个简单的<code>Repository</code>类继承<code>Dcat\Admin\Repositories\EloquentRepository</code>即可</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Admin</span>\<span class="title class_">Repositories</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Repositories</span>\<span class="title">EloquentRepository</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Models</span>\<span class="title">Movie</span> <span class="keyword">as</span> <span class="title">MovieModel</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Movie</span> <span class="keyword">extends</span> <span class="title">EloquentRepository</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">// 这里定义你的模型类名</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$eloquentClass</span> = <span class="title class_">MovieModel</span>::<span class="variable language_">class</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 通过这个方法可以指定查询的字段，默认&quot;*&quot;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getGridColumns</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> [<span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">getKeyName</span>(), <span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;created_at&#x27;</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="直接使用模型"><a href="#直接使用模型" class="headerlink" title="直接使用模型"></a>直接使用模型</h3><p>如果你还觉得创建 <code>Repository</code> 类麻烦，也可以直接把 <code>Eloquent Model</code> 的实例传递到 <code>Grid</code> 中，底层会自动把 <code>Eloquent Model</code> 转化为 <code>EloquentRepository</code> 实例 </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Models</span>\<span class="title">Movie</span> <span class="keyword">as</span> <span class="title">MovieModel</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span> = <span class="keyword">new</span> <span class="title class_">Grid</span>(<span class="keyword">new</span> <span class="title class_">MovieModel</span>());</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="修改来源数据"><a href="#修改来源数据" class="headerlink" title="修改来源数据"></a>修改来源数据</h3><p>1、使用 <code>Grid\Model</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Admin</span>\<span class="title">Repositories</span>\<span class="title">Movie</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span> = <span class="keyword">new</span> <span class="title class_">Grid</span>(<span class="keyword">new</span> <span class="title class_">Movie</span>());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加默认查询条件</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">model</span>()-&gt;<span class="title function_ invoke__">where</span>(<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;&gt;&#x27;</span>, <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置初始排序条件</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">model</span>()-&gt;<span class="title function_ invoke__">orderBy</span>(<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;desc&#x27;</span>);</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>其它查询方法可以参考<code>eloquent</code>的查询方法。</p>
+<p>2、使用 <code>Model Query</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Models</span>\<span class="title">Movie</span> <span class="keyword">as</span> <span class="title">MovieModel</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span> = <span class="keyword">new</span> <span class="title class_">Grid</span>(<span class="title class_">MovieModel</span>::<span class="title function_ invoke__">where</span>(<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;&gt;&#x27;</span>, <span class="number">100</span>));</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="关联数据"><a href="#关联数据" class="headerlink" title="关联数据"></a>关联数据</h3><p>有以下三种方式让你的表格支持关联数据</p>
+<p>1、使用Repository</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Admin</span>\<span class="title">Repositories</span>\<span class="title">Movie</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 相当于 MovieModel::with(&#x27;categories&#x27;)</span></span><br><span class="line"><span class="variable">$grid</span> = <span class="keyword">new</span> <span class="title class_">Grid</span>(<span class="keyword">new</span> <span class="title class_">Movie</span>([<span class="string">&#x27;categories&#x27;</span>]));</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span>-&gt;categories;</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+
+<p>2、使用 <code>Grid\Model</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Admin</span>\<span class="title">Repositories</span>\<span class="title">Movie</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span> = <span class="keyword">new</span> <span class="title class_">Grid</span>(<span class="keyword">new</span> <span class="title class_">Movie</span>());</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">model</span>()-&gt;<span class="title function_ invoke__">with</span>(<span class="string">&#x27;categories&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span>-&gt;categories;</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+
+<p>3、使用 <code>Model Query</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Models</span>\<span class="title">Movie</span> <span class="keyword">as</span> <span class="title">MovieModel</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span> = <span class="keyword">new</span> <span class="title class_">Grid</span>(<span class="title class_">MovieModel</span>::<span class="title function_ invoke__">with</span>(<span class="string">&#x27;categories&#x27;</span>));</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span>-&gt;categories;</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+
+
+<p><a name="api"></a></p>
+<h2 id="数据来自外部API"><a href="#数据来自外部API" class="headerlink" title="数据来自外部API"></a>数据来自外部API</h2><p><a name="example"></a></p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>如果数据是来自外部的API，只需要覆写<code>Repository</code>中的<code>get</code>方法既可, 具体用法可参考下面的示例，采用<code>豆瓣电影</code>API获取并展示数据：</p>
+<blockquote>
+<p>{tip} 需要注意的是分页和不分页的情况下<code>get</code>方法返回的参数值类型是不同的，具体使用可参考<a href="model-repository.md#get">数据仓库 - get</a>。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Admin</span>\<span class="title class_">Repositories</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Repositories</span>\<span class="title">Repository</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Pagination</span>\<span class="title">LengthAwarePaginator</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ComingSoon</span> <span class="keyword">extends</span> <span class="title">Repository</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$api</span> = <span class="string">&#x27;https://api.douban.com/v2/movie/coming_soon&#x27;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 定义主键字段名称 </span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getPrimaryKeyColumn</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;_id&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查询表格数据</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> Grid\Model $model</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> LengthAwarePaginator</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params">Grid\Model <span class="variable">$model</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 当前页数</span></span><br><span class="line">		<span class="variable">$currentPage</span> = <span class="variable">$model</span>-&gt;<span class="title function_ invoke__">getCurrentPage</span>();</span><br><span class="line">		<span class="comment">// 每页显示行数</span></span><br><span class="line">		<span class="variable">$perPage</span> = <span class="variable">$model</span>-&gt;<span class="title function_ invoke__">getPerPage</span>();</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 获取排序字段</span></span><br><span class="line">		[<span class="variable">$orderColumn</span>, <span class="variable">$orderType</span>] = <span class="variable">$model</span>-&gt;<span class="title function_ invoke__">getSort</span>();</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 获取&quot;scope&quot;筛选值</span></span><br><span class="line">		<span class="variable">$city</span> = <span class="variable">$model</span>-&gt;<span class="title function_ invoke__">filter</span>()-&gt;<span class="title function_ invoke__">input</span>(<span class="title class_">Grid\Filter\Scope</span>::<span class="variable constant_">QUERY_NAME</span>, <span class="string">&#x27;广州&#x27;</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 如果设置了其他过滤器字段，也可以通过“input”方法获取值，如：</span></span><br><span class="line">		<span class="variable">$title</span> = <span class="variable">$model</span>-&gt;<span class="title function_ invoke__">filter</span>()-&gt;<span class="title function_ invoke__">input</span>(<span class="string">&#x27;title&#x27;</span>);</span><br><span class="line">		<span class="keyword">if</span> (<span class="variable">$title</span> !== <span class="literal">null</span>) &#123;</span><br><span class="line">			<span class="comment">// 执行你的筛选逻辑</span></span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="variable">$start</span> = (<span class="variable">$currentPage</span> - <span class="number">1</span>) * <span class="variable">$perPage</span>;</span><br><span class="line"></span><br><span class="line">		<span class="variable">$client</span> = <span class="keyword">new</span> <span class="title class_">\GuzzleHttp\Client</span>();</span><br><span class="line"></span><br><span class="line">		<span class="variable">$response</span> = <span class="variable">$client</span>-&gt;<span class="title function_ invoke__">get</span>(<span class="string">&quot;<span class="subst">&#123;$this-&gt;api&#125;</span>?<span class="subst">&#123;$this-&gt;apiKey&#125;</span>&amp;city=<span class="subst">$city</span>&amp;start=<span class="subst">$start</span>&amp;count=<span class="subst">$perPage</span>&quot;</span>);</span><br><span class="line">		<span class="variable">$data</span> = <span class="title function_ invoke__">json_decode</span>((<span class="keyword">string</span>)<span class="variable">$response</span>-&gt;<span class="title function_ invoke__">getBody</span>(), <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> <span class="variable">$model</span>-&gt;<span class="title function_ invoke__">makePaginator</span>(</span><br><span class="line">            <span class="variable">$data</span>[<span class="string">&#x27;total&#x27;</span>] ?? <span class="number">0</span>, // 传入总记录数</span><br><span class="line">            <span class="variable">$data</span>[<span class="string">&#x27;subjects&#x27;</span>] ?? [] // 传入数据二维数组</span><br><span class="line">		);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a name="grid-model"></a></p>
+<h3 id="Grid-Model-常用方法"><a href="#Grid-Model-常用方法" class="headerlink" title="Grid\Model 常用方法"></a>Grid\Model 常用方法</h3><p><a name="getCurrentPage"></a></p>
+<h4 id="获取当前页数-getCurrentPage"><a href="#获取当前页数-getCurrentPage" class="headerlink" title="获取当前页数 (getCurrentPage)"></a>获取当前页数 (getCurrentPage)</h4><p>获取当前页码</p>
+<ul>
+<li>返回值： <code>int|null</code> 如果不允许分页返回null<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$page</span> = <span class="variable">$model</span>-&gt;<span class="title function_ invoke__">getCurrentPage</span>();</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><a name="getPerPage"></a></p>
+<h4 id="获取每页显示行数-getPerPage"><a href="#获取每页显示行数-getPerPage" class="headerlink" title="获取每页显示行数 (getPerPage)"></a>获取每页显示行数 (getPerPage)</h4><p>获取每页显示行数</p>
+<ul>
+<li>返回值： <code>int|null</code> 如果不允许分页返回null<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$limit</span> = <span class="variable">$model</span>-&gt;<span class="title function_ invoke__">getPerPage</span>();</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><a name="getSort"></a></p>
+<h4 id="获取排序字段-getSort"><a href="#获取排序字段-getSort" class="headerlink" title="获取排序字段 (getSort)"></a>获取排序字段 (getSort)</h4><p>获取排序字段</p>
+<ul>
+<li>返回值： <code>array</code> <code>[$orderColumn, &#39;desc&#39;|&#39;asc&#39;]</code> || <code>[null, null]</code></li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// $orderColumn 字段名称，如没有进行排序则为 null</span></span><br><span class="line"><span class="comment">// $orderType 正序或倒序： &quot;desc&quot;、&quot;asc&quot;，如没有进行排序则为 null</span></span><br><span class="line"><span class="keyword">list</span>(<span class="variable">$orderColumn</span>, <span class="variable">$orderType</span>) = <span class="variable">$model</span>-&gt;<span class="title function_ invoke__">getSort</span>();</span><br></pre></td></tr></table></figure>
+
+<p><a name="getFilter"></a></p>
+<h4 id="获取过滤器对象-filter"><a href="#获取过滤器对象-filter" class="headerlink" title="获取过滤器对象 (filter)"></a>获取过滤器对象 (filter)</h4><p>获取过滤器对象，通过过滤器对象可以获取到搜索表单的值，用法如下</p>
+<ul>
+<li>返回值 <code>Dcat\Admin\Grid\Filter</code></li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取&quot;scope&quot;筛选值</span></span><br><span class="line"><span class="variable">$city</span> = <span class="variable">$model</span>-&gt;<span class="title function_ invoke__">filter</span>()-&gt;<span class="title function_ invoke__">input</span>(<span class="title class_">Grid\Filter\Scope</span>::<span class="variable constant_">QUERY_NAME</span>, <span class="string">&#x27;广州&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果设置了其他过滤器字段，也可以通过“input”方法获取值，如：</span></span><br><span class="line"><span class="variable">$title</span> = <span class="variable">$model</span>-&gt;<span class="title function_ invoke__">filter</span>()-&gt;<span class="title function_ invoke__">input</span>(<span class="string">&#x27;title&#x27;</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$title</span> !== <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="comment">// 执行你的筛选逻辑</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取快捷搜索表单值"><a href="#获取快捷搜索表单值" class="headerlink" title="获取快捷搜索表单值"></a>获取快捷搜索表单值</h4><p>通过以下方式可以获取到快捷搜索表单值</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$quickSearch</span> = <span class="variable">$model</span>-&gt;<span class="title function_ invoke__">grid</span>()-&gt;<span class="title function_ invoke__">quickSearch</span>()-&gt;<span class="title function_ invoke__">value</span>();</span><br></pre></td></tr></table></figure>
+
+
+<p><a name="sql"></a></p>
+<h2 id="数据来自复杂SQL查询"><a href="#数据来自复杂SQL查询" class="headerlink" title="数据来自复杂SQL查询"></a>数据来自复杂SQL查询</h2><p>如果来源数据需要执行比较复杂的SQL语句获取，那么有两个办法, 第一个办法就是上面的方法，覆盖掉<code>Repository</code>的<code>get</code>方法实现。</p>
+<blockquote>
+<p>{tip} 需要注意的是分页和不分页的情况下<code>get</code>方法返回的参数值类型是不同的，具体使用可参考<a href="model-repository.md#get">数据仓库 - get</a>。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/model-grid-data/" data-id="clpdpxfjs001gywna313lgyol" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/model-grid-export/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/model-grid-editable/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

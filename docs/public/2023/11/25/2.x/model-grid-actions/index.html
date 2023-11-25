@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="行的使用和扩展启用或禁用默认操作按钮model-grid默认有四个行操作编辑、快捷编辑、删除和详情，可以通过下面的方式关闭它们： 1234567891011121314use Dcat\Admin\Grid; $grid-&gt;actions(function (Grid\Displayers\Actions $actions) &#123;    $actions-&gt;disableDel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/model-grid-actions/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="行的使用和扩展启用或禁用默认操作按钮model-grid默认有四个行操作编辑、快捷编辑、删除和详情，可以通过下面的方式关闭它们： 1234567891011121314use Dcat\Admin\Grid; $grid-&gt;actions(function (Grid\Displayers\Actions $actions) &#123;    $actions-&gt;disableDel">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-25T07:16:44.968Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.968Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/model-grid-actions" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/model-grid-actions/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.968Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="行的使用和扩展"><a href="#行的使用和扩展" class="headerlink" title="行的使用和扩展"></a>行的使用和扩展</h1><h3 id="启用或禁用默认操作按钮"><a href="#启用或禁用默认操作按钮" class="headerlink" title="启用或禁用默认操作按钮"></a>启用或禁用默认操作按钮</h3><p><code>model-grid</code>默认有四个行操作<code>编辑</code>、<code>快捷编辑</code>、<code>删除</code>和<code>详情</code>，可以通过下面的方式关闭它们：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>;</span><br><span class="line"></span><br><span class="line"> <span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">actions</span>(function (Grid\Displayers\Actions <span class="variable">$actions</span>) &#123;</span><br><span class="line">    <span class="variable">$actions</span>-&gt;<span class="title function_ invoke__">disableDelete</span>();</span><br><span class="line">    <span class="variable">$actions</span>-&gt;<span class="title function_ invoke__">disableEdit</span>();</span><br><span class="line">    <span class="variable">$actions</span>-&gt;<span class="title function_ invoke__">disableQuickEdit</span>();</span><br><span class="line">    <span class="variable">$actions</span>-&gt;<span class="title function_ invoke__">disableView</span>();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可以通过以下方式启用或禁用按钮</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">disableDeleteButton</span>();</span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">disableEditButton</span>();</span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">disableQuickEditButton</span>();</span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">disableViewButton</span>();</span><br></pre></td></tr></table></figure>
+
+<h3 id="切换行操作按钮显示方式"><a href="#切换行操作按钮显示方式" class="headerlink" title="切换行操作按钮显示方式"></a>切换行操作按钮显示方式</h3><p>全局默认的行操作按钮显示方式可以通过配置参数<code>admin.grid.grid_action_class</code>参数进行配置，目前支持的行操作按钮显示方式有以下两种：</p>
+<ul>
+<li><code>Dcat\Admin\Grid\Displayers\DropdownActions</code> 下拉菜单方式</li>
+<li><code>Dcat\Admin\Grid\Displayers\Actions</code> 图标展开方式</li>
+<li><code>Dcat\Admin\Grid\Displayers\ContextMenuActions</code> 鼠标右键显示下拉菜单</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;grid&#x27;</span> =&gt; [</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    |--------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">    | The global Grid action display class.</span></span><br><span class="line"><span class="comment">    |--------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="string">&#x27;grid_action_class&#x27;</span> =&gt; <span class="title class_">Dcat\Admin\Grid\Displayers\DropdownActions</span>::<span class="variable language_">class</span>,</span><br><span class="line">],</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>在控制器中切换显示方式</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">grid</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_ invoke__">Grid</span>(<span class="keyword">new</span> <span class="title class_">Model</span>(), <span class="function"><span class="keyword">function</span> (<span class="params">Grid <span class="variable">$grid</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">setActionClass</span>(<span class="title class_">Grid\Displayers\Actions</span>::<span class="variable language_">class</span>);</span><br><span class="line">        </span><br><span class="line">        ...</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取行序号-index"><a href="#获取行序号-index" class="headerlink" title="获取行序号 (index)"></a>获取行序号 (index)</h3><p>序号从 <code>0</code> 开始计算</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在 display 回调中使用</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;序号&#x27;</span>)-&gt;<span class="title function_ invoke__">display</span>(function () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;_index + <span class="number">1</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 在行操作 action 中使用</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">actions</span>(function (<span class="variable">$actions</span>) &#123;</span><br><span class="line">    <span class="variable">$index</span> = <span class="variable language_">$this</span>-&gt;_index;</span><br><span class="line">    </span><br><span class="line">    ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取当前行数据"><a href="#获取当前行数据" class="headerlink" title="获取当前行数据"></a>获取当前行数据</h3><p>可以通过传入的<code>$actions</code>参数来获取当前行的数据：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">actions</span>(function (Grid\Displayers\Actions <span class="variable">$actions</span>) &#123;</span><br><span class="line">    <span class="comment">// 当前行的数据数组</span></span><br><span class="line">    <span class="variable">$rowArray</span> = <span class="variable">$actions</span>-&gt;row-&gt;<span class="title function_ invoke__">toArray</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 当前行的某个字段的数据</span></span><br><span class="line">    <span class="variable">$email</span> = <span class="variable">$actions</span>-&gt;row-&gt;email;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 获取当前行主键值</span></span><br><span class="line">    <span class="variable">$id</span> = <span class="variable">$actions</span>-&gt;<span class="title function_ invoke__">getKey</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加自定义按钮"><a href="#添加自定义按钮" class="headerlink" title="添加自定义按钮"></a>添加自定义按钮</h3><p>如果有自定义的操作按钮，可以通过下面的方式添加：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">actions</span>(function (Grid\Displayers\Actions <span class="variable">$actions</span>) &#123;</span><br><span class="line">    <span class="comment">// append一个操作</span></span><br><span class="line">    <span class="variable">$actions</span>-&gt;<span class="title function_ invoke__">append</span>(<span class="string">&#x27;&lt;a href=&quot;&quot;&gt;&lt;i class=&quot;fa fa-eye&quot;&gt;&lt;/i&gt;&lt;/a&gt;&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// append一个复杂操作</span></span><br><span class="line">    <span class="variable">$actions</span>-&gt;<span class="title function_ invoke__">append</span>(<span class="keyword">new</span> <span class="title class_">Copy</span>());</span><br><span class="line"></span><br><span class="line">    <span class="comment">// prepend一个操作</span></span><br><span class="line">    <span class="variable">$actions</span>-&gt;<span class="title function_ invoke__">prepend</span>(<span class="string">&#x27;&lt;a href=&quot;&quot;&gt;&lt;i class=&quot;fa fa-paper-plane&quot;&gt;&lt;/i&gt;&lt;/a&gt;&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="添加复杂操作按钮"><a href="#添加复杂操作按钮" class="headerlink" title="添加复杂操作按钮"></a>添加复杂操作按钮</h3><p>如果有比较复杂的操作，可以参考下面的方式：</p>
+<p>先定义行操作类继承<code>Dcat\Admin\Grid\RowAction</code></p>
+<blockquote>
+<p>{tip} 动作类更详细的用法，请参考<a href="action.md">动作基本使用</a>以及<a href="action-grid.md">数据表格动作</a>。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Admin</span>\<span class="title class_">Extensions</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>\<span class="title">RowAction</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CheckRow</span> <span class="keyword">extends</span> <span class="title">RowAction</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 返回字段标题</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">title</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;Check row&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 添加JS</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">script</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&lt;&lt;&lt;JS</span></span><br><span class="line"><span class="string">$(&#x27;.grid-check-row&#x27;).on(&#x27;click&#x27;, function () &#123;</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    // Your code.</span></span><br><span class="line"><span class="string">    console.log($(this).data(&#x27;id&#x27;));</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">&#125;);</span></span><br><span class="line"><span class="string">JS</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">html</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 获取当前行数据ID</span></span><br><span class="line">        <span class="variable">$id</span> = <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">getKey</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 获取当前行数据的用户名</span></span><br><span class="line">        <span class="variable">$username</span> = <span class="variable language_">$this</span>-&gt;row-&gt;username;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 这里需要添加一个class, 和上面script方法对应</span></span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">setHtmlAttribute</span>([<span class="string">&#x27;data-id&#x27;</span> =&gt; <span class="variable">$id</span>, <span class="string">&#x27;email&#x27;</span> =&gt; <span class="variable">$username</span>, <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;grid-check-row&#x27;</span>]);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">parent</span>::<span class="title function_ invoke__">html</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后添加操作：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">actions</span>([<span class="keyword">new</span> <span class="title class_">CheckRow</span>()]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可以通过这种方式添加</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">actions</span>(function (Grid\Displayers\Actions <span class="variable">$actions</span>) &#123;</span><br><span class="line">    <span class="variable">$actions</span>-&gt;<span class="title function_ invoke__">append</span>(<span class="keyword">new</span> <span class="title class_">CheckRow</span>());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="操作按钮需要与API交互"><a href="#操作按钮需要与API交互" class="headerlink" title="操作按钮需要与API交互"></a>操作按钮需要与API交互</h3><p>如果你的操作类需要与后台接口交互，则可以在你的操作类中加上<code>handle</code>方法，这样就可以很方便的在同一个类里面处理完所有逻辑</p>
+<blockquote>
+<p>{tip} 动作类更详细的用法，请参考<a href="action.md">动作基本使用</a>以及<a href="action-grid.md">数据表格动作</a>。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Admin</span>\<span class="title class_">RowActions</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>\<span class="title">RowAction</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Http</span>\<span class="title">Request</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Eloquent</span>\<span class="title">Model</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Copy</span> <span class="keyword">extends</span> <span class="title">RowAction</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$model</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="keyword">string</span> <span class="variable">$model</span> = <span class="literal">null</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;model = <span class="variable">$model</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 标题</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">title</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;Copy&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 设置确认弹窗信息，如果返回空值，则不会弹出弹窗</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 允许返回字符串或数组类型</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> array|string|void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">confirm</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> [</span><br><span class="line">            <span class="comment">// 确认弹窗 title</span></span><br><span class="line">            <span class="string">&quot;您确定要复制这行数据吗？&quot;</span>,</span><br><span class="line">            <span class="comment">// 确认弹窗 content</span></span><br><span class="line">            <span class="variable language_">$this</span>-&gt;row-&gt;username,</span><br><span class="line">        ];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 处理请求</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> Request $request</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> \Dcat\Admin\Actions\Response</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params">Request <span class="variable">$request</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 获取当前行ID</span></span><br><span class="line">        <span class="variable">$id</span> = <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">getKey</span>();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取 parameters 方法传递的参数</span></span><br><span class="line">        <span class="variable">$username</span> = <span class="variable">$request</span>-&gt;<span class="title function_ invoke__">get</span>(<span class="string">&#x27;username&#x27;</span>);</span><br><span class="line">        <span class="variable">$model</span> = <span class="variable">$request</span>-&gt;<span class="title function_ invoke__">get</span>(<span class="string">&#x27;model&#x27;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 复制数据</span></span><br><span class="line">        <span class="variable">$model</span>::<span class="title function_ invoke__">find</span>(<span class="variable">$id</span>)-&gt;<span class="title function_ invoke__">replicate</span>()-&gt;<span class="title function_ invoke__">save</span>();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 返回响应结果并刷新页面</span></span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">response</span>()-&gt;<span class="title function_ invoke__">success</span>(<span class="string">&quot;复制成功: [<span class="subst">&#123;$username&#125;</span>]&quot;</span>)-&gt;<span class="title function_ invoke__">refresh</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 设置要POST到接口的数据</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> array</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">parameters</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> [</span><br><span class="line">            <span class="comment">// 发送当前行 username 字段数据到接口</span></span><br><span class="line">            <span class="string">&#x27;username&#x27;</span> =&gt; <span class="variable language_">$this</span>-&gt;row-&gt;username,</span><br><span class="line">            <span class="comment">// 把模型类名传递到接口</span></span><br><span class="line">            <span class="string">&#x27;model&#x27;</span> =&gt; <span class="variable language_">$this</span>-&gt;model,</span><br><span class="line">        ];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>使用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Models</span>\<span class="title">User</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">actions</span>([<span class="keyword">new</span> <span class="title class_">Copy</span>(<span class="title class_">User</span>::<span class="variable language_">class</span>)]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可以通过这种方式添加</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">actions</span>(function (Grid\Displayers\Actions <span class="variable">$actions</span>) &#123;</span><br><span class="line">    <span class="variable">$actions</span>-&gt;<span class="title function_ invoke__">append</span>(<span class="keyword">new</span> <span class="title class_">Copy</span>(<span class="title class_">User</span>::<span class="variable language_">class</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="表单弹窗"><a href="#表单弹窗" class="headerlink" title="表单弹窗"></a>表单弹窗</h2><p>请参考文档<a href="widgets-form.md#modal">工具表单 - 弹窗</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/model-grid-actions/" data-id="clpdpxfjl0019ywnadp8aaicv" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/model-grid-column-filter/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/model-grid-async/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

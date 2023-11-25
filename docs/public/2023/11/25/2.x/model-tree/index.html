@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="模型树这个功能可以实现一个树状组件，可以用拖拽的方式实现数据的层级、排序等操作，下面是基本的用法。  表结构和模型要使用model-tree，要遵守约定的表结构：  {tip} parent_id字段一定要默认为0！！！  123456789CREATE TABLE &#96;demo_categories&#96; (  &#96;id&#96; int(10) unsigned NOT NULL AUTO_INCREMENT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/model-tree/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="模型树这个功能可以实现一个树状组件，可以用拖拽的方式实现数据的层级、排序等操作，下面是基本的用法。  表结构和模型要使用model-tree，要遵守约定的表结构：  {tip} parent_id字段一定要默认为0！！！  123456789CREATE TABLE &#96;demo_categories&#96; (  &#96;id&#96; int(10) unsigned NOT NULL AUTO_INCREMENT">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.learnku.com/uploads/images/202004/26/38389/RfWVwRHMs7.png!large">
+<meta property="article:published_time" content="2023-11-25T07:16:44.983Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.984Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.learnku.com/uploads/images/202004/26/38389/RfWVwRHMs7.png!large">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/model-tree" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/model-tree/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.983Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="模型树"><a href="#模型树" class="headerlink" title="模型树"></a>模型树</h1><p>这个功能可以实现一个树状组件，可以用拖拽的方式实现数据的层级、排序等操作，下面是基本的用法。</p>
+<p><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/RfWVwRHMs7.png!large"></p>
+<h2 id="表结构和模型"><a href="#表结构和模型" class="headerlink" title="表结构和模型"></a>表结构和模型</h2><p>要使用<code>model-tree</code>，要遵守约定的表结构：</p>
+<blockquote>
+<p>{tip} <code>parent_id</code>字段一定要默认为<code>0</code>！！！</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `demo_categories` (</span><br><span class="line">  `id` <span class="type">int</span>(<span class="number">10</span>) unsigned <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  `parent_id` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;0&#x27;</span>,</span><br><span class="line">  `<span class="keyword">order</span>` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;0&#x27;</span>,</span><br><span class="line">  `title` <span class="type">varchar</span>(<span class="number">50</span>) <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `created_at` <span class="type">timestamp</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span>,</span><br><span class="line">  `updated_at` <span class="type">timestamp</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span> <span class="keyword">ON</span> <span class="keyword">UPDATE</span> <span class="built_in">CURRENT_TIMESTAMP</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8 <span class="keyword">COLLATE</span><span class="operator">=</span>utf8_unicode_ci</span><br></pre></td></tr></table></figure>
+<p>上面的表格结构里面有三个必要的字段<code>parent_id</code>、<code>order</code>、<code>title</code>,其它字段没有要求。</p>
+<p>对应的模型为<code>app/Models/Category.php</code>:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Models</span>\<span class="title class_">Demo</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Traits</span>\<span class="title">ModelTree</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Eloquent</span>\<span class="title">Model</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Category</span> <span class="keyword">extends</span> <span class="title">Model</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">use</span> <span class="title">ModelTree</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$table</span> = <span class="string">&#x27;demo_categories&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>表结构中的三个字段<code>parent_id</code>、<code>order</code>、<code>title</code>的字段名也是可以修改的：</p>
+<blockquote>
+<p>{tip} 为了便于阅读，这里不再展示 <code>Repository</code> 代码。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Models</span>\<span class="title class_">Demo</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Traits</span>\<span class="title">ModelTree</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Eloquent</span>\<span class="title">Model</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Category</span> <span class="keyword">extends</span> <span class="title">Model</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">use</span> <span class="title">ModelTree</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$table</span> = <span class="string">&#x27;demo_categories&#x27;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 父级ID字段名称，默认值为 parent_id</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$parentColumn</span> = <span class="string">&#x27;pid&#x27;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 排序字段名称，默认值为 order</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$orderColumn</span> = <span class="string">&#x27;sort&#x27;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 标题字段名称，默认值为 title</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$titleColumn</span> = <span class="string">&#x27;name&#x27;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Since v2.1.6-beta，定义depthColumn属性后，将会在数据表保存当前行的层级</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$depthColumn</span> = <span class="string">&#x27;depth&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>然后就是在页面中使用<code>model-tree</code>了：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Admin</span>\<span class="title class_">Controllers</span>\<span class="title class_">Demo</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Models</span>\<span class="title">Category</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Layout</span>\<span class="title">Row</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Layout</span>\<span class="title">Content</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Tree</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Controllers</span>\<span class="title">AdminController</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CategoryController</span> <span class="keyword">extends</span> <span class="title">AdminController</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span>(<span class="params">Content <span class="variable">$content</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$content</span>-&gt;<span class="title function_ invoke__">header</span>(<span class="string">&#x27;树状模型&#x27;</span>)</span><br><span class="line">            -&gt;<span class="title function_ invoke__">body</span>(function (Row <span class="variable">$row</span>) &#123;</span><br><span class="line">                <span class="variable">$tree</span> = <span class="keyword">new</span> <span class="title class_">Tree</span>(<span class="keyword">new</span> <span class="title class_">Category</span>);</span><br><span class="line">                </span><br><span class="line">                <span class="variable">$row</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="number">12</span>, <span class="variable">$tree</span>);</span><br><span class="line">            &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以通过下面的方式来修改行数据的显示：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$tree</span> = <span class="keyword">new</span> <span class="title class_">Tree</span>(<span class="keyword">new</span> <span class="title class_">Category</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$tree</span>-&gt;<span class="title function_ invoke__">branch</span>(function (<span class="variable">$branch</span>) &#123;</span><br><span class="line">    <span class="variable">$src</span> = <span class="title function_ invoke__">config</span>(<span class="string">&#x27;admin.upload.host&#x27;</span>) . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$branch</span>[<span class="string">&#x27;logo&#x27;</span>] ;</span><br><span class="line">    <span class="variable">$logo</span> = <span class="string">&quot;&lt;img src=&#x27;<span class="subst">$src</span>&#x27; style=&#x27;max-width:30px;max-height:30px&#x27; class=&#x27;img&#x27;/&gt;&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;<span class="subst">&#123;$branch[&#x27;id&#x27;]&#125;</span> - <span class="subst">&#123;$branch[&#x27;title&#x27;]&#125;</span> <span class="subst">$logo</span>&quot;</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在回调函数中返回的字符串类型数据，就是在树状组件中的每一行的显示内容，<code>$branch</code>参数是当前行的数据数组。</p>
+<h3 id="修改模型查询条件"><a href="#修改模型查询条件" class="headerlink" title="修改模型查询条件"></a>修改模型查询条件</h3><p>如果要修改模型的查询，用下面的方式</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$tree</span>-&gt;<span class="title function_ invoke__">query</span>(function (<span class="variable">$model</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$model</span>-&gt;<span class="title function_ invoke__">where</span>(<span class="string">&#x27;type&#x27;</span>, <span class="number">1</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="限制最大层级数"><a href="#限制最大层级数" class="headerlink" title="限制最大层级数"></a>限制最大层级数</h3><p>默认 <code>5</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$tree</span>-&gt;<span class="title function_ invoke__">maxDepth</span>(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="自定义行操作"><a href="#自定义行操作" class="headerlink" title="自定义行操作"></a>自定义行操作</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Tree</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$tree</span>-&gt;<span class="title function_ invoke__">actions</span>(function (Tree\Actions <span class="variable">$actions</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$actions</span>-&gt;row-&gt;id &gt; <span class="number">5</span>) &#123;</span><br><span class="line">        <span class="variable">$actions</span>-&gt;<span class="title function_ invoke__">disableDelete</span>(); <span class="comment">// 禁用删除按钮</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 添加新的action</span></span><br><span class="line">    <span class="variable">$actions</span>-&gt;<span class="title function_ invoke__">append</span>(...);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 批量添加action</span></span><br><span class="line"><span class="variable">$tree</span>-&gt;<span class="title function_ invoke__">actions</span>([</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">Action1</span>(),</span><br><span class="line">    <span class="string">&quot;&lt;div&gt;...&lt;/div&gt;&quot;</span>,</span><br><span class="line">    ...</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+<p>自定义复杂操作，参考<a href="action-tree.md#row-action">模型树动作</a></p>
+<h2 id="自定义工具栏按钮"><a href="#自定义工具栏按钮" class="headerlink" title="自定义工具栏按钮"></a>自定义工具栏按钮</h2><p>请参考文档<a href="action-tree.md">模型树动作</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/model-tree/" data-id="clpdpxfkq0024ywna8uf7h2g1" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/multi-app/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/model-show/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

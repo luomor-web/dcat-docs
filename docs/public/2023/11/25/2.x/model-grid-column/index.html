@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="列的基本使用设置列为可排序 (sortable)1$grid-&gt;column(&#x27;id&#x27;)-&gt;sortable();  表格字段支持关联关系表字段以及json字段的排序  注意，关联关系仅支持hasOne以及belongsTo两种类型的字段排序，并且不支持多层级嵌套！  12345678910&#x2F;&#x2F; 关联关系表字段排序$grid-&gt;column(&#x27;pro">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/model-grid-column/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="列的基本使用设置列为可排序 (sortable)1$grid-&gt;column(&#x27;id&#x27;)-&gt;sortable();  表格字段支持关联关系表字段以及json字段的排序  注意，关联关系仅支持hasOne以及belongsTo两种类型的字段排序，并且不支持多层级嵌套！  12345678910&#x2F;&#x2F; 关联关系表字段排序$grid-&gt;column(&#x27;pro">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.learnku.com/uploads/images/202007/12/38389/8aKnpG11g4.gif!large">
+<meta property="og:image" content="https://cdn.learnku.com/uploads/images/202004/26/38389/MTgikMeV1o.png!large">
+<meta property="og:image" content="https://cdn.learnku.com/uploads/images/202004/26/38389/MTgikMeV1o.png!large">
+<meta property="og:image" content="https://cdn.learnku.com/uploads/images/202004/26/38389/8zNK7CHS3V.png!large">
+<meta property="article:published_time" content="2023-11-25T07:16:44.970Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.970Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.learnku.com/uploads/images/202007/12/38389/8aKnpG11g4.gif!large">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/model-grid-column" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/model-grid-column/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.970Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="列的基本使用"><a href="#列的基本使用" class="headerlink" title="列的基本使用"></a>列的基本使用</h1><h3 id="设置列为可排序-sortable"><a href="#设置列为可排序-sortable" class="headerlink" title="设置列为可排序 (sortable)"></a>设置列为可排序 (sortable)</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;id&#x27;</span>)-&gt;<span class="title function_ invoke__">sortable</span>();</span><br></pre></td></tr></table></figure>
+
+<p>表格字段支持关联关系表字段以及<code>json</code>字段的排序</p>
+<blockquote>
+<p>注意，关联关系仅支持<code>hasOne</code>以及<code>belongsTo</code>两种类型的字段排序，并且不支持多层级嵌套！</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 关联关系表字段排序</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;profile.age&#x27;</span>)-&gt;<span class="title function_ invoke__">sortable</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 指定需要排序的字段名称</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;my_age&#x27;</span>)-&gt;<span class="title function_ invoke__">sortable</span>(<span class="string">&#x27;profile.age&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// json字段排序</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;options.price&#x27;</span>)-&gt;<span class="title function_ invoke__">sortable</span>(<span class="string">&#x27;options-&gt;price&#x27;</span>);</span><br><span class="line"><span class="comment">// 关联关系表的 json 字段排序</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;profile.options.price&#x27;</span>)-&gt;<span class="title function_ invoke__">sortable</span>(<span class="string">&#x27;profile.options-&gt;price&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>支持<code>MySql</code>的<code>order by cast(`&#123;field&#125;` as &#123;type&#125;)</code>用法</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;profile.age&#x27;</span>)-&gt;<span class="title function_ invoke__">sortable</span>(<span class="literal">null</span>, <span class="string">&#x27;SIGNED&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;profile.options.price&#x27;</span>)-&gt;<span class="title function_ invoke__">sortable</span>(<span class="string">&#x27;profile.options-&gt;price&#x27;</span>, <span class="string">&#x27;SIGNED&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="设置默认排序"><a href="#设置默认排序" class="headerlink" title="设置默认排序"></a>设置默认排序</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">model</span>()-&gt;<span class="title function_ invoke__">orderBy</span>(<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;desc&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这个功能也支持关联关系表字段排序，注意这里仅支持<code>一对一</code>以及<code>一对多</code>关联关系</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">model</span>()-&gt;<span class="title function_ invoke__">orderBy</span>(<span class="string">&#x27;profile.age&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="设置列的宽度-width"><a href="#设置列的宽度-width" class="headerlink" title="设置列的宽度 (width)"></a>设置列的宽度 (width)</h3><p>设置列的宽度，当字段内容过长时可以使用这个方法限制列宽度</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// px</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;long_text&#x27;</span>)-&gt;<span class="title function_ invoke__">width</span>(<span class="string">&#x27;300px&#x27;</span>);</span><br><span class="line"><span class="comment">// 百分比</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;long_text&#x27;</span>)-&gt;<span class="title function_ invoke__">width</span>(<span class="string">&#x27;15%&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="固定列-fixColumns"><a href="#固定列-fixColumns" class="headerlink" title="固定列 (fixColumns)"></a>固定列 (fixColumns)</h3><p>通过 <code>fixColumns</code> 方法可以给表格设置固定列，第一个参数表示固定从头开始的前三列，第二个参数表示固定从后往前数的两列，（第二个参数可不传，默认为-1）</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">fixColumns</span>(<span class="number">2</span>, -<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<p>效果</p>
+<p><img src="https://cdn.learnku.com/uploads/images/202007/12/38389/8aKnpG11g4.gif!large"></p>
+<h3 id="获取行序号-index"><a href="#获取行序号-index" class="headerlink" title="获取行序号 (index)"></a>获取行序号 (index)</h3><p>序号从 <code>0</code> 开始计算</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在 display 回调中使用</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;序号&#x27;</span>)-&gt;<span class="title function_ invoke__">display</span>(function () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;_index + <span class="number">1</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 在行操作 action 中使用</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">actions</span>(function (<span class="variable">$actions</span>) &#123;</span><br><span class="line">    <span class="variable">$index</span> = <span class="variable language_">$this</span>-&gt;_index;</span><br><span class="line">    </span><br><span class="line">    ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="设置td标签HTML属性-setAttributes"><a href="#设置td标签HTML属性-setAttributes" class="headerlink" title="设置td标签HTML属性 (setAttributes)"></a>设置td标签HTML属性 (setAttributes)</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;email&#x27;</span>)-&gt;<span class="title function_ invoke__">setAttributes</span>([<span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;...&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="设置表格头HTML属性-setHeaderAttributes"><a href="#设置表格头HTML属性-setHeaderAttributes" class="headerlink" title="设置表格头HTML属性 (setHeaderAttributes)"></a>设置表格头HTML属性 (setHeaderAttributes)</h3><p>设标题的<code>html</code>属性</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 修改颜色</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;name&#x27;</span>)-&gt;<span class="title function_ invoke__">setHeaderAttributes</span>([<span class="string">&#x27;style&#x27;</span> =&gt; <span class="string">&#x27;color:#5b69bc&#x27;</span>]);</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置列选择器-字段显示或隐藏-showColumnSelector"><a href="#设置列选择器-字段显示或隐藏-showColumnSelector" class="headerlink" title="设置列选择器 (字段显示或隐藏 showColumnSelector)"></a>设置列选择器 (字段显示或隐藏 showColumnSelector)</h3><p>此功能默认不启用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开启字段选择器功能</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">showColumnSelector</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置默认隐藏字段</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">hideColumns</span>([<span class="string">&#x27;field1&#x27;</span>, ...]);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/MTgikMeV1o.png!large"></p>
+<p><a name="column-selector-store"></a></p>
+<h4 id="存储驱动-持久化"><a href="#存储驱动-持久化" class="headerlink" title="存储驱动 (持久化)"></a>存储驱动 (持久化)</h4><p>在配置文件<code>config/admin.php</code>可以配置存储列选择器状态的方式，支持的存储方式如下</p>
+<ul>
+<li><code>Dcat\Admin\Grid\ColumnSelector\SessionStore</code> 列选择器状态数据保存在<code>session</code>中，仅在登陆状态中有效</li>
+<li><code>Dcat\Admin\Grid\ColumnSelector\CacheStore</code>  列选择器状态数据保存在<a target="_blank" rel="noopener" href="https://laravel.com/docs/8.x/cache#driver-prerequisites">Laravel Cache</a>缓存系统中，最长可保存<code>300</code>天，并可以通过<code>admin.grid.column_selector.store_params.driver</code>可以配置缓存驱动，默认为<code>file</code></li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;grid&#x27;</span> =&gt; [</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;column_selector&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;store&#x27;</span> =&gt; <span class="title class_">Dcat\Admin\Grid\ColumnSelector\SessionStore</span>::<span class="variable language_">class</span>,</span><br><span class="line">        <span class="string">&#x27;store_params&#x27;</span> =&gt; [</span><br><span class="line">            <span class="string">&#x27;driver&#x27;</span> =&gt; <span class="string">&#x27;file&#x27;</span>,</span><br><span class="line">        ],</span><br><span class="line">    ],</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="设置列提示信息-help"><a href="#设置列提示信息-help" class="headerlink" title="设置列提示信息 (help)"></a>设置列提示信息 (help)</h3><p><code>Grid\Column::help</code>参数：</p>
+<ul>
+<li>$help <code>string</code> 提示内容</li>
+<li>$style <code>string</code> 提示窗背景颜色，支持<code>green</code>、 <code>blue</code>、<code>red</code>、<code>purple</code></li>
+<li>$placement <code>string</code> 提示窗位置，支持<code>top</code>、<code>left</code>、<code>right</code>、<code>bottom</code></li>
+</ul>
+<p><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/MTgikMeV1o.png!large"></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;id&#x27;</span>)-&gt;<span class="title function_ invoke__">help</span>(<span class="string">&#x27;提示信息&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置列搜索"><a href="#设置列搜索" class="headerlink" title="设置列搜索"></a>设置列搜索</h3><p>通过<code>Grid\Column::filter</code>方法可以给列设置一个过滤器，可以很方便的根据这一列进行数据表格过滤操作，具体使用方法请参考<a href="model-grid-column-filter.md">列过滤器</a>。</p>
+<p><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/8zNK7CHS3V.png!large"></p>
+<h3 id="扩展列功能"><a href="#扩展列功能" class="headerlink" title="扩展列功能"></a>扩展列功能</h3><p>通过<code>Grid\Column::macro</code>方法可以扩展列方法。</p>
+<p>在 <code>app/Admin/bootstrap.php</code> 中添加以下代码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// $value 是当前字段的值</span></span><br><span class="line"><span class="comment">// $p1、$p2 是自定义参数</span></span><br><span class="line"><span class="title class_">Grid\Column</span>::<span class="title function_ invoke__">macro</span>(<span class="string">&#x27;myHeader&#x27;</span>, function (<span class="variable">$value</span>, <span class="variable">$p1</span>, <span class="variable">$p2</span> = <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="comment">// MyHeader 需要实现 Illuminate\Contracts\Support\Renderable 接口</span></span><br><span class="line">    <span class="comment">// 当然这里也可以直接传字符串</span></span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">addHeader</span>(<span class="keyword">new</span> <span class="title class_">MyHeader</span>(<span class="variable">$this</span>, <span class="variable">$p1</span>, <span class="variable">$p2</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><code>MyHeader</code> 类</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>\<span class="title">Column</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Contracts</span>\<span class="title">Support</span>\<span class="title">Renderable</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyHeader</span> <span class="keyword">implements</span> <span class="title">Renderable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params">Column <span class="variable">$column</span>, <span class="variable">$p1</span>, <span class="variable">$p2</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;user&#x27;</span>)-&gt;<span class="title function_ invoke__">myHeader</span>(<span class="variable">$p1</span>, <span class="variable">$p2</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;first_name&#x27;</span>)-&gt;<span class="title function_ invoke__">myHeader</span>(<span class="variable">$p1</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/model-grid-column/" data-id="clpdpxfjp001dywnad6bj7z0b" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/model-grid-editable/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/model-grid-combination/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

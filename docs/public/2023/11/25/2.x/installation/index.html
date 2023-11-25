@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="安装 环境 PHP &gt;&#x3D; 7.1 Laravel 5.5.0 ~ 9.* Fileinfo PHP Extension   开始安装 {tip} 如果安装过程中出现composer下载过慢或安装失败的情况，请运行命令composer config -g repo.packagist composer https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;composer&#x2F;把comp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/installation/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="安装 环境 PHP &gt;&#x3D; 7.1 Laravel 5.5.0 ~ 9.* Fileinfo PHP Extension   开始安装 {tip} 如果安装过程中出现composer下载过慢或安装失败的情况，请运行命令composer config -g repo.packagist composer https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;composer&#x2F;把comp">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-25T07:16:44.960Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.960Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/installation" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/installation/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.960Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p><a name="env"></a></p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
+<li>PHP &gt;&#x3D; <code>7.1</code></li>
+<li>Laravel <code>5.5.0</code> ~ <code>9.*</code></li>
+<li>Fileinfo PHP Extension</li>
+</ul>
+<p><a name="start"></a></p>
+<h2 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h2><blockquote>
+<p>{tip} 如果安装过程中出现<code>composer</code>下载过慢或安装失败的情况，请运行命令<code>composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/</code>把<code>composer</code>镜像更换为阿里云镜像。</p>
+</blockquote>
+<p>首先需要安装<code>laravel</code>，如已安装可以跳过此步骤</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">composer create-project --prefer-dist laravel/laravel 项目名称 7.*</span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line">composer create-project --prefer-dist laravel/laravel 项目名称</span><br></pre></td></tr></table></figure>
+
+<p>安装完<code>laravel</code>之后需要修改<code>.env</code>文件，设置数据库连接设置正确</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DB_CONNECTION=mysql</span><br><span class="line">DB_HOST=127.0.0.1</span><br><span class="line">DB_PORT=3306</span><br><span class="line">DB_DATABASE=dcat-admin</span><br><span class="line">DB_USERNAME=root</span><br><span class="line">DB_PASSWORD=</span><br></pre></td></tr></table></figure>
+
+<p>安装<code>dcat-admin</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd &#123;项目名称&#125;</span><br><span class="line"></span><br><span class="line">composer require dcat/laravel-admin:&quot;2.*&quot; -vvv</span><br></pre></td></tr></table></figure>
+
+<p>然后运行下面的命令来发布资源：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan admin:publish</span><br></pre></td></tr></table></figure>
+
+<p>在该命令会生成配置文件<code>config/admin.php</code>，可以在里面修改安装的地址、数据库连接、以及表名，建议都是用默认配置不修改。</p>
+<p>然后运行下面的命令完成安装：</p>
+<blockquote>
+<p>{tip} 执行这一步命令可能会报以下错误<code>Specified key was too long ... 767 bytes</code>，如果出现这个报错，请在<code>app/Providers/AppServiceProvider.php</code>文件的<code>boot</code>方法中加上代码<code>\Schema::defaultStringLength(191);</code>，然后删除掉数据库中的所有数据表，再重新运行一遍<code>php artisan admin:install</code>命令即可。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan admin:install</span><br></pre></td></tr></table></figure>
+
+<p>上述步骤操作完成之后就可以配置<code>web</code>服务了，<strong>注意需要把<code>web</code>目录指向<code>public</code>目录</strong>！如果用的是<code>nginx</code>，还需要在配置中加上伪静态配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">	try_files $uri $uri/ /index.php?$query_string;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>启动服务后，在浏览器打开 <code>http://localhost/admin</code>，使用用户名 <code>admin</code> 和密码 <code>admin</code>登陆。</p>
+<p><a name="files"></a></p>
+<h2 id="生成的文件"><a href="#生成的文件" class="headerlink" title="生成的文件"></a>生成的文件</h2><p>安装完成之后,会在项目目录中生成以下的文件:</p>
+<p><a name="config"></a></p>
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>安装完成之后，<code>dcat-admin</code>所有的配置都在<code>config/admin.php</code>文件中。</p>
+<p><a name="admin"></a></p>
+<h3 id="后台项目文件"><a href="#后台项目文件" class="headerlink" title="后台项目文件"></a>后台项目文件</h3><p>安装完成之后，后台的安装目录为<code>app/Admin</code>，之后大部分的后台开发编码工作都是在这个目录下进行。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">app/Admin</span><br><span class="line">├── Controllers</span><br><span class="line">│   ├── AuthController.php</span><br><span class="line">│   └── HomeController.php</span><br><span class="line">├── Metrics</span><br><span class="line">│   └── Examples</span><br><span class="line">│       ├── NewDevices.php</span><br><span class="line">│       ├── NewUsers.php</span><br><span class="line">│       ├── ProductOrders.php</span><br><span class="line">│       ├── Sessions.php</span><br><span class="line">│       ├── Tickets.php</span><br><span class="line">│       └── TotalUsers.php</span><br><span class="line">├── bootstrap.php</span><br><span class="line">└── routes.php</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><code>app/Admin/routes.php</code>文件用来配置后台路由。</li>
+<li><code>app/Admin/bootstrap.php</code> 是<code>dcat-admin</code>的启动文件, 使用方法请参考文件里面的注释.</li>
+<li><code>app/Admin/Controllers</code>目录用来存放后台控制器文件，该目录下的<code>HomeController.php</code>文件是后台首页的显示控制器，<code>AuthController.php</code>为后台管理员登录鉴权控制器。</li>
+<li><code>app/Admin/Metrics/Examples</code>里面存放的是<code>数据统计卡片(Metric Card)</code>的示例代码.</li>
+</ol>
+<p><a name="assets"></a></p>
+<h3 id="静态文件"><a href="#静态文件" class="headerlink" title="静态文件"></a>静态文件</h3><p>后台所需的前端静态文件在<code>/public/vendor/dcat-admin</code>目录下。</p>
+<p><a name="migrations"></a></p>
+<h3 id="数据表迁移文件"><a href="#数据表迁移文件" class="headerlink" title="数据表迁移文件"></a>数据表迁移文件</h3><p>对应的数据表迁移文件在<code>/database/migrations</code>目录下。</p>
+<p><a name="lang"></a></p>
+<h3 id="语言包"><a href="#语言包" class="headerlink" title="语言包"></a>语言包</h3><p>语言包文件在<code>/resources/lang</code>目录下。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/installation/" data-id="clpdpxfj2000qywna96jd40yu" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/helpers/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/introduction/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

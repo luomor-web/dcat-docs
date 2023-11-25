@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="头部和脚部数据表格支持往头部和脚部两个区块填入你想要的内容 1234567$grid-&gt;header(function ($collection) &#123;    return &#x27;header&#x27;;&#125;);$grid-&gt;footer(function ($collection) &#123;    return &#x27;footer&#x27;; &amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/model-grid-header/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="头部和脚部数据表格支持往头部和脚部两个区块填入你想要的内容 1234567$grid-&gt;header(function ($collection) &#123;    return &#x27;header&#x27;;&#125;);$grid-&gt;footer(function ($collection) &#123;    return &#x27;footer&#x27;; &amp;#">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-25T07:16:44.974Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.974Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/model-grid-header" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/model-grid-header/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.974Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="头部和脚部"><a href="#头部和脚部" class="headerlink" title="头部和脚部"></a>头部和脚部</h1><p>数据表格支持往头部和脚部两个区块填入你想要的内容</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">header</span>(function (<span class="variable">$collection</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;header&#x27;</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">footer</span>(function (<span class="variable">$collection</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;footer&#x27;</span>; </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>其中闭包函数的参数<code>$collection</code>为<code>Illuminate\Support\Collection</code>类实例，是当前页表格数据，下面是两个不同场景的使用举例</p>
+<h2 id="头部"><a href="#头部" class="headerlink" title="头部"></a>头部</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">header</span>(function (<span class="variable">$collection</span>) <span class="keyword">use</span> ($<span class="title">grid</span>) &#123;</span><br><span class="line">	$<span class="title">query</span> = <span class="title">Model</span>::<span class="title">query</span>();</span><br><span class="line">    	</span><br><span class="line">	<span class="comment">// 拿到表格筛选 where 条件数组进行遍历</span></span><br><span class="line">	<span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">model</span>()-&gt;<span class="title function_ invoke__">getQueries</span>()-&gt;<span class="title function_ invoke__">unique</span>()-&gt;<span class="title function_ invoke__">each</span>(function (<span class="variable">$value</span>) <span class="keyword">use</span> (&amp;$<span class="title">query</span>) &#123;</span><br><span class="line">		<span class="title">if</span> (<span class="title">in_array</span>($<span class="title">value</span>[&#x27;<span class="title">method</span>&#x27;], [&#x27;<span class="title">paginate</span>&#x27;, &#x27;<span class="title">get</span>&#x27;, &#x27;<span class="title">orderBy</span>&#x27;, &#x27;<span class="title">orderByDesc</span>&#x27;], <span class="title">true</span>)) &#123;</span><br><span class="line">			<span class="title">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="variable">$query</span> = <span class="title function_ invoke__">call_user_func_array</span>([<span class="variable">$query</span>, <span class="variable">$value</span>[<span class="string">&#x27;method&#x27;</span>]], <span class="variable">$value</span>[<span class="string">&#x27;arguments&#x27;</span>] ?? []);</span><br><span class="line">	&#125;);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 查出统计数据</span></span><br><span class="line">	<span class="variable">$data</span> = <span class="variable">$query</span>-&gt;<span class="title function_ invoke__">get</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 自定义组件</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Card</span>(<span class="variable">$data</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>自定义头部展示的组件实现</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Contracts</span>\<span class="title">Support</span>\<span class="title">Renderable</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Admin</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Card</span> <span class="keyword">implements</span> <span class="title">Renderable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="built_in">static</span> <span class="variable">$js</span> = [</span><br><span class="line">		<span class="string">&#x27;xxx/js/card.min.js&#x27;</span>,</span><br><span class="line">	];</span><br><span class="line">	<span class="keyword">public</span> <span class="built_in">static</span> <span class="variable">$css</span> = [</span><br><span class="line">		<span class="string">&#x27;xxx/css/card.min.css&#x27;</span>,</span><br><span class="line">	];</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">protected</span> <span class="variable">$data</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$data</span></span>) </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">	    <span class="variable language_">$this</span>-&gt;data = <span class="variable">$data</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">script</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&lt;&lt;&lt;JS</span></span><br><span class="line"><span class="string">		console.log(&#x27;所有JS</span>脚本都加载完了<span class="string">&#x27;);</span></span><br><span class="line"><span class="string">		$(&#x27;</span>xxx<span class="string">&#x27;).card();</span></span><br><span class="line"><span class="string">JS;		</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">	public function render()</span></span><br><span class="line"><span class="string">	&#123;</span></span><br><span class="line"><span class="string">		// 在这里可以引入你的js或css文件</span></span><br><span class="line"><span class="string">		Admin::js(static::$js);</span></span><br><span class="line"><span class="string">		Admin::css(static::$css);</span></span><br><span class="line"><span class="string">		</span></span><br><span class="line"><span class="string">		// 需要在页面执行的JS代码</span></span><br><span class="line"><span class="string">		// 通过 Admin::script 设置的JS代码会自动在所有JS脚本都加载完毕后执行</span></span><br><span class="line"><span class="string">		Admin::script($this-&gt;script());</span></span><br><span class="line"><span class="string">		</span></span><br><span class="line"><span class="string">		return view(&#x27;</span>...<span class="string">&#x27;, [&#x27;</span>data<span class="string">&#x27; =&gt; $this-&gt;data])-&gt;render();</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="脚部"><a href="#脚部" class="headerlink" title="脚部"></a>脚部</h2><p>一个比较常见的场景是在数据表格的脚部显示统计信息，比如在订单表格的脚部加入收入统计，可以参考下面的代码实现：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">footer</span>(function (<span class="variable">$collection</span>) <span class="keyword">use</span> ($<span class="title">grid</span>) &#123;</span><br><span class="line">	$<span class="title">query</span> = <span class="title">Model</span>::<span class="title">query</span>();</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 拿到表格筛选 where 条件数组进行遍历</span></span><br><span class="line">	<span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">model</span>()-&gt;<span class="title function_ invoke__">getQueries</span>()-&gt;<span class="title function_ invoke__">unique</span>()-&gt;<span class="title function_ invoke__">each</span>(function (<span class="variable">$value</span>) <span class="keyword">use</span> (&amp;$<span class="title">query</span>) &#123;</span><br><span class="line">		<span class="title">if</span> (<span class="title">in_array</span>($<span class="title">value</span>[&#x27;<span class="title">method</span>&#x27;], [&#x27;<span class="title">paginate</span>&#x27;, &#x27;<span class="title">get</span>&#x27;, &#x27;<span class="title">orderBy</span>&#x27;, &#x27;<span class="title">orderByDesc</span>&#x27;], <span class="title">true</span>)) &#123;</span><br><span class="line">		    <span class="title">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="variable">$query</span> = <span class="title function_ invoke__">call_user_func_array</span>([<span class="variable">$query</span>, <span class="variable">$value</span>[<span class="string">&#x27;method&#x27;</span>]], <span class="variable">$value</span>[<span class="string">&#x27;arguments&#x27;</span>] ?? []);</span><br><span class="line">	&#125;);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 查出统计数据</span></span><br><span class="line">	<span class="variable">$data</span> = <span class="variable">$query</span>-&gt;<span class="title function_ invoke__">get</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;&lt;div style=&#x27;padding: 10px;&#x27;&gt;总收入 ： <span class="subst">$data</span>&lt;/div&gt;&quot;</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>如果有比较复杂的脚部需要显示，也可以使用视图对象或者封装成一个类来实现。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/model-grid-header/" data-id="clpdpxfjw001mywna4obo448f" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/model-grid-selector/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/model-grid-quick-create/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

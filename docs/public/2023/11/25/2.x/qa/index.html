@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="常见问题汇总1.如何设置语言为简体中文？打开配置文件config&#x2F;app.php，设置locale参数的值为zh_CN。 2.Laravel7时间显示为UTC格式这个是Laravel7升级后带来的坑，原因请参考日期序列化。 在本项目中解决这个问题很简单，只需在Model中引入Dcat\Admin\Traits\HasDateTimeFormatter这个trait即可。 1234567891011">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/qa/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="常见问题汇总1.如何设置语言为简体中文？打开配置文件config&#x2F;app.php，设置locale参数的值为zh_CN。 2.Laravel7时间显示为UTC格式这个是Laravel7升级后带来的坑，原因请参考日期序列化。 在本项目中解决这个问题很简单，只需在Model中引入Dcat\Admin\Traits\HasDateTimeFormatter这个trait即可。 1234567891011">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-25T07:16:44.985Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.986Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/qa" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/qa/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.985Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="常见问题汇总"><a href="#常见问题汇总" class="headerlink" title="常见问题汇总"></a>常见问题汇总</h1><h3 id="1-如何设置语言为简体中文？"><a href="#1-如何设置语言为简体中文？" class="headerlink" title="1.如何设置语言为简体中文？"></a>1.如何设置语言为简体中文？</h3><p>打开配置文件<code>config/app.php</code>，设置<code>locale</code>参数的值为<code>zh_CN</code>。</p>
+<h3 id="2-Laravel7时间显示为UTC格式"><a href="#2-Laravel7时间显示为UTC格式" class="headerlink" title="2.Laravel7时间显示为UTC格式"></a>2.Laravel7时间显示为UTC格式</h3><p>这个是<code>Laravel7</code>升级后带来的坑，原因请参考<a target="_blank" rel="noopener" href="https://learnku.com/docs/laravel/7.x/upgrade/7445#date-serialization">日期序列化</a>。</p>
+<p>在本项目中解决这个问题很简单，只需在<code>Model</code>中引入<code>Dcat\Admin\Traits\HasDateTimeFormatter</code>这个<code>trait</code>即可。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Models</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Traits</span>\<span class="title">HasDateTimeFormatter</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Eloquent</span>\<span class="title">Model</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyModel</span> <span class="keyword">extends</span> <span class="title">Model</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">     <span class="keyword">use</span> <span class="title">HasDateTimeFormatter</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-表单保存时报错Array-to-string-conversion"><a href="#3-表单保存时报错Array-to-string-conversion" class="headerlink" title="3.表单保存时报错Array to string conversion"></a>3.表单保存时报错<code>Array to string conversion</code></h3><p>出现这个问题是因为表单提交的值最后转换成了<code>array</code>类型，而<code>MySQL</code>是不支持直接存储<code>array</code>类型数据的，在<code>dcat-admin</code>中可以用以下方式对数据格式进行转换</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">multipleSelect</span>(<span class="string">&#x27;user_id&#x27;</span>)-&gt;<span class="title function_ invoke__">saving</span>(function (<span class="variable">$v</span>) &#123;</span><br><span class="line">    <span class="comment">// 转为 , 隔开的字符串</span></span><br><span class="line">    <span class="keyword">return</span> <span class="title function_ invoke__">implode</span>(<span class="string">&#x27;,&#x27;</span>, <span class="variable">$v</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>当然，也可以通过<code>model</code>的<strong>修改器</strong>去转化字段的值，这方面内容可以参考<code>laravel</code>文档，这里就不再赘述。</p>
+<blockquote>
+<p>{tip} 更优雅的转化值方法，可参考 <a target="_blank" rel="noopener" href="https://learnku.com/articles/44386">Dcat Admin 教程 - 如何优雅地更改表单值的数据类型？</a></p>
+</blockquote>
+<h3 id="4-如何从laravel-admin迁移到dcat-admin？"><a href="#4-如何从laravel-admin迁移到dcat-admin？" class="headerlink" title="4.如何从laravel-admin迁移到dcat-admin？"></a>4.如何从laravel-admin迁移到dcat-admin？</h3><p><a target="_blank" rel="noopener" href="https://learnku.com/articles/44235">Dcat Admin 教程 - 如何从 Laravel admin 迁移到 dcat admin？</a></p>
+<h3 id="5-重写登陆页面和登陆逻辑"><a href="#5-重写登陆页面和登陆逻辑" class="headerlink" title="5.重写登陆页面和登陆逻辑"></a>5.重写登陆页面和登陆逻辑</h3><p>方式一，重写登陆控制器方法：</p>
+<p>默认的登陆控制器用的是<code>App\Admin\AuthController</code>这个类，可以通过配置参数<code>admin.auth.controller</code>进行修改</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Admin</span>\<span class="title class_">Controllers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Controllers</span>\<span class="title">AuthController</span> <span class="keyword">as</span> <span class="title">BaseAuthController</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AuthController</span> <span class="keyword">extends</span> <span class="title">BaseAuthController</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">// 自定义登陆view模板</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$view</span> = <span class="string">&#x27;admin.login&#x27;</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 重写登陆页面逻辑</span></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getLogin</span>(<span class="params">Content <span class="variable">$content</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>方式二，覆写路由：</p>
+<p>在路由文件<code>app/Admin/routes.php</code>中，覆盖掉登陆页面和登陆逻辑的路由，即可实现自定义的功能</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">group</span>([</span><br><span class="line">    <span class="string">&#x27;prefix&#x27;</span>        =&gt; <span class="title function_ invoke__">config</span>(<span class="string">&#x27;admin.prefix&#x27;</span>),</span><br><span class="line">    <span class="string">&#x27;namespace&#x27;</span>     =&gt; <span class="title class_">Admin</span>::<span class="title function_ invoke__">controllerNamespace</span>(),</span><br><span class="line">    <span class="string">&#x27;middleware&#x27;</span>    =&gt; [<span class="string">&#x27;web&#x27;</span>, <span class="string">&#x27;admin&#x27;</span>],</span><br><span class="line">], function (Router <span class="variable">$router</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$router</span>-&gt;<span class="title function_ invoke__">get</span>(<span class="string">&#x27;auth/login&#x27;</span>, <span class="string">&#x27;AuthController@getLogin&#x27;</span>);</span><br><span class="line">    <span class="variable">$router</span>-&gt;<span class="title function_ invoke__">post</span>(<span class="string">&#x27;auth/login&#x27;</span>, <span class="string">&#x27;AuthController@postLogin&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>在自定义的路由器AuthController中的<code>getLogin</code>、<code>postLogin</code>方法里分别实现自己的登陆页面和登陆逻辑。</p>
+<h3 id="6-更新新版本后出现异常"><a href="#6-更新新版本后出现异常" class="headerlink" title="6.更新新版本后出现异常"></a>6.更新新版本后出现异常</h3><p>如果遇到更新之后,部分组件不能正常使用,那有可能是<code>dcat-admin</code>自带的静态资源有更新了,需要运行命令<code>php artisan admin:publish --force</code>来重新发布前端资源，发布之后不要忘记清理浏览器缓存.</p>
+<h3 id="7-文件上传失败或无法访问？"><a href="#7-文件上传失败或无法访问？" class="headerlink" title="7.文件上传失败或无法访问？"></a>7.文件上传失败或无法访问？</h3><p>如果你发现无法上传文件，那么通常有几下几点原因：</p>
+<ol>
+<li><code>Laravel</code>文件上传配置不正确，请参考文档<a target="_blank" rel="noopener" href="https://learnku.com/docs/dcat-admin/1.x/picture-file-upload/8106">图片&#x2F;文件上传</a>。如果你不了解<code>laravel</code>文件上传功能，请阅读文档<a target="_blank" rel="noopener" href="https://learnku.com/docs/laravel/7.x/filesystem/7485">Laravel - 文件存储</a></li>
+<li>文件过大，需要调整<code>php.ini</code>的<code>upload_max_filesize</code>参数</li>
+<li>文件上传目录没有写权限</li>
+<li><code>php</code>没有安装或没有开启<code>fileinfo</code>扩展</li>
+<li>检查<code>php.ini</code>的<code>upload_tim_dir</code>参数设置是否正常</li>
+</ol>
+<p>如果文件上传成功了，却无法正常访问，那么可能是<code>.env</code>配置文件中的<code>APP_URL</code>参数没有设置正确。</p>
+<h3 id="8-关于前端资源加载问题"><a href="#8-关于前端资源加载问题" class="headerlink" title="8.关于前端资源加载问题"></a>8.关于前端资源加载问题</h3><p><code>Dcat Admin</code>是支持前端资源按需加载的，在需要用到某个组件的时候再引入前端资源即可，开发者无需担心安装组件过多影响页面加载速度。</p>
+<p>只有那种需要在全局页面引入的资源，才需要在<code>app/Admin/bootstrap.php</code>或<code>ServiceProvider::boot</code>方法中引入：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">css</span>(<span class="string">&#x27;path/to/your/css&#x27;</span>);</span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">js</span>(<span class="string">&#x27;path/to/your/js&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="9-为何配置了角色和权限，依然提示无权访问？"><a href="#9-为何配置了角色和权限，依然提示无权访问？" class="headerlink" title="9.为何配置了角色和权限，依然提示无权访问？"></a>9.为何配置了角色和权限，依然提示无权访问？</h3><p>这个原因可能是由于权限的<code>URL</code>路径配置错误导致的，正确的包含增删改查功能的<code>URL</code>配置应该是<code>auth/users*</code>这样的，如果配置成了<code>auth/users/*</code>，那么就会提示无权访问。</p>
+<blockquote>
+<p>{tip} 另外标签表单填写自定义URL有两种方法：一种是选中后按<code>删除键</code>进行更改；另一种是填写后按<code>空格键</code> + <code>回车键</code>。</p>
+</blockquote>
+<h3 id="10-为何没有权限的菜单不会自动隐藏？"><a href="#10-为何没有权限的菜单不会自动隐藏？" class="headerlink" title="10.为何没有权限的菜单不会自动隐藏？"></a>10.为何没有权限的菜单不会自动隐藏？</h3><p>这个问题是因为没有给菜单绑定权限或者角色，给想要无权不显示的菜单绑定权限或者角色即可。</p>
+<h3 id="11-项目使用HTTPS之后无法登陆"><a href="#11-项目使用HTTPS之后无法登陆" class="headerlink" title="11.项目使用HTTPS之后无法登陆"></a>11.项目使用HTTPS之后无法登陆</h3><p>需要把配置文件的<code>admin.https</code>参数的值设置为<code>true</code></p>
+<h3 id="12-get-xxx-没有反应"><a href="#12-get-xxx-没有反应" class="headerlink" title="12.$.get(xxx) 没有反应"></a>12.$.get(xxx) 没有反应</h3><p><code>Dcat Admin</code>使用的是<code>jQuery3.x</code>，<code>$.get</code>方法在<code>jQuery3.x</code>中已经被废弃，请使用<code>$.ajax</code>代替</p>
+<h3 id="13-上传的图片经常莫名其妙自动删除？"><a href="#13-上传的图片经常莫名其妙自动删除？" class="headerlink" title="13.上传的图片经常莫名其妙自动删除？"></a>13.上传的图片经常莫名其妙自动删除？</h3><p>出现这个问题的原因很可能是因为<code>Model</code>中设置了图片相关字段的访问器，如</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="title">extend</span> <span class="title">Model</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getAvatarAttribute</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title class_">Storage</span>::<span class="title function_ invoke__">disk</span>(<span class="string">&#x27;admin&#x27;</span>)-&gt;<span class="title function_ invoke__">url</span>(<span class="variable">$this</span>-&gt;avatar);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这种情况下会出现自动删除已上传图片的情况，解决方法也很简单，把访问器改成自定义方法即可</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="title">extend</span> <span class="title">Model</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getAvatar</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title class_">Storage</span>::<span class="title function_ invoke__">disk</span>(<span class="string">&#x27;admin&#x27;</span>)-&gt;<span class="title function_ invoke__">url</span>(<span class="variable">$this</span>-&gt;avatar);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>###14.前后台session发生冲突</p>
+<p>从<code>2.0</code>的版本之后 <code>admin.session</code> 中间件不再默认启用，如果您的应用同时有前台和后台，则需要开启 <code>admin.session</code> 中间件，否则会造成前后台 <code>session</code> 冲突问题。</p>
+<p>把配置参数 <code>admin.route.enable_session_middleware</code> 的值设置为 <code>true</code> 即可开启</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;route&#x27;</span> =&gt; [</span><br><span class="line">    <span class="string">&#x27;domain&#x27;</span> =&gt; <span class="title function_ invoke__">env</span>(<span class="string">&#x27;ADMIN_ROUTE_DOMAIN&#x27;</span>),</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;prefix&#x27;</span> =&gt; <span class="title function_ invoke__">env</span>(<span class="string">&#x27;ADMIN_ROUTE_PREFIX&#x27;</span>, <span class="string">&#x27;admin&#x27;</span>),</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;namespace&#x27;</span> =&gt; <span class="string">&#x27;App\\Admin\\Controllers&#x27;</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;middleware&#x27;</span> =&gt; [<span class="string">&#x27;web&#x27;</span>, <span class="string">&#x27;admin&#x27;</span>],</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 开启 admin.session 中间件</span></span><br><span class="line">    <span class="string">&#x27;enable_session_middleware&#x27;</span> =&gt; <span class="literal">true</span>,</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+
+<h3 id="15-图片防盗链"><a href="#15-图片防盗链" class="headerlink" title="15.图片防盗链"></a>15.图片防盗链</h3><p>图片请求默认会去掉 <code>referer</code> 字段，如果有防盗链要求，可以在配置文件(<code>config/admin.php</code>)中设置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;disable_no_referrer_meta&quot; =&gt; true</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/qa/" data-id="clpdpxfkw0027ywna81qa4wre" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/permission/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/multi-app/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

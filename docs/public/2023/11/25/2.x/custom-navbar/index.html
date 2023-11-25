@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="自定义头部导航条如果要在顶部导航条上添加html元素,  打开app&#x2F;Admin&#x2F;bootstrap.php： 12345678910use Dcat\Admin\Layout\Navbar;use Dcat\Admin\Admin;Admin::navbar(function (Navbar $navbar) &#123;    $navbar-&gt;left(&#x27;html...&amp;#x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/custom-navbar/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="自定义头部导航条如果要在顶部导航条上添加html元素,  打开app&#x2F;Admin&#x2F;bootstrap.php： 12345678910use Dcat\Admin\Layout\Navbar;use Dcat\Admin\Admin;Admin::navbar(function (Navbar $navbar) &#123;    $navbar-&gt;left(&#x27;html...&amp;#x">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-25T07:16:44.955Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.956Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/custom-navbar" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/custom-navbar/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.955Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="自定义头部导航条"><a href="#自定义头部导航条" class="headerlink" title="自定义头部导航条"></a>自定义头部导航条</h1><p>如果要在顶部导航条上添加html元素,  打开<code>app/Admin/bootstrap.php</code>：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Layout</span>\<span class="title">Navbar</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Admin</span>;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">navbar</span>(function (Navbar <span class="variable">$navbar</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$navbar</span>-&gt;<span class="title function_ invoke__">left</span>(<span class="string">&#x27;html...&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$navbar</span>-&gt;<span class="title function_ invoke__">right</span>(<span class="string">&#x27;html...&#x27;</span>);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><code>left</code>和<code>right</code>方法分别用来在头部的左右两边添加内容，方法参数可以是任何可以渲染的对象(实现了<code>Htmlable</code>、<code>Renderable</code>接口或者包含<code>__toString()</code>方法的对象)或字符串</p>
+<h2 id="添加下拉面板"><a href="#添加下拉面板" class="headerlink" title="添加下拉面板"></a>添加下拉面板</h2><p>在模板文件中加上</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;nav navbar-nav&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;dropdown dropdown-notification nav-item&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;nav-link nav-link-label&quot;</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">data-toggle</span>=<span class="string">&quot;dropdown&quot;</span> <span class="attr">aria-expanded</span>=<span class="string">&quot;true&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;ficon feather icon-bell&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;badge badge-pill badge-primary badge-up&quot;</span>&gt;</span>5<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;dropdown-menu dropdown-menu-media dropdown-menu-right &quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;dropdown-menu-header&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;dropdown-header m-0 p-2&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">&quot;white&quot;</span>&gt;</span>5 New<span class="tag">&lt;/<span class="name">h3</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;grey darken-2&quot;</span>&gt;</span>App Notifications<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;scrollable-container media-list ps ps--active-y&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;d-flex justify-content-between&quot;</span> <span class="attr">href</span>=<span class="string">&quot;javascript:void(0)&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;media d-flex align-items-start&quot;</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;media-left&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;feather icon-plus-square font-medium-5 primary&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;media-body&quot;</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">h6</span> <span class="attr">class</span>=<span class="string">&quot;primary media-heading&quot;</span>&gt;</span>You have new order!<span class="tag">&lt;/<span class="name">h6</span>&gt;</span><span class="tag">&lt;<span class="name">small</span> <span class="attr">class</span>=<span class="string">&quot;notification-text&quot;</span>&gt;</span> Are</span><br><span class="line">                                your going to meet me</span><br><span class="line">                                tonight?<span class="tag">&lt;/<span class="name">small</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">small</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">time</span> <span class="attr">class</span>=<span class="string">&quot;media-meta&quot;</span> <span class="attr">datetime</span>=<span class="string">&quot;2015-06-11T18:29:20+08:00&quot;</span>&gt;</span>9 hours</span><br><span class="line">                                ago<span class="tag">&lt;/<span class="name">time</span>&gt;</span><span class="tag">&lt;/<span class="name">small</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;d-flex justify-content-between&quot;</span> <span class="attr">href</span>=<span class="string">&quot;javascript:void(0)&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;media d-flex align-items-start&quot;</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;media-left&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;feather icon-download-cloud font-medium-5 success&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;media-body&quot;</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">h6</span> <span class="attr">class</span>=<span class="string">&quot;success media-heading red darken-1&quot;</span>&gt;</span>99% Server load<span class="tag">&lt;/<span class="name">h6</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">small</span> <span class="attr">class</span>=<span class="string">&quot;notification-text&quot;</span>&gt;</span>You got new order of goods.<span class="tag">&lt;/<span class="name">small</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">small</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">time</span> <span class="attr">class</span>=<span class="string">&quot;media-meta&quot;</span> <span class="attr">datetime</span>=<span class="string">&quot;2015-06-11T18:29:20+08:00&quot;</span>&gt;</span>5 hour</span><br><span class="line">                                ago<span class="tag">&lt;/<span class="name">time</span>&gt;</span><span class="tag">&lt;/<span class="name">small</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;d-flex justify-content-between&quot;</span> <span class="attr">href</span>=<span class="string">&quot;javascript:void(0)&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;media d-flex align-items-start&quot;</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;media-left&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;feather icon-alert-triangle font-medium-5 danger&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;media-body&quot;</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">h6</span> <span class="attr">class</span>=<span class="string">&quot;danger media-heading yellow darken-3&quot;</span>&gt;</span>Warning notifixation</span><br><span class="line">                            <span class="tag">&lt;/<span class="name">h6</span>&gt;</span><span class="tag">&lt;<span class="name">small</span> <span class="attr">class</span>=<span class="string">&quot;notification-text&quot;</span>&gt;</span>Server have 99% CPU usage.<span class="tag">&lt;/<span class="name">small</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">small</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">time</span> <span class="attr">class</span>=<span class="string">&quot;media-meta&quot;</span> <span class="attr">datetime</span>=<span class="string">&quot;2015-06-11T18:29:20+08:00&quot;</span>&gt;</span>Today<span class="tag">&lt;/<span class="name">time</span>&gt;</span><span class="tag">&lt;/<span class="name">small</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ps__rail-x&quot;</span> <span class="attr">style</span>=<span class="string">&quot;left: 0px; bottom: 0px;&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ps__thumb-x&quot;</span> <span class="attr">tabindex</span>=<span class="string">&quot;0&quot;</span> <span class="attr">style</span>=<span class="string">&quot;left: 0px; width: 0px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ps__rail-y&quot;</span> <span class="attr">style</span>=<span class="string">&quot;top: 0px; right: 0px; height: 254px;&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ps__thumb-y&quot;</span> <span class="attr">tabindex</span>=<span class="string">&quot;0&quot;</span> <span class="attr">style</span>=<span class="string">&quot;top: 0px; height: 184px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;dropdown-menu-footer&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;dropdown-item p-1 text-center&quot;</span> <span class="attr">href</span>=<span class="string">&quot;javascript:void(0)&quot;</span>&gt;</span>Read</span><br><span class="line">                    all notifications<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>使用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$navbar</span>-&gt;<span class="title function_ invoke__">right</span>(<span class="title function_ invoke__">view</span>(<span class="string">&#x27;...&#x27;</span>));</span><br></pre></td></tr></table></figure>
+
+<h2 id="添加下拉菜单"><a href="#添加下拉菜单" class="headerlink" title="添加下拉菜单"></a>添加下拉菜单</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;nav navbar-nav&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;dropdown dropdown-language nav-item&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;dropdown-toggle nav-link&quot;</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">id</span>=<span class="string">&quot;dropdown-flag&quot;</span> <span class="attr">data-toggle</span>=<span class="string">&quot;dropdown&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;flag-icon flag-icon-us&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;selected-language&quot;</span>&gt;</span>English<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;dropdown-menu&quot;</span> <span class="attr">aria-labelledby</span>=<span class="string">&quot;dropdown-flag&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;dropdown-item&quot;</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">data-language</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;flag-icon flag-icon-us&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> English<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;dropdown-item&quot;</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">data-language</span>=<span class="string">&quot;fr&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;flag-icon flag-icon-fr&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> French<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;dropdown-item&quot;</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">data-language</span>=<span class="string">&quot;de&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;flag-icon flag-icon-de&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>  German<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>使用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$navbar</span>-&gt;<span class="title function_ invoke__">right</span>(<span class="title function_ invoke__">view</span>(<span class="string">&#x27;...&#x27;</span>));</span><br></pre></td></tr></table></figure>
+
+<p>更多的组件可以参考<a target="_blank" rel="noopener" href="https://github.com/ColorlibHQ/AdminLTE">AdminLTE3</a>。</p>
+<h2 id="修改默认用户面板"><a href="#修改默认用户面板" class="headerlink" title="修改默认用户面板"></a>修改默认用户面板</h2><p>打开<code>app/Admin/bootstrap.php</code>，写入</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">admin_inject_section</span>(<span class="title class_">Admin</span>::<span class="variable constant_">SECTION</span>[<span class="string">&#x27;NAVBAR_USER_PANEL&#x27;</span>], function () &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="string">&#x27;admin.partials.navbar-user-panel&#x27;</span>, [<span class="string">&#x27;user&#x27;</span> =&gt; <span class="title class_">Admin</span>::<span class="title function_ invoke__">user</span>()]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><code>navbar-user-panel.blade.php</code>视图内容</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">if</span>(<span class="variable">$user</span>)</span><br><span class="line">&lt;li <span class="class"><span class="keyword">class</span>=&quot;<span class="title">dropdown</span> <span class="title">dropdown</span>-<span class="title">user</span> <span class="title">nav</span>-<span class="title">item</span>&quot;&gt;</span></span><br><span class="line"><span class="class">    &lt;<span class="title">a</span> <span class="title">class</span>=&quot;<span class="title">dropdown</span>-<span class="title">toggle</span> <span class="title">nav</span>-<span class="title">link</span> <span class="title">dropdown</span>-<span class="title">user</span>-<span class="title">link</span>&quot; <span class="title">href</span>=&quot;#&quot; <span class="title">data</span>-<span class="title">toggle</span>=&quot;<span class="title">dropdown</span>&quot;&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">div</span> <span class="title">class</span>=&quot;<span class="title">user</span>-<span class="title">nav</span> <span class="title">d</span>-<span class="title">sm</span>-<span class="title">flex</span> <span class="title">d</span>-<span class="title">none</span>&quot;&gt;</span></span><br><span class="line"><span class="class">            &lt;<span class="title">span</span> <span class="title">class</span>=&quot;<span class="title">user</span>-<span class="title">name</span> <span class="title">text</span>-<span class="title">bold</span>-600&quot;&gt;</span>&#123;&#123; <span class="variable">$user</span>-&gt;name &#125;&#125;&lt;/span&gt;</span><br><span class="line">            &lt;span <span class="class"><span class="keyword">class</span>=&quot;<span class="title">user</span>-<span class="title">status</span>&quot;&gt;&lt;<span class="title">i</span> <span class="title">class</span>=&quot;<span class="title">fa</span> <span class="title">fa</span>-<span class="title">circle</span> <span class="title">text</span>-<span class="title">success</span>&quot;&gt;&lt;/<span class="title">i</span>&gt; </span>&#123;&#123; <span class="title function_ invoke__">trans</span>(<span class="string">&#x27;admin.online&#x27;</span>) &#125;&#125;&lt;/span&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;span&gt;</span><br><span class="line">            &lt;img <span class="class"><span class="keyword">class</span>=&quot;<span class="title">round</span>&quot; <span class="title">src</span>=&quot;</span>&#123;&#123; <span class="variable">$user</span>-&gt;<span class="title function_ invoke__">getAvatar</span>() &#125;&#125;<span class="string">&quot; alt=&quot;</span>avatar<span class="string">&quot; height=&quot;</span><span class="number">40</span><span class="string">&quot; width=&quot;</span><span class="number">40</span><span class="string">&quot; /&gt;</span></span><br><span class="line"><span class="string">        &lt;/span&gt;</span></span><br><span class="line"><span class="string">    &lt;/a&gt;</span></span><br><span class="line"><span class="string">    &lt;div class=&quot;</span>dropdown-menu dropdown-menu-right<span class="string">&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;a href=&quot;</span>&#123;&#123; <span class="title function_ invoke__">admin_url</span>(<span class="string">&#x27;auth/setting&#x27;</span>) &#125;&#125;<span class="string">&quot; class=&quot;</span>dropdown-item<span class="string">&quot;&gt;</span></span><br><span class="line"><span class="string">            &lt;i class=&quot;</span>feather icon-user<span class="string">&quot;&gt;&lt;/i&gt; &#123;&#123; trans(&#x27;admin.setting&#x27;) &#125;&#125;</span></span><br><span class="line"><span class="string">        &lt;/a&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        &lt;div class=&quot;</span>dropdown-divider<span class="string">&quot;&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        &lt;a class=&quot;</span>dropdown-item<span class="string">&quot; href=&quot;</span>&#123;&#123; <span class="title function_ invoke__">admin_url</span>(<span class="string">&#x27;auth/logout&#x27;</span>) &#125;&#125;<span class="string">&quot;&gt;</span></span><br><span class="line"><span class="string">            &lt;i class=&quot;</span>feather icon-power<span class="string">&quot;&gt;&lt;/i&gt; &#123;&#123; trans(&#x27;admin.logout&#x27;) &#125;&#125;</span></span><br><span class="line"><span class="string">        &lt;/a&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;/li&gt;</span></span><br><span class="line"><span class="string">@endif</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/custom-navbar/" data-id="clpdpxfir000eywna446pc1yv" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/custom-chart/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/change-log/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

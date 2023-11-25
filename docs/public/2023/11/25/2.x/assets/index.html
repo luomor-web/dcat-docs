@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="静态资源加载Dcat Admin支持了js脚本按需加载的功能，开发者只需在控制器中或其他任意位置（包括view）中引入需要用到的js组件即可，而无需在项目初始化时引入所有的js组件。 更改静态资源域名打开配置文件config&#x2F;admin.php，找到assets_server参数进行更改即可；也可以在.env中加上 1ADMIN_ASSETS_SERVER&#x3D;http:&#x2F;&#x2F;xxx.com  注册路径">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/assets/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="静态资源加载Dcat Admin支持了js脚本按需加载的功能，开发者只需在控制器中或其他任意位置（包括view）中引入需要用到的js组件即可，而无需在项目初始化时引入所有的js组件。 更改静态资源域名打开配置文件config&#x2F;admin.php，找到assets_server参数进行更改即可；也可以在.env中加上 1ADMIN_ASSETS_SERVER&#x3D;http:&#x2F;&#x2F;xxx.com  注册路径">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-25T07:16:44.953Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.953Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/assets" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/assets/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.953Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="静态资源加载"><a href="#静态资源加载" class="headerlink" title="静态资源加载"></a>静态资源加载</h1><p><code>Dcat Admin</code>支持了<code>js</code>脚本按需加载的功能，开发者只需在控制器中或其他任意位置（包括<code>view</code>）中引入需要用到的<code>js</code>组件即可，而无需在项目初始化时引入所有的<code>js</code>组件。</p>
+<h3 id="更改静态资源域名"><a href="#更改静态资源域名" class="headerlink" title="更改静态资源域名"></a>更改静态资源域名</h3><p>打开配置文件<code>config/admin.php</code>，找到<code>assets_server</code>参数进行更改即可；也可以在<code>.env</code>中加上</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ADMIN_ASSETS_SERVER=http://xxx.com</span><br></pre></td></tr></table></figure>
+
+<h3 id="注册路径别名"><a href="#注册路径别名" class="headerlink" title="注册路径别名"></a>注册路径别名</h3><p>打开<code>app/Admin/bootstrap.php</code>，然后加入以下代码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">asset</span>()-&gt;<span class="title function_ invoke__">alias</span>(<span class="string">&#x27;@my-name1&#x27;</span>, <span class="string">&#x27;assets/admin1&#x27;</span>);</span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">asset</span>()-&gt;<span class="title function_ invoke__">alias</span>(<span class="string">&#x27;@my-name2&#x27;</span>, <span class="string">&#x27;assets/admin2&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可以批量注册</span></span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">asset</span>()-&gt;<span class="title function_ invoke__">alias</span>([</span><br><span class="line">	<span class="string">&#x27;@my-name1&#x27;</span> =&gt; <span class="string">&#x27;assets/admin1&#x27;</span>,</span><br><span class="line">	<span class="string">&#x27;@my-name2&#x27;</span> =&gt; <span class="string">&#x27;assets/admin2&#x27;</span>,</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+<p>使用别名</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">js</span>(<span class="string">&#x27;@my-name1/index.js&#x27;</span>);</span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">css</span>(<span class="string">&#x27;@my-name1/index.css&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="注册组件"><a href="#注册组件" class="headerlink" title="注册组件"></a>注册组件</h3><p>当某个组件的<code>js</code>和<code>css</code>文件比较多的话，我们可以把这些静态资源文件统一注册成一个组件，这样使用的时候会更方便。打开<code>app/Admin/bootstrap.php</code>，然后加入以下代码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">asset</span>()-&gt;<span class="title function_ invoke__">alias</span>(<span class="string">&#x27;@editor-md&#x27;</span>, [</span><br><span class="line">	<span class="string">&#x27;js&#x27;</span> =&gt; [</span><br><span class="line">		// 支持使用路径别名</span><br><span class="line">		<span class="string">&#x27;@admin/dcat/plugins/editor-md/lib/raphael.min.js&#x27;</span>,</span><br><span class="line">		<span class="string">&#x27;@admin/dcat/plugins/editor-md/lib/marked.min.js&#x27;</span>,</span><br><span class="line">		<span class="string">&#x27;@admin/dcat/plugins/editor-md/lib/prettify.min.js&#x27;</span>,</span><br><span class="line">		<span class="string">&#x27;@admin/dcat/plugins/editor-md/lib/jquery.flowchart.min.js&#x27;</span>,</span><br><span class="line">		<span class="string">&#x27;@admin/dcat/plugins/editor-md/editormd.min.js&#x27;</span>,</span><br><span class="line">	],</span><br><span class="line">	<span class="string">&#x27;css&#x27;</span> =&gt; [</span><br><span class="line">		<span class="string">&#x27;@admin/dcat/plugins/editor-md/css/editormd.preview.min.css&#x27;</span>,</span><br><span class="line">		<span class="string">&#x27;@admin/dcat/extra/markdown.css&#x27;</span>,</span><br><span class="line">	],</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+<p>使用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">requireAssets</span>([<span class="string">&#x27;@editor-md&#x27;</span>]);</span><br></pre></td></tr></table></figure>
+
+<p>如果你只需要加载这个组件的<code>js</code>或<code>css</code>，并不想加载所有文件，那么可以用以下方法</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只加载js文件</span></span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">js</span>(<span class="string">&#x27;@editor-md&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 只加载css文件</span></span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">css</span>(<span class="string">&#x27;@editor-md&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>使用动态参数</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Admin</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册前端组件别名</span></span><br><span class="line"><span class="comment">// &#123;lang&#125; 为动态参数</span></span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">asset</span>()-&gt;<span class="title function_ invoke__">alias</span>(<span class="string">&#x27;@test&#x27;</span>, [</span><br><span class="line">    <span class="string">&#x27;js&#x27;</span> =&gt; [<span class="string">&#x27;/vendor/test/js/&#123;lang&#125;.min.js&#x27;</span>],</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#123;lang&#125; 会被替换为 zh_CN</span></span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">requireAssets</span>(<span class="string">&#x27;@test&#x27;</span>, [<span class="string">&#x27;lang&#x27;</span> =&gt; <span class="string">&#x27;zh_CN&#x27;</span>]);</span><br><span class="line"><span class="comment">// 也可以这样使用</span></span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">requireAssets</span>(<span class="string">&#x27;@test?lang=zh_CN&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="加载js脚本"><a href="#加载js脚本" class="headerlink" title="加载js脚本"></a>加载js脚本</h3><p><code>Admin::js</code>方法可以引入<code>js</code>脚本，使用如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserController</span> <span class="title">extend</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="title class_">Admin</span>::<span class="title function_ invoke__">js</span>(<span class="string">&#x27;/assets/js/index.js&#x27;</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="title class_">Admin</span>::<span class="title function_ invoke__">js</span>([</span><br><span class="line">            <span class="string">&#x27;/assets/js/index2.js&#x27;</span></span><br><span class="line">        ]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="加载css脚本"><a href="#加载css脚本" class="headerlink" title="加载css脚本"></a>加载css脚本</h3><p><code>Admin::css</code>方法可以引入<code>css</code>脚本，使用如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserController</span> <span class="title">extend</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="title class_">Admin</span>::<span class="title function_ invoke__">css</span>(<span class="string">&#x27;/assets/css/index.css&#x27;</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="title class_">Admin</span>::<span class="title function_ invoke__">css</span>([</span><br><span class="line">            <span class="string">&#x27;/assets/css/index2.css&#x27;</span></span><br><span class="line">        ]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="动态添加js代码"><a href="#动态添加js代码" class="headerlink" title="动态添加js代码"></a>动态添加js代码</h3><p><code>Admin::script</code>方法可以动态添加<code>js</code>代码，使用如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="title class_">Admin</span>::<span class="title function_ invoke__">script</span>(</span><br><span class="line">            <span class="string">&lt;&lt;&lt;JS</span></span><br><span class="line"><span class="string">    console.log(&#x27;Hello world!&#x27;);</span></span><br><span class="line"><span class="string">JS</span>            </span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="动态添加css代码"><a href="#动态添加css代码" class="headerlink" title="动态添加css代码"></a>动态添加css代码</h3><p><code>Admin::style</code>方法可以动态添加<code>css</code>代码，使用如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="title class_">Admin</span>::<span class="title function_ invoke__">style</span>(</span><br><span class="line">            <span class="string">&lt;&lt;&lt;CSS</span></span><br><span class="line"><span class="string">    body &#123;</span></span><br><span class="line"><span class="string">        color: #333;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">CSS</span>            </span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="在模板中引入静态资源"><a href="#在模板中引入静态资源" class="headerlink" title="在模板中引入静态资源"></a>在模板中引入静态资源</h3><p>在模板中手动引入静态资源需要使用<code>admin_asset</code>函数：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 引入css</span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;&#123;&#123; admin_asset(&quot;</span><span class="attr">vendor</span>/<span class="attr">dcat-admin</span>/<span class="attr">dcat-admin</span>/<span class="attr">main.min.css</span>&quot;) &#125;&#125;&quot;&gt;</span></span><br><span class="line"></span><br><span class="line">// 引入js</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;&#123;&#123; admin_asset(&#x27;vendor/dcat-admin/dcat-admin/main.min.js&#x27;)&#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="在模板中添加js代码"><a href="#在模板中添加js代码" class="headerlink" title="在模板中添加js代码"></a>在模板中添加js代码</h3><p>要在模板中添加的<code>js</code>代码需要放在<code>Dcat.ready</code>方法内执行，这样才能保证你的<code>js</code>代码在所有<code>js</code>脚本加载完成之后执行。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Dcat</span>.<span class="title function_">ready</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">   <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;所有js都加载完成了&#x27;</span>); </span></span><br><span class="line"><span class="language-javascript">&#125;);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/assets/" data-id="clpdpxfil0009ywnad9rc8nl7" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/custom-authentication/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/beta-change-log/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

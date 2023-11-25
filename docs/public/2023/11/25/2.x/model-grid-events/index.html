@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="数据表格事件初始化通过 Grid::resolving 方法可以监听表格初始化事件。 开发者可以在这两个事件中改变 Grid 的一些设置或行为，比如需要禁用掉某些操作，可以在 app&#x2F;Admin&#x2F;bootstrap.php 加入下面的代码： 123456789101112131415161718192021use Dcat\Admin\Grid;Grid::resolving(function (">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/model-grid-events/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="数据表格事件初始化通过 Grid::resolving 方法可以监听表格初始化事件。 开发者可以在这两个事件中改变 Grid 的一些设置或行为，比如需要禁用掉某些操作，可以在 app&#x2F;Admin&#x2F;bootstrap.php 加入下面的代码： 123456789101112131415161718192021use Dcat\Admin\Grid;Grid::resolving(function (">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-25T07:16:44.972Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.972Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/model-grid-events" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/model-grid-events/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.972Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="数据表格事件"><a href="#数据表格事件" class="headerlink" title="数据表格事件"></a>数据表格事件</h1><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>通过 <code>Grid::resolving</code> 方法可以监听表格初始化事件。</p>
+<p>开发者可以在这两个事件中改变 <code>Grid</code> 的一些设置或行为，比如需要禁用掉某些操作，可以在 <code>app/Admin/bootstrap.php</code> 加入下面的代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Grid</span>::<span class="title function_ invoke__">resolving</span>(function (Grid <span class="variable">$grid</span>) &#123;</span><br><span class="line">    <span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">disableActions</span>();</span><br><span class="line"></span><br><span class="line">    <span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">disablePagination</span>();</span><br><span class="line"></span><br><span class="line">    <span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">disableCreateButton</span>();</span><br><span class="line"></span><br><span class="line">    <span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">disableFilter</span>();</span><br><span class="line"></span><br><span class="line">    <span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">disableRowSelector</span>();</span><br><span class="line"></span><br><span class="line">    <span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">disableToolbar</span>();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 只需要监听一次</span></span><br><span class="line"><span class="title class_">Grid</span>::<span class="title function_ invoke__">resolving</span>(function (Grid <span class="variable">$grid</span>) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+<p>这样就不用在每一个控制器的代码中来设置了。</p>
+<p>如果全局设置后，要在其中某一个表格中开启设置，比如开启显示操作列，在对应的实例上调用 <code>$grid-&gt;disableActions(false);</code> 就可以了</p>
+<h3 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h3><p>通过 <code>Grid::composing</code> 方法可以监听表格被调用事件。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Grid</span>::<span class="title function_ invoke__">composing</span>(function (Grid <span class="variable">$grid</span>) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 只需要监听一次</span></span><br><span class="line"><span class="title class_">Grid</span>::<span class="title function_ invoke__">composing</span>(function (Grid <span class="variable">$grid</span>) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="Fetching"><a href="#Fetching" class="headerlink" title="Fetching"></a>Fetching</h3><p>监听表格获取数据之前事件，此事件在 <code>composing</code> 事件之后触发。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">listen</span>(<span class="title class_">Grid\Events\Fetching</span>::<span class="variable language_">class</span>, function (<span class="variable">$grid</span>) &#123;</span><br><span class="line">	  </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以在 composing 事件中使用</span></span><br><span class="line"><span class="title class_">Grid</span>::<span class="title function_ invoke__">composing</span>(function (Grid <span class="variable">$grid</span>) &#123;</span><br><span class="line">    <span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">listen</span>(<span class="title class_">Grid\Events\Fetching</span>::<span class="variable language_">class</span>, function (<span class="variable">$grid</span>) &#123;</span><br><span class="line">    	  </span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="Fetched"><a href="#Fetched" class="headerlink" title="Fetched"></a>Fetched</h3><p>监听表格获取数据之后事件，通过监听此事件可以批量修改数据, 参考下面实例</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">listen</span>(<span class="title class_">Grid\Events\Fetched</span>::<span class="variable language_">class</span>, function (<span class="variable">$grid</span>, Collection <span class="variable">$rows</span>) &#123;</span><br><span class="line">	<span class="comment">// $collection 当前这一个表格数据的模型集合， 你可以根据你的需要来读取或者修改它的数据。</span></span><br><span class="line"></span><br><span class="line">    <span class="variable">$rows</span>-&gt;<span class="title function_ invoke__">transform</span>(function (<span class="variable">$row</span>) &#123;</span><br><span class="line">        <span class="comment">// 更改行数据</span></span><br><span class="line">        <span class="variable">$row</span>[<span class="string">&#x27;name&#x27;</span>] = <span class="variable">$row</span>[<span class="string">&#x27;first_name&#x27;</span>].<span class="string">&#x27; &#x27;</span>.<span class="variable">$row</span>[<span class="string">&#x27;last_name&#x27;</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$row</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="ApplyFilter"><a href="#ApplyFilter" class="headerlink" title="ApplyFilter"></a>ApplyFilter</h3><p>监听表格过滤器搜索事件，此事件只有在过滤器有搜索条件时才会触发</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">listen</span>(<span class="title class_">Grid\Events\ApplyFilter</span>::<span class="variable language_">class</span>, function (<span class="variable">$grid</span>, <span class="keyword">array</span> <span class="variable">$conditions</span>) &#123;</span><br><span class="line">	<span class="comment">// $conditions 当前过滤器生成的搜索条件数组</span></span><br><span class="line"></span><br><span class="line">    <span class="title function_ invoke__">dd</span>(<span class="string">&#x27;表格过滤器&#x27;</span>, <span class="variable">$conditions</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="ApplyQuickSearch"><a href="#ApplyQuickSearch" class="headerlink" title="ApplyQuickSearch"></a>ApplyQuickSearch</h3><p>监听表格快捷搜索事件，此事件只有在快捷搜索输入框有值时才会触发</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">listen</span>(<span class="title class_">Grid\Events\ApplyQuickSearch</span>::<span class="variable language_">class</span>, function (<span class="variable">$grid</span>, <span class="variable">$input</span>) &#123;</span><br><span class="line">	<span class="comment">// $input 搜索关键字</span></span><br><span class="line"></span><br><span class="line">    <span class="title function_ invoke__">dd</span>(<span class="string">&#x27;表格快捷搜索&#x27;</span>, <span class="variable">$input</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="ApplySelector"><a href="#ApplySelector" class="headerlink" title="ApplySelector"></a>ApplySelector</h3><p>监听表格规格筛选器事件，此事件只有在规格筛选器选中选项时才会触发</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">listen</span>(<span class="title class_">Grid\Events\ApplySelector</span>::<span class="variable language_">class</span>, function (<span class="variable">$grid</span>, <span class="keyword">array</span> <span class="variable">$input</span>) &#123;</span><br><span class="line">	<span class="comment">// $input 筛选器选中的选项数组</span></span><br><span class="line"></span><br><span class="line">    <span class="title function_ invoke__">dd</span>(<span class="string">&#x27;表格规格筛选器&#x27;</span>, <span class="variable">$input</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="rows回调"><a href="#rows回调" class="headerlink" title="rows回调"></a>rows回调</h3><p>通过 <code>Grid::rows</code> 方法可以监听表格获取数据之后事件。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>\<span class="title">Row</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">Collection</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">rows</span>(function (Collection <span class="variable">$rows</span>) &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取第一行数据</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@var</span> Row $firstRow</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="variable">$firstRow</span> = <span class="variable">$rows</span>-&gt;<span class="title function_ invoke__">first</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置 tr html属性</span></span><br><span class="line">    <span class="variable">$firstRow</span>-&gt;<span class="title function_ invoke__">setAttributes</span>([<span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;....&#x27;</span>]);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$firstRow</span>) &#123;</span><br><span class="line">        <span class="comment">// 获取第一行的 id</span></span><br><span class="line">        <span class="variable">$id</span> = <span class="variable">$firstRow</span>-&gt;id;</span><br><span class="line">        <span class="comment">// 转化为数组</span></span><br><span class="line">        <span class="variable">$row</span> = <span class="variable">$firstRow</span>-&gt;<span class="title function_ invoke__">toArray</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/model-grid-events/" data-id="clpdpxfju001iywna0mog4liz" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/model-grid-filters/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/model-grid-export/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

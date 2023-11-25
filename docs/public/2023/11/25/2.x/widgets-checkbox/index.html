@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="单&#x2F;复选框单选框通过 Dcat\Admin\Widgets\Radio类可以很方便地快速构建单选框表单。 基本使用12345678910111213&lt;?phpuse Dcat\Admin\Widgets\Radio;&#x2F;&#x2F; 表单 name 属性$name &#x3D; &#x27;state&#x27;;&#x2F;&#x2F; 选项$options &#x3D; [   1 &#x3D;&gt; &#x27;未处理&#x27;,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/widgets-checkbox/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="单&#x2F;复选框单选框通过 Dcat\Admin\Widgets\Radio类可以很方便地快速构建单选框表单。 基本使用12345678910111213&lt;?phpuse Dcat\Admin\Widgets\Radio;&#x2F;&#x2F; 表单 name 属性$name &#x3D; &#x27;state&#x27;;&#x2F;&#x2F; 选项$options &#x3D; [   1 &#x3D;&gt; &#x27;未处理&#x27;,">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/img/screenshots/radio-1.png">
+<meta property="og:image" content="http://example.com/assets/img/screenshots/radio-2.png">
+<meta property="og:image" content="http://example.com/assets/img/screenshots/radio-3.png">
+<meta property="og:image" content="http://example.com/assets/img/screenshots/checkbox-1.png">
+<meta property="article:published_time" content="2023-11-25T07:16:44.990Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.990Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/img/screenshots/radio-1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/widgets-checkbox" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/widgets-checkbox/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.990Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="单-复选框"><a href="#单-复选框" class="headerlink" title="单&#x2F;复选框"></a>单&#x2F;复选框</h1><h2 id="单选框"><a href="#单选框" class="headerlink" title="单选框"></a>单选框</h2><p>通过 <code>Dcat\Admin\Widgets\Radio</code>类可以很方便地快速构建单选框表单。</p>
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Widgets</span>\<span class="title">Radio</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 表单 name 属性</span></span><br><span class="line"><span class="variable">$name</span> = <span class="string">&#x27;state&#x27;</span>;</span><br><span class="line"><span class="comment">// 选项</span></span><br><span class="line"><span class="variable">$options</span> = [</span><br><span class="line">   <span class="number">1</span> =&gt; <span class="string">&#x27;未处理&#x27;</span>,</span><br><span class="line">   <span class="number">2</span> =&gt; <span class="string">&#x27;已处理&#x27;</span>,</span><br><span class="line">   <span class="number">3</span> =&gt; <span class="string">&#x27;已拒绝&#x27;</span>,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="variable">$radio</span> = <span class="title class_">Radio</span>::<span class="title function_ invoke__">make</span>(<span class="variable">$name</span>, <span class="variable">$options</span>)-&gt;<span class="title function_ invoke__">check</span>(<span class="number">1</span>); <span class="comment">// 选中第一个选项</span></span><br></pre></td></tr></table></figure>
+
+<p>效果</p>
+<a href="/assets/img/screenshots/radio-1.png" target="_blank">
+    <img src="/assets/img/screenshots/radio-1.png"  style="box-shadow:0 1px 6px 1px rgba(0, 0, 0, 0.12)" >
+</a>
+
+<h3 id="显示在同一行-inline"><a href="#显示在同一行-inline" class="headerlink" title="显示在同一行 (inline)"></a>显示在同一行 (inline)</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Widgets</span>\<span class="title">Radio</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$name</span> = <span class="string">&#x27;state&#x27;</span>;</span><br><span class="line"><span class="variable">$options</span> = [</span><br><span class="line">   <span class="number">1</span> =&gt; <span class="string">&#x27;未处理&#x27;</span>,</span><br><span class="line">   <span class="number">2</span> =&gt; <span class="string">&#x27;已处理&#x27;</span>,</span><br><span class="line">   <span class="number">3</span> =&gt; <span class="string">&#x27;已拒绝&#x27;</span>,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="variable">$radio</span> = <span class="title class_">Radio</span>::<span class="title function_ invoke__">make</span>(<span class="variable">$name</span>, <span class="variable">$options</span>)-&gt;<span class="title function_ invoke__">check</span>(<span class="number">1</span>)-&gt;<span class="title function_ invoke__">inline</span>();</span><br></pre></td></tr></table></figure>
+<p>效果</p>
+<a href="/assets/img/screenshots/radio-2.png" target="_blank">
+    <img src="/assets/img/screenshots/radio-2.png"  style="box-shadow:0 1px 6px 1px rgba(0, 0, 0, 0.12)" >
+</a>
+
+<h3 id="设置禁选的选项-disable"><a href="#设置禁选的选项-disable" class="headerlink" title="设置禁选的选项 (disable)"></a>设置禁选的选项 (disable)</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Widgets</span>\<span class="title">Radio</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$name</span> = <span class="string">&#x27;state&#x27;</span>;</span><br><span class="line"><span class="variable">$options</span> = [</span><br><span class="line">   <span class="number">1</span> =&gt; <span class="string">&#x27;未处理&#x27;</span>,</span><br><span class="line">   <span class="number">2</span> =&gt; <span class="string">&#x27;已处理&#x27;</span>,</span><br><span class="line">   <span class="number">3</span> =&gt; <span class="string">&#x27;已拒绝&#x27;</span>,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="variable">$radio</span> = <span class="title class_">Radio</span>::<span class="title function_ invoke__">make</span>(<span class="variable">$name</span>, <span class="variable">$options</span>)-&gt;<span class="title function_ invoke__">inline</span>()-&gt;<span class="title function_ invoke__">disable</span>([<span class="number">2</span>, <span class="number">3</span>]);</span><br></pre></td></tr></table></figure>
+<p>效果</p>
+<a href="/assets/img/screenshots/radio-3.png" target="_blank">
+    <img src="/assets/img/screenshots/radio-3.png"  style="box-shadow:0 1px 6px 1px rgba(0, 0, 0, 0.12)" >
+</a>
+
+<h3 id="设置样式-style"><a href="#设置样式-style" class="headerlink" title="设置样式 (style)"></a>设置样式 (style)</h3><p>通过<code>style</code>方法可以设置单选框的样式，支持<code>primary</code>、<code>info</code>、<code>success</code>、<code>danger</code>。</p>
+<h3 id="设置尺寸"><a href="#设置尺寸" class="headerlink" title="设置尺寸"></a>设置尺寸</h3><p>单选框支持3中尺寸，使用方法如下</p>
+<p><code>small</code>设置为小尺寸</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$radio</span>-&gt;<span class="title function_ invoke__">small</span>();</span><br></pre></td></tr></table></figure>
+
+<p><code>large</code>设置为大尺寸</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$radio</span>-&gt;<span class="title function_ invoke__">large</span>();</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="复选框"><a href="#复选框" class="headerlink" title="复选框"></a>复选框</h2><p>通过 <code>Dcat\Admin\Widgets\Checkbox</code>类可以很方便地快速构建复选框表单，并且复选框类是属于<code>Radio</code>的子类，因此用法与<code>Radio</code>类基本一致。</p>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Widgets</span>\<span class="title">Checkbox</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 表单 name 属性，因为此处是多选，所以需要加上中括号</span></span><br><span class="line"><span class="variable">$name</span> = <span class="string">&#x27;hobbies[]&#x27;</span>;</span><br><span class="line"><span class="comment">// 选项</span></span><br><span class="line"><span class="variable">$options</span> = [</span><br><span class="line">   <span class="number">1</span> =&gt; <span class="string">&#x27;唱&#x27;</span>,</span><br><span class="line">   <span class="number">2</span> =&gt; <span class="string">&#x27;跳&#x27;</span>,</span><br><span class="line">   <span class="number">3</span> =&gt; <span class="string">&#x27;RAP&#x27;</span>,</span><br><span class="line">   <span class="number">4</span> =&gt; <span class="string">&#x27;打篮球&#x27;</span>,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="variable">$checkbox</span> = <span class="title class_">Checkbox</span>::<span class="title function_ invoke__">make</span>(<span class="variable">$name</span>, <span class="variable">$options</span>)</span><br><span class="line">    -&gt;<span class="title function_ invoke__">inline</span>()</span><br><span class="line">    -&gt;<span class="title function_ invoke__">check</span>([<span class="number">1</span>, <span class="number">2</span>]); <span class="comment">// 这里允许传递数组，默认选中多个选项</span></span><br></pre></td></tr></table></figure>
+
+<p>效果</p>
+<a href="/assets/img/screenshots/checkbox-1.png" target="_blank">
+    <img src="/assets/img/screenshots/checkbox-1.png"  style="box-shadow:0 1px 6px 1px rgba(0, 0, 0, 0.12)" >
+</a>
+
+<h3 id="全选"><a href="#全选" class="headerlink" title="全选"></a>全选</h3><p>通过<code>checkAll</code>方法可以选中全部选项。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Widgets</span>\<span class="title">Checkbox</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 表单 name 属性，因为此处是多选，所以需要加上中括号</span></span><br><span class="line"><span class="variable">$name</span> = <span class="string">&#x27;hobbies[]&#x27;</span>;</span><br><span class="line"><span class="comment">// 选项</span></span><br><span class="line"><span class="variable">$options</span> = [</span><br><span class="line">   <span class="number">1</span> =&gt; <span class="string">&#x27;唱&#x27;</span>,</span><br><span class="line">   <span class="number">2</span> =&gt; <span class="string">&#x27;跳&#x27;</span>,</span><br><span class="line">   <span class="number">3</span> =&gt; <span class="string">&#x27;RAP&#x27;</span>,</span><br><span class="line">   <span class="number">4</span> =&gt; <span class="string">&#x27;打篮球&#x27;</span>,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="variable">$checkbox</span> = <span class="title class_">Checkbox</span>::<span class="title function_ invoke__">make</span>(<span class="variable">$name</span>, <span class="variable">$options</span>)</span><br><span class="line">    -&gt;<span class="title function_ invoke__">inline</span>()</span><br><span class="line">    -&gt;<span class="title function_ invoke__">checkAll</span>(); <span class="comment">// 全部选中</span></span><br></pre></td></tr></table></figure>
+
+<p><code>checkAll</code>方法也允许全选的同时排除指定选项。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$checkbox</span> = <span class="title class_">Checkbox</span>::<span class="title function_ invoke__">make</span>(<span class="variable">$name</span>, <span class="variable">$options</span>)</span><br><span class="line">    -&gt;<span class="title function_ invoke__">inline</span>()</span><br><span class="line">    -&gt;<span class="title function_ invoke__">checkAll</span>([<span class="number">1</span>, <span class="number">3</span>]); <span class="comment">// 全部选中，但是排除key为1和3的选项</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="更多用法"><a href="#更多用法" class="headerlink" title="更多用法"></a>更多用法</h3><p>更多用法与<code>Radio</code>的用法一直，这里不再赘述。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/widgets-checkbox/" data-id="clpdpxfl1002hywnaekpd8s3w" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/widgets-charts/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/widgets-box/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

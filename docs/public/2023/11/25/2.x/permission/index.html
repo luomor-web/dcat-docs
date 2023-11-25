@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="权限控制Dcat Admin已经内置了RBAC权限控制模块，展开左侧边栏的Auth，下面有用户、角色、权限三项的管理面板，权限控制的使用如下： 路由控制在Dcat Admin中，权限和路由是绑定在一起的，在编辑权限页面里面设置当前权限能访问的路由，在HTTP方法select框中选择访问路由的方法，在HTTP路径中填写能访问的路径。 比如要添加一个权限，该权限可以以GET方式访问路径&#x2F;admin&#x2F;u">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/permission/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="权限控制Dcat Admin已经内置了RBAC权限控制模块，展开左侧边栏的Auth，下面有用户、角色、权限三项的管理面板，权限控制的使用如下： 路由控制在Dcat Admin中，权限和路由是绑定在一起的，在编辑权限页面里面设置当前权限能访问的路由，在HTTP方法select框中选择访问路由的方法，在HTTP路径中填写能访问的路径。 比如要添加一个权限，该权限可以以GET方式访问路径&#x2F;admin&#x2F;u">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-25T07:16:44.985Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.985Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/permission" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/permission/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.985Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="权限控制"><a href="#权限控制" class="headerlink" title="权限控制"></a>权限控制</h1><p><code>Dcat Admin</code>已经内置了<code>RBAC</code>权限控制模块，展开左侧边栏的<code>Auth</code>，下面有用户、角色、权限三项的管理面板，权限控制的使用如下：</p>
+<h3 id="路由控制"><a href="#路由控制" class="headerlink" title="路由控制"></a>路由控制</h3><p>在<code>Dcat Admin</code>中，权限和路由是绑定在一起的，在编辑权限页面里面设置当前权限能访问的路由，在<code>HTTP方法</code>select框中选择访问路由的方法，在<code>HTTP路径</code>中填写能访问的路径。</p>
+<p>比如要添加一个权限，该权限可以以<code>GET</code>方式访问路径<code>/admin/users</code>，那么<code>HTTP方法</code>选择<code>GET</code>，<code>HTTP路径</code>填写<code>/users</code>。</p>
+<p>如果要访问前缀是<code>/admin/users</code>的所有路径，那么<code>HTTP路径</code>填写<code>/users*</code>；如果要访问的是编辑页，那么<code>HTTP路径</code>填写<code>/users/*/edit</code>；如果多个路径中每个路径的方法不同，那么<code>HTTP路径</code>填写<code>GET:users/*</code>。</p>
+<p>如果上述的方法不能满足需求，<code>HTTP路径</code>还支持填写<strong>路由别名</strong>，如<code>admin.users.show</code></p>
+<h3 id="禁用权限功能"><a href="#禁用权限功能" class="headerlink" title="禁用权限功能"></a>禁用权限功能</h3><p>把<code>admin.permission.enable</code>配置参数的值设置为<code>false</code>可以完全禁用内置的权限系统。</p>
+<h3 id="超级管理员"><a href="#超级管理员" class="headerlink" title="超级管理员"></a>超级管理员</h3><p><code>Dcat Admin</code>中默认的角色 <code>administrator</code> 就是超级管理员角色，请勿更改标识，否则会变成普通角色。</p>
+<h3 id="跳过权限验证"><a href="#跳过权限验证" class="headerlink" title="跳过权限验证"></a>跳过权限验证</h3><p>可以把需要跳过权限验证的接口加入到配置文件<code>admin.permission.except</code>参数中</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;permission&#x27;</span> =&gt; [</span><br><span class="line">	<span class="comment">// Whether enable permission.</span></span><br><span class="line">	<span class="string">&#x27;enable&#x27;</span> =&gt; <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// All method to path like: auth/users/*/edit</span></span><br><span class="line">	<span class="comment">// or specific method to path like: get:auth/users.</span></span><br><span class="line">	<span class="string">&#x27;except&#x27;</span> =&gt; [</span><br><span class="line">		<span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">		<span class="string">&#x27;auth/login&#x27;</span>,</span><br><span class="line">		<span class="string">&#x27;auth/logout&#x27;</span>,</span><br><span class="line">		<span class="string">&#x27;auth/setting&#x27;</span>,</span><br><span class="line">	],</span><br><span class="line"></span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+
+<h3 id="页面控制"><a href="#页面控制" class="headerlink" title="页面控制"></a>页面控制</h3><p>如果你要在页面中控制用户的权限，可以参考下面的例子</p>
+<h4 id="场景1"><a href="#场景1" class="headerlink" title="场景1"></a>场景1</h4><p>比如现在有一个场景，对文章发布模块做权限管理，以创建文章为例</p>
+<p>首先创建一项权限，进入<code>http://localhost/admin/auth/permissions</code>，权限标识（slug）填写<code>create-post</code>，权限名称填写<code>创建文章</code>，这样权限就创建好了。</p>
+<p>第二步可以把这个权限直接附加给个人或者角色，在用户编辑页面可以直接把上面创建好的权限附加给当前编辑用户，也可以在编辑角色页面附加给某个角色。</p>
+<p>第三步，在创建文章控制器里面添加控制代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Auth</span>\<span class="title">Permission</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PostController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">create</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 检查权限，有create-post权限的用户或者角色可以访问创建文章页面</span></span><br><span class="line">        <span class="title class_">Permission</span>::<span class="title function_ invoke__">check</span>(<span class="string">&#x27;create-post&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样就完成了一个页面的权限控制。</p>
+<h4 id="场景2"><a href="#场景2" class="headerlink" title="场景2"></a>场景2</h4><p>如果你要在表格中控制用户对元素的显示，那么需要先定义两个权限，比如权限标示<code>delete-image</code>、和<code>view-title-column</code>分别用来控制有删除图片的权限和显示某一列的权限，把这两个权限赋给你设置的角色，然后在grid中加入代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">actions</span>(function (<span class="variable">$actions</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 没有`delete-image`权限的角色不显示删除按钮</span></span><br><span class="line">    <span class="keyword">if</span> (!<span class="title class_">Admin</span>::<span class="title function_ invoke__">user</span>()-&gt;<span class="title function_ invoke__">can</span>(<span class="string">&#x27;delete-image&#x27;</span>)) &#123;</span><br><span class="line">        <span class="variable">$actions</span>-&gt;<span class="title function_ invoke__">disableDelete</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 只有具有`view-title-column`权限的用户才能显示`title`这一列</span></span><br><span class="line"><span class="keyword">if</span> (<span class="title class_">Admin</span>::<span class="title function_ invoke__">user</span>()-&gt;<span class="title function_ invoke__">can</span>(<span class="string">&#x27;view-title-column&#x27;</span>)) &#123;</span><br><span class="line">    <span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;title&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="相关方法"><a href="#相关方法" class="headerlink" title="相关方法"></a>相关方法</h3><p>获取当前用户对象</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">user</span>();</span><br></pre></td></tr></table></figure>
+
+<p>获取当前用户id</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">user</span>()-&gt;id;</span><br></pre></td></tr></table></figure>
+
+<p>获取用户角色</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">user</span>()-&gt;roles;</span><br></pre></td></tr></table></figure>
+
+<p>获取用户的权限</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">user</span>()-&gt;permissions;</span><br></pre></td></tr></table></figure>
+
+<p>用户是否某个角色</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">user</span>()-&gt;<span class="title function_ invoke__">isRole</span>(<span class="string">&#x27;developer&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>是否有某个权限</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">user</span>()-&gt;<span class="title function_ invoke__">can</span>(<span class="string">&#x27;create-post&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>是否没有某个权限</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">user</span>()-&gt;<span class="title function_ invoke__">cannot</span>(<span class="string">&#x27;delete-post&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>是否是超级管理员</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">user</span>()-&gt;<span class="title function_ invoke__">isAdministrator</span>();</span><br></pre></td></tr></table></figure>
+
+<p>是否是其中的角色</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">user</span>()-&gt;<span class="title function_ invoke__">inRoles</span>([<span class="string">&#x27;editor&#x27;</span>, <span class="string">&#x27;developer&#x27;</span>]);</span><br></pre></td></tr></table></figure>
+
+<h3 id="权限中间件"><a href="#权限中间件" class="headerlink" title="权限中间件"></a>权限中间件</h3><p>可以在路由配置上结合权限中间件来控制路由的权限</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 允许administrator、editor两个角色访问group里面的路由</span></span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">group</span>([</span><br><span class="line">    <span class="string">&#x27;middleware&#x27;</span> =&gt; <span class="string">&#x27;admin.permission:allow,administrator,editor&#x27;</span>,</span><br><span class="line">], function (<span class="variable">$router</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$router</span>-&gt;<span class="title function_ invoke__">resource</span>(<span class="string">&#x27;users&#x27;</span>, <span class="title class_">UserController</span>::<span class="variable language_">class</span>);</span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 禁止developer、operator两个角色访问group里面的路由</span></span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">group</span>([</span><br><span class="line">    <span class="string">&#x27;middleware&#x27;</span> =&gt; <span class="string">&#x27;admin.permission:deny,developer,operator&#x27;</span>,</span><br><span class="line">], function (<span class="variable">$router</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$router</span>-&gt;<span class="title function_ invoke__">resource</span>(<span class="string">&#x27;users&#x27;</span>, <span class="title class_">UserController</span>::<span class="variable language_">class</span>);</span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 有edit-post、create-post、delete-post三个权限的用户可以访问group里面的路由</span></span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">group</span>([</span><br><span class="line">    <span class="string">&#x27;middleware&#x27;</span> =&gt; <span class="string">&#x27;admin.permission:check,edit-post,create-post,delete-post&#x27;</span>,</span><br><span class="line">], function (<span class="variable">$router</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$router</span>-&gt;<span class="title function_ invoke__">resource</span>(<span class="string">&#x27;posts&#x27;</span>, <span class="title class_">PostController</span>::<span class="variable language_">class</span>);</span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>权限中间件和其它中间件使用方法一致。</p>
+<h3 id="为何配置了角色和权限，依然提示无权访问？"><a href="#为何配置了角色和权限，依然提示无权访问？" class="headerlink" title="为何配置了角色和权限，依然提示无权访问？"></a>为何配置了角色和权限，依然提示无权访问？</h3><p>这个原因可能是由于权限的<code>URL</code>路径配置错误导致的，正确的包含增删改查功能的<code>URL</code>配置应该是<code>auth/users*</code>这样的，如果你配置成了<code>auth/users/*</code>，那么就会提示无权访问。</p>
+<blockquote>
+<p>{tip} 另外标签表单填写自定义URL有两种方法：一种是选中后按<code>删除键</code>进行更改；另一种是填写后按<code>空格键</code> + <code>回车键</code>。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/permission/" data-id="clpdpxfkv0026ywnagqq20h7l" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/response/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/qa/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

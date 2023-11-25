@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="分步表单安装前往https:&#x2F;&#x2F;github.com&#x2F;dcat-admin&#x2F;form-step下载分步表单扩展，然后安装并启用。  {tip} 扩展安装请参考文档扩展基本使用章节。  简单示例12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/model-form-step/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="分步表单安装前往https:&#x2F;&#x2F;github.com&#x2F;dcat-admin&#x2F;form-step下载分步表单扩展，然后安装并启用。  {tip} 扩展安装请参考文档扩展基本使用章节。  简单示例12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/img/screenshots/step-form-1.png">
+<meta property="article:published_time" content="2023-11-25T07:16:44.965Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.966Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/img/screenshots/step-form-1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/model-form-step" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/model-form-step/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.965Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="分步表单"><a href="#分步表单" class="headerlink" title="分步表单"></a>分步表单</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>前往<a target="_blank" rel="noopener" href="https://github.com/dcat-admin/form-step">https://github.com/dcat-admin/form-step</a>下载分步表单扩展，然后安装并启用。</p>
+<blockquote>
+<p>{tip} 扩展安装请参考文档<a href="extension-f.md">扩展基本使用</a>章节。</p>
+</blockquote>
+<h2 id="简单示例"><a href="#简单示例" class="headerlink" title="简单示例"></a>简单示例</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">form</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Form</span>::<span class="title function_ invoke__">make</span>(<span class="keyword">new</span> <span class="title class_">Model</span>(), <span class="function"><span class="keyword">function</span> (<span class="params">Form <span class="variable">$form</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">title</span>(<span class="string">&#x27;分步表单&#x27;</span>);</span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">action</span>(<span class="string">&#x27;step&#x27;</span>);</span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">disableListButton</span>();</span><br><span class="line">    </span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">multipleSteps</span>()</span><br><span class="line">            -&gt;<span class="title function_ invoke__">remember</span>() <span class="comment">// 记住表单步骤，默认不开启</span></span><br><span class="line">            -&gt;<span class="title function_ invoke__">width</span>(<span class="string">&#x27;950px&#x27;</span>)</span><br><span class="line">            -&gt;<span class="title function_ invoke__">add</span>(<span class="string">&#x27;基本信息&#x27;</span>, function (<span class="variable">$step</span>) &#123;</span><br><span class="line">                <span class="variable">$info</span> = <span class="string">&#x27;&lt;i class=&quot;fa fa-exclamation-circle&quot;&gt;&lt;/i&gt; 表单字段支持前端验证和后端验证混用，前端验证支持H5表单验证以及自定义验证。&#x27;</span>;</span><br><span class="line">    </span><br><span class="line">                <span class="variable">$step</span>-&gt;<span class="title function_ invoke__">html</span>(<span class="title class_">Alert</span>::<span class="title function_ invoke__">make</span>(<span class="variable">$info</span>)-&gt;<span class="title function_ invoke__">info</span>());</span><br><span class="line">    </span><br><span class="line">                <span class="variable">$step</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;姓名&#x27;</span>)-&gt;<span class="title function_ invoke__">required</span>()-&gt;<span class="title function_ invoke__">maxLength</span>(<span class="number">20</span>);</span><br><span class="line">                <span class="comment">// h5 表单验证</span></span><br><span class="line">                <span class="variable">$step</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;age&#x27;</span>, <span class="string">&#x27;年龄&#x27;</span>)</span><br><span class="line">                    -&gt;<span class="title function_ invoke__">required</span>()</span><br><span class="line">                    -&gt;<span class="title function_ invoke__">type</span>(<span class="string">&#x27;number&#x27;</span>)</span><br><span class="line">                    -&gt;<span class="title function_ invoke__">attribute</span>(<span class="string">&#x27;max&#x27;</span>, <span class="number">150</span>)</span><br><span class="line">                    -&gt;<span class="title function_ invoke__">help</span>(<span class="string">&#x27;前端验证&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">                <span class="variable">$step</span>-&gt;<span class="title function_ invoke__">radio</span>(<span class="string">&#x27;sex&#x27;</span>, <span class="string">&#x27;性别&#x27;</span>)-&gt;<span class="title function_ invoke__">options</span>([<span class="string">&#x27;未知&#x27;</span>, <span class="string">&#x27;男&#x27;</span>, <span class="string">&#x27;女&#x27;</span>])-&gt;<span class="keyword">default</span>(<span class="number">0</span>);</span><br><span class="line">    </span><br><span class="line">                <span class="comment">// 后端验证</span></span><br><span class="line">                <span class="variable">$step</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;birthplace&#x27;</span>, <span class="string">&#x27;籍贯&#x27;</span>)</span><br><span class="line">                    -&gt;<span class="title function_ invoke__">rules</span>(<span class="string">&#x27;required&#x27;</span>)</span><br><span class="line">                    -&gt;<span class="title function_ invoke__">help</span>(<span class="string">&#x27;演示后端字段验证&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">                <span class="variable">$step</span>-&gt;<span class="title function_ invoke__">url</span>(<span class="string">&#x27;homepage&#x27;</span>, <span class="string">&#x27;个人主页&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">                <span class="variable">$step</span>-&gt;<span class="title function_ invoke__">textarea</span>(<span class="string">&#x27;description&#x27;</span>, <span class="string">&#x27;简介&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">            &#125;)</span><br><span class="line">            -&gt;<span class="title function_ invoke__">add</span>(<span class="string">&#x27;兴趣爱好&#x27;</span>, function (<span class="variable">$step</span>) &#123;</span><br><span class="line">                <span class="variable">$step</span>-&gt;<span class="title function_ invoke__">tags</span>(<span class="string">&#x27;hobbies&#x27;</span>, <span class="string">&#x27;爱好&#x27;</span>)</span><br><span class="line">                    -&gt;<span class="title function_ invoke__">options</span>([<span class="string">&#x27;唱&#x27;</span>, <span class="string">&#x27;跳&#x27;</span>, <span class="string">&#x27;RAP&#x27;</span>, <span class="string">&#x27;踢足球&#x27;</span>])</span><br><span class="line">                    -&gt;<span class="title function_ invoke__">required</span>();</span><br><span class="line">    </span><br><span class="line">                <span class="variable">$step</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;books&#x27;</span>, <span class="string">&#x27;书籍&#x27;</span>);</span><br><span class="line">                <span class="variable">$step</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;music&#x27;</span>, <span class="string">&#x27;音乐&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">                <span class="comment">// 事件</span></span><br><span class="line">                <span class="variable">$step</span>-&gt;<span class="title function_ invoke__">shown</span>(function () &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="string">&lt;&lt;&lt;JS</span></span><br><span class="line"><span class="string">    Dcat.info(&#x27;兴趣爱好&#x27;);</span></span><br><span class="line"><span class="string">    console.log(&#x27;兴趣爱好&#x27;, args);</span></span><br><span class="line"><span class="string">    JS</span>;</span><br><span class="line">                &#125;);</span><br><span class="line">    </span><br><span class="line">            &#125;)</span><br><span class="line">            -&gt;<span class="title function_ invoke__">add</span>(<span class="string">&#x27;地址&#x27;</span>, function (<span class="variable">$step</span>) &#123;</span><br><span class="line">                <span class="variable">$step</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;address&#x27;</span>, <span class="string">&#x27;街道地址&#x27;</span>);</span><br><span class="line">                <span class="variable">$step</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;post_code&#x27;</span>, <span class="string">&#x27;邮政编码&#x27;</span>);</span><br><span class="line">                <span class="variable">$step</span>-&gt;<span class="title function_ invoke__">tel</span>(<span class="string">&#x27;tel&#x27;</span>, <span class="string">&#x27; 联系电话&#x27;</span>);</span><br><span class="line">            &#125;)</span><br><span class="line">            -&gt;<span class="title function_ invoke__">done</span>(function () <span class="keyword">use</span> ($<span class="title">form</span>) &#123;</span><br><span class="line">                $<span class="title">resource</span> = $<span class="title">form</span>-&gt;<span class="title">getResource</span>(0);</span><br><span class="line">    </span><br><span class="line">                <span class="variable">$data</span> = [</span><br><span class="line">                    <span class="string">&#x27;title&#x27;</span>       =&gt; <span class="string">&#x27;操作成功&#x27;</span>,</span><br><span class="line">                    <span class="string">&#x27;description&#x27;</span> =&gt; <span class="string">&#x27;恭喜您成为第10086位用户&#x27;</span>,</span><br><span class="line">                    <span class="string">&#x27;createUrl&#x27;</span>   =&gt; <span class="variable">$resource</span>,</span><br><span class="line">                    <span class="string">&#x27;backUrl&#x27;</span>     =&gt; <span class="variable">$resource</span>,</span><br><span class="line">                ];</span><br><span class="line">    </span><br><span class="line">                <span class="keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="string">&#x27;admin::form.done-step&#x27;</span>, <span class="variable">$data</span>);</span><br><span class="line">            &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果</p>
+<a href="/assets/img/screenshots/step-form-1.png" target="_blank">
+    <img style="box-shadow:0 1px 6px 1px rgba(0, 0, 0, 0.12)" width="100%" src="/assets/img/screenshots/step-form-1.png">
+</a>
+
+<h2 id="运行逻辑"><a href="#运行逻辑" class="headerlink" title="运行逻辑"></a>运行逻辑</h2><p>分步表单的使用很简单，运行逻辑也与普通表单没有太大区别，下面简单说说分步表单的运行逻辑。</p>
+<blockquote>
+<p>{tip} 分步表单没有 <code>update</code> 的概念。</p>
+</blockquote>
+<h4 id="参数验证"><a href="#参数验证" class="headerlink" title="参数验证"></a>参数验证</h4><p>当用户点击 <code>下一步</code> 时，会向后端发起请求验证参数是否正确，如果参数不符合要求则显示错误信息，验证通过才会进入下一个步骤。</p>
+<h4 id="表单提交"><a href="#表单提交" class="headerlink" title="表单提交"></a>表单提交</h4><p>当进行到最后一步时，会对所有步骤的表单参数一起提交到后端并进行验证，如果参数不符合要求则显示错误信息，验证通过则保存表单数据，保存的方法与普通表单完全一致。</p>
+<blockquote>
+<p>{tip} 最后保存表单的方法是 <code>Form::store</code>。</p>
+</blockquote>
+<h4 id="完成页面"><a href="#完成页面" class="headerlink" title="完成页面"></a>完成页面</h4><p>表单保存完成之后会显示完成页面，此步骤无法忽略。</p>
+<h2 id="编辑表单"><a href="#编辑表单" class="headerlink" title="编辑表单"></a>编辑表单</h2><p>分步表单默认是没有编辑功能的，用户输入了长步骤的表单之后不需要再分步编辑，因此如果需要对分步表单进行编辑，可以参考以下方式</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">form</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Form</span>::<span class="title function_ invoke__">make</span>(<span class="keyword">new</span> <span class="title class_">MyRepository</span>(), <span class="function"><span class="keyword">function</span> (<span class="params">Form <span class="variable">$form</span></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 判断是否是编辑页面</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$form</span>-&gt;<span class="title function_ invoke__">isEditing</span>()) &#123;</span><br><span class="line">            <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;age&#x27;</span>, <span class="string">&#x27;年龄&#x27;</span>)</span><br><span class="line">                 -&gt;<span class="title function_ invoke__">required</span>()</span><br><span class="line">                 -&gt;<span class="title function_ invoke__">type</span>(<span class="string">&#x27;number&#x27;</span>)</span><br><span class="line">                 -&gt;<span class="title function_ invoke__">attribute</span>(<span class="string">&#x27;max&#x27;</span>, <span class="number">150</span>)</span><br><span class="line">                 -&gt;<span class="title function_ invoke__">help</span>(<span class="string">&#x27;前端验证&#x27;</span>)</span><br><span class="line">        </span><br><span class="line">            ...</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">multipleSteps</span>()</span><br><span class="line">            -&gt;<span class="title function_ invoke__">remember</span>()</span><br><span class="line">            -&gt;<span class="title function_ invoke__">width</span>(<span class="string">&#x27;950px&#x27;</span>)</span><br><span class="line">            -&gt;<span class="title function_ invoke__">add</span>(<span class="string">&#x27;基本信息&#x27;</span>, function (Form\StepForm <span class="variable">$step</span>) &#123;</span><br><span class="line">                <span class="variable">$info</span> = <span class="string">&#x27;&lt;i class=&quot;fa fa-exclamation-circle&quot;&gt;&lt;/i&gt; 表单字段支持前端验证和后端验证混用，前端验证支持H5表单验证以及自定义验证。&#x27;</span>;</span><br><span class="line">    </span><br><span class="line">                <span class="variable">$step</span>-&gt;<span class="title function_ invoke__">html</span>(<span class="title class_">Alert</span>::<span class="title function_ invoke__">make</span>(<span class="variable">$info</span>)-&gt;<span class="title function_ invoke__">info</span>());</span><br><span class="line">    </span><br><span class="line">                <span class="variable">$step</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;姓名&#x27;</span>)-&gt;<span class="title function_ invoke__">required</span>()-&gt;<span class="title function_ invoke__">maxLength</span>(<span class="number">20</span>);</span><br><span class="line">                <span class="comment">// h5 表单验证</span></span><br><span class="line">                <span class="variable">$step</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;age&#x27;</span>, <span class="string">&#x27;年龄&#x27;</span>)</span><br><span class="line">                    -&gt;<span class="title function_ invoke__">required</span>()</span><br><span class="line">                    -&gt;<span class="title function_ invoke__">type</span>(<span class="string">&#x27;number&#x27;</span>)</span><br><span class="line">                    -&gt;<span class="title function_ invoke__">attribute</span>(<span class="string">&#x27;max&#x27;</span>, <span class="number">150</span>)</span><br><span class="line">                    -&gt;<span class="title function_ invoke__">help</span>(<span class="string">&#x27;前端验证&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">                <span class="variable">$step</span>-&gt;<span class="title function_ invoke__">radio</span>(<span class="string">&#x27;sex&#x27;</span>, <span class="string">&#x27;性别&#x27;</span>)-&gt;<span class="title function_ invoke__">options</span>([<span class="string">&#x27;未知&#x27;</span>, <span class="string">&#x27;男&#x27;</span>, <span class="string">&#x27;女&#x27;</span>])-&gt;<span class="keyword">default</span>(<span class="number">0</span>);</span><br><span class="line">    </span><br><span class="line">                ...</span><br><span class="line">    </span><br><span class="line">            &#125;)</span><br><span class="line">            -&gt;<span class="title function_ invoke__">add</span>(<span class="string">&#x27;兴趣爱好&#x27;</span>, function (Form\StepForm <span class="variable">$step</span>) &#123;</span><br><span class="line">                ...</span><br><span class="line">            &#125;)</span><br><span class="line">            -&gt;<span class="title function_ invoke__">done</span>(function () <span class="keyword">use</span> ($<span class="title">form</span>) &#123;</span><br><span class="line">                ...</span><br><span class="line">            &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="功能接口"><a href="#功能接口" class="headerlink" title="功能接口"></a>功能接口</h2><h3 id="设置容器最大宽度"><a href="#设置容器最大宽度" class="headerlink" title="设置容器最大宽度"></a>设置容器最大宽度</h3><p>默认 <code>1000px</code>。</p>
+<blockquote>
+<p>{tip} 此方法只针对大屏幕，手机端页面会自动调节大小。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">multipleSteps</span>()-&gt;<span class="title function_ invoke__">width</span>(<span class="string">&#x27;900px&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="记住表单数据"><a href="#记住表单数据" class="headerlink" title="记住表单数据"></a>记住表单数据</h3><p>开启此功能之后，当用户点击 <code>下一步</code> 按钮并且参数验证通过后，会把表单数据保存在 <code>session</code> 中，直到整个分步表单保存完毕之后才会销毁。</p>
+<blockquote>
+<p>{tip} 此功能默认不开启。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开启</span></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">multipleSteps</span>()-&gt;<span class="title function_ invoke__">remember</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 关闭</span></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">multipleSteps</span>()-&gt;<span class="title function_ invoke__">remember</span>(<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置容器间距"><a href="#设置容器间距" class="headerlink" title="设置容器间距"></a>设置容器间距</h3><p>默认值 <code>30px 18px 30px</code>。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">multipleSteps</span>()-&gt;<span class="title function_ invoke__">padding</span>(<span class="string">&#x27;30px 18px 30px&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="监听页面离开事件"><a href="#监听页面离开事件" class="headerlink" title="监听页面离开事件"></a>监听页面离开事件</h3><p>监听所有步骤表单页面离开事件，可添加多个。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">multipleSteps</span>()-&gt;<span class="title function_ invoke__">leaving</span>(<span class="string">&lt;&lt;&lt;JS</span></span><br><span class="line"><span class="string">     // 获取当前页面的步骤索引</span></span><br><span class="line"><span class="string">     var index = args.index; </span></span><br><span class="line"><span class="string">                 </span></span><br><span class="line"><span class="string">     Dcat.info(&quot;你将要离开第 &quot; + (index + 1) + &quot; 个页面&quot;);</span></span><br><span class="line"><span class="string">     </span></span><br><span class="line"><span class="string">     // args变量是一个js对象，包含当前事件对象、当前步骤选项、表单对象和表单值等字段。</span></span><br><span class="line"><span class="string">     console.log(&quot;leaving&quot;, args);</span></span><br><span class="line"><span class="string">     </span></span><br><span class="line"><span class="string">     // 获取当前事件对象</span></span><br><span class="line"><span class="string">     var evt = args.event;</span></span><br><span class="line"><span class="string">     // 获取步骤表单标题tap对象</span></span><br><span class="line"><span class="string">     var tab = args.tab;</span></span><br><span class="line"><span class="string">     // 获取动向是前往上一步还是下一步页面：&quot;forward&quot;、&quot;backward&quot;</span></span><br><span class="line"><span class="string">     var direction = args.direction;</span></span><br><span class="line"><span class="string">     // 获取当前步骤的表单JQ对象</span></span><br><span class="line"><span class="string">     var <span class="subst">$form</span> = args.form;</span></span><br><span class="line"><span class="string">     // 获取当前步骤页的表单值</span></span><br><span class="line"><span class="string">     var formArray = args.formArray;</span></span><br><span class="line"><span class="string">     </span></span><br><span class="line"><span class="string">     // 获取指定步骤的表单JQ对象</span></span><br><span class="line"><span class="string">     var <span class="subst">$firstForm</span> = args.getForm(0);</span></span><br><span class="line"><span class="string">     // 获取指定步骤的表单值</span></span><br><span class="line"><span class="string">     var firstFormArray = args.getFormArray(0);</span></span><br><span class="line"><span class="string">     </span></span><br><span class="line"><span class="string">     // 停止离开当前页面</span></span><br><span class="line"><span class="string">     return false;</span></span><br><span class="line"><span class="string">JS</span>    </span><br><span class="line">)-&gt;<span class="title function_ invoke__">leaving</span>(...);</span><br></pre></td></tr></table></figure>
+
+<h3 id="监听页面显示事件"><a href="#监听页面显示事件" class="headerlink" title="监听页面显示事件"></a>监听页面显示事件</h3><p>监听所有步骤表单页面显示事件，可添加多个。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">multipleSteps</span>()-&gt;<span class="title function_ invoke__">shown</span>(<span class="string">&lt;&lt;&lt;JS</span></span><br><span class="line"><span class="string">     // 获取当前页面的步骤索引</span></span><br><span class="line"><span class="string">     var index = args.index; </span></span><br><span class="line"><span class="string">                 </span></span><br><span class="line"><span class="string">     Dcat.info(&quot;当前显示的是第 &quot; + (index + 1) + &quot; 个页面&quot;);</span></span><br><span class="line"><span class="string">     </span></span><br><span class="line"><span class="string">     // args变量的值与“leaving”事件的值相同。</span></span><br><span class="line"><span class="string">     console.log(&quot;shown&quot;, args);</span></span><br><span class="line"><span class="string">JS</span>    </span><br><span class="line">)-&gt;<span class="title function_ invoke__">shown</span>(...);</span><br></pre></td></tr></table></figure>
+
+<h3 id="增加步骤表单"><a href="#增加步骤表单" class="headerlink" title="增加步骤表单"></a>增加步骤表单</h3><p>步骤表单支持所有表单字段。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Form</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">multipleSteps</span>()-&gt;<span class="title function_ invoke__">add</span>(<span class="string">&#x27;标题&#x27;</span>, function (Form\StepForm <span class="variable">$step</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$step</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;username&#x27;</span>)-&gt;<span class="title function_ invoke__">rules</span>(<span class="string">&#x27;required&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">    ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="监听步骤页面离开事件"><a href="#监听步骤页面离开事件" class="headerlink" title="监听步骤页面离开事件"></a>监听步骤页面离开事件</h4><p>监听当前步骤页面离开事件，支持监听多次。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Form</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">multipleSteps</span>()-&gt;<span class="title function_ invoke__">add</span>(<span class="string">&#x27;基本信息&#x27;</span>, function (Form\StepForm <span class="variable">$step</span>) &#123;</span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">    <span class="variable">$step</span>-&gt;<span class="title function_ invoke__">leaving</span>(<span class="string">&lt;&lt;&lt;JS</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Dcat.info(&quot;你将要离开 基本信息 页面&quot;);</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    // args变量是一个js对象，包含当前事件对象、当前步骤选项、表单对象和表单值等字段。</span></span><br><span class="line"><span class="string">    console.log(&quot;离开 基本信息&quot;, args);</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    // 获取当前事件对象</span></span><br><span class="line"><span class="string">    var evt = args.event;</span></span><br><span class="line"><span class="string">    // 获取当前页面的步骤索引</span></span><br><span class="line"><span class="string">    var index = args.index;</span></span><br><span class="line"><span class="string">    // 获取步骤表单标题tap对象</span></span><br><span class="line"><span class="string">    var tab = args.tab;</span></span><br><span class="line"><span class="string">    // 获取动向是前往上一步还是下一步页面：&quot;forward&quot;、&quot;backward&quot;</span></span><br><span class="line"><span class="string">    var direction = args.direction;</span></span><br><span class="line"><span class="string">    // 获取当前步骤的表单JQ对象</span></span><br><span class="line"><span class="string">    var <span class="subst">$form</span> = args.form;</span></span><br><span class="line"><span class="string">    // 获取当前步骤页的表单值</span></span><br><span class="line"><span class="string">    var formArray = args.formArray;</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    // 获取指定步骤的表单JQ对象</span></span><br><span class="line"><span class="string">    var <span class="subst">$firstForm</span> = args.getForm(0);</span></span><br><span class="line"><span class="string">    // 获取指定步骤的表单值</span></span><br><span class="line"><span class="string">    var firstFormArray = args.getFormArray(0);</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    // 停止离开当前页面</span></span><br><span class="line"><span class="string">    return false;</span></span><br><span class="line"><span class="string">JS</span>    </span><br><span class="line">    );</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 监听多次</span></span><br><span class="line">    <span class="variable">$step</span>-&gt;<span class="title function_ invoke__">leaving</span>(...);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="监听步骤页面显示事件"><a href="#监听步骤页面显示事件" class="headerlink" title="监听步骤页面显示事件"></a>监听步骤页面显示事件</h4><p>监听当前步骤页面显示事件，支持监听多次。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Form</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">multipleSteps</span>()-&gt;<span class="title function_ invoke__">add</span>(<span class="string">&#x27;基本信息&#x27;</span>, function (Form\StepForm <span class="variable">$step</span>) &#123;</span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">    <span class="variable">$step</span>-&gt;<span class="title function_ invoke__">shown</span>(<span class="string">&lt;&lt;&lt;JS</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Dcat.info(&quot;当前步骤是 基本信息&quot;);</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    // args变量的值与“leaving”事件的值相同。</span></span><br><span class="line"><span class="string">    console.log(&quot;显示 基本信息&quot;, args);</span></span><br><span class="line"><span class="string">JS</span>    </span><br><span class="line">    );</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 监听多次</span></span><br><span class="line">    <span class="variable">$step</span>-&gt;<span class="title function_ invoke__">shown</span>(...);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置完成页面"><a href="#设置完成页面" class="headerlink" title="设置完成页面"></a>设置完成页面</h3><p>当所有步骤都完成之后会显示完成页面，系统提供一个默认的完成页面，开发者也可以通过以下方法自定义完成页面要显示的内容。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Form</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">multipleSteps</span>()-&gt;<span class="title function_ invoke__">done</span>(function (Form\DoneStep <span class="variable">$done</span>) &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 获取新增ID</span></span><br><span class="line">    <span class="comment">// 由 Repository::store 返回的值</span></span><br><span class="line">    <span class="variable">$newId</span> = <span class="variable">$done</span>-&gt;<span class="title function_ invoke__">getNewId</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 返回你要显示的内容，可以使一个视图也可以是一个字符串。</span></span><br><span class="line">    <span class="keyword">return</span> <span class="title function_ invoke__">view</span>(...);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/model-form-step/" data-id="clpdpxfjg0013ywna0hifa2ei" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/model-form-modal/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/model-form-fields/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

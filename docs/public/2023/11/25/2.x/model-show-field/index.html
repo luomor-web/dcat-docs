@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="字段显示HTML通过html方法可以在详情页插入一段不显示label的HTML代码 1234567891011121314&#x2F;&#x2F; 传入字符串$show-&gt;html(&#x27;&lt;br&#x2F;&gt;&#x27;);&#x2F;&#x2F; 传入视图$show-&gt;html(view(...));&#x2F;&#x2F; 传入闭包$show-&gt;html(function () &#123;	&#x2F;&#x2F; 获取字段信息	$id &#x3D; $">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/model-show-field/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="字段显示HTML通过html方法可以在详情页插入一段不显示label的HTML代码 1234567891011121314&#x2F;&#x2F; 传入字符串$show-&gt;html(&#x27;&lt;br&#x2F;&gt;&#x27;);&#x2F;&#x2F; 传入视图$show-&gt;html(view(...));&#x2F;&#x2F; 传入闭包$show-&gt;html(function () &#123;	&#x2F;&#x2F; 获取字段信息	$id &#x3D; $">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-25T07:16:44.980Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.980Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/model-show-field" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/model-show-field/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.980Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="字段显示"><a href="#字段显示" class="headerlink" title="字段显示"></a>字段显示</h1><h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><p>通过<code>html</code>方法可以在详情页插入一段不显示<code>label</code>的<code>HTML</code>代码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 传入字符串</span></span><br><span class="line"><span class="variable">$show</span>-&gt;<span class="title function_ invoke__">html</span>(<span class="string">&#x27;&lt;br/&gt;&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 传入视图</span></span><br><span class="line"><span class="variable">$show</span>-&gt;<span class="title function_ invoke__">html</span>(<span class="title function_ invoke__">view</span>(...));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 传入闭包</span></span><br><span class="line"><span class="variable">$show</span>-&gt;<span class="title function_ invoke__">html</span>(function () &#123;</span><br><span class="line">	<span class="comment">// 获取字段信息</span></span><br><span class="line">	<span class="variable">$id</span> = <span class="variable language_">$this</span>-&gt;id;</span><br><span class="line">	<span class="variable">$username</span> = <span class="variable language_">$this</span>-&gt;username;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="title function_ invoke__">view</span>(..., [<span class="string">&#x27;id&#x27;</span> =&gt; <span class="variable">$id</span>]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h3><p>如果要在字段之间添加一条分隔线：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$show</span>-&gt;<span class="title function_ invoke__">divider</span>();</span><br></pre></td></tr></table></figure>
+
+<h3 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h3><p>如果要在字段之间使用换行：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$show</span>-&gt;<span class="title function_ invoke__">newline</span>();</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改显示内容"><a href="#修改显示内容" class="headerlink" title="修改显示内容"></a>修改显示内容</h3><p>用下面的方法修改显示内容</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$show</span>-&gt;<span class="title function_ invoke__">title</span>()-&gt;<span class="keyword">as</span>(<span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$title</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 获取当前行的其他字段</span></span><br><span class="line">    <span class="variable">$username</span> = <span class="variable language_">$this</span>-&gt;username;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;&lt;<span class="subst">&#123;$title&#125;</span>&gt; <span class="subst">&#123;$username&#125;</span>&quot;</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable">$show</span>-&gt;<span class="title function_ invoke__">contents</span>()-&gt;<span class="keyword">as</span>(<span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$content</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;&lt;pre&gt;<span class="subst">&#123;$content&#125;</span>&lt;/pre&gt;&quot;</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="帮助方法"><a href="#帮助方法" class="headerlink" title="帮助方法"></a>帮助方法</h3><p>帮助方法与数据表格字段帮助方法使用一致，可参考<a href="model-grid-column.md#help">帮助方法</a>。</p>
+<h3 id="内置显示扩展方法"><a href="#内置显示扩展方法" class="headerlink" title="内置显示扩展方法"></a>内置显示扩展方法</h3><p>下面是通过as方法内置实现的几个常用的显示样式：</p>
+<h4 id="view"><a href="#view" class="headerlink" title="view"></a>view</h4><p><code>view</code>方法可以引入一个视图文件。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 模板中接收以下三个变量：</span></span><br><span class="line"><span class="comment">// name 字段名称</span></span><br><span class="line"><span class="comment">// value 字段值</span></span><br><span class="line"><span class="comment">// model 当前行数据</span></span><br><span class="line"><span class="variable">$show</span>-&gt;content-&gt;<span class="title function_ invoke__">view</span>(<span class="string">&#x27;admin.fields.content&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="explode"><a href="#explode" class="headerlink" title="explode"></a>explode</h4><p><code>explode</code>方法可以把字符串分割为数组。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$show</span>-&gt;tag-&gt;<span class="title function_ invoke__">explode</span>()-&gt;<span class="title function_ invoke__">label</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以指定分隔符，默认&quot;,&quot;</span></span><br><span class="line"><span class="variable">$show</span>-&gt;tag-&gt;<span class="title function_ invoke__">explode</span>(<span class="string">&#x27;|&#x27;</span>)-&gt;<span class="title function_ invoke__">label</span>();</span><br></pre></td></tr></table></figure>
+
+<h4 id="prepend"><a href="#prepend" class="headerlink" title="prepend"></a>prepend</h4><p><code>prepend</code> 方法用于给 <code>string</code> 或 <code>array</code> 类型的值前面插入内容。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当字段值是一个字符串</span></span><br><span class="line"><span class="variable">$show</span>-&gt;email-&gt;<span class="title function_ invoke__">prepend</span>(<span class="string">&#x27;mailto:&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当字段值是一个数组</span></span><br><span class="line"><span class="variable">$show</span>-&gt;arr-&gt;<span class="title function_ invoke__">prepend</span>(<span class="string">&#x27;first item&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><code>prepend</code>方法允许传入闭包参数</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$show</span>-&gt;email-&gt;<span class="title function_ invoke__">prepend</span>(function (<span class="variable">$value</span>, <span class="variable">$original</span>) &#123;</span><br><span class="line">    <span class="comment">// $value 是当前字段值</span></span><br><span class="line">    <span class="comment">// $original 是当前字段从数据库中查询出来的原始值</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 获取其他字段值</span></span><br><span class="line">    <span class="variable">$username</span> = <span class="variable language_">$this</span>-&gt;username;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;[<span class="subst">&#123;$username&#125;</span>]&quot;</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="append"><a href="#append" class="headerlink" title="append"></a>append</h4><p><code>append</code> 方法用于给 <code>string</code> 或 <code>array</code> 类型的值后面插入内容。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当字段值是一个字符串</span></span><br><span class="line"><span class="variable">$show</span>-&gt;email-&gt;<span class="title function_ invoke__">append</span>(<span class="string">&#x27;@gmail.com&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当字段值是一个数组</span></span><br><span class="line"><span class="variable">$show</span>-&gt;arr-&gt;<span class="title function_ invoke__">append</span>(<span class="string">&#x27;last item&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><code>append</code>方法允许传入闭包参数</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$show</span>-&gt;email-&gt;<span class="title function_ invoke__">prepend</span>(function (<span class="variable">$value</span>, <span class="variable">$original</span>) &#123;</span><br><span class="line">    <span class="comment">// $value 是当前字段值</span></span><br><span class="line">    <span class="comment">// $original 是当前字段从数据库中查询出来的原始值</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 获取其他字段值</span></span><br><span class="line">    <span class="variable">$username</span> = <span class="variable language_">$this</span>-&gt;username;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;[<span class="subst">&#123;$username&#125;</span>]&quot;</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="image"><a href="#image" class="headerlink" title="image"></a>image</h4><p>字段avatar的内容是图片的路径或者url，可以将它显示为图片：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$show</span>-&gt;<span class="title function_ invoke__">avatar</span>()-&gt;<span class="title function_ invoke__">image</span>();</span><br></pre></td></tr></table></figure>
+<p>image()方法的参数参考Field::image()</p>
+<h4 id="file"><a href="#file" class="headerlink" title="file"></a>file</h4><p>字段document的内容是文件的路径或者url，可以将它显示为文件：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$show</span>-&gt;<span class="title function_ invoke__">avatar</span>()-&gt;<span class="title function_ invoke__">file</span>();</span><br></pre></td></tr></table></figure>
+<p>file()方法的参数参考Field::file()</p>
+<h4 id="link"><a href="#link" class="headerlink" title="link"></a>link</h4><p>字段homepage的内容是url链接，可以将它显示为HTML链接：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$show</span>-&gt;<span class="title function_ invoke__">homepage</span>()-&gt;<span class="title function_ invoke__">link</span>();</span><br></pre></td></tr></table></figure>
+<p>link()方法的参数参考Field::link()</p>
+<h4 id="label"><a href="#label" class="headerlink" title="label"></a>label</h4><p>将字段tag的内容显示为label：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$show</span>-&gt;<span class="title function_ invoke__">tag</span>()-&gt;<span class="title function_ invoke__">label</span>();</span><br></pre></td></tr></table></figure>
+<p>label()方法的参数参考Field::label()</p>
+<h4 id="badge"><a href="#badge" class="headerlink" title="badge"></a>badge</h4><p>将字段rate的内容显示为badge：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$show</span>-&gt;<span class="title function_ invoke__">rate</span>()-&gt;<span class="title function_ invoke__">badge</span>();</span><br></pre></td></tr></table></figure>
+<p>badge()方法的参数参考Field::badge()</p>
+<h4 id="using"><a href="#using" class="headerlink" title="using"></a>using</h4><p>如果字段gender的取值为<code>f</code>、<code>m</code>，分别需要用女、男来显示</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$show</span>-&gt;<span class="title function_ invoke__">gender</span>()-&gt;<span class="title function_ invoke__">using</span>([<span class="string">&#x27;f&#x27;</span> =&gt; <span class="string">&#x27;女&#x27;</span>, <span class="string">&#x27;m&#x27;</span> =&gt; <span class="string">&#x27;男&#x27;</span>]);</span><br></pre></td></tr></table></figure>
+
+<h4 id="dot"><a href="#dot" class="headerlink" title="dot"></a>dot</h4><p>通过<code>dot</code>方法可以在列文字前面加上一个带颜色的圆点</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Admin</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$show</span>-&gt;state</span><br><span class="line">	-&gt;<span class="title function_ invoke__">using</span>([<span class="number">1</span> =&gt; <span class="string">&#x27;未处理&#x27;</span>, <span class="number">2</span> =&gt; <span class="string">&#x27;已处理&#x27;</span>, ...])</span><br><span class="line">	-&gt;<span class="title function_ invoke__">dot</span>(</span><br><span class="line">		[</span><br><span class="line">			<span class="number">1</span> =&gt; <span class="string">&#x27;primary&#x27;</span>,</span><br><span class="line">			<span class="number">2</span> =&gt; <span class="string">&#x27;danger&#x27;</span>,</span><br><span class="line">			<span class="number">3</span> =&gt; <span class="string">&#x27;success&#x27;</span>,</span><br><span class="line">			<span class="number">4</span> =&gt; <span class="title class_">Admin</span>::<span class="title function_ invoke__">color</span>()-&gt;<span class="title function_ invoke__">info</span>(),</span><br><span class="line">		], </span><br><span class="line">	    <span class="string">&#x27;primary&#x27;</span> // 第二个参数为默认值</span><br><span class="line">	);</span><br></pre></td></tr></table></figure>
+
+<h4 id="显示文件尺寸"><a href="#显示文件尺寸" class="headerlink" title="显示文件尺寸"></a>显示文件尺寸</h4><p>如果字段数据是表示文件大小的字节数，可以通过调用filezise方法来显示更有可读性的文字</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$show</span>-&gt;<span class="title function_ invoke__">field</span>(<span class="string">&#x27;file_size&#x27;</span>)-&gt;<span class="title function_ invoke__">filesize</span>();</span><br></pre></td></tr></table></figure>
+<p>这样数值199812019将会显示为190.56 MB</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/model-show-field/" data-id="clpdpxfkm001zywna2g5a0jvh" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/model-show-trans/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/model-show-init/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

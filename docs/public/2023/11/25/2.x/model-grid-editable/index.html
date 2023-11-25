@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="数据表格行内编辑数据表格所有使用行内编辑的列字段，都必须在form表单中定义一个相同的表单字段，否则将无法进行编辑。 文本 (editable)启用 1234$grid-&gt;column(&#x27;title&#x27;)-&gt;editable();&#x2F;&#x2F; 编辑成功后刷新页面$grid-&gt;column(&#x27;nickname&#x27;)-&gt;editable(true);">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/model-grid-editable/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="数据表格行内编辑数据表格所有使用行内编辑的列字段，都必须在form表单中定义一个相同的表单字段，否则将无法进行编辑。 文本 (editable)启用 1234$grid-&gt;column(&#x27;title&#x27;)-&gt;editable();&#x2F;&#x2F; 编辑成功后刷新页面$grid-&gt;column(&#x27;nickname&#x27;)-&gt;editable(true);">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.learnku.com/uploads/images/202109/14/38389/mX4Za4nj1y.png!large">
+<meta property="og:image" content="https://cdn.learnku.com/uploads/images/202109/14/38389/6Bo4phkB3f.png!large">
+<meta property="og:image" content="https://cdn.learnku.com/uploads/images/202109/14/38389/wViO5EoPBg.png!large">
+<meta property="article:published_time" content="2023-11-25T07:16:44.971Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.972Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.learnku.com/uploads/images/202109/14/38389/mX4Za4nj1y.png!large">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/model-grid-editable" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/model-grid-editable/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.971Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="数据表格行内编辑"><a href="#数据表格行内编辑" class="headerlink" title="数据表格行内编辑"></a>数据表格行内编辑</h1><p>数据表格所有使用行内编辑的列字段，都必须在<code>form</code>表单中定义一个相同的表单字段，否则将无法进行编辑。</p>
+<h3 id="文本-editable"><a href="#文本-editable" class="headerlink" title="文本 (editable)"></a>文本 (editable)</h3><p>启用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;title&#x27;</span>)-&gt;<span class="title function_ invoke__">editable</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 编辑成功后刷新页面</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;nickname&#x27;</span>)-&gt;<span class="title function_ invoke__">editable</span>(<span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+
+<p>效果<br><img src="https://cdn.learnku.com/uploads/images/202109/14/38389/mX4Za4nj1y.png!large"></p>
+<h3 id="开关-switch"><a href="#开关-switch" class="headerlink" title="开关 (switch)"></a>开关 (switch)</h3><p>快速将列变成开关组件，使用方法如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;status&#x27;</span>)-&gt;<span class="keyword">switch</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置颜色</span></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Admin</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;status&#x27;</span>)-&gt;<span class="keyword">switch</span>(<span class="title class_">Admin</span>::<span class="title function_ invoke__">color</span>()-&gt;<span class="title function_ invoke__">info</span>());</span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;status&#x27;</span>)-&gt;<span class="keyword">switch</span>(<span class="string">&#x27;#333&#x27;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这个功能需要你在<code>form</code>表单方法中同样设置一个<code>status</code>字段</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">hidden</span>(<span class="string">&#x27;status&#x27;</span>)</span><br><span class="line">	-&gt;<span class="title function_ invoke__">customFormat</span>(function (<span class="variable">$v</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="variable">$v</span> == <span class="string">&#x27;打开&#x27;</span> ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">	&#125;)</span><br><span class="line">	-&gt;<span class="title function_ invoke__">saving</span>(function (<span class="variable">$v</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="variable">$v</span> ? <span class="string">&#x27;打开&#x27;</span> : <span class="string">&#x27;关闭&#x27;</span>;</span><br><span class="line">	&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="keyword">switch</span>(<span class="string">&#x27;status&#x27;</span>)</span><br><span class="line">	-&gt;<span class="title function_ invoke__">customFormat</span>(function (<span class="variable">$v</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="variable">$v</span> == <span class="string">&#x27;打开&#x27;</span> ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">	&#125;)</span><br><span class="line">	-&gt;<span class="title function_ invoke__">saving</span>(function (<span class="variable">$v</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="variable">$v</span> ? <span class="string">&#x27;打开&#x27;</span> : <span class="string">&#x27;关闭&#x27;</span>;</span><br><span class="line">	&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<p>编辑成功后刷新页面</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;status&#x27;</span>)-&gt;<span class="keyword">switch</span>(<span class="string">&#x27;&#x27;</span>, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="开关组-switchGroup"><a href="#开关组-switchGroup" class="headerlink" title="开关组 (switchGroup)"></a>开关组 (switchGroup)</h3><blockquote>
+<p>{tip} 注意：在<code>grid</code>中对某字段设置<code>switchGroup</code>默认的保存结果是<code>0</code>或<code>1</code>，如需修改可以通过<code>$form-&gt;hidden(xxx)-&gt;saving(...)</code>方法修改。</p>
+</blockquote>
+<p>快速将列变成开关组件组，使用方法如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;switch_group-&gt;<span class="title function_ invoke__">switchGroup</span>([</span><br><span class="line">    <span class="string">&#x27;hot&#x27;</span>        =&gt; <span class="string">&#x27;热门&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;new&#x27;</span>        =&gt; <span class="string">&#x27;最新&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;recommend&#x27;</span>  =&gt; <span class="string">&#x27;推荐&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;image.show&#x27;</span> =&gt; <span class="string">&#x27;显示图片&#x27;</span>, // 更新对应关联模型</span><br><span class="line">]);</span><br><span class="line"><span class="comment">// 或</span></span><br><span class="line"><span class="comment">// 不写label会自动从翻译文件翻译，具体使用请参照 “字段翻译” 章节</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;switch_group-&gt;<span class="title function_ invoke__">switchGroup</span>([<span class="string">&#x27;is_new&#x27;</span>, <span class="string">&#x27;is_hot&#x27;</span>, <span class="string">&#x27;published&#x27;</span>]);</span><br></pre></td></tr></table></figure>
+
+<p>这个功能需要你在<code>form</code>表单方法中同样设置对应的字段</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="keyword">switch</span>(<span class="string">&#x27;hot&#x27;</span>)</span><br><span class="line">	-&gt;<span class="title function_ invoke__">customFormat</span>(function (<span class="variable">$v</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="variable">$v</span> == <span class="string">&#x27;打开&#x27;</span> ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">	&#125;)</span><br><span class="line">	-&gt;<span class="title function_ invoke__">saving</span>(function (<span class="variable">$v</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="variable">$v</span> ? <span class="string">&#x27;打开&#x27;</span> : <span class="string">&#x27;关闭&#x27;</span>;</span><br><span class="line">	&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="keyword">switch</span>(<span class="string">&#x27;new&#x27;</span>)</span><br><span class="line">	-&gt;<span class="title function_ invoke__">customFormat</span>(function (<span class="variable">$v</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="variable">$v</span> == <span class="string">&#x27;打开&#x27;</span> ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">	&#125;)</span><br><span class="line">	-&gt;<span class="title function_ invoke__">saving</span>(function (<span class="variable">$v</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="variable">$v</span> ? <span class="string">&#x27;打开&#x27;</span> : <span class="string">&#x27;关闭&#x27;</span>;</span><br><span class="line">	&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>编辑成功后刷新页面</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;switch_group&#x27;</span>)-&gt;<span class="title function_ invoke__">switchGroup</span>([...], <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+
+
+<p>![](&#x2F;assets&#x2F;img&#x2F;screenshots&#x2F;grid-column-switch-group.png)</p>
+<h3 id="下拉选框-select"><a href="#下拉选框-select" class="headerlink" title="下拉选框 (select)"></a>下拉选框 (select)</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;options&#x27;</span>)-&gt;<span class="title function_ invoke__">select</span>([</span><br><span class="line">    <span class="number">1</span> =&gt; <span class="string">&#x27;Sed ut perspiciatis unde omni&#x27;</span>,</span><br><span class="line">    <span class="number">2</span> =&gt; <span class="string">&#x27;voluptatem accusantium doloremque&#x27;</span>,</span><br><span class="line">    <span class="number">3</span> =&gt; <span class="string">&#x27;dicta sunt explicabo&#x27;</span>,</span><br><span class="line">    <span class="number">4</span> =&gt; <span class="string">&#x27;laudantium, totam rem aperiam&#x27;</span>,</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+<p><code>select</code> 也支持参数为闭包，使用方法和<code>editable</code>的<code>select</code>类似。</p>
+<p>编辑成功后刷新页面</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;options&#x27;</span>)-&gt;<span class="title function_ invoke__">select</span>([...], <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+
+
+<p>![](&#x2F;assets&#x2F;img&#x2F;screenshots&#x2F;grid-column-select.png)</p>
+<h3 id="单选框-radio"><a href="#单选框-radio" class="headerlink" title="单选框 (radio)"></a>单选框 (radio)</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;options&#x27;</span>)-&gt;<span class="title function_ invoke__">radio</span>([</span><br><span class="line">    <span class="number">1</span> =&gt; <span class="string">&#x27;Sed ut perspiciatis unde omni&#x27;</span>,</span><br><span class="line">    <span class="number">2</span> =&gt; <span class="string">&#x27;voluptatem accusantium doloremque&#x27;</span>,</span><br><span class="line">    <span class="number">3</span> =&gt; <span class="string">&#x27;dicta sunt explicabo&#x27;</span>,</span><br><span class="line">    <span class="number">4</span> =&gt; <span class="string">&#x27;laudantium, totam rem aperiam&#x27;</span>,</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+<p><code>radio</code> 也支持参数为闭包，使用方法和<code>editable</code>的<code>select</code>类似。</p>
+<p>编辑成功后刷新页面</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;options&#x27;</span>)-&gt;<span class="title function_ invoke__">radio</span>([...], <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.learnku.com/uploads/images/202109/14/38389/6Bo4phkB3f.png!large"></p>
+<h3 id="多选框-checkbox"><a href="#多选框-checkbox" class="headerlink" title="多选框 (checkbox)"></a>多选框 (checkbox)</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;options&#x27;</span>)-&gt;<span class="title function_ invoke__">checkbox</span>([</span><br><span class="line">    <span class="number">1</span> =&gt; <span class="string">&#x27;Sed ut perspiciatis unde omni&#x27;</span>,</span><br><span class="line">    <span class="number">2</span> =&gt; <span class="string">&#x27;voluptatem accusantium doloremque&#x27;</span>,</span><br><span class="line">    <span class="number">3</span> =&gt; <span class="string">&#x27;dicta sunt explicabo&#x27;</span>,</span><br><span class="line">    <span class="number">4</span> =&gt; <span class="string">&#x27;laudantium, totam rem aperiam&#x27;</span>,</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+<p><code>checkbox</code> 也支持参数为闭包，使用方法和<code>editable</code>的<code>select</code>类似。</p>
+<p>编辑成功后刷新页面</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;options&#x27;</span>)-&gt;<span class="title function_ invoke__">checkbox</span>([...], <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+
+<p>![](&#x2F;assets&#x2F;img&#x2F;screenshots&#x2F;grid-column-checkbox.png)</p>
+<h3 id="textarea"><a href="#textarea" class="headerlink" title="textarea"></a>textarea</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;...&#x27;</span>)-&gt;<span class="title function_ invoke__">textarea</span>();</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.learnku.com/uploads/images/202109/14/38389/wViO5EoPBg.png!large"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/model-grid-editable/" data-id="clpdpxfjt001hywnachaggfl8" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/model-grid-data/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/model-grid-column/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="视图与自定义页面视图在Dcat Admin中我们可以用admin_view函数渲染视图，这个功能借鉴了vue的设计思想，可以把HTML、CSS和JS代码写在同一个模板文件中，让代码分层更清晰更简洁易读，如 1234567891011&lt;div class&#x3D;&quot;my-class&quot;&gt;...&lt;&#x2F;div&gt;&lt;style&gt;	.my-class &#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/custom-page/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="视图与自定义页面视图在Dcat Admin中我们可以用admin_view函数渲染视图，这个功能借鉴了vue的设计思想，可以把HTML、CSS和JS代码写在同一个模板文件中，让代码分层更清晰更简洁易读，如 1234567891011&lt;div class&#x3D;&quot;my-class&quot;&gt;...&lt;&#x2F;div&gt;&lt;style&gt;	.my-class &#123;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-25T07:16:44.956Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.956Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/custom-page" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/custom-page/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.956Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="视图与自定义页面"><a href="#视图与自定义页面" class="headerlink" title="视图与自定义页面"></a>视图与自定义页面</h1><h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><p>在<code>Dcat Admin</code>中我们可以用<code>admin_view</code>函数渲染视图，这个功能借鉴了<code>vue</code>的设计思想，可以把<code>HTML</code>、<code>CSS</code>和<code>JS</code>代码写在同一个模板文件中，让代码分层更清晰更简洁易读，如</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;my-class&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">	<span class="selector-class">.my-class</span> &#123;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">color</span>: blue;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">require</span>=<span class="string">&quot;@test1,@test2&quot;</span> <span class="attr">init</span>=<span class="string">&quot;.my-class&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">	$this.<span class="title function_">css</span>(&#123;<span class="attr">background</span>: <span class="string">&#x27;red&#x27;</span>&#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在<code>php</code>中渲染这个视图</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span>(<span class="params">Content <span class="variable">$content</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="variable">$content</span>-&gt;<span class="title function_ invoke__">body</span>(<span class="title function_ invoke__">admin_view</span>(<span class="string">&#x27;...&#x27;</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="示例解析"><a href="#示例解析" class="headerlink" title="示例解析"></a>示例解析</h4><p>上面示例中的代码，其实相当于下面的代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;my-class&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span>(<span class="params">Content <span class="variable">$content</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="title function_ invoke__">admin_require_assets</span>([<span class="string">&#x27;@test1&#x27;</span>, <span class="string">&#x27;@test2&#x27;</span>]);</span><br><span class="line">	</span><br><span class="line">	<span class="title function_ invoke__">admin_style</span>(<span class="string">&#x27;.my-class &#123;</span></span><br><span class="line"><span class="string">		color: blue;</span></span><br><span class="line"><span class="string">	&#125;&#x27;</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="title function_ invoke__">admin_script</span>(</span><br><span class="line">		<span class="string">&lt;&lt;&lt;JS</span></span><br><span class="line"><span class="string">Dcat.init(&#x27;.my-class&#x27;, function (\$this, id) &#123;</span></span><br><span class="line"><span class="string">	\$this.css(&#123;background: &#x27;red&#x27;&#125;)</span></span><br><span class="line"><span class="string">&#125;);</span></span><br><span class="line"><span class="string">JS</span></span><br><span class="line">	);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="variable">$content</span>-&gt;<span class="title function_ invoke__">body</span>(<span class="title function_ invoke__">view</span>(<span class="string">&#x27;...&#x27;</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>很显然，使用<code>admin_view</code>渲染视图会让你的代码更简洁易读，关于<code>Dcat.init</code>以及<code>script</code>标签中的<code>init</code>和<code>require</code>属性的用法，请参考文档<a href="assets.md">静态资源</a>以及<a href="js.md#init">动态监听元素生成 (init)</a>章节。</p>
+<h2 id="自定义页面"><a href="#自定义页面" class="headerlink" title="自定义页面"></a>自定义页面</h2><p>在<code>Dcat Admin</code>中构建自定义页面非常简单，可以参考如下两个例子</p>
+<h3 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h3><blockquote>
+<p>{tip} <code>Dcat Admin</code>构建的是一个单页应用，加载的<code>JS</code>脚本只会执行一次，所以初始化操作不能直接放在<code>JS</code>脚本中，应该使用<code>Admin::script</code>方法载入。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Admin</span>\<span class="title class_">Pages</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Contracts</span>\<span class="title">Support</span>\<span class="title">Renderable</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyPage</span> <span class="keyword">implements</span> <span class="title">Renderable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="title function_ invoke__">admin_view</span>(<span class="string">&#x27;admin.pages.my-page&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>视图<code>admin.pages.my-page</code>，注意视图代码里面不要包含<code>&lt;body&gt;</code>和<code>&lt;html&gt;</code>等标签</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;my-class&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h3</span>&gt;</span>自定义页面演示<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment"> 	引入页面所需的静态资源，这里会按需加载</span></span><br><span class="line"><span class="comment">	js脚本不能直接包含初始化操作，否则页面刷新后无效 </span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line">&#123;!! admin_js([&#x27;xxx/js/page.min.js&#x27;]) !!&#125;</span><br><span class="line">&#123;!! admin_css([&#x27;xxx/js/page.min.css&#x27;]) !!&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">init</span>=<span class="string">&quot;.my-class&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// js代码也可以放在模板里面</span></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;所有JS脚本都加载完了!!!&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    </span></span><br><span class="line"><span class="language-javascript">    $this.<span class="title function_">on</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        ...</span></span><br><span class="line"><span class="language-javascript">    &#125;);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>使用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span>(<span class="params">Content <span class="variable">$content</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$content</span>-&gt;<span class="title function_ invoke__">body</span>(<span class="keyword">new</span> <span class="title class_">MyPage</span>());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h3><p>后台的仪表盘页面<code>/admin</code>，也可以看做是一个自定义页面，代码实现如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span>(<span class="params">Content <span class="variable">$content</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$content</span></span><br><span class="line">        -&gt;<span class="title function_ invoke__">header</span>(<span class="string">&#x27;Dashboard&#x27;</span>)</span><br><span class="line">        -&gt;<span class="title function_ invoke__">description</span>(<span class="string">&#x27;Description...&#x27;</span>)</span><br><span class="line">        -&gt;<span class="title function_ invoke__">body</span>(function (Row <span class="variable">$row</span>) &#123;</span><br><span class="line">            <span class="variable">$row</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="number">6</span>, function (Column <span class="variable">$column</span>) &#123;</span><br><span class="line">                <span class="variable">$column</span>-&gt;<span class="title function_ invoke__">row</span>(<span class="title class_">Dashboard</span>::<span class="title function_ invoke__">title</span>());</span><br><span class="line">                <span class="variable">$column</span>-&gt;<span class="title function_ invoke__">row</span>(<span class="keyword">new</span> <span class="title class_">Examples\Tickets</span>());</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            <span class="variable">$row</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="number">6</span>, function (Column <span class="variable">$column</span>) &#123;</span><br><span class="line">                <span class="variable">$column</span>-&gt;<span class="title function_ invoke__">row</span>(function (Row <span class="variable">$row</span>) &#123;</span><br><span class="line">                    <span class="variable">$row</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="number">6</span>, <span class="keyword">new</span> <span class="title class_">Examples\NewUsers</span>());</span><br><span class="line">                    <span class="variable">$row</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="number">6</span>, <span class="keyword">new</span> <span class="title class_">Examples\NewDevices</span>());</span><br><span class="line">                &#125;);</span><br><span class="line"></span><br><span class="line">                <span class="variable">$column</span>-&gt;<span class="title function_ invoke__">row</span>(<span class="keyword">new</span> <span class="title class_">Examples\Sessions</span>());</span><br><span class="line">                <span class="variable">$column</span>-&gt;<span class="title function_ invoke__">row</span>(<span class="keyword">new</span> <span class="title class_">Examples\ProductOrders</span>());</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/custom-page/" data-id="clpdpxfit000fywnaf8yt0ugz" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/extension-dev/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/documentation/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="v1.x版本升级指南前言本章节内容只包含 1.x 版本中 API 改动的部分，不包含新增特性或对用户使用无影响的改动说明， 2.0 的具体版本变化说明请参考 2.0有哪些变化？ 预计升级时间：60 分钟 1.创建新分支，备份配置文件创建一个新的分支，然后备份配置文件 config&#x2F;admin.php 命名为 config&#x2F;admin.bak.php，方便后续对比配置变动。 2.更新composer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/1-x-upgrade/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="v1.x版本升级指南前言本章节内容只包含 1.x 版本中 API 改动的部分，不包含新增特性或对用户使用无影响的改动说明， 2.0 的具体版本变化说明请参考 2.0有哪些变化？ 预计升级时间：60 分钟 1.创建新分支，备份配置文件创建一个新的分支，然后备份配置文件 config&#x2F;admin.php 命名为 config&#x2F;admin.bak.php，方便后续对比配置变动。 2.更新composer">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-25T07:16:44.949Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.950Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/1-x-upgrade" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/1-x-upgrade/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.949Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="v1-x版本升级指南"><a href="#v1-x版本升级指南" class="headerlink" title="v1.x版本升级指南"></a>v1.x版本升级指南</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本章节内容只包含 <code>1.x</code> 版本中 <code>API</code> 改动的部分，不包含新增特性或对用户使用无影响的改动说明， <code>2.0</code> 的具体版本变化说明请参考 <a target="_blank" rel="noopener" href="https://learnku.com/articles/50781#reply164307">2.0有哪些变化？</a></p>
+<p><strong>预计升级时间：60 分钟</strong></p>
+<h3 id="1-创建新分支，备份配置文件"><a href="#1-创建新分支，备份配置文件" class="headerlink" title="1.创建新分支，备份配置文件"></a>1.创建新分支，备份配置文件</h3><p>创建一个新的分支，然后备份配置文件 <code>config/admin.php</code> 命名为 <code>config/admin.bak.php</code>，方便后续对比配置变动。</p>
+<h3 id="2-更新composer依赖"><a href="#2-更新composer依赖" class="headerlink" title="2.更新composer依赖"></a>2.更新composer依赖</h3><p>先卸载 <code>1.x</code> 版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer remove dcat/laravel-admin</span><br></pre></td></tr></table></figure>
+
+<p>再安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require dcat/laravel-admin:&quot;2.*&quot;</span><br></pre></td></tr></table></figure>
+
+<p>安装成功后</p>
+<ol>
+<li>删除 <code>public/vendors</code> 目录</li>
+<li>重新发布资源 <code>php artisan admin:publish --force</code></li>
+<li>根据上面备份后的配置文件，把修改过的参数写到新的配置文件 <code>config/admin.php</code> 中，这里需要注意的是<code>1.x</code>的默认主题色是<code>indigo</code>（已被废弃），在新版本中已经替换成<code>default</code>了</li>
+<li>调整语言包，新版本中语言包目录由 <code>zh-CN</code> 变成了 <code>zh_CN</code>，需要把自定义的翻译文件移动到新目录，并且 <code>菜单标题</code> 的翻译也独立出来到 <code>menus.php</code> 中了</li>
+<li>运行数据库迁移命令命令 <code>php artisan migrate</code> ，新版本中新增了两个表<code>admin_settings</code> 以及 <code>admin_extensions</code></li>
+</ol>
+<h3 id="3-全局更改命名空间"><a href="#3-全局更改命名空间" class="headerlink" title="3.全局更改命名空间"></a>3.全局更改命名空间</h3><ol>
+<li>全局搜索命名空间 <code>Dcat\Admin\Controllers</code> 并替换为 <code>Dcat\Admin\Http\Controllers</code></li>
+<li>全局搜索命名空间 <code>Dcat\Admin\Auth</code> 并替换为 <code>Dcat\Admin\Http\Auth</code></li>
+</ol>
+<h3 id="4-表格部分变动"><a href="#4-表格部分变动" class="headerlink" title="4.表格部分变动"></a>4.表格部分变动</h3><p>1.字段隐藏功能调整，旧版本 <code>responsive</code> 方法已废弃，在新版本中开启字段隐藏功能方法如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开启字段选择器功能</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">showColumnSelector</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置默认隐藏字段</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">hideColumns</span>([<span class="string">&#x27;field1&#x27;</span>, ...]);</span><br></pre></td></tr></table></figure>
+
+<p>2.表格 <code>collection</code>、<code>fetching</code> 等方法已被移除，在新版本中可以通过下面的事件代替</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">Collection</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 Grid\Events\Fetched 事件代替 collection</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">listen</span>(<span class="title class_">Grid\Events\Fetched</span>::<span class="variable language_">class</span>, function (<span class="variable">$grid</span>, Collection <span class="variable">$rows</span>) &#123;</span><br><span class="line">    <span class="variable">$rows</span>-&gt;<span class="title function_ invoke__">transform</span>(function (<span class="variable">$row</span>) &#123;</span><br><span class="line">        <span class="comment">// 更改行数据</span></span><br><span class="line">        <span class="variable">$row</span>[<span class="string">&#x27;name&#x27;</span>] = <span class="variable">$row</span>[<span class="string">&#x27;first_name&#x27;</span>].<span class="string">&#x27; &#x27;</span>.<span class="variable">$row</span>[<span class="string">&#x27;last_name&#x27;</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$row</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 Grid\Events\Fetching 事件代替 fetching</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">listen</span>(<span class="title class_">Grid\Events\Fetching</span>::<span class="variable language_">class</span>, function (<span class="variable">$grid</span>) &#123;</span><br><span class="line">    </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>3.表格行相关闭包中允许使用模型</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;avatar&#x27;</span>)-&gt;<span class="title function_ invoke__">display</span>(function (&#123;</span><br><span class="line">    // 可直接访问模型相关方法</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$this</span>-&gt;<span class="title function_ invoke__">getAvatar</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<p>4.设置路由前缀方法由 <code>resource</code> 调整为 <code>setResource</code> </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">setResource</span>(<span class="string">&#x27;auth/users&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>5.树形表格 <code>tree</code> 方法即将被废弃，将会移动到扩展中心</p>
+<h3 id="5-表单部分变动"><a href="#5-表单部分变动" class="headerlink" title="5.表单部分变动"></a>5.表单部分变动</h3><p>1.调整表单处理响应方法，旧版本中的<code>success</code>、<code>error</code>、<code>redirect</code> 以及 <code>location</code> 方法已被移除，<br>在 <code>2.0</code> 中我们让表单的响应方法和 <code>action</code> 的响应方法统一了起来，详细用法请参考文档 <a href="response.md">动作和表单响应</a>，示例</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">saving</span>(function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$form</span></span><br><span class="line">        -&gt;<span class="title function_ invoke__">response</span>()</span><br><span class="line">        -&gt;<span class="title function_ invoke__">success</span>(<span class="string">&#x27;保存成功&#x27;</span>)</span><br><span class="line">        -&gt;<span class="title function_ invoke__">script</span>(<span class="string">&#x27;console.log(&quot;执行JS代码&quot;)&#x27;</span>)</span><br><span class="line">        -&gt;<span class="title function_ invoke__">redirect</span>(<span class="string">&#x27;auth/users&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>如果是在<a href="widgets-form.md">工具表单</a>中，用法如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params"><span class="keyword">array</span> <span class="variable">$input</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">$this</span></span><br><span class="line">        -&gt;<span class="title function_ invoke__">response</span>()</span><br><span class="line">        -&gt;<span class="title function_ invoke__">alert</span>()</span><br><span class="line">        -&gt;<span class="title function_ invoke__">success</span>(<span class="string">&#x27;成功&#x27;</span>)</span><br><span class="line">        -&gt;<span class="title function_ invoke__">detail</span>(<span class="string">&#x27;详细内容&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.调整表单 <code>block</code> 布局功能，并废弃 <code>setDefaultBlockWidth</code> 方法，详细用法请参考文档 <a href="model-form-layout.md">表单block布局</a>，示例</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">block</span>(<span class="number">8</span>, function (Form\BlockForm <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">title</span>(<span class="string">&#x27;基本设置&#x27;</span>);</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">showFooter</span>();</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">width</span>(<span class="number">9</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="number">6</span>, function (Form\BlockForm <span class="variable">$form</span>) &#123;</span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">display</span>(<span class="string">&#x27;id&#x27;</span>);</span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;name&#x27;</span>);</span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">email</span>(<span class="string">&#x27;email&#x27;</span>);</span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">image</span>(<span class="string">&#x27;avatar&#x27;</span>);</span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">password</span>(<span class="string">&#x27;password&#x27;</span>);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="number">6</span>, function (Form\BlockForm <span class="variable">$form</span>) &#123;</span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;username&#x27;</span>);</span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">email</span>(<span class="string">&#x27;mobile&#x27;</span>);</span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">textarea</span>(<span class="string">&#x27;description&#x27;</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">block</span>(<span class="number">4</span>, function (Form\BlockForm <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">title</span>(<span class="string">&#x27;分块2&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;nickname&#x27;</span>);</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">number</span>(<span class="string">&#x27;age&#x27;</span>);</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">radio</span>(<span class="string">&#x27;status&#x27;</span>)-&gt;<span class="title function_ invoke__">options</span>([<span class="string">&#x27;1&#x27;</span> =&gt; <span class="string">&#x27;默认&#x27;</span>, <span class="number">2</span> =&gt; <span class="string">&#x27;冻结&#x27;</span>])-&gt;<span class="keyword">default</span>(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">next</span>(function (Form\BlockForm <span class="variable">$form</span>) &#123;</span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">title</span>(<span class="string">&#x27;分块3&#x27;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">date</span>(<span class="string">&#x27;birthday&#x27;</span>);</span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">date</span>(<span class="string">&#x27;created_at&#x27;</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<p>3.废弃表单直接提交，只保留 <code>ajax</code> 提交的方式，并重命名 <code>disableAjaxSubmit</code> 方法为 <code>ajax</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">ajax</span>(<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<p>4.废弃分步表单，新版本请使用<a target="_blank" rel="noopener" href="https://github.com/dcat-admin/form-step">分步表单扩展</a>代替</p>
+<p>6.<code>map</code>以及<code>listbox</code>、<code>slider</code>也即将废弃，并移动扩展中心</p>
+<p>7.表单字段扩展功能变动，具体请参考文档<a href="model-form-field-management.md">表单字段扩展</a>章节</p>
+<h3 id="6-数据仓库部分变动"><a href="#6-数据仓库部分变动" class="headerlink" title="6.数据仓库部分变动"></a>6.数据仓库部分变动</h3><p>1.数据仓库的接口命名做了简化处理，新的 interface 如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Repository</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取主键名称.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getKeyName</span>(<span class="params"></span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取创建时间字段.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getCreatedAtColumn</span>(<span class="params"></span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取更新时间字段.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getUpdatedAtColumn</span>(<span class="params"></span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 是否使用软删除.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> bool</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">isSoftDeletes</span>(<span class="params"></span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取Grid表格数据.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> Grid\Model $model</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> \Illuminate\Contracts\Pagination\LengthAwarePaginator|Collection|array</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params">Grid\Model <span class="variable">$model</span></span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取编辑页面数据.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> Form $form</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> array|\Illuminate\Contracts\Support\Arrayable</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">edit</span>(<span class="params">Form <span class="variable">$form</span></span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取详情页面数据.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> Show $show</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> array|\Illuminate\Contracts\Support\Arrayable</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">detail</span>(<span class="params">Show <span class="variable">$show</span></span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 新增记录.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> Form $form</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> mixed</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">store</span>(<span class="params">Form <span class="variable">$form</span></span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查询更新前的行数据.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> Form $form</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> array|\Illuminate\Contracts\Support\Arrayable</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">updating</span>(<span class="params">Form <span class="variable">$form</span></span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 更新数据.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> Form $form</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> bool</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">update</span>(<span class="params">Form <span class="variable">$form</span></span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 删除数据.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> Form  $form</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> array $deletingData</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> mixed</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">delete</span>(<span class="params">Form <span class="variable">$form</span>, <span class="keyword">array</span> <span class="variable">$deletingData</span></span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查询删除前的行数据.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> Form $form</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> array|\Illuminate\Contracts\Support\Arrayable</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">deleting</span>(<span class="params">Form <span class="variable">$form</span></span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>2.<code>EloquentRepository::eloquent()</code> 重命名为 <code>EloquentRepository::model()</code></p>
+<h3 id="7-Section变动"><a href="#7-Section变动" class="headerlink" title="7.Section变动"></a>7.Section变动</h3><p>在新版本中 <code>AdminSection</code> 已被移除，请使用 <code>Dcat\Admin\Admin::SECTION</code> 常量代替</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Admin</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">admin_inject_default_section</span>(<span class="title class_">Admin</span>::<span class="variable constant_">SECTION</span>[<span class="string">&#x27;HEAD&#x27;</span>], function () &#123;</span><br><span class="line">    <span class="keyword">return</span> ...;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="8-扩展"><a href="#8-扩展" class="headerlink" title="8.扩展"></a>8.扩展</h3><p>扩展相关变动请参考文档<a href="extension-f.md">扩展</a></p>
+<h3 id="9-登录逻辑"><a href="#9-登录逻辑" class="headerlink" title="9.登录逻辑"></a>9.登录逻辑</h3><p>1.登录模板，如果你在旧项目中自定义过登录模板，则需要调整登录模板中的<code>JS</code>代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">ready</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// ajax表单提交</span></span><br><span class="line">    $(<span class="string">&#x27;#login-form&#x27;</span>).<span class="title function_">form</span>(&#123;</span><br><span class="line">        <span class="attr">validate</span>: <span class="literal">true</span>,</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>2.登录逻辑，如果重写过登录逻辑，则最后登录成功的响应方法需要使用 <code>sendLoginResponse</code></p>
+<h3 id="10-其他变动"><a href="#10-其他变动" class="headerlink" title="10.其他变动"></a>10.其他变动</h3><p>1.资源注册</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Admin</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册资源路径别名</span></span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">asset</span>()-&gt;<span class="title function_ invoke__">alias</span>(<span class="string">&#x27;test&#x27;</span>, <span class="string">&#x27;assets/test&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">asset</span>()-&gt;<span class="title function_ invoke__">alias</span>(<span class="string">&#x27;名称&#x27;</span>, [ </span><br><span class="line">    <span class="string">&#x27;js&#x27;</span> =&gt; [</span><br><span class="line">        // @test 会判定为别名</span><br><span class="line">        <span class="string">&#x27;@test/test.js&#x27;</span>,</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&#x27;css&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;@test/test.css&#x27;</span>,</span><br><span class="line">    ],</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 加载资源</span></span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">asset</span>()-&gt;<span class="keyword">require</span>(<span class="string">&#x27;@名称&#x27;</span>);</span><br><span class="line"><span class="comment">// 仅加载 js</span></span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">js</span>(<span class="string">&#x27;@名称&#x27;</span>);</span><br><span class="line"><span class="comment">// 仅加载 css</span></span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">css</span>(<span class="string">&#x27;@名称&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/1-x-upgrade/" data-id="clpdpxfi30001ywna94qm36oj" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/README/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="表单数据源模型与数据仓库数据仓库(Repository)是一个可以提供特定接口对数据进行读写操作的类，通过数据仓库的引入，可以让页面的构建不再关心数据读写功能的具体实现，开发者只需要实现特定的操作接口即可轻松切换数据源。关于数据仓库的详细用法请参考文档数据仓库。 数据来自模型 {tip} 如果你的数据来自Model，那么你也可以直接使用Model实例，底层会自动把Model转化为数据仓库实例。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/model-form-data/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="表单数据源模型与数据仓库数据仓库(Repository)是一个可以提供特定接口对数据进行读写操作的类，通过数据仓库的引入，可以让页面的构建不再关心数据读写功能的具体实现，开发者只需要实现特定的操作接口即可轻松切换数据源。关于数据仓库的详细用法请参考文档数据仓库。 数据来自模型 {tip} 如果你的数据来自Model，那么你也可以直接使用Model实例，底层会自动把Model转化为数据仓库实例。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-25T07:16:44.963Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.963Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/model-form-data" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/model-form-data/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.963Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="表单数据源"><a href="#表单数据源" class="headerlink" title="表单数据源"></a>表单数据源</h1><h2 id="模型与数据仓库"><a href="#模型与数据仓库" class="headerlink" title="模型与数据仓库"></a>模型与数据仓库</h2><p>数据仓库(<code>Repository</code>)是一个可以提供特定接口对数据进行读写操作的类，通过数据仓库的引入，可以让页面的构建不再关心数据读写功能的具体实现，开发者只需要实现特定的操作接口即可轻松切换数据源。关于数据仓库的详细用法请参考文档<a href="model-repository.md">数据仓库</a>。</p>
+<h2 id="数据来自模型"><a href="#数据来自模型" class="headerlink" title="数据来自模型"></a>数据来自模型</h2><blockquote>
+<p>{tip} 如果你的数据来自<code>Model</code>，那么你也可以直接使用<code>Model</code>实例，底层会自动把<code>Model</code>转化为数据仓库实例。</p>
+</blockquote>
+<p>当数据源支持模型时，只需创建一个非常简单的<code>Repository</code>类既可：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Admin</span>\<span class="title class_">Repositories</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Repositories</span>\<span class="title">EloquentRepository</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Models</span>\<span class="title">Movie</span> <span class="keyword">as</span> <span class="title">MovieModel</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Movie</span> <span class="keyword">extends</span> <span class="title">EloquentRepository</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">// 这里定义你的模型类名</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$eloquentClass</span> = <span class="title class_">MovieModel</span>::<span class="variable language_">class</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 通过这个方法可以指定表单页查询的字段，默认&quot;*&quot;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getFormColumns</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> [<span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">getKeyName</span>(), <span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;created_at&#x27;</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Admin</span>\<span class="title">Repositories</span>\<span class="title">Movie</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span> = <span class="keyword">new</span> <span class="title class_">Form</span>(<span class="keyword">new</span> <span class="title class_">Movie</span>);</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据来自外部API"><a href="#数据来自外部API" class="headerlink" title="数据来自外部API"></a>数据来自外部API</h2><p>下面以<code>豆瓣电影</code>的API为例子，来展示<code>Repository</code>的表单数据读写操作相关接口的用法：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Admin</span>\<span class="title class_">Repositories</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Repositories</span>\<span class="title">Repository</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Form</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ComingSoon</span> <span class="keyword">extends</span> <span class="title">Repository</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$api</span> = <span class="string">&#x27;https://api.douban.com/v2/movie/coming_soon&#x27;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 返回你的id字段名称，默认“id”</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$keyName</span> = <span class="string">&#x27;_id&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查询编辑页数据</span></span><br><span class="line">    <span class="comment">// 这个方法需要返回一个数组</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">edit</span>(<span class="params">Form <span class="variable">$form</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 获取id</span></span><br><span class="line">        <span class="variable">$id</span> = <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">builder</span>()-&gt;<span class="title function_ invoke__">getResourceId</span>();</span><br><span class="line"></span><br><span class="line">        <span class="variable">$data</span> = <span class="title function_ invoke__">file_get_contents</span>(<span class="string">&quot;http://api.douban.com/v2/movie/subject/<span class="subst">$id</span>&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">json_decode</span>(<span class="variable">$data</span>, <span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 这个方法用于在修改数据前查询原记录</span></span><br><span class="line">    <span class="comment">// 如果使用了文件上传表单，当文件发生变更时会根据这个原始记录自动删除旧文件</span></span><br><span class="line">     <span class="comment">// 如果不需要此数据返回空数组即可</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">updating</span>(<span class="params">Form <span class="variable">$form</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 获取id</span></span><br><span class="line">        <span class="variable">$id</span> = <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">builder</span>()-&gt;<span class="title function_ invoke__">getResourceId</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> [];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 修改操作</span></span><br><span class="line">    <span class="comment">// 返回一个bool类型的数据</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">update</span>(<span class="params">Form <span class="variable">$form</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 获取id</span></span><br><span class="line">        <span class="variable">$id</span> = <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">builder</span>()-&gt;<span class="title function_ invoke__">getResourceId</span>();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取要修改的数据</span></span><br><span class="line">        <span class="variable">$attributes</span> = <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">updates</span>();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// TODO</span></span><br><span class="line">        <span class="comment">// 这里写你的修改逻辑</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 这个方法用于在修改数据前查询原始数据</span></span><br><span class="line">    <span class="comment">// 如果使用了文件上传表单，会根据这个数据自动删除文件</span></span><br><span class="line">    <span class="comment">// 如果不需要此数据返回空数组即可</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">deleting</span>(<span class="params">Form <span class="variable">$form</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$id</span> = <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">builder</span>()-&gt;<span class="title function_ invoke__">getResourceId</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="variable">$id</span> = <span class="title function_ invoke__">explode</span>(<span class="string">&#x27;,&#x27;</span>, <span class="variable">$id</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//        $data = file_get_contents(&quot;http://api.douban.com/v2/movie/subject/$id&quot;);</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//        return json_decode($data, true);</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> [];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 删除数据</span></span><br><span class="line">    <span class="comment">// $deletingData 是由 getDataWhenDeleting 方法返回的数据</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">destroy</span>(<span class="params">Form <span class="variable">$form</span>, <span class="variable">$deletingData</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 注意这里的id可能是多个</span></span><br><span class="line">        <span class="variable">$id</span> = <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">builder</span>()-&gt;<span class="title function_ invoke__">getResourceId</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 当使用批量删除功能时，这里的id是用“,”隔开的字符串</span></span><br><span class="line">        <span class="variable">$id</span> = <span class="title function_ invoke__">explode</span>(<span class="string">&#x27;,&#x27;</span>, <span class="variable">$id</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// TODO</span></span><br><span class="line"><span class="comment">//        var_dump($id, $deletingData);</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/model-form-data/" data-id="clpdpxfj7000xywnafdhebjen" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/model-form-init/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/model-form-field-management/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

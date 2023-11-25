@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="表单布局多列布局 (column)           类似于上图的左右两列布局方式，可以参考下面的代码来实现 123456789101112131415161718192021222324252627282930&#x2F;&#x2F; 第一列占据1&#x2F;2的页面宽度$form-&gt;column(6, function (Form $form) &#123;    $form-&gt;text(&#x27;name">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/model-form-layout/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="表单布局多列布局 (column)           类似于上图的左右两列布局方式，可以参考下面的代码来实现 123456789101112131415161718192021222324252627282930&#x2F;&#x2F; 第一列占据1&#x2F;2的页面宽度$form-&gt;column(6, function (Form $form) &#123;    $form-&gt;text(&#x27;name">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/img/screenshots/form-column.png">
+<meta property="og:image" content="http://example.com/assets/img/screenshots/form-rows.png">
+<meta property="og:image" content="https://cdn.learnku.com/uploads/images/202005/12/38389/B0tXWUxHDp.png!large">
+<meta property="og:image" content="https://cdn.learnku.com/uploads/images/202010/19/38389/AMCtHBcmSQ.jpg!large">
+<meta property="article:published_time" content="2023-11-25T07:16:44.965Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.965Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/img/screenshots/form-column.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/model-form-layout" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/model-form-layout/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.965Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="表单布局"><a href="#表单布局" class="headerlink" title="表单布局"></a>表单布局</h1><h3 id="多列布局-column"><a href="#多列布局-column" class="headerlink" title="多列布局 (column)"></a>多列布局 (column)</h3><a href="/assets/img/screenshots/form-column.png" target="_blank">
+    <img class="img" src="/assets/img/screenshots/form-column.png" />
+</a>   
+
+<p>类似于上图的左右两列布局方式，可以参考下面的代码来实现</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一列占据1/2的页面宽度</span></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="number">6</span>, function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;name&#x27;</span>)-&gt;<span class="title function_ invoke__">required</span>();</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">date</span>(<span class="string">&#x27;born&#x27;</span>)-&gt;<span class="title function_ invoke__">required</span>();</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">select</span>(<span class="string">&#x27;education&#x27;</span>)-&gt;<span class="title function_ invoke__">options</span>([...])-&gt;<span class="title function_ invoke__">required</span>();</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;nation&#x27;</span>)-&gt;<span class="title function_ invoke__">required</span>();</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;native&#x27;</span>)-&gt;<span class="title function_ invoke__">required</span>();</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;job&#x27;</span>)-&gt;<span class="title function_ invoke__">required</span>();</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;code&#x27;</span>)-&gt;<span class="title function_ invoke__">required</span>();</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;phone&#x27;</span>)-&gt;<span class="title function_ invoke__">required</span>();</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;work&#x27;</span>)-&gt;<span class="title function_ invoke__">required</span>();</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;census&#x27;</span>)-&gt;<span class="title function_ invoke__">required</span>();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二列占据1/2的页面宽度</span></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="number">6</span>, function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">image</span>(<span class="string">&#x27;avatar&#x27;</span>);</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">decimal</span>(<span class="string">&#x27;wages&#x27;</span>);</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">decimal</span>(<span class="string">&#x27;fund&#x27;</span>);</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">decimal</span>(<span class="string">&#x27;pension&#x27;</span>);</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">decimal</span>(<span class="string">&#x27;fee&#x27;</span>);</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">decimal</span>(<span class="string">&#x27;business&#x27;</span>);</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">decimal</span>(<span class="string">&#x27;other&#x27;</span>);</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;area&#x27;</span>)-&gt;<span class="keyword">default</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">textarea</span>(<span class="string">&#x27;illness&#x27;</span>);</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">textarea</span>(<span class="string">&#x27;comment&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调整所有表单的宽度</span></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">width</span>(<span class="number">9</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<p>以上布局功能使用了<code>bootstrap</code>的栅格布局系统，所有列的宽度总和不得超出<code>12</code>，并且也支持在<code>hasMany</code>和<code>array</code>表单中使用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">hasMany</span>(<span class="string">&#x27;jobs&#x27;</span>, function (<span class="variable">$form</span>) &#123;</span><br><span class="line">     <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="number">6</span>, function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">         <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;name&#x27;</span>)-&gt;<span class="title function_ invoke__">required</span>();</span><br><span class="line">         <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">date</span>(<span class="string">&#x27;born&#x27;</span>)-&gt;<span class="title function_ invoke__">required</span>();</span><br><span class="line">     &#125;);</span><br><span class="line">     </span><br><span class="line">     <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="number">6</span>, function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">         <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">image</span>(<span class="string">&#x27;avatar&#x27;</span>);</span><br><span class="line">         <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">decimal</span>(<span class="string">&#x27;wages&#x27;</span>);</span><br><span class="line">     &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h3 id="多行布局-row"><a href="#多行布局-row" class="headerlink" title="多行布局 (row)"></a>多行布局 (row)</h3><p>使用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">row</span>(function (Form\Row <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">width</span>(<span class="number">4</span>)-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;username&#x27;</span>)-&gt;<span class="title function_ invoke__">required</span>();</span><br><span class="line">	<span class="variable">$form</span>-&gt;<span class="title function_ invoke__">width</span>(<span class="number">3</span>)-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;title&#x27;</span>);</span><br><span class="line">	...</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">row</span>(function (Form\Row <span class="variable">$form</span>) &#123;</span><br><span class="line">	...</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>效果<br><a href="/assets/img/screenshots/form-rows.png" target="_blank"><br>    <img class="img img-full" src="/assets/img/screenshots/form-rows.png"><br></a></p>
+<p>并且也支持在<code>hasMany</code>和<code>array</code>表单中使用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">hasMany</span>(<span class="string">&#x27;jobs&#x27;</span>, function (<span class="variable">$form</span>) &#123;</span><br><span class="line">     <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">row</span>(function (Form\Row <span class="variable">$form</span>) &#123;</span><br><span class="line">     	...</span><br><span class="line">     &#125;);</span><br><span class="line">     </span><br><span class="line">     <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">row</span>(function (Form\Row <span class="variable">$form</span>) &#123;</span><br><span class="line">     	...</span><br><span class="line">     &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><a name="tab"></a></p>
+<h3 id="选项卡表单-tab"><a href="#选项卡表单-tab" class="headerlink" title="选项卡表单 (tab)"></a>选项卡表单 (tab)</h3><p>如果表单元素太多,会导致表单页面太长, 这种情况下可以使用<code>tab</code>方法来分隔表单:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">tab</span>(<span class="string">&#x27;Basic info&#x27;</span>, function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;username&#x27;</span>);</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">email</span>(<span class="string">&#x27;email&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">&#125;)-&gt;<span class="title function_ invoke__">tab</span>(<span class="string">&#x27;Profile&#x27;</span>, function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">                       </span><br><span class="line">   <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">image</span>(<span class="string">&#x27;avatar&#x27;</span>);</span><br><span class="line">   <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;address&#x27;</span>);</span><br><span class="line">   <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">mobile</span>(<span class="string">&#x27;phone&#x27;</span>);</span><br><span class="line">   </span><br><span class="line">&#125;)-&gt;<span class="title function_ invoke__">tab</span>(<span class="string">&#x27;Jobs&#x27;</span>, function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">                         </span><br><span class="line">     <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">hasMany</span>(<span class="string">&#x27;jobs&#x27;</span>, function (<span class="variable">$form</span>) &#123;</span><br><span class="line">         <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;company&#x27;</span>);</span><br><span class="line">         <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">date</span>(<span class="string">&#x27;start_date&#x27;</span>);</span><br><span class="line">         <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">date</span>(<span class="string">&#x27;end_date&#x27;</span>);</span><br><span class="line">     &#125;);</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>同时，<code>tab</code> 布局中也允许嵌套使用<code>column</code>和<code>row</code>布局</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">tab</span>(<span class="string">&#x27;Basic info&#x27;</span>, function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="number">6</span>, function (Form\BlockForm <span class="variable">$form</span>) &#123;</span><br><span class="line">		<span class="variable">$form</span>-&gt;<span class="title function_ invoke__">display</span>(<span class="string">&#x27;id&#x27;</span>);</span><br><span class="line">		<span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;name&#x27;</span>);</span><br><span class="line">	&#125;);</span><br><span class="line"></span><br><span class="line">	<span class="variable">$form</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="number">6</span>, function (Form\BlockForm <span class="variable">$form</span>) &#123;</span><br><span class="line">		<span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;username&#x27;</span>);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>设置默认显示的 <code>Tab</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 默认显示标题为 标题2 的 Tab</span></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">getTab</span>()-&gt;<span class="title function_ invoke__">active</span>(<span class="string">&#x27;标题2&#x27;</span>);</span><br><span class="line"><span class="comment">// 也可以指定偏移量</span></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">getTab</span>()-&gt;<span class="title function_ invoke__">activeByIndex</span>(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">tab</span>(<span class="string">&#x27;标题1&#x27;</span>, function (<span class="variable">$form</span>) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">tab</span>(<span class="string">&#x27;标题2&#x27;</span>, function (<span class="variable">$form</span>) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="Fieldset布局"><a href="#Fieldset布局" class="headerlink" title="Fieldset布局"></a>Fieldset布局</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">fieldset</span>(<span class="string">&#x27;分组&#x27;</span>, function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;company&#x27;</span>);</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">date</span>(<span class="string">&#x27;start_date&#x27;</span>);</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">date</span>(<span class="string">&#x27;end_date&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>如果想要默认收起</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">fieldset</span>(<span class="string">&#x27;分组&#x27;</span>, function (Form <span class="variable">$form</span>) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;)-&gt;<span class="title function_ invoke__">collapsed</span>();</span><br></pre></td></tr></table></figure>
+
+<p>效果</p>
+<p><img src="https://cdn.learnku.com/uploads/images/202005/12/38389/B0tXWUxHDp.png!large"></p>
+<h3 id="分块布局-block"><a href="#分块布局-block" class="headerlink" title="分块布局 (block)"></a>分块布局 (block)</h3><p>如果你的表单中字段非常多，那么可以通过以下方式让你的表单分块布局，并且允许嵌套使用<code>column</code>和<code>row</code>布局</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">block</span>(<span class="number">8</span>, function (Form\BlockForm <span class="variable">$form</span>) &#123;</span><br><span class="line">	<span class="comment">// 设置标题</span></span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">title</span>(<span class="string">&#x27;基本设置&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 显示底部提交按钮</span></span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">showFooter</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置字段宽度</span></span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">width</span>(<span class="number">9</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="number">6</span>, function (Form\BlockForm <span class="variable">$form</span>) &#123;</span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">display</span>(<span class="string">&#x27;id&#x27;</span>);</span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;name&#x27;</span>);</span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">email</span>(<span class="string">&#x27;email&#x27;</span>);</span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">image</span>(<span class="string">&#x27;avatar&#x27;</span>);</span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">password</span>(<span class="string">&#x27;password&#x27;</span>);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="number">6</span>, function (Form\BlockForm <span class="variable">$form</span>) &#123;</span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;username&#x27;</span>);</span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">email</span>(<span class="string">&#x27;mobile&#x27;</span>);</span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">textarea</span>(<span class="string">&#x27;description&#x27;</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable">$form</span>-&gt;<span class="title function_ invoke__">block</span>(<span class="number">4</span>, function (Form\BlockForm <span class="variable">$form</span>) &#123;</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">title</span>(<span class="string">&#x27;分块2&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;nickname&#x27;</span>);</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">number</span>(<span class="string">&#x27;age&#x27;</span>);</span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">radio</span>(<span class="string">&#x27;status&#x27;</span>)-&gt;<span class="title function_ invoke__">options</span>([<span class="string">&#x27;1&#x27;</span> =&gt; <span class="string">&#x27;默认&#x27;</span>, <span class="number">2</span> =&gt; <span class="string">&#x27;冻结&#x27;</span>])-&gt;<span class="keyword">default</span>(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">next</span>(function (Form\BlockForm <span class="variable">$form</span>) &#123;</span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">title</span>(<span class="string">&#x27;分块3&#x27;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">date</span>(<span class="string">&#x27;birthday&#x27;</span>);</span><br><span class="line">        <span class="variable">$form</span>-&gt;<span class="title function_ invoke__">date</span>(<span class="string">&#x27;created_at&#x27;</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>效果<br><a href="https://cdn.learnku.com/uploads/images/202010/19/38389/AMCtHBcmSQ.jpg!large" target="_blank"><br>    <img class="img img-full" src="https://cdn.learnku.com/uploads/images/202010/19/38389/AMCtHBcmSQ.jpg!large"><br></a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/model-form-layout/" data-id="clpdpxfje0011ywnaabmu4f4q" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/model-form-upload/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/model-form-modal/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

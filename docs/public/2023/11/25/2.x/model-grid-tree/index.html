@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="树状表格树状表格支持分页和点击加载功能，特别适合用来展示数据量较大的多层级结构数据。         表结构和模型要使用树状表格，要遵守约定的表结构：  {tip} 此表结构和模型可完全兼容 模型树 。  123456789CREATE TABLE &#96;demo_categories&#96; (  &#96;id&#96; int(10) unsigned NOT NULL AUTO_INCREMENT,  &#96;paren">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/model-grid-tree/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="树状表格树状表格支持分页和点击加载功能，特别适合用来展示数据量较大的多层级结构数据。         表结构和模型要使用树状表格，要遵守约定的表结构：  {tip} 此表结构和模型可完全兼容 模型树 。  123456789CREATE TABLE &#96;demo_categories&#96; (  &#96;id&#96; int(10) unsigned NOT NULL AUTO_INCREMENT,  &#96;paren">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/img/screenshots/grid-tree.png">
+<meta property="article:published_time" content="2023-11-25T07:16:44.977Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.977Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/img/screenshots/grid-tree.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/model-grid-tree" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/model-grid-tree/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.977Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="树状表格"><a href="#树状表格" class="headerlink" title="树状表格"></a>树状表格</h1><p>树状表格支持分页和点击加载功能，特别适合用来展示数据量较大的多层级结构数据。</p>
+<a href="http://103.39.211.179:8080/admin/tree" target="_blank">
+    <img class="img img-full" src="/assets/img/screenshots/grid-tree.png">
+</a>
+
+<h3 id="表结构和模型"><a href="#表结构和模型" class="headerlink" title="表结构和模型"></a>表结构和模型</h3><p>要使用树状表格，要遵守约定的表结构：</p>
+<blockquote>
+<p>{tip} 此表结构和模型可完全兼容 <code><a href="model-tree.md">模型树</a></code> 。</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `demo_categories` (</span><br><span class="line">  `id` <span class="type">int</span>(<span class="number">10</span>) unsigned <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  `parent_id` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;0&#x27;</span>,</span><br><span class="line">  `<span class="keyword">order</span>` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;0&#x27;</span>, <span class="operator">/</span><span class="operator">/</span> <span class="keyword">order</span> 字段不是必须的，不设置也可以</span><br><span class="line">  `title` <span class="type">varchar</span>(<span class="number">50</span>) <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `created_at` <span class="type">timestamp</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span>,</span><br><span class="line">  `updated_at` <span class="type">timestamp</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span> <span class="keyword">ON</span> <span class="keyword">UPDATE</span> <span class="built_in">CURRENT_TIMESTAMP</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8 <span class="keyword">COLLATE</span><span class="operator">=</span>utf8_unicode_ci</span><br></pre></td></tr></table></figure>
+<p>上面的表格结构里面有三个必要的字段<code>parent_id</code>、<code>title</code>,其它字段没有要求。</p>
+<p>对应的模型为<code>app/Models/Category.php</code>:</p>
+<blockquote>
+<p>{tip} 为了便于阅读，这里不再展示 <code>Repository</code> 代码。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Models</span>\<span class="title class_">Demo</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Traits</span>\<span class="title">ModelTree</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Eloquent</span>\<span class="title">Model</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Category</span> <span class="keyword">extends</span> <span class="title">Model</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">use</span> <span class="title">ModelTree</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$table</span> = <span class="string">&#x27;demo_categories&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>表结构中的三个字段<code>parent_id</code>、<code>order</code>、<code>title</code>的字段名也是可以修改的：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Models</span>\<span class="title class_">Demo</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Traits</span>\<span class="title">ModelTree</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Eloquent</span>\<span class="title">Model</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Category</span> <span class="keyword">extends</span> <span class="title">Model</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">use</span> <span class="title">ModelTree</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$table</span> = <span class="string">&#x27;demo_categories&#x27;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$titleColumn</span> = <span class="string">&#x27;name&#x27;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$orderColumn</span> = <span class="string">&#x27;sort&#x27;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$parentColumn</span> = <span class="string">&#x27;pid&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果你的数据表不需要 <code>order</code> 字段排序，则在模型中添加如下代码即可</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Models</span>\<span class="title class_">Demo</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Traits</span>\<span class="title">ModelTree</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Eloquent</span>\<span class="title">Model</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Category</span> <span class="keyword">extends</span> <span class="title">Model</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">use</span> <span class="title">ModelTree</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$table</span> = <span class="string">&#x27;demo_categories&#x27;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 返回空值即可禁用 order 字段</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getOrderColumn</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>通过调用 <code>Grid\Column::tree</code> 方法即可开启树状表格功能，开启之后默认只查询最顶级节点的数据，子节点数据需要点击加载</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Admin</span>\<span class="title class_">Controllers</span>\<span class="title class_">Demo</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Models</span>\<span class="title">Category</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Controllers</span>\<span class="title">AdminController</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CategoryController</span> <span class="keyword">extends</span> <span class="title">AdminController</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">grid</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title class_">Grid</span>::<span class="title function_ invoke__">make</span>(<span class="keyword">new</span> <span class="title class_">Category</span>(), <span class="function"><span class="keyword">function</span> (<span class="params">Grid <span class="variable">$grid</span></span>) </span>&#123;</span><br><span class="line">            <span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">id</span>(<span class="string">&#x27;ID&#x27;</span>)-&gt;<span class="title function_ invoke__">bold</span>()-&gt;<span class="title function_ invoke__">sortable</span>();</span><br><span class="line">            <span class="variable">$grid</span>-&gt;title-&gt;<span class="title function_ invoke__">tree</span>(); <span class="comment">// 开启树状表格功能 </span></span><br><span class="line">            <span class="variable">$grid</span>-&gt;order;</span><br><span class="line">    </span><br><span class="line">            <span class="variable">$grid</span>-&gt;created_at;</span><br><span class="line">            <span class="variable">$grid</span>-&gt;updated_at-&gt;<span class="title function_ invoke__">sortable</span>();</span><br><span class="line">            </span><br><span class="line">            <span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">filter</span>(function (Grid\Filter <span class="variable">$filter</span>) &#123;</span><br><span class="line">                <span class="variable">$filter</span>-&gt;<span class="title function_ invoke__">like</span>(<span class="string">&#x27;slug&#x27;</span>);</span><br><span class="line">                <span class="variable">$filter</span>-&gt;<span class="title function_ invoke__">like</span>(<span class="string">&#x27;name&#x27;</span>);</span><br><span class="line">                <span class="variable">$filter</span>-&gt;<span class="title function_ invoke__">like</span>(<span class="string">&#x27;http_path&#x27;</span>);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码执行的 <code>sql</code> 如下（默认只查询 <code>parent = 0</code> 的数据）：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> aggregate <span class="keyword">from</span> `demo_categories` <span class="keyword">where</span> `parent_id` <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> `demo_categories` <span class="keyword">where</span> `parent_id` <span class="operator">=</span> <span class="number">0</span> <span class="keyword">order</span> <span class="keyword">by</span> `<span class="keyword">order</span>` <span class="keyword">asc</span>, `id` <span class="keyword">asc</span> limit <span class="number">20</span> <span class="keyword">offset</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+
+<p><code>Grid\Column::tree</code> 方法参数</p>
+<ul>
+<li><code>bool</code> <code>$showAll</code>  <code>false</code>  是否一次性展示下一层级的所有节点，默认分页展示</li>
+<li><code>bool</code> <code>$sortable</code> <code>true</code>   是否开启排序功能</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 禁用分页功能，一次性加载所有下一层级节点</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;title-&gt;<span class="title function_ invoke__">tree</span>(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 不需要 order 字段排序，第二个参数传 false 即可</span></span><br><span class="line"><span class="variable">$grid</span>-&gt;title-&gt;<span class="title function_ invoke__">tree</span>(<span class="literal">false</span>, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="orderable排序"><a href="#orderable排序" class="headerlink" title="orderable排序"></a>orderable排序</h3><p><code>orderable</code> 排序功能依赖 <a href="https://github.com/spatie/eloquent-sortable" target="__blank">spatie&#x2F;eloquent-sortable</a> 组件，需要修改模型：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Spatie</span>\<span class="title">EloquentSortable</span>\<span class="title">Sortable</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Category</span> <span class="keyword">extends</span> <span class="title">Model</span> <span class="keyword">implements</span> <span class="title">Sortable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">use</span> <span class="title">ModelTree</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置排序字段，默认order</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$orderColumn</span> = <span class="string">&#x27;sort&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面是使用示例</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CategoryController</span> <span class="keyword">extends</span> <span class="title">AdminController</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">grid</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title class_">Grid</span>::<span class="title function_ invoke__">make</span>(<span class="keyword">new</span> <span class="title class_">Category</span>(), <span class="function"><span class="keyword">function</span> (<span class="params">Grid <span class="variable">$grid</span></span>) </span>&#123;</span><br><span class="line">            <span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">id</span>(<span class="string">&#x27;ID&#x27;</span>)-&gt;<span class="title function_ invoke__">bold</span>()-&gt;<span class="title function_ invoke__">sortable</span>();</span><br><span class="line">            <span class="variable">$grid</span>-&gt;title-&gt;<span class="title function_ invoke__">tree</span>(); <span class="comment">// 开启树状表格功能 </span></span><br><span class="line">            <span class="variable">$grid</span>-&gt;order-&gt;<span class="title function_ invoke__">orderable</span>(); <span class="comment">// 开启排序功能</span></span><br><span class="line">    </span><br><span class="line">            ...;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="关于数据搜索"><a href="#关于数据搜索" class="headerlink" title="关于数据搜索"></a>关于数据搜索</h3><p>如果在树状表格中使用了搜索功能（<code>Grid::filter</code>、<code>Grid\Column::filter</code>、<code>Grid::quickSearch</code>），为了让用户能搜索到想要的数据，则会<b>取消只查最顶级数据的操作</b>。</p>
+<blockquote>
+<p>{tip} 使用 <a href="model-grid-filters.md">查询过滤</a>、<a href="model-grid-column-filter.md">列过滤器</a>、<a href="model-grid-quick-search.md">快捷搜索</a> 等搜索功能都会<b>取消只查最顶级数据的操作</b>，只有 <a href="model-grid-selector.md">筛选器</a> 和 <a href="model-grid-filters.md#scope">范围查询scope</a> 等功能例外。</p>
+</blockquote>
+<p>例如下面的代码开启了快捷搜索</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CategoryController</span> <span class="keyword">extends</span> <span class="title">AdminController</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">grid</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title class_">Grid</span>::<span class="title function_ invoke__">make</span>(<span class="keyword">new</span> <span class="title class_">Category</span>(), <span class="function"><span class="keyword">function</span> (<span class="params">Grid <span class="variable">$grid</span></span>) </span>&#123;</span><br><span class="line">            <span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">id</span>(<span class="string">&#x27;ID&#x27;</span>)-&gt;<span class="title function_ invoke__">bold</span>()-&gt;<span class="title function_ invoke__">sortable</span>();</span><br><span class="line">            <span class="variable">$grid</span>-&gt;title-&gt;<span class="title function_ invoke__">tree</span>(); <span class="comment">// 开启树状表格功能 </span></span><br><span class="line">            <span class="variable">$grid</span>-&gt;order-&gt;<span class="title function_ invoke__">orderable</span>(); <span class="comment">// 开启排序功能</span></span><br><span class="line">    </span><br><span class="line">            <span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">quickSearch</span>([<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;title&#x27;</span>]);</span><br><span class="line">            ...;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>且用户在浏览器中使用了快捷搜索，则产生<code>sql</code>如下</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> aggregate <span class="keyword">from</span> `demo_categories` <span class="keyword">where</span> `id` <span class="keyword">like</span> &quot;%xxx%&quot; <span class="keyword">or</span> `title` <span class="keyword">like</span> &quot;%xxx%&quot;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> `demo_categories` <span class="keyword">where</span> `id` <span class="keyword">like</span> &quot;%xxx%&quot; <span class="keyword">or</span> `title` <span class="keyword">like</span> &quot;%xxx%&quot; <span class="keyword">order</span> <span class="keyword">by</span> `<span class="keyword">order</span>` <span class="keyword">asc</span>, `id` <span class="keyword">asc</span> limit <span class="number">20</span> <span class="keyword">offset</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="与模型树功能的差别"><a href="#与模型树功能的差别" class="headerlink" title="与模型树功能的差别"></a>与模型树功能的差别</h3><p><a href="model-tree.md">模型树</a>同样可用于展示多层级结构数据，并且支持用拖拽的方式实现数据的层级、排序等操作，但是不支持分页和点击加载功能，只能一次性加载完所有数据，<br>因此<a href="model-tree.md">模型树</a>并不适合用来展示数据量较大的数据。</p>
+<p>而树状表格支持分页和点击加载功能，适合用来展示数据量较大的多层级结构数据，但不支持用拖拽的方式实现数据的层级、排序操作。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/model-grid-tree/" data-id="clpdpxfkj001tywnagn7tfymd" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/model-grid-trans/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/model-grid/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="开发扩展Dcat Admin支持安装扩展工具来帮助丰富你的后台功能。  需要注意的是，Laravel Admin原有的扩展无法直接在Dcat Admin中使用，但大部分扩展只需要做一些微小的调整就可以正常使用了，有兴趣的同学可以自行移植。  如果大家在使用的过程中有在Dcat Admin的基础上添加一些自己的功能或者组件，不妨做成一个Dcat Admin扩展，这样可以给其它Dcat Admin使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/extension-dev/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="开发扩展Dcat Admin支持安装扩展工具来帮助丰富你的后台功能。  需要注意的是，Laravel Admin原有的扩展无法直接在Dcat Admin中使用，但大部分扩展只需要做一些微小的调整就可以正常使用了，有兴趣的同学可以自行移植。  如果大家在使用的过程中有在Dcat Admin的基础上添加一些自己的功能或者组件，不妨做成一个Dcat Admin扩展，这样可以给其它Dcat Admin使用">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-25T07:16:44.957Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.957Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/extension-dev" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/extension-dev/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.957Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="开发扩展"><a href="#开发扩展" class="headerlink" title="开发扩展"></a>开发扩展</h1><p><code>Dcat Admin</code>支持安装扩展工具来帮助丰富你的后台功能。</p>
+<blockquote>
+<p>需要注意的是，<code>Laravel Admin</code>原有的扩展无法直接在<code>Dcat Admin</code>中使用，但大部分扩展只需要做一些微小的调整就可以正常使用了，有兴趣的同学可以自行移植。</p>
+</blockquote>
+<p>如果大家在使用的过程中有在<code>Dcat Admin</code>的基础上添加一些自己的功能或者组件，不妨做成一个<code>Dcat Admin</code>扩展，这样可以给其它<code>Dcat Admin</code>使用者提供帮助，并且在其它人的使用反馈中的提升扩展的质量。</p>
+<p>这篇文档将会以开发一个 <a target="_blank" rel="noopener" href="https://github.com/dcat-admin/operation-log">操作日志扩展</a> 为例，一步一步的教大家开发一个扩展，并且发布给他人使用，最终的效果参考<a target="_blank" rel="noopener" href="https://github.com/dcat-admin/operation-log">操作日志扩展</a>。</p>
+<h2 id="开始之前"><a href="#开始之前" class="headerlink" title="开始之前"></a>开始之前</h2><p>在开始开发扩展之前，如果是<code>linux</code>环境，请先手动在项目根目录创建一个<code>dcat-admin-extensions</code>目录，并设置可读<strong>可写</strong>权限，扩展文件将会被安装在<code>dcat-admin-extensions</code>目录，请保证拥有以下几个目录的读写权限</p>
+<ol>
+<li><code>项目目录/dcat-admin-extensions</code> 扩展的安装目录，可以根据配置参数 <code>admin.extensions.dir</code> 进行更改</li>
+<li><code>public/vendor</code> 扩展静态资源发布目录</li>
+<li><code>resources/lang</code> 语言包目录</li>
+</ol>
+<h2 id="1-创建扩展"><a href="#1-创建扩展" class="headerlink" title="1.创建扩展"></a>1.创建扩展</h2><p><code>Dcat Admin</code>的扩展是一个标准的<code>composer</code>扩展包，可以通过<code>composer</code>安装，也可以通过系统内部的<code>本地安装</code>功能直接安装。我们可以通过命令或界面创建一个新的扩展，下面分别简单介绍一下命令和界面创建的方法</p>
+<p>1.通过命令创建扩展 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan admin:ext-make 扩展包名 --namespace=命名空间 --theme</span><br></pre></td></tr></table></figure>
+
+<p>命令参数说明</p>
+<ul>
+<li><code>name</code> 扩展包名称，扩展的名称是一个标准的<code>composer</code>包名，请统一使用<strong>小写字母</strong> + **中划线(-)**的风格命名，标准的格式如 <code>dcat-admin/operation-log</code>，前面一部分可以是个人名称，后面一部分可以是对扩展包功能的概括词语</li>
+<li><code>--namespace=</code> 扩展包命名空间，默认会根据包名自动生成，例如你的包名是<code>jiangqh/operation-log</code>，那么默认的命名空间是<code>Jiangqh/OperationLog</code></li>
+<li><code>--theme</code> 是否为主题扩展</li>
+</ul>
+<p>那么在当前这个例子中我们运行一下命令生成扩展包</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># `--namespace`</span></span><br><span class="line">php artisan admin:ext-make dcat-admin/operation-log --<span class="keyword">namespace</span>=&quot;<span class="title class_">Dcat</span>\<span class="title class_">Admin</span>\<span class="title class_">OperationLog</span>&quot;</span><br></pre></td></tr></table></figure>
+
+<p>2.通过管理页面创建扩展</p>
+<p>打开扩展管理页面<code>http://localhost/admin/auth/extensions</code>，然后点击表格下面第一行的<strong>快速创建</strong>，然后输入扩展包名和命名空间即可，在实际开发中也更推荐大家使用界面创建扩展，这样更方便</p>
+<p>扩展创建完成之后可以看到扩展文件夹下多了个<code>dcat-admin/extensions/dcat-admin/operation-log</code>目录，目录结构如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">├── README.md</span><br><span class="line">├── composer.json <span class="comment"># composer配置文件</span></span><br><span class="line">├── version.php   <span class="comment"># 扩展包版本管理文件</span></span><br><span class="line">├── logo.png      <span class="comment"># logo</span></span><br><span class="line">├── updates       <span class="comment"># 扩展包每个版本对应的表迁移文件</span></span><br><span class="line">├── resources </span><br><span class="line">│   ├── lang    <span class="comment"># 语言包</span></span><br><span class="line">│   ├── assets  <span class="comment"># 静态资源</span></span><br><span class="line">│   │   ├── css</span><br><span class="line">│   │   │   └── index.css <span class="comment"># css示例文件</span></span><br><span class="line">│   │   └── js</span><br><span class="line">│   │       └── index.js  <span class="comment"># js示例文件</span></span><br><span class="line">│   └── views</span><br><span class="line">│       └── index.blade.php <span class="comment"># 视图示例文件</span></span><br><span class="line">└── src</span><br><span class="line">    ├── OperationLogServiceProvider.php <span class="comment"># 扩展包服务提供者</span></span><br><span class="line">    ├── Setting.php  <span class="comment"># 扩展设置表单</span></span><br><span class="line">    ├── Models  <span class="comment"># 模型目录</span></span><br><span class="line">    └── Http</span><br><span class="line">        ├── routes.php  <span class="comment"># 扩展包路由文件</span></span><br><span class="line">        ├── Middleware  <span class="comment"># 扩展包中间件文件夹</span></span><br><span class="line">        └── Controllers <span class="comment"># 扩展包控制器</span></span><br><span class="line">            └── OperationLogController.php</span><br></pre></td></tr></table></figure>
+
+<p>然后你还可以设置扩展的<code>logo</code>以及扩展名称，设置之后会在扩展管理页面展示，让你的扩展更具容易被人记住！</p>
+<p><a name="logo"></a></p>
+<h3 id="扩展logo"><a href="#扩展logo" class="headerlink" title="扩展logo"></a>扩展logo</h3><p>扩展<code>logo</code>必须放在扩展的根目录，并且文件名必须是<code>logo.png</code>，尺寸建议是<code>100x100</code>。</p>
+<h3 id="扩展名称"><a href="#扩展名称" class="headerlink" title="扩展名称"></a>扩展名称</h3><p>扩展名称需要修改<code>composer.json</code>里面的<code>alias</code>参数，如果不设置则默认展示包名</p>
+<h2 id="2-启用扩展"><a href="#2-启用扩展" class="headerlink" title="2.启用扩展"></a>2.启用扩展</h2><p>扩展创建成功之后就可以在管理页面<code>http://localhost/admin/auth/extensions</code> 看到新创建的扩展了，效果如下</p>
+<a href="/assets/img/2x/ext-1.png" target="_blank">
+    ![](/assets/img/2x/ext-1.png)
+</a>
+
+<p>然后我们分别点击扩展对应的 <code>更新至1.0.0版本</code> 以及 <code>启用</code> 按钮，就可以使这个扩展生效了。<br>新创建的扩展会生成一个默认的控制器，在这个例子中，我们可以尝试访问<code>http://localhost:8000/admin/operation-log</code>，如果可以正常访问则说明扩展启用成功。</p>
+<h2 id="3-功能开发"><a href="#3-功能开发" class="headerlink" title="3.功能开发"></a>3.功能开发</h2><p>这个扩展的功能主要是用来记录用户的操作记录，然后提供一个查看记录的页面，然后我们可以把默认创建的扩展文件中用不到的给清理掉，清理后的目录结构如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">├── README.md</span><br><span class="line">├── composer.json <span class="comment"># composer配置文件</span></span><br><span class="line">├── version.php   <span class="comment"># 扩展包版本管理文件</span></span><br><span class="line">├── logo.png      <span class="comment"># logo</span></span><br><span class="line">├── updates       <span class="comment"># 扩展包每个版本对应的表迁移文件</span></span><br><span class="line">├── resources </span><br><span class="line">│   └── lang  <span class="comment"># 语言包</span></span><br><span class="line">└── src</span><br><span class="line">    ├── OperationLogServiceProvider.php <span class="comment"># 扩展包服务提供者</span></span><br><span class="line">    ├── Setting.php  <span class="comment"># 扩展设置表单</span></span><br><span class="line">    ├── Models  <span class="comment"># 模型目录</span></span><br><span class="line">    └── Http</span><br><span class="line">        ├── routes.php  <span class="comment"># 扩展包路由文件</span></span><br><span class="line">        ├── Middleware  <span class="comment"># 扩展包中间件文件夹</span></span><br><span class="line">        └── Controllers <span class="comment"># 扩展包控制器</span></span><br><span class="line">            └── OperationLogController.php</span><br></pre></td></tr></table></figure>
+
+<p>接下来就正式进入功能开发部分</p>
+<h3 id="创建迁移文件-migration"><a href="#创建迁移文件-migration" class="headerlink" title="创建迁移文件 (migration)"></a>创建迁移文件 (migration)</h3><p>首先我们需要创建一个表迁移文件，运行命令 <code>php artisan make:migration CreateOperationLogTable</code>，然后写入文件内容如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Migrations</span>\<span class="title">Migration</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Schema</span>\<span class="title">Blueprint</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">Facades</span>\<span class="title">Schema</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CreateOperationLogTable</span> <span class="keyword">extends</span> <span class="title">Migration</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">// 这里可以指定你的数据库连接</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getConnection</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">config</span>(<span class="string">&#x27;database.connection&#x27;</span>) ?: <span class="title function_ invoke__">config</span>(<span class="string">&#x27;database.default&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">up</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (! <span class="title class_">Schema</span>::<span class="title function_ invoke__">hasTable</span>(<span class="string">&#x27;admin_operation_log&#x27;</span>)) &#123;</span><br><span class="line">            <span class="title class_">Schema</span>::<span class="title function_ invoke__">create</span>(<span class="string">&#x27;admin_operation_log&#x27;</span>, function (Blueprint <span class="variable">$table</span>) &#123;</span><br><span class="line">                <span class="variable">$table</span>-&gt;<span class="title function_ invoke__">bigIncrements</span>(<span class="string">&#x27;id&#x27;</span>)-&gt;<span class="title function_ invoke__">unsigned</span>();</span><br><span class="line">                <span class="variable">$table</span>-&gt;<span class="title function_ invoke__">bigInteger</span>(<span class="string">&#x27;user_id&#x27;</span>);</span><br><span class="line">                <span class="variable">$table</span>-&gt;<span class="keyword">string</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line">                <span class="variable">$table</span>-&gt;<span class="keyword">string</span>(<span class="string">&#x27;method&#x27;</span>, <span class="number">10</span>);</span><br><span class="line">                <span class="variable">$table</span>-&gt;<span class="keyword">string</span>(<span class="string">&#x27;ip&#x27;</span>);</span><br><span class="line">                <span class="variable">$table</span>-&gt;<span class="title function_ invoke__">text</span>(<span class="string">&#x27;input&#x27;</span>);</span><br><span class="line">                <span class="variable">$table</span>-&gt;<span class="title function_ invoke__">index</span>(<span class="string">&#x27;user_id&#x27;</span>);</span><br><span class="line">                <span class="variable">$table</span>-&gt;<span class="title function_ invoke__">timestamps</span>();</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">down</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="title class_">Schema</span>::<span class="title function_ invoke__">dropIfExists</span>(<span class="string">&#x27;admin_operation_log&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后把文件移动到 <code>扩展目录/updates</code> 目录，并重命名为 <code>create_opration_log_table.php</code>。最后我们需要修改扩展的版本管理文件 <code>扩展目录/version.php</code>，写入迁移文件的文件名，最终内容如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> [</span><br><span class="line">    <span class="string">&#x27;1.0.0&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;版本变化描述1&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;版本变化描述2&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;create_opration_log_table.php&#x27;</span>, <span class="comment">// 迁移文件名称，安装或更新版本时会自动执行</span></span><br><span class="line">    ],</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<p>关于扩展的版本管理更详细的介绍，请前往<a href="extension-f.md#version">扩展 - 版本管理</a>章节查看。</p>
+<h3 id="模型、控制器和路由"><a href="#模型、控制器和路由" class="headerlink" title="模型、控制器和路由"></a>模型、控制器和路由</h3><p>创建模型文件 <code>扩展目录/src/Models/OperationLog</code>，模型内容点击<a target="_blank" rel="noopener" href="https://github.com/dcat-admin/operation-log/blob/master/src/Models/OperationLog.php">OperationLog.php</a>查看；</p>
+<p>然后修改我们的控制器<code>扩展目录/src/Http/Controllers/OperationLogController.php</code>，控制器内容点击<a target="_blank" rel="noopener" href="https://github.com/dcat-admin/operation-log/blob/master/src/Http/Controllers/LogController.php">LogController.php</a>查看；</p>
+<p>最后需要修改我们的路由文件，尽量让你的路由不与其他路由产生冲突</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">OperationLog</span>\<span class="title">Http</span>\<span class="title">Controllers</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">Facades</span>\<span class="title">Route</span>;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;auth/operation-logs&#x27;</span>, <span class="title class_">Controllers\OperationLogController</span>::<span class="variable language_">class</span>.<span class="string">&#x27;@index&#x27;</span>)-&gt;<span class="title function_ invoke__">name</span>(<span class="string">&#x27;dcat-admin.operation-log.index&#x27;</span>);</span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">delete</span>(<span class="string">&#x27;auth/operation-logs/&#123;id&#125;&#x27;</span>, <span class="title class_">Controllers\OperationLogController</span>::<span class="variable language_">class</span>.<span class="string">&#x27;@destroy&#x27;</span>)-&gt;<span class="title function_ invoke__">name</span>(<span class="string">&#x27;dcat-admin.operation-log.destroy&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="语言包"><a href="#语言包" class="headerlink" title="语言包"></a>语言包</h3><p>在控制器中，我们可以让一些文本描述支持语言包翻译功能，在这个例子中我们以<code>en</code>以及<code>zh_CN</code>两种语言为例，在<code>扩展包/resources/lang</code>目录下分别创建<code>en/log.php</code>和<code>zh_CN/log.php</code>文件，并写入以下内容</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// en</span></span><br><span class="line"><span class="keyword">return</span> [</span><br><span class="line">    <span class="string">&#x27;title&#x27;</span> =&gt; <span class="string">&#x27;Operation Log&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;setting_title&#x27;</span> =&gt; <span class="string">&#x27;Operation Log&#x27;</span>,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">// zh_CN</span></span><br><span class="line"><span class="keyword">return</span> [</span><br><span class="line">    <span class="string">&#x27;title&#x27;</span> =&gt; <span class="string">&#x27;操作日志&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;setting_title&#x27;</span> =&gt; <span class="string">&#x27;操作日志&#x27;</span>,</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<p>最后在控制器中可以通过下面的方法访问语言包内容，关于多语言的更多用法可以参考laravel官方文档</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">OperationLog</span>\<span class="title">OperationLogServiceProvider</span>;</span><br><span class="line"></span><br><span class="line">OperationLogServiceProvider:<span class="title function_ invoke__">trans</span>(<span class="string">&#x27;log.title&#x27;</span>);</span><br><span class="line">OperationLogServiceProvider:<span class="title function_ invoke__">trans</span>(<span class="string">&#x27;log.setting_title&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="定义菜单"><a href="#定义菜单" class="headerlink" title="定义菜单"></a>定义菜单</h3><p>接下来我们还需要给我们的扩展生成菜单，打开<code>扩展目录/src/OperationLogServiceProvider.php</code>，然后修改内容如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OperationLogServiceProvider</span> <span class="keyword">extends</span> <span class="title">ServiceProvider</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">// 定义菜单</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$menu</span> = [</span><br><span class="line">        [</span><br><span class="line">            <span class="string">&#x27;title&#x27;</span> =&gt; <span class="string">&#x27;Operation Log&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;uri&#x27;</span>   =&gt; <span class="string">&#x27;auth/operation-logs&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;icon&#x27;</span>  =&gt; <span class="string">&#x27;&#x27;</span>, <span class="comment">// 图标可以留空</span></span><br><span class="line">        ],</span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">settingForm</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Setting</span>(<span class="variable language_">$this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果你想注册带有层级关系的菜单，可以通过下面这种方式注册</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注册菜单</span></span><br><span class="line"><span class="keyword">protected</span> <span class="variable">$menu</span> = [</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;title&#x27;</span> =&gt; <span class="string">&#x27;Operation Log&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;uri&#x27;</span>   =&gt; <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;icon&#x27;</span>  =&gt; <span class="string">&#x27;feather icon-x&#x27;</span>, </span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;parent&#x27;</span> =&gt; <span class="string">&#x27;Operation Log&#x27;</span>, <span class="comment">// 指定父级菜单</span></span><br><span class="line">        <span class="string">&#x27;title&#x27;</span>  =&gt; <span class="string">&#x27;List&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;uri&#x27;</span>    =&gt; <span class="string">&#x27;auth/operation-logs&#x27;</span>,</span><br><span class="line">    ],</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试扩展"><a href="#测试扩展" class="headerlink" title="测试扩展"></a>测试扩展</h3><p>上面的步骤都完成之后，我们可以先开始测试一下上面的功能，验证下是否有错误，然后再进行后续的开发。</p>
+<p>由于刚开始创建扩展的时候，我们已经安装并启用了这个扩展，所以此处我们要先<strong>卸载</strong>当前扩展，再重新更新到<code>1.0.0</code>版本，这样数据表和菜单才会被创建。</p>
+<blockquote>
+<p>{tip} <strong>卸载</strong>功能会删除扩展的数据或数据表，请谨慎操作，以免造成数据丢失！！！</p>
+</blockquote>
+<p>打开扩展管理页面<code>http://域名/admin/auth/extensions</code>，找到当前扩展，鼠标移动到扩展行，点击 <code>卸载</code> 按钮并确认，然后重新点击<code>更新至1.0.0版本</code> 以及 <code>启用</code> 按钮，<br>最后 <code>F5</code> 刷新浏览器即可看到新创建的菜单，点击菜单可访问操作日志管理页面<code>admin/auth/operation-logs</code>。</p>
+<h3 id="注册中间件"><a href="#注册中间件" class="headerlink" title="注册中间件"></a>注册中间件</h3><p>现在我们的扩展还需要一个中间件来记录用户的操作，创建文件 <code>扩展目录/src/Http/Middleware/LogOperation.php</code>，文件内容点击<a target="_blank" rel="noopener" href="https://github.com/dcat-admin/operation-log/blob/master/src/Http/Middleware/LogOperation.php">LogOperation.php</a>查看。</p>
+<p>然后我们需要注册这个中间件，让这个中间件生效，打开<code>扩展目录/src/OperationLogServiceProvider.php</code>，然后修改内容如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OperationLogServiceProvider</span> <span class="keyword">extends</span> <span class="title">ServiceProvider</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$middleware</span> = [</span><br><span class="line">        <span class="string">&#x27;middle&#x27;</span> =&gt; [ <span class="comment">// 注册中间件</span></span><br><span class="line">            <span class="title class_">LogOperation</span>::<span class="variable language_">class</span>,</span><br><span class="line">        ],</span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$menu</span> = [</span><br><span class="line">        [</span><br><span class="line">            <span class="string">&#x27;title&#x27;</span> =&gt; <span class="string">&#x27;Operation Log&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;uri&#x27;</span>   =&gt; <span class="string">&#x27;auth/operation-logs&#x27;</span>,</span><br><span class="line">        ],</span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">settingForm</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Setting</span>(<span class="variable language_">$this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>$middleware</code>属性中注册的中间件最后会合并到配置参数<code>admin.route.middleware</code>中，中间件注册支持以下三种类型注册</p>
+<ol>
+<li><code>before</code> 中间件会在最前面，也就是最先执行</li>
+<li><code>middle</code> 中间件会在<code>admin.auth</code>（登陆鉴权中）和<code>admin.permission</code>（权限判断）两个中间件<strong>之间</strong>执行</li>
+<li><code>after</code>  中间件会在最后执行</li>
+</ol>
+<p>在这个例子中，操作日志记录用户操作时显然需要记录登陆用户的信息，所以中间件必须在 <code>admin.auth</code> 中间件之后执行，这样才能拿到登陆用户数据；<br>并且无权限的操作也需要记录，所以必须在 <code>admin.permission</code> 中间件之前执行，所以只有注册为 <code>middle</code> 类型的中间件才能满足上述要求！</p>
+<p>注册完中间件之后，我们随意访问一下系统中的其他页面（除了操作日志管理页面），然后再访问操作日志管理页面，就可以看到用户的操作日志了，到这里插件基本开发完毕。</p>
+<h3 id="配置参数（设置）"><a href="#配置参数（设置）" class="headerlink" title="配置参数（设置）"></a>配置参数（设置）</h3><p>在当前这个例子中，我们需要让用户能配置一些自定义参数（比如配置不需要记录操作日志的路由），所以我们还需要一个 <code>配置表单</code> 让用户能通过页面直接配置相关参数，<br>我们需要在 <code>OperationLogServiceProvider</code> 类里面的 <code>settingForm</code> 返回这个配置表单的对象</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OperationLogServiceProvider</span> <span class="keyword">extends</span> <span class="title">ServiceProvider</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回配置表单对象，如果不需要保存配置参数，则请删除这个方法  </span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">settingForm</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Setting</span>(<span class="variable language_">$this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后我们需要修改配置表单类 <code>扩展目录/src/Setting.php</code> 如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title class_">Dcat</span>\<span class="title class_">Admin</span>\<span class="title class_">OperationLog</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Extend</span>\<span class="title">Setting</span> <span class="keyword">as</span> <span class="title">Form</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">OperationLog</span>\<span class="title">Models</span>\<span class="title">OperationLog</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Support</span>\<span class="title">Helper</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Setting</span> <span class="keyword">extends</span> <span class="title">Form</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">// 返回表单弹窗标题</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">title</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">trans</span>(<span class="string">&#x27;log.title&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 格式化待保存的配置参数值</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">formatInput</span>(<span class="params"><span class="keyword">array</span> <span class="variable">$input</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 转化为数组，注意如果这里保存的时候是数组，那么读取出来的时候也是数组</span></span><br><span class="line">        <span class="variable">$input</span>[<span class="string">&#x27;except&#x27;</span>] = <span class="title class_">Helper</span>::<span class="keyword">array</span>(<span class="variable">$input</span>[<span class="string">&#x27;except&#x27;</span>]);</span><br><span class="line">        <span class="variable">$input</span>[<span class="string">&#x27;allowed_methods&#x27;</span>] = <span class="title class_">Helper</span>::<span class="keyword">array</span>(<span class="variable">$input</span>[<span class="string">&#x27;allowed_methods&#x27;</span>]);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$input</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">form</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 定义表单字段</span></span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">tags</span>(<span class="string">&#x27;except&#x27;</span>);</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">multipleSelect</span>(<span class="string">&#x27;allowed_methods&#x27;</span>)</span><br><span class="line">            -&gt;<span class="title function_ invoke__">options</span>(<span class="title function_ invoke__">array_combine</span>(<span class="title class_">OperationLog</span>::<span class="variable">$methods</span>, <span class="title class_">OperationLog</span>::<span class="variable">$methods</span>));</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">tags</span>(<span class="string">&#x27;secret_fields&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上设置完成之后我们就可以在扩展管理页面保存自定义参数了</p>
+<a href="/assets/img/2x/ext-2.png" target="_blank">
+    ![](/assets/img/2x/ext-2.png)
+</a>
+
+<p>配置参数读取用法如下，我们可以在中间件 <code>LogOperation</code> 中使用这些参数</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">OperationLog</span>\<span class="title">OperationLogServiceProvider</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取配置参数</span></span><br><span class="line"><span class="variable">$except</span> = <span class="title class_">OperationLogServiceProvider</span>::<span class="title function_ invoke__">setting</span>(<span class="string">&#x27;except&#x27;</span>);</span><br><span class="line"><span class="variable">$allowedMethods</span> = <span class="title class_">OperationLogServiceProvider</span>::<span class="title function_ invoke__">setting</span>(<span class="string">&#x27;allowed_methods&#x27;</span>);</span><br><span class="line"><span class="variable">$secretFields</span> = <span class="title class_">OperationLogServiceProvider</span>::<span class="title function_ invoke__">setting</span>(<span class="string">&#x27;secret_fields&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="服务注册与初始化"><a href="#服务注册与初始化" class="headerlink" title="服务注册与初始化"></a>服务注册与初始化</h3><p>由于当前这个例子中没有使用到服务注册与初始化相关功能，所以这部分内容先略过，有相关需要的同学可以参考<a href="extension-f.md#service">扩展 - 服务注册与初始化</a>章节。</p>
+<h3 id="视图-view"><a href="#视图-view" class="headerlink" title="视图 (view)"></a>视图 (view)</h3><p>由于当前这个例子中没有使用到自定义静态资源的功能，所以这部分内容先略过，有相关需要的同学可以参考<a href="extension-f.md#view">扩展 - 视图</a>章节。</p>
+<h3 id="静态资源"><a href="#静态资源" class="headerlink" title="静态资源"></a>静态资源</h3><p>由于当前这个例子中没有使用到自定义静态资源的功能，所以这部分内容先略过，有相关需要的同学可以参考<a href="extension-f.md#assets">扩展 - 静态资源</a>章节。</p>
+<h3 id="修改-composer-json-README-md"><a href="#修改-composer-json-README-md" class="headerlink" title="修改 composer.json &amp; README.md"></a>修改 composer.json &amp; README.md</h3><p>代码部分完成之后，需要修改<code>composer.json</code>里面的内容，将<code>description</code>、<code>keywords</code>、<code>license</code>、<code>authors</code>等内容替换为你的信息，然后不要忘记完善<code>README.md</code>，补充使用文档等相关信息。</p>
+<h3 id="发布扩展"><a href="#发布扩展" class="headerlink" title="发布扩展"></a>发布扩展</h3><h4 id="上传应用市场"><a href="#上传应用市场" class="headerlink" title="上传应用市场"></a>上传应用市场</h4><p>正式版发布后会上线应用市场功能，开发者可以把扩展发布到应用市场，然后用户就可以通过页面直接安装使用，敬请期待…</p>
+<p><a name="github"></a></p>
+<h4 id="上传到Github"><a href="#上传到Github" class="headerlink" title="上传到Github"></a>上传到Github</h4><p>先登录你的Github，创建一个仓库，然后按照页面上的提示把你的代码push上去</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add origin https://github.com/&lt;your-name&gt;/&lt;your-repository&gt;.git</span><br><span class="line">git add .</span><br><span class="line">git commit -am &quot;Initial commit.&quot;</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
+<p><a name="packagist"></a></p>
+<h4 id="发布到Packagist-org"><a href="#发布到Packagist-org" class="headerlink" title="发布到Packagist.org"></a>发布到Packagist.org</h4><p>接下来就是发布你的项目到<code>Packagist.org</code>，如果没有账号的话，先注册一个，然后打开顶部导航的<code>Submit</code>, 填入仓库地址提交</p>
+<p>默认情况下，当您推送新代码时，<code>Packagist.org</code>不会自动更新，所以，您需要创建一个GitHub服务钩子， 你也可以使用点击页面上的<code>Update</code>按钮手动更新它，但我建议自动执行这个过程</p>
+<p>提交之后，由于各地的镜像同步时间的延迟，可能在用 <code>composer</code> 安装的时候，会暂时找不到你的项目，这个时候可能需要等待同步完成</p>
+<p>发布完成之后就可以通过 <code>composer</code> 安装你的扩展了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/extension-dev/" data-id="clpdpxfiv000iywnafw4wcrfq" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/extension-theme/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/custom-page/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

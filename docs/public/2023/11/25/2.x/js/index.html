@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="JS组件Dcat Admin内置了一些常用的JS功能组件，通过全局变量Dcat可以访问到这些功能方法。 监听JS脚本加载完毕事件 (ready)通过Dcat.ready方法设置的回调函数会在所有的JS脚本都加载完毕后执行。  {tip} 只有在模板文件中写JS代码才需要使用Dcat.ready，当在php代码中使用Dcat\Admin\Admin::script方法添加JS代码时是不需要使用Dca">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/js/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="JS组件Dcat Admin内置了一些常用的JS功能组件，通过全局变量Dcat可以访问到这些功能方法。 监听JS脚本加载完毕事件 (ready)通过Dcat.ready方法设置的回调函数会在所有的JS脚本都加载完毕后执行。  {tip} 只有在模板文件中写JS代码才需要使用Dcat.ready，当在php代码中使用Dcat\Admin\Admin::script方法添加JS代码时是不需要使用Dca">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.learnku.com/uploads/images/202004/26/38389/zmB4EPhS3u.png!large">
+<meta property="og:image" content="https://cdn.learnku.com/uploads/images/202004/26/38389/lp40C74OtV.png!large">
+<meta property="og:image" content="https://cdn.learnku.com/uploads/images/202004/26/38389/OrhZ4dvA5R.png!large">
+<meta property="og:image" content="https://cdn.learnku.com/uploads/images/202004/26/38389/lnp47PDecK.png!large">
+<meta property="og:image" content="https://cdn.learnku.com/uploads/images/202004/26/38389/FIWAUFg1qn.png!large">
+<meta property="og:image" content="https://cdn.learnku.com/uploads/images/202004/26/38389/WPIC4wwq5Q.png!large">
+<meta property="og:image" content="https://cdn.learnku.com/uploads/images/202004/26/38389/ziHL5feEAV.png!large">
+<meta property="og:image" content="https://cdn.learnku.com/uploads/images/202004/26/38389/rNMFWAHPqJ.png!large">
+<meta property="og:image" content="https://cdn.learnku.com/uploads/images/202004/26/38389/IE8kGdupKW.png!large">
+<meta property="og:image" content="https://cdn.learnku.com/uploads/images/202004/26/38389/wJxcYaC9GP.png!large">
+<meta property="og:image" content="https://cdn.learnku.com/uploads/images/202004/26/38389/qdXUaNEMSQ.png!large">
+<meta property="article:published_time" content="2023-11-25T07:16:44.961Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.961Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.learnku.com/uploads/images/202004/26/38389/zmB4EPhS3u.png!large">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/js/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.961Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="JS组件"><a href="#JS组件" class="headerlink" title="JS组件"></a>JS组件</h1><p><code>Dcat Admin</code>内置了一些常用的JS功能组件，通过全局变量<code>Dcat</code>可以访问到这些功能方法。</p>
+<h2 id="监听JS脚本加载完毕事件-ready"><a href="#监听JS脚本加载完毕事件-ready" class="headerlink" title="监听JS脚本加载完毕事件 (ready)"></a>监听JS脚本加载完毕事件 (ready)</h2><p>通过<code>Dcat.ready</code>方法设置的回调函数会在所有的<code>JS</code>脚本都加载完毕后执行。</p>
+<blockquote>
+<p>{tip} 只有在模板文件中写<code>JS</code>代码才需要使用<code>Dcat.ready</code>，当在<code>php</code>代码中使用<code>Dcat\Admin\Admin::script</code>方法添加<code>JS</code>代码时是不需要使用<code>Dcat.ready</code>方法的。因为在构建页面的时候系统会自动把代码放在<code>Dcat.ready</code>事件内执行。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Dcat</span>.<span class="title function_">ready</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 写你的逻辑</span></span></span><br><span class="line"><span class="language-javascript">    </span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;所有JS脚本都加载完了&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">&#125;);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><a name="init"></a></p>
+<h2 id="动态监听元素生成-init"><a href="#动态监听元素生成-init" class="headerlink" title="动态监听元素生成 (init)"></a>动态监听元素生成 (init)</h2><p>通过<code>Dcat.init</code>可以监听动态生成的页面元素并设置一个回调，下面来举一个简单的例子来演示用法：</p>
+<p>假如一个元素是<code>JS</code>动态生成的，如果我们需要对这个元素绑定一个点击事件的话，那么我们通常需要这么做</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;selector&quot;</span>&gt;</span>test<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Dcat</span>.<span class="title function_">ready</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 需要先 off 再 on 否则页面刷新后会造成重复绑定问题</span></span></span><br><span class="line"><span class="language-javascript">    $(<span class="variable language_">document</span>).<span class="title function_">off</span>(<span class="string">&#x27;click&#x27;</span>, <span class="string">&#x27;.selector&#x27;</span>).<span class="title function_">on</span>(<span class="string">&#x27;click&#x27;</span>, <span class="string">&#x27;.selector&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        ...</span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript">&#125;);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>上面这种做法一来比较麻烦，需要先<code>off</code>再<code>on</code>；二来无法对动态生成的元素做一些特殊处理，例如你想在<code>.selector</code>生成后改变背景颜色，这个操作就没办法做到。</p>
+<p>在<code>Dcat Admin</code>中我们可以使用<code>Dcat.init</code>方法来监听元素动态生成，可以很方便的解决上面两个问题</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;selector&quot;</span>&gt;</span>test<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Dcat</span>.<span class="title function_">ready</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// $this 是当前元素的jquery dom对象</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// id 是当前元素的id属性，如果当前元素没有id则会自动生成一个随机id</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title class_">Dcat</span>.<span class="title function_">init</span>(<span class="string">&#x27;.selector&#x27;</span>, <span class="keyword">function</span> (<span class="params">$this, id</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 修改元素的背景色</span></span></span><br><span class="line"><span class="language-javascript">        $this.<span class="title function_">css</span>(&#123;<span class="attr">background</span>: <span class="string">&quot;#fff&quot;</span>&#125;);</span></span><br><span class="line"><span class="language-javascript">        </span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 这里不需要 off 再重新 on，因为这个匿名函数只会执行一次</span></span></span><br><span class="line"><span class="language-javascript">        $this.<span class="title function_">on</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            ...</span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript">    &#125;);</span></span><br><span class="line"><span class="language-javascript">&#125;);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>Dcat.init</code> 接受两个参数</p>
+<ol>
+<li><code>selector</code> 需要监听的元素的<code>css选择器</code></li>
+<li><code>callback</code> 事件回调，当元素生成时触发，且只触发一次</li>
+</ol>
+<p>其中<code>callback</code>回调接收两个参数如下</p>
+<ul>
+<li><code>$this</code> 是当前元素的jquery dom对象</li>
+<li><code>id</code> 是当前元素的id属性，如果当前元素没有id则会自动生成一个随机id</li>
+</ul>
+<h2 id="手动触发JS脚本加载完毕事件"><a href="#手动触发JS脚本加载完毕事件" class="headerlink" title="手动触发JS脚本加载完毕事件"></a>手动触发JS脚本加载完毕事件</h2><p>通过<code>Dcat.triggerReady</code>方法可以手动触发<code>JS</code>脚本加载完毕事件，这就意味着会自动执行在此之前所有通过<code>Dcat.ready</code>方法设置的回调函数。</p>
+<blockquote>
+<p>{tip} 这个功能普通开发很少会用到，只有一些比较深度的组件定制会用到，比如<a href="model-form-modal.md">表单弹窗</a>功能就用到了此方法。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">triggerReady</span>();</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Pjax刷新页面"><a href="#Pjax刷新页面" class="headerlink" title="Pjax刷新页面"></a>Pjax刷新页面</h2><p>通过<code>Dcat.reload</code>方法可以调用<code>Pjax.reload</code>方法实现页面刷新和跳转功能。</p>
+<p>刷新当前页面</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">script</span>(</span><br><span class="line"><span class="string">&lt;&lt;&lt;JS</span></span><br><span class="line"><span class="string">    // 3秒后刷新当前页面</span></span><br><span class="line"><span class="string">    setTimeout(function () &#123;</span></span><br><span class="line"><span class="string">        Dcat.reload();</span></span><br><span class="line"><span class="string">    &#125;, 3000);</span></span><br><span class="line"><span class="string">JS</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>跳转页面</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$url</span> = <span class="title function_ invoke__">admin_url</span>(<span class="string">&#x27;auth/users&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Admin</span>::<span class="title function_ invoke__">script</span>(</span><br><span class="line"><span class="string">&lt;&lt;&lt;JS</span></span><br><span class="line"><span class="string">    // 3秒后跳转到 admin/auth/users 页面</span></span><br><span class="line"><span class="string">    setTimeout(function () &#123;</span></span><br><span class="line"><span class="string">        Dcat.reload(&#x27;<span class="subst">&#123;$url&#125;</span>&#x27;);</span></span><br><span class="line"><span class="string">    &#125;, 3000);</span></span><br><span class="line"><span class="string">JS</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Toastr提示框"><a href="#Toastr提示框" class="headerlink" title="Toastr提示框"></a>Toastr提示框</h2><p><code>Dcat Admin</code>集成了<a target="_blank" rel="noopener" href="https://github.com/CodeSeven/toastr">Toastr</a>插件，下面是使用方法</p>
+<h3 id="success"><a href="#success" class="headerlink" title="success"></a>success</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">success</span>(<span class="string">&#x27;更新成功&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用标题</span></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">success</span>(<span class="string">&#x27;更新成功&#x27;</span>, <span class="string">&#x27;我是标题&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 传递参数</span></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">success</span>(<span class="string">&#x27;更新成功&#x27;</span>, <span class="literal">null</span>, &#123;</span><br><span class="line">    <span class="attr">timeOut</span>: <span class="number">5000</span>, <span class="comment">// 5秒后自动消失</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/zmB4EPhS3u.png!large"></p>
+<h3 id="error"><a href="#error" class="headerlink" title="error"></a>error</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">error</span>(<span class="string">&#x27;服务器出现未知错误&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用标题</span></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">error</span>(<span class="string">&#x27;服务器出现未知错误&#x27;</span>, <span class="string">&#x27;我是标题&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 传递参数</span></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">error</span>(<span class="string">&#x27;服务器出现未知错误&#x27;</span>, <span class="literal">null</span>, &#123;</span><br><span class="line">    <span class="attr">timeOut</span>: <span class="number">5000</span>, <span class="comment">// 5秒后自动消失</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="warning"><a href="#warning" class="headerlink" title="warning"></a>warning</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">warning</span>(<span class="string">&#x27;警告&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用标题</span></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">warning</span>(<span class="string">&#x27;警告&#x27;</span>, <span class="string">&#x27;我是标题&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 传递参数</span></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">warning</span>(<span class="string">&#x27;警告&#x27;</span>, <span class="literal">null</span>, &#123;</span><br><span class="line">    <span class="attr">timeOut</span>: <span class="number">5000</span>, <span class="comment">// 5秒后自动消失</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="info"><a href="#info" class="headerlink" title="info"></a>info</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">info</span>(<span class="string">&#x27;提示信息&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用标题</span></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">info</span>(<span class="string">&#x27;提示信息&#x27;</span>, <span class="string">&#x27;我是标题&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 传递参数</span></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">info</span>(<span class="string">&#x27;提示信息&#x27;</span>, <span class="literal">null</span>, &#123;</span><br><span class="line">    <span class="attr">timeOut</span>: <span class="number">5000</span>, <span class="comment">// 5秒后自动消失</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>更多用法请参考<a target="_blank" rel="noopener" href="https://github.com/CodeSeven/toastr">toastr官方文档</a></p>
+<h2 id="sweetalert2弹窗"><a href="#sweetalert2弹窗" class="headerlink" title="sweetalert2弹窗"></a>sweetalert2弹窗</h2><p><code>Dcat Admin</code>集成了<a target="_blank" rel="noopener" href="https://github.com/sweetalert2/sweetalert2">sweetalert2</a>插件，下面是使用方法</p>
+<h3 id="confirm"><a href="#confirm" class="headerlink" title="confirm"></a>confirm</h3><p>通过<code>Dcat.confirm</code>方法可以弹出确认弹窗，此方法接收5个参数</p>
+<ul>
+<li><code>title</code> <code>string</code> 确认信息标题</li>
+<li><code>message</code> <code>string</code> 确认信息内容，此参数可以不传</li>
+<li><code>success</code> <code>function</code> 点击确认按钮触发的回调函数</li>
+<li><code>fail</code> <code>function</code> 点击取消按钮触发的回调函数，此参数可以不传</li>
+<li><code>options</code> <code>object</code> 配置参数，可参考<a target="_blank" rel="noopener" href="https://github.com/sweetalert2/sweetalert2">sweetalert2官方文档</a></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">confirm</span>(<span class="string">&#x27;确认要删除这行数据吗？&#x27;</span>, <span class="literal">null</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;确认删除&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">    $.<span class="title function_">post</span>(...);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/lp40C74OtV.png!large"></p>
+<h3 id="success-1"><a href="#success-1" class="headerlink" title="success"></a>success</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Dcat</span>.<span class="property">swal</span>.<span class="title function_">success</span>(<span class="string">&#x27;标题&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="property">swal</span>.<span class="title function_">success</span>(<span class="string">&#x27;标题&#x27;</span>, <span class="string">&#x27;内容&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="property">swal</span>.<span class="title function_">success</span>(<span class="string">&#x27;标题&#x27;</span>, <span class="string">&#x27;内容&#x27;</span>, &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/OrhZ4dvA5R.png!large"></p>
+<h3 id="error-1"><a href="#error-1" class="headerlink" title="error"></a>error</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Dcat</span>.<span class="property">swal</span>.<span class="title function_">error</span>(<span class="string">&#x27;标题&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="property">swal</span>.<span class="title function_">error</span>(<span class="string">&#x27;标题&#x27;</span>, <span class="string">&#x27;内容&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="property">swal</span>.<span class="title function_">error</span>(<span class="string">&#x27;标题&#x27;</span>, <span class="string">&#x27;内容&#x27;</span>, &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/lnp47PDecK.png!large"></p>
+<h3 id="warning-1"><a href="#warning-1" class="headerlink" title="warning"></a>warning</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Dcat</span>.<span class="property">swal</span>.<span class="title function_">warning</span>(<span class="string">&#x27;标题&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="property">swal</span>.<span class="title function_">warning</span>(<span class="string">&#x27;标题&#x27;</span>, <span class="string">&#x27;内容&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="property">swal</span>.<span class="title function_">warning</span>(<span class="string">&#x27;标题&#x27;</span>, <span class="string">&#x27;内容&#x27;</span>, &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="info-1"><a href="#info-1" class="headerlink" title="info"></a>info</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Dcat</span>.<span class="property">swal</span>.<span class="title function_">info</span>(<span class="string">&#x27;标题&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="property">swal</span>.<span class="title function_">info</span>(<span class="string">&#x27;标题&#x27;</span>, <span class="string">&#x27;内容&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="property">swal</span>.<span class="title function_">info</span>(<span class="string">&#x27;标题&#x27;</span>, <span class="string">&#x27;内容&#x27;</span>, &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>更多用法请参考<a target="_blank" rel="noopener" href="https://github.com/sweetalert2/sweetalert2">sweetalert2官方文档</a></p>
+<h2 id="layer弹出层"><a href="#layer弹出层" class="headerlink" title="layer弹出层"></a>layer弹出层</h2><p><code>Dcat Admin</code>集成了<a target="_blank" rel="noopener" href="http://layer.layui.com/">layer弹出层</a>，用法请参考官方文档</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">layer.<span class="title function_">open</span>(&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Loading效果"><a href="#Loading效果" class="headerlink" title="Loading效果"></a>Loading效果</h2><p><code>Dcat Admin</code>集成了三种常见的loading效果，<a target="_blank" rel="noopener" href="http://103.39.211.179:8080/admin/components/loading">在线体验点我</a></p>
+<h3 id="全屏"><a href="#全屏" class="headerlink" title="全屏"></a>全屏</h3><p>通过<code>Dcat.loading</code>方法可以设置一个占满全屏幕的遮罩层，并在中间位置显示<code>loading</code>图标。</p>
+<p>此方法接收一个<code>object</code>类型的参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>zIndex</td>
+<td><code>int</code></td>
+<td>999991014</td>
+<td>设置css的z-index(层重叠顺序)样式</td>
+</tr>
+<tr>
+<td>width</td>
+<td><code>string</code></td>
+<td>58px</td>
+<td>设置loading图标宽度</td>
+</tr>
+<tr>
+<td>color</td>
+<td><code>string</code></td>
+<td>#bacad6</td>
+<td>设置loading图标的颜色</td>
+</tr>
+<tr>
+<td>background</td>
+<td><code>string</code></td>
+<td>transparent</td>
+<td>设置遮罩层背景颜色</td>
+</tr>
+<tr>
+<td>style</td>
+<td><code>string</code></td>
+<td></td>
+<td>设置loading图标的css样式</td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开启loading效果</span></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">loading</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3秒后自动移除loading效果</span></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title class_">Dcat</span>.<span class="title function_">loading</span>(<span class="literal">false</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>效果</p>
+<p><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/FIWAUFg1qn.png!large"></p>
+<p>更改loading图标的颜色</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 更改颜色</span></span><br><span class="line"><span class="title class_">Dcat</span>.<span class="title function_">loading</span>(&#123;</span><br><span class="line">    <span class="attr">color</span>: <span class="title class_">Dcat</span>.<span class="property">color</span>.<span class="property">primary</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/WPIC4wwq5Q.png!large"></p>
+<h3 id="附着于指定元素"><a href="#附着于指定元素" class="headerlink" title="附着于指定元素"></a>附着于指定元素</h3><p>通过<code>$.fn.loading</code>方法可以把loading效果附着于当前元素，此方法同样接收一个<code>object</code>类型参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>zIndex</td>
+<td><code>int</code></td>
+<td>100</td>
+<td>设置css的z-index(层重叠顺序)样式</td>
+</tr>
+<tr>
+<td>width</td>
+<td><code>string</code></td>
+<td>52px</td>
+<td>设置loading图标宽度</td>
+</tr>
+<tr>
+<td>color</td>
+<td><code>string</code></td>
+<td>#bacad6</td>
+<td>设置loading图标的颜色</td>
+</tr>
+<tr>
+<td>background</td>
+<td><code>string</code></td>
+<td>#fff</td>
+<td>设置遮罩层背景颜色</td>
+</tr>
+<tr>
+<td>style</td>
+<td><code>string</code></td>
+<td></td>
+<td>设置loading图标的css样式</td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开启loading效果</span></span><br><span class="line">$(<span class="string">&#x27;#card&#x27;</span>).<span class="title function_">loading</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 关闭loading效果</span></span><br><span class="line">$(<span class="string">&#x27;#card&#x27;</span>).<span class="title function_">loading</span>(<span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 更改loading图标颜色</span></span><br><span class="line">$(<span class="string">&#x27;#card&#x27;</span>).<span class="title function_">loading</span>(&#123;</span><br><span class="line">    <span class="attr">color</span>: <span class="title class_">Dcat</span>.<span class="property">color</span>.<span class="property">primary</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 更改遮罩层颜色</span></span><br><span class="line">$(<span class="string">&#x27;#card&#x27;</span>).<span class="title function_">loading</span>(&#123;</span><br><span class="line">    <span class="attr">background</span>: <span class="string">&#x27;#f3f3f3&#x27;</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>效果</p>
+<p><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/ziHL5feEAV.png!large"></p>
+<h3 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开启loading效果</span></span><br><span class="line">$(<span class="string">&#x27;#submit-button&#x27;</span>).<span class="title function_">buttonLoading</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 关闭loading效果</span></span><br><span class="line">$(<span class="string">&#x27;#submit-button&#x27;</span>).<span class="title function_">buttonLoading</span>(<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<p>效果<br><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/rNMFWAHPqJ.png!large"></p>
+<h3 id="a标签"><a href="#a标签" class="headerlink" title="a标签"></a>a标签</h3><p>点击<code>a</code>标签同样支持loading效果</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开启loading效果</span></span><br><span class="line">$(<span class="string">&#x27;a&#x27;</span>).<span class="title function_">buttonLoading</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 关闭loading效果</span></span><br><span class="line">$(<span class="string">&#x27;a&#x27;</span>).<span class="title function_">buttonLoading</span>(<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<p>效果<br><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/IE8kGdupKW.png!large"></p>
+<h2 id="Ajax表单提交"><a href="#Ajax表单提交" class="headerlink" title="Ajax表单提交"></a>Ajax表单提交</h2><p><code>Dcat Admin</code>集成了<a target="_blank" rel="noopener" href="https://github.com/jquery-form/form">jquery-form</a>组件用于实现<code>ajax</code>提交表单功能。</p>
+<p>通过<code>Dcat.Form</code>方法可以当即发起<code>ajax</code>提交表单请求，此方法接受一个<code>object</code>类型参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>form</td>
+<td><code>string</code></td>
+<td><code>object</code></td>
+<td>表单的 jquery 对象或者css选择器</td>
+</tr>
+<tr>
+<td>validate</td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>是否开启表单验证，可参考<a href="#validate">表单验证</a></td>
+</tr>
+<tr>
+<td>errorClass</td>
+<td><code>string</code></td>
+<td>has-error</td>
+<td>字段验证出错时添加的样式，一般使用默认值即可</td>
+</tr>
+<tr>
+<td>errorContainerSelector</td>
+<td><code>string</code></td>
+<td>.with-errors</td>
+<td>表单错误信息容器css选择器，一般使用默认值即可</td>
+</tr>
+<tr>
+<td>groupSelector</td>
+<td><code>string</code></td>
+<td>.form-group,.form-label-group,.form-field</td>
+<td>表单组css选择器，一般使用默认值即可</td>
+</tr>
+<tr>
+<td>errorTemplate</td>
+<td><code>string</code></td>
+<td></td>
+<td>错误信息模板，使用默认值即可</td>
+</tr>
+<tr>
+<td>autoRedirect</td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+<td>保存成功后自动跳转</td>
+</tr>
+<tr>
+<td>autoRemoveError</td>
+<td><code>bool</code></td>
+<td>true</td>
+<td>当表单值发生变化时自动移除表单错误信息</td>
+</tr>
+<tr>
+<td>before</td>
+<td><code>function</code></td>
+<td></td>
+<td>表单提交之前事件，返回<code>false</code>可以阻止表单继续提交</td>
+</tr>
+<tr>
+<td>after</td>
+<td><code>function</code></td>
+<td></td>
+<td>单提交之后事件(不论成功还是失败都会触发)，返回<code>false</code>可以中止后续逻辑</td>
+</tr>
+<tr>
+<td>success</td>
+<td><code>function</code></td>
+<td></td>
+<td>成功事件（接口返回状态码为<code>200</code>则判断为成功），返回<code>false</code>可以中止后续逻辑</td>
+</tr>
+<tr>
+<td>error</td>
+<td><code>function</code></td>
+<td></td>
+<td>失败事件（接口返回状态码非<code>200</code>则判断为失败），返回<code>false</code>可以中止后续逻辑</td>
+</tr>
+</tbody></table>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Dcat</span>.<span class="title function_">ready</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// ajax表单提交</span></span></span><br><span class="line"><span class="language-javascript">    $(<span class="string">&#x27;#login-form&#x27;</span>).<span class="title function_">form</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">validate</span>: <span class="literal">true</span>, <span class="comment">//开启表单验证</span></span></span><br><span class="line"><span class="language-javascript">        <span class="attr">before</span>: <span class="keyword">function</span> (<span class="params">fields, form, opt</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// fields 为表单内容</span></span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;所有表单字段的值&#x27;</span>, fields);</span></span><br><span class="line"><span class="language-javascript">            </span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (...) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// 返回 false 可以阻止表单继续提交</span></span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">response</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// data 为接口返回数据</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (! response.<span class="property">status</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="title class_">Dcat</span>.<span class="title function_">error</span>(response.<span class="property">data</span>.<span class="property">message</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="title class_">Dcat</span>.<span class="title function_">success</span>(response.<span class="property">data</span>.<span class="property">message</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">			<span class="keyword">if</span> (data.<span class="property">redirect</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">			    <span class="title class_">Dcat</span>.<span class="title function_">reload</span>(response.<span class="property">data</span>.<span class="property">value</span>)</span></span><br><span class="line"><span class="language-javascript">			&#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 中止后续逻辑（默认逻辑）</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">error</span>: <span class="keyword">function</span> (<span class="params">response</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 当提交表单失败的时候会有默认的处理方法，通常使用默认的方式处理即可</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> errorData = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(response.<span class="property">responseText</span>);</span></span><br><span class="line"><span class="language-javascript">            </span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (errorData) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="title class_">Dcat</span>.<span class="title function_">error</span>(errorData.<span class="property">message</span>);</span></span><br><span class="line"><span class="language-javascript">            &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;提交出错&#x27;</span>, response.<span class="property">responseText</span>);</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">            </span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 终止后续逻辑执行</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">    &#125;);</span></span><br><span class="line"><span class="language-javascript">&#125;);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="高阶用法"><a href="#高阶用法" class="headerlink" title="高阶用法"></a>高阶用法</h3><p>如果你想要实现更细粒度的控制，可以通过类似下面这种方式自己绑定提交按钮，然后提交表单</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $form = $(<span class="string">&#x27;#login-form&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 禁用默认提交</span></span><br><span class="line">$form.<span class="title function_">on</span>(<span class="string">&#x27;submit&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ajax表单提交</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">submit</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title class_">Dcat</span>.<span class="title class_">Form</span>(&#123;</span><br><span class="line">        <span class="attr">form</span>: $form,</span><br><span class="line">        <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">response</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (! response.<span class="property">status</span>) &#123;</span><br><span class="line">                <span class="title class_">Dcat</span>.<span class="title function_">error</span>(response.<span class="property">data</span>.<span class="property">message</span>);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="title class_">Dcat</span>.<span class="title function_">success</span>(response.<span class="property">data</span>.<span class="property">message</span>);</span><br><span class="line"></span><br><span class="line">            location.<span class="property">href</span> = response.<span class="property">data</span>.<span class="property">value</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">error</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">            <span class="comment">// 非200状态码响应错误</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// h5表单验证</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">validateForm</span>(<span class="params"></span>) &#123;</span><br><span class="line">    $form.<span class="title function_">validator</span>(<span class="string">&#x27;validate&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果出现错误，则返回false</span></span><br><span class="line">    <span class="keyword">if</span> ($form.<span class="title function_">find</span>(<span class="string">&#x27;.has-error&#x27;</span>).<span class="property">length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 绑定登陆按钮点击事件</span></span><br><span class="line">$form.<span class="title function_">find</span>(<span class="string">&#x27;[type=&quot;submit&quot;],.submit&#x27;</span>).<span class="title function_">click</span>(<span class="keyword">function</span> (<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="comment">// 表单验证</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="title function_">validateForm</span>() === <span class="literal">false</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 提交表单</span></span><br><span class="line">    <span class="title function_">submit</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<p><a name="validate"></a></p>
+<h3 id="表单验证"><a href="#表单验证" class="headerlink" title="表单验证"></a>表单验证</h3><p><code>Dcat Admin</code>集成了<a target="_blank" rel="noopener" href="https://github.com/1000hz/bootstrap-validator">bootstrap-validator</a>组件用于表单前端验证的功能，<br><a target="_blank" rel="noopener" href="https://github.com/1000hz/bootstrap-validator">bootstrap-validator</a>是一款支持H5表单验证的验证器，只需把验证规则写在表单元素的属性上即可自动开启验证，非常方便。</p>
+<h4 id="添加验证规则"><a href="#添加验证规则" class="headerlink" title="添加验证规则"></a>添加验证规则</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">fieldset</span> <span class="attr">class</span>=<span class="string">&quot;form-label-group form-group position-relative has-icon-left&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">    </span></span><br><span class="line"><span class="tag">        <span class="attr">minlength</span>=<span class="string">&quot;5&quot;</span> &lt;!<span class="attr">--</span> <span class="attr">加上验证规则</span> <span class="attr">--</span>&gt;</span></span><br><span class="line">        maxlength=&quot;20&quot; <span class="comment">&lt;!-- 加上验证规则 --&gt;</span></span><br><span class="line">        required  <span class="comment">&lt;!-- 加上验证规则 --&gt;</span></span><br><span class="line">        type=&quot;password&quot;</span><br><span class="line">        class=&quot;form-control&quot;</span><br><span class="line">        name=&quot;password&quot;</span><br><span class="line">    &gt;</span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;form-control-position&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;feather icon-lock&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;password&quot;</span>&gt;</span>&#123;&#123; trans(&#x27;admin.password&#x27;) &#125;&#125;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 这个加了 .with-errors 样式的 div 即是表单错误信息显示的位置，非常重要 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;help-block with-errors&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">fieldset</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="开启表单验证"><a href="#开启表单验证" class="headerlink" title="开启表单验证"></a>开启表单验证</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;#xx-form&#x27;</span>).<span class="title function_">form</span>(&#123;</span><br><span class="line">    <span class="attr">validate</span>: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>效果</p>
+<p><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/wJxcYaC9GP.png!large"><br><img src="https://cdn.learnku.com/uploads/images/202004/26/38389/qdXUaNEMSQ.png!large"></p>
+<p><a name="extend-validator"></a></p>
+<h4 id="扩展验证规则"><a href="#扩展验证规则" class="headerlink" title="扩展验证规则"></a>扩展验证规则</h4><p>通过<code>Dcat.validator.extend</code>方法可以扩展表单验证规则</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Dcat</span>.<span class="property">validator</span>.<span class="title function_">extend</span>(<span class="string">&#x27;maxlength&#x27;</span>, <span class="keyword">function</span> (<span class="params">$el</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> $el.<span class="title function_">val</span>().<span class="property">length</span> &gt; $el.<span class="title function_">attr</span>(<span class="string">&#x27;data-maxlength&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>使用自定义规则验证表单</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">type</span>=<span class="string">&quot;input&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">class</span>=<span class="string">&quot;form-control&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">name</span>=<span class="string">&quot;username&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">data-maxlength</span>=<span class="string">&quot;20&quot;</span> &lt;!<span class="attr">--</span> <span class="attr">使用刚刚自定义的验证规则</span> <span class="attr">--</span>&gt;</span></span><br><span class="line">    data-maxlength-error=&quot;已超出输入字符长度限制，请输入20个或以下的字符&quot; <span class="comment">&lt;!-- 定义错误信息 --&gt;</span></span><br><span class="line"> /&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="内置验证规则"><a href="#内置验证规则" class="headerlink" title="内置验证规则"></a>内置验证规则</h4><p>更多内置验证规则请参考<a target="_blank" rel="noopener" href="http://1000hz.github.io/bootstrap-validator/">bootstrap-validator官方文档</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/js/" data-id="clpdpxfj3000sywna2e5j361r" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/model-form-callback/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/laravel-octane/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="数据表格动作表格动作基类 (GridAction)所有数据表格相关的动作类，包括工具栏按钮(AbstractTool)、行操作(RowAction)、批量操作(BatchAction)等等操作按钮的基类都继承自Dcat\Admin\Grid\GridAction类，而GridAction则继承自动作类基类(Action)。 下面将介绍GridAction类中增加的方法或属性 表格实例 (paren">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/11/25/2.x/action-grid/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="数据表格动作表格动作基类 (GridAction)所有数据表格相关的动作类，包括工具栏按钮(AbstractTool)、行操作(RowAction)、批量操作(BatchAction)等等操作按钮的基类都继承自Dcat\Admin\Grid\GridAction类，而GridAction则继承自动作类基类(Action)。 下面将介绍GridAction类中增加的方法或属性 表格实例 (paren">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-25T07:16:44.951Z">
+<meta property="article:modified_time" content="2023-11-25T07:16:44.952Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2.x/action-grid" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/25/2.x/action-grid/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T07:16:44.951Z" itemprop="datePublished">2023-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="数据表格动作"><a href="#数据表格动作" class="headerlink" title="数据表格动作"></a>数据表格动作</h1><h2 id="表格动作基类-GridAction"><a href="#表格动作基类-GridAction" class="headerlink" title="表格动作基类 (GridAction)"></a>表格动作基类 (GridAction)</h2><p>所有数据表格相关的动作类，包括<a href="model-grid-custom-tools.md">工具栏按钮</a>(<code>AbstractTool</code>)、<br><a href="model-grid-actions.md">行操作</a>(<code>RowAction</code>)、<a href="model-grid-custom-tools.md#batch">批量操作</a>(<code>BatchAction</code>)<br>等等操作按钮的基类都继承自<code>Dcat\Admin\Grid\GridAction</code>类，而<code>GridAction</code>则继承自<a href="action.md">动作类基类</a>(<code>Action</code>)。</p>
+<p>下面将介绍<code>GridAction</code>类中增加的方法或属性</p>
+<h3 id="表格实例-parent"><a href="#表格实例-parent" class="headerlink" title="表格实例 (parent)"></a>表格实例 (parent)</h3><p>通过 <code>parent</code> 属性可以获取到表格实例 (<code>Dcat\Admin\Grid</code>)。</p>
+<p>下面简单的演示下用法，这段代码没有任何实际意义</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>\<span class="title">GridAction</span></span><br><span class="line"></span><br><span class="line"><span class="title">class</span> <span class="title">MyAction</span> <span class="title">extend</span> <span class="title">GridAction</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="title">public</span> <span class="keyword">function</span> <span class="title">html</span>()</span><br><span class="line">    &#123;</span><br><span class="line">        $<span class="title">gridName</span> = $<span class="title">this</span>-&gt;<span class="title">parent</span>-&gt;<span class="title">getName</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ...;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="表格页面地址-resource"><a href="#表格页面地址-resource" class="headerlink" title="表格页面地址 (resource)"></a>表格页面地址 (resource)</h3><p>通过 <code>resource</code> 方法可以获取到表格页面的地址。</p>
+<p>下面简单的演示下用法，这段代码没有任何实际意义</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>\<span class="title">GridAction</span></span><br><span class="line"></span><br><span class="line"><span class="title">class</span> <span class="title">MyAction</span> <span class="title">extend</span> <span class="title">GridAction</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="title">public</span> <span class="keyword">function</span> <span class="title">html</span>()</span><br><span class="line">    &#123;</span><br><span class="line">        // 假如你的列表页路径为 /<span class="title">admin</span>/<span class="title">users</span>，则这里的值为 <span class="title">http</span>://域名/<span class="title">admin</span>/<span class="title">users</span>    </span><br><span class="line">        $<span class="title">path</span> = $<span class="title">this</span>-&gt;<span class="title">resource</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ...;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="工具栏操作按钮基类-AbstractTool"><a href="#工具栏操作按钮基类-AbstractTool" class="headerlink" title="工具栏操作按钮基类 (AbstractTool)"></a>工具栏操作按钮基类 (AbstractTool)</h2><p>表格工具栏按钮基类(<code>Dcat\Admin\Grid\Tools\AbstractTool</code>)继承自<code>GridAction</code>类。</p>
+<p>下面将介绍<code>AbstractTool</code>类中增加的方法或属性</p>
+<h3 id="按钮样式-style"><a href="#按钮样式-style" class="headerlink" title="按钮样式 (style)"></a>按钮样式 (style)</h3><p>通过 <code>style</code> 属性可以设置工具栏按钮的类(<code>class</code>)，默认值为 <code>btn btn-white waves-effect</code>。</p>
+<p>下面简单的演示下用法</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>\<span class="title">AbstractTool</span></span><br><span class="line"></span><br><span class="line"><span class="title">class</span> <span class="title">MyTool</span> <span class="title">extend</span> <span class="title">AbstractTool</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="title">protected</span> $<span class="title">style</span> = &#x27;<span class="title">btn</span> <span class="title">btn</span>-<span class="title">outline</span>-<span class="title">primary</span> <span class="title">waves</span>-<span class="title">effect</span>&#x27;;</span><br><span class="line">    </span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="批量操作基类-BatchAction"><a href="#批量操作基类-BatchAction" class="headerlink" title="批量操作基类 (BatchAction)"></a>批量操作基类 (BatchAction)</h2><p>表格工具栏按钮基类(<code>Dcat\Admin\Grid\Tools\BatchAction</code>)继承自<code>GridAction</code>类。</p>
+<p>下面将介绍<code>BatchAction</code>类中增加的方法或属性</p>
+<h3 id="获取选中行的主键数组-getSelectedKeysScript"><a href="#获取选中行的主键数组-getSelectedKeysScript" class="headerlink" title="获取选中行的主键数组 (getSelectedKeysScript)"></a>获取选中行的主键数组 (getSelectedKeysScript)</h3><p>通过 <code>getSelectedKeysScript</code> 方法可以生成获取选中的行的主键数组的<code>JS</code>代码。</p>
+<p>下面简单的演示下用法</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>\<span class="title">BatchAction</span></span><br><span class="line"></span><br><span class="line"><span class="title">class</span> <span class="title">MyBatchAction</span> <span class="title">extend</span> <span class="title">BatchAction</span></span><br><span class="line">&#123;</span><br><span class="line">    /**</span><br><span class="line">     * &#123;@<span class="title">inheritdoc</span>&#125;</span><br><span class="line">     */</span><br><span class="line">    <span class="title">public</span> <span class="keyword">function</span> <span class="title">actionScript</span>()</span><br><span class="line">    &#123;</span><br><span class="line">        $<span class="title">warning</span> = <span class="title">__</span>(&#x27;<span class="title">No</span> <span class="title">data</span> <span class="title">selected</span>!&#x27;);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&lt;&lt;&lt;JS</span></span><br><span class="line"><span class="string">    var key = <span class="subst">&#123;$this-&gt;getSelectedKeysScript()&#125;</span></span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    if (key.length === 0) &#123;</span></span><br><span class="line"><span class="string">        Dcat.warning(&#x27;<span class="subst">&#123;$warning&#125;</span>&#x27;);</span></span><br><span class="line"><span class="string">        return ;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    Object.assign(data, &#123;_key:key&#125;);</span></span><br><span class="line"><span class="string">JS</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="行操作基类-RowAction"><a href="#行操作基类-RowAction" class="headerlink" title="行操作基类 (RowAction)"></a>行操作基类 (RowAction)</h2><p>表格工具栏按钮基类(<code>Dcat\Admin\Grid\Tools\RowAction</code>)继承自<code>GridAction</code>类。</p>
+<p>下面将介绍<code>RowAction</code>类中增加的方法或属性</p>
+<h3 id="行数据-row"><a href="#行数据-row" class="headerlink" title="行数据 (row)"></a>行数据 (row)</h3><p>通过 <code>row</code> 属性可以获取到当前行数据内容。</p>
+<p>下面简单的演示下用法，这段代码没有任何实际意义</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>\<span class="title">RowAction</span></span><br><span class="line"></span><br><span class="line"><span class="title">class</span> <span class="title">MyRowAction</span> <span class="title">extend</span> <span class="title">RowAction</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="title">public</span> <span class="keyword">function</span> <span class="title">html</span>()</span><br><span class="line">    &#123;</span><br><span class="line">        // 获取当前行的字段值</span><br><span class="line">        $<span class="title">username</span> = $<span class="title">this</span>-&gt;<span class="title">row</span>-&gt;<span class="title">username</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 转化为数组</span></span><br><span class="line">        <span class="variable">$rowArray</span> = <span class="variable language_">$this</span>-&gt;row-&gt;<span class="title function_ invoke__">toArray</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ...;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="主键值-getKey"><a href="#主键值-getKey" class="headerlink" title="主键值 (getKey)"></a>主键值 (getKey)</h3><p>通过 <code>getKey</code> 属性方法可以获取到当前行数据的主键值(<code>ID</code>)。</p>
+<p>下面简单的演示下用法，这段代码没有任何实际意义</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dcat</span>\<span class="title">Admin</span>\<span class="title">Grid</span>\<span class="title">RowAction</span></span><br><span class="line"></span><br><span class="line"><span class="title">class</span> <span class="title">MyRowAction</span> <span class="title">extend</span> <span class="title">RowAction</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="title">public</span> <span class="keyword">function</span> <span class="title">html</span>()</span><br><span class="line">    &#123;</span><br><span class="line">        $<span class="title">id</span> = $<span class="title">this</span>-&gt;<span class="title">getKey</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ...;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/25/2.x/action-grid/" data-id="clpdpxfig0005ywna1my6bnrv" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/11/25/2.x/action-form/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/11/25/2.x/LICENSE/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-navbar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tab/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-table/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-tooltip/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/25/2.x/widgets-js/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
